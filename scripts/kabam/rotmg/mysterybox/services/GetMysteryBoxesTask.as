@@ -145,6 +145,12 @@ package kabam.rotmg.mysterybox.services {
                     _local_5.saleCurrency = _local_4.Sale.attribute("currency").toString();
                     _local_5.saleEnd = TimeUtil.parseUTCDate(_local_4.Sale.End.toString());
                 }
+                if(_local_4.hasOwnProperty("Left")) {
+                    _local_5.unitsLeft = _local_4.Left;
+                }
+                if(_local_4.hasOwnProperty("Total")) {
+                    _local_5.totalUnits = _local_4.Total;
+                }
                 _local_5.iconImageUrl = _local_4.Icon.toString();
                 _local_5.infoImageUrl = _local_4.Image.toString();
                 _local_5.startTime = TimeUtil.parseUTCDate(_local_4.StartTime.toString());

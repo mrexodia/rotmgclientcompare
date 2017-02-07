@@ -63,6 +63,8 @@ package com.company.assembleegameclient.objects {
         
         public var whileMoving_:WhileMovingProperties = null;
         
+        public var belonedDungeon:String = "";
+        
         public var oldSound_:String = null;
         
         public var projectiles_:Dictionary;

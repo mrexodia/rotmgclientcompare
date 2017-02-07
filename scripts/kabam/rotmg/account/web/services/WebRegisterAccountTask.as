@@ -36,18 +36,25 @@ package kabam.rotmg.account.web.services {
             _local_1.newGUID = this.data.username;
             _local_1.newPassword = this.data.password;
             _local_1.entrytag = this.account.getEntryTag();
+            _local_1.signedUpKabamEmail = this.data.signedUpKabamEmail;
             _local_1.isAgeVerified = 1;
             return _local_1;
         }
         
         private function onComplete(param1:Boolean, param2:*) : void {
-            param1 && this.onRegisterDone();
+            param1 && this.onRegisterDone(param2);
             completeTask(param1,param2);
         }
         
-        private function onRegisterDone() : void {
+        private function onRegisterDone(param1:String) : void {
             this.model.setIsAgeVerified(true);
-            this.account.updateUser(this.data.username,this.data.password);
+            var _local_2:XML = new XML(param1);
+            if(_local_2.hasOwnProperty("token")) {
+                this.data.token = _local_2.token;
+                this.account.updateUser(this.data.username,this.data.password,_local_2.token);
+            } else {
+                this.account.updateUser(this.data.username,this.data.password,"");
+            }
         }
     }
 }

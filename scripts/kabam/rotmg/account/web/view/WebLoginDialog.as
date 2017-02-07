@@ -1,4 +1,5 @@
 package kabam.rotmg.account.web.view {
+    import com.company.assembleegameclient.account.ui.CheckBoxField;
     import com.company.assembleegameclient.account.ui.Frame;
     import com.company.assembleegameclient.account.ui.TextInputField;
     import com.company.assembleegameclient.ui.DeprecatedClickableText;
@@ -30,6 +31,8 @@ package kabam.rotmg.account.web.view {
         
         private var registerText:DeprecatedClickableText;
         
+        private var rememberMeCheckbox:CheckBoxField;
+        
         public function WebLoginDialog() {
             super(TextKey.WEB_LOGIN_DIALOG_TITLE,TextKey.WEB_LOGIN_DIALOG_LEFT,TextKey.WEB_LOGIN_DIALOG_RIGHT,"/signIn");
             this.makeUI();
@@ -44,6 +47,8 @@ package kabam.rotmg.account.web.view {
             addTextInputField(this.email);
             this.password = new TextInputField(TextKey.WEB_LOGIN_DIALOG_PASSWORD,true);
             addTextInputField(this.password);
+            this.rememberMeCheckbox = new CheckBoxField("Remember me",false);
+            this.rememberMeCheckbox.text_.y = 4;
             this.forgotText = new DeprecatedClickableText(12,false,TextKey.WEB_LOGIN_DIALOG_FORGOT);
             addNavigationText(this.forgotText);
             this.registerText = new DeprecatedClickableText(12,false,TextKey.WEB_LOGIN_DIALOG_REGISTER);
@@ -96,6 +101,10 @@ package kabam.rotmg.account.web.view {
                 this.email.setError(TextKey.WEBLOGINDIALOG_EMAIL_ERROR);
             }
             return _local_1;
+        }
+        
+        public function isRememberMeSelected() : Boolean {
+            return true;
         }
         
         public function setError(param1:String) : void {

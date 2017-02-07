@@ -60,9 +60,15 @@ package com.company.assembleegameclient.ui.menu {
             this.playerPanel_ = new GameObjectListItem(11776947,true,this.player_,true);
             this.yOffset = this.yOffset + 7;
             addChild(this.playerPanel_);
-            if(Player.isAdmin) {
-                _local_3 = new MenuOption(AssetLibrary.getImageFromSet("lofiInterfaceBig",10),16777215,TextKey.PLAYERMENU_KICK);
-                _local_3.addEventListener(MouseEvent.CLICK,this.onKick);
+            if(Player.isAdmin || Player.isMod) {
+                _local_3 = new MenuOption(AssetLibrary.getImageFromSet("lofiInterfaceBig",10),16777215,"Ban MultiBoxer");
+                _local_3.addEventListener(MouseEvent.CLICK,this.onKickMultiBox);
+                addOption(_local_3);
+                _local_3 = new MenuOption(AssetLibrary.getImageFromSet("lofiInterfaceBig",10),16777215,"Ban RWT");
+                _local_3.addEventListener(MouseEvent.CLICK,this.onKickRWT);
+                addOption(_local_3);
+                _local_3 = new MenuOption(AssetLibrary.getImageFromSet("lofiInterfaceBig",10),16777215,"Ban Cheat");
+                _local_3.addEventListener(MouseEvent.CLICK,this.onKickCheat);
                 addOption(_local_3);
                 _local_3 = new MenuOption(AssetLibrary.getImageFromSet("lofiInterfaceBig",4),16777215,TextKey.PLAYERMENU_MUTE);
                 _local_3.addEventListener(MouseEvent.CLICK,this.onMute);
@@ -115,8 +121,18 @@ package com.company.assembleegameclient.ui.menu {
             addOption(_local_3);
         }
         
-        private function onKick(param1:Event) : void {
-            this.gs_.gsc_.playerText("/kick " + this.player_.name_);
+        private function onKickMultiBox(param1:Event) : void {
+            this.gs_.gsc_.playerText("/kick " + this.player_.name_ + " Multiboxing");
+            remove();
+        }
+        
+        private function onKickRWT(param1:Event) : void {
+            this.gs_.gsc_.playerText("/kick " + this.player_.name_ + " RWT");
+            remove();
+        }
+        
+        private function onKickCheat(param1:Event) : void {
+            this.gs_.gsc_.playerText("/kick " + this.player_.name_ + " Cheating");
             remove();
         }
         

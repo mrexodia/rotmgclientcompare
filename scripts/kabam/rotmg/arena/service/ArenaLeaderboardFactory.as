@@ -104,7 +104,7 @@ package kabam.rotmg.arena.service {
             var _local_7:CharacterSkin = _local_6.skins.getSkin(_local_4);
             var _local_8:int = !!param1.PlayData.CharacterData.hasOwnProperty("Tex1")?int(param1.PlayData.CharacterData.Tex1):0;
             var _local_9:int = !!param1.PlayData.CharacterData.hasOwnProperty("Tex2")?int(param1.PlayData.CharacterData.Tex2):0;
-            _local_3.playerBitmap = this.factory.makeIcon(_local_7.template,100,_local_8,_local_9);
+            _local_3.playerBitmap = this.factory.makeIcon(_local_7.template,!!_local_7.is16x16?50:100,_local_8,_local_9);
             _local_3.equipment = ConversionUtil.toIntVector(param1.PlayData.CharacterData.Inventory);
             _local_3.slotTypes = _local_6.slotTypes;
             _local_3.guildName = param1.PlayData.CharacterData.GuildName;

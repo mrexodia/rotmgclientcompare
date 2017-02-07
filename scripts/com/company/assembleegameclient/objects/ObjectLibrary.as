@@ -44,6 +44,12 @@ package com.company.assembleegameclient.objects {
         
         public static const skinSetXMLDataLibrary_:Dictionary = new Dictionary();
         
+        public static const dungeonsXMLLibrary_:Dictionary = new Dictionary(true);
+        
+        public static const ENEMY_FILTER_LIST:Vector.<String> = new <String>["None","Hp","Defense"];
+        
+        public static const TILE_FILTER_LIST:Vector.<String> = new <String>["ALL","Walkable","Unwalkable","Slow","Speed=1"];
+        
         public static const defaultProps_:ObjectProperties = new ObjectProperties(null);
         
         public static const TYPE_MAP:Object = {
@@ -83,59 +89,79 @@ package com.company.assembleegameclient.objects {
             "PetUpgrader":PetUpgrader,
             "YardUpgrader":YardUpgrader
         };
+        
+        private static var currentDungeon:String = "";
          
         
         public function ObjectLibrary() {
             super();
         }
         
-        public static function parseFromXML(param1:XML) : void {
-            var _local_2:XML = null;
-            var _local_3:String = null;
+        public static function parseDungeonXML(param1:String, param2:XML) : void {
+            var _local_3:int = param1.indexOf("_") + 1;
+            var _local_4:int = param1.indexOf("CXML");
+            currentDungeon = param1.substr(_local_3,_local_4 - _local_3);
+            dungeonsXMLLibrary_[currentDungeon] = new Dictionary(true);
+            parseFromXML(param2,parseDungeonCallbak);
+        }
+        
+        private static function parseDungeonCallbak(param1:int, param2:XML) : * {
+            if(currentDungeon != "" && dungeonsXMLLibrary_[currentDungeon] != null) {
+                dungeonsXMLLibrary_[currentDungeon][param1] = param2;
+                propsLibrary_[param1].belonedDungeon = currentDungeon;
+            }
+        }
+        
+        public static function parseFromXML(param1:XML, param2:Function = null) : void {
+            var _local_3:XML = null;
             var _local_4:String = null;
-            var _local_5:int = 0;
-            var _local_6:Boolean = false;
-            var _local_7:int = 0;
-            for each(_local_2 in param1.Object) {
-                _local_3 = String(_local_2.@id);
-                _local_4 = _local_3;
-                if(_local_2.hasOwnProperty("DisplayId")) {
-                    _local_4 = _local_2.DisplayId;
+            var _local_5:String = null;
+            var _local_6:int = 0;
+            var _local_7:Boolean = false;
+            var _local_8:int = 0;
+            for each(_local_3 in param1.Object) {
+                _local_4 = String(_local_3.@id);
+                _local_5 = _local_4;
+                if(_local_3.hasOwnProperty("DisplayId")) {
+                    _local_5 = _local_3.DisplayId;
                 }
-                if(_local_2.hasOwnProperty("Group")) {
-                    if(_local_2.Group == "Hexable") {
-                        hexTransforms_.push(_local_2);
+                if(_local_3.hasOwnProperty("Group")) {
+                    if(_local_3.Group == "Hexable") {
+                        hexTransforms_.push(_local_3);
                     }
                 }
-                _local_5 = int(_local_2.@type);
-                if(_local_2.hasOwnProperty("PetBehavior") || _local_2.hasOwnProperty("PetAbility")) {
-                    petXMLDataLibrary_[_local_5] = _local_2;
+                _local_6 = int(_local_3.@type);
+                if(_local_3.hasOwnProperty("PetBehavior") || _local_3.hasOwnProperty("PetAbility")) {
+                    petXMLDataLibrary_[_local_6] = _local_3;
                 } else {
-                    propsLibrary_[_local_5] = new ObjectProperties(_local_2);
-                    xmlLibrary_[_local_5] = _local_2;
-                    idToType_[_local_3] = _local_5;
-                    typeToDisplayId_[_local_5] = _local_4;
-                    if(String(_local_2.Class) == "Player") {
-                        playerClassAbbr_[_local_5] = String(_local_2.@id).substr(0,2);
-                        _local_6 = false;
-                        _local_7 = 0;
-                        while(_local_7 < playerChars_.length) {
-                            if(int(playerChars_[_local_7].@type) == _local_5) {
-                                playerChars_[_local_7] = _local_2;
-                                _local_6 = true;
+                    propsLibrary_[_local_6] = new ObjectProperties(_local_3);
+                    xmlLibrary_[_local_6] = _local_3;
+                    idToType_[_local_4] = _local_6;
+                    typeToDisplayId_[_local_6] = _local_5;
+                    if(param2 != null) {
+                        param2(_local_6,_local_3);
+                    }
+                    if(String(_local_3.Class) == "Player") {
+                        playerClassAbbr_[_local_6] = String(_local_3.@id).substr(0,2);
+                        _local_7 = false;
+                        _local_8 = 0;
+                        while(_local_8 < playerChars_.length) {
+                            if(int(playerChars_[_local_8].@type) == _local_6) {
+                                playerChars_[_local_8] = _local_3;
+                                _local_7 = true;
                             }
-                            _local_7++;
+                            _local_8++;
                         }
-                        if(!_local_6) {
-                            playerChars_.push(_local_2);
+                        if(!_local_7) {
+                            playerChars_.push(_local_3);
                         }
                     }
-                    typeToTextureData_[_local_5] = textureDataFactory.create(_local_2);
-                    if(_local_2.hasOwnProperty("Top")) {
-                        typeToTopTextureData_[_local_5] = textureDataFactory.create(XML(_local_2.Top));
+                    typeToTextureData_[_local_6] = textureDataFactory.create(_local_3);
+                    if(_local_3.hasOwnProperty("Top")) {
+                        typeToTopTextureData_[_local_6] = textureDataFactory.create(XML(_local_3.Top));
                     }
-                    if(_local_2.hasOwnProperty("Animation")) {
-                        typeToAnimationsData_[_local_5] = new AnimationsData(_local_2);
+                    if(_local_3.hasOwnProperty("Animation")) {
+                        typeToAnimationsData_[_local_6] = new AnimationsData(_local_3);
                     }
                 }
             }
@@ -257,7 +283,7 @@ package com.company.assembleegameclient.objects {
         }
         
         public static function isUsableByPlayer(param1:int, param2:Player) : Boolean {
-            if(param2 == null) {
+            if(param2 == null || param2.slotTypes_ == null) {
                 return true;
             }
             var _local_3:XML = xmlLibrary_[param1];

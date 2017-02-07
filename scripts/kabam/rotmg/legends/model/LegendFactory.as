@@ -64,15 +64,16 @@ package kabam.rotmg.legends.model {
             var _local_5:CharacterSkin = _local_4.skins.getSkin(_local_3);
             var _local_6:int = !!param1.hasOwnProperty("Tex1")?int(param1.Tex1):0;
             var _local_7:int = !!param1.hasOwnProperty("Tex2")?int(param1.Tex2):0;
-            var _local_8:Legend = new Legend();
-            _local_8.accountId = param1.@accountId;
-            _local_8.charId = param1.@charId;
-            _local_8.name = param1.Name;
-            _local_8.totalFame = param1.TotalFame;
-            _local_8.character = this.factory.makeIcon(_local_5.template,100,_local_6,_local_7);
-            _local_8.equipmentSlots = _local_4.slotTypes;
-            _local_8.equipment = ConversionUtil.toIntVector(param1.Equipment);
-            return _local_8;
+            var _local_8:int = !!_local_5.is16x16?50:100;
+            var _local_9:Legend = new Legend();
+            _local_9.accountId = param1.@accountId;
+            _local_9.charId = param1.@charId;
+            _local_9.name = param1.Name;
+            _local_9.totalFame = param1.TotalFame;
+            _local_9.character = this.factory.makeIcon(_local_5.template,_local_8,_local_6,_local_7);
+            _local_9.equipmentSlots = _local_4.slotTypes;
+            _local_9.equipment = ConversionUtil.toIntVector(param1.Equipment);
+            return _local_9;
         }
     }
 }

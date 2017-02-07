@@ -12,7 +12,7 @@ package com.company.assembleegameclient.parameters {
         
         public static const BUILD_VERSION:String = "27.7";
         
-        public static const MINOR_VERSION:String = "X2";
+        public static const MINOR_VERSION:String = "X8.0";
         
         public static const ENABLE_ENCRYPTION:Boolean = true;
         
@@ -75,6 +75,8 @@ package com.company.assembleegameclient.parameters {
         public static const TERMS_OF_USE_URL:String = "http://legal.decagames.io/tos";
         
         public static const PRIVACY_POLICY_URL:String = "http://legal.decagames.io/privacy";
+        
+        public static const USER_GENERATED_CONTENT_TERMS:String = "/UGDTermsofUse.html";
         
         public static const RANDOM1:String = "311f80691451c71b09a13a2a6e";
         

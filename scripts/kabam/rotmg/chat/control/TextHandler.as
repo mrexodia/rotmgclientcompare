@@ -71,7 +71,7 @@ package kabam.rotmg.chat.control {
             var _local_3:String = null;
             var _local_4:String = null;
             var _local_5:String = null;
-            var _local_2:Boolean = param1.numStars_ == -1 || param1.objectId_ == -1;
+            var _local_2:* = param1.numStars_ == -1;
             if(param1.numStars_ < Parameters.data_.chatStarRequirement && param1.name_ != this.model.player.name_ && !_local_2 && !this.isSpecialRecipientChat(param1.recipient_)) {
                 return;
             }

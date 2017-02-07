@@ -47,6 +47,8 @@ package kabam.rotmg.fame.service {
         
         public var texture2:int;
         
+        public var size:int;
+        
         public var timer:Timer;
         
         private var errorRetry:Boolean = false;
@@ -107,6 +109,7 @@ package kabam.rotmg.fame.service {
             this.template = skin.template;
             this.texture1 = !!charXml.hasOwnProperty("Tex1")?int(charXml.Tex1):0;
             this.texture2 = !!charXml.hasOwnProperty("Tex2")?int(charXml.Tex2):0;
+            this.size = !!skin.is16x16?140:250;
         }
         
         private function getDeathDate() : String {

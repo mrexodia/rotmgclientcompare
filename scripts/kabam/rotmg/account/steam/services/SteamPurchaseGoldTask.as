@@ -50,14 +50,19 @@ package kabam.rotmg.account.steam.services {
         }
         
         override protected function startTask() : void {
-            this.logger.debug("SteamPurchaseGoldTask startTask");
-            this.steam.paymentAuthorized.addOnce(this.onPaymentAuthorized);
-            this.first.setMaxRetries(2);
-            this.first.complete.addOnce(this.onComplete);
-            this.first.sendRequest("/steamworks/purchaseOffer",{
-                "steamid":this.steam.getSteamId(),
-                "data":this.offer.data_
-            });
+            if(!this.steam.isOverlayEnabled) {
+                this.logger.debug("isOverlayEnabled false!");
+                this.reportError("Can’t process purchase, because Steam Overlay is disabled for the RotMG! To enabled it go to you games library, right click on the \"Realm of the Mad God\" and select \"Properties\" from the drop-down menu. On the \"Properties\" popup, select \"GENERAL\" tab and select option \"Enable the Steam Overlay while in-game\". Next, restart the game and try again.");
+            } else {
+                this.logger.debug("SteamPurchaseGoldTask startTask");
+                this.steam.paymentAuthorized.addOnce(this.onPaymentAuthorized);
+                this.first.setMaxRetries(2);
+                this.first.complete.addOnce(this.onComplete);
+                this.first.sendRequest("/steamworks/purchaseOffer",{
+                    "steamid":this.steam.getSteamId(),
+                    "data":this.offer.data_
+                });
+            }
         }
         
         private function onComplete(param1:Boolean, param2:*) : void {

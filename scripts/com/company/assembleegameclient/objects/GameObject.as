@@ -161,6 +161,8 @@ package com.company.assembleegameclient.objects {
         
         private var isDazedImmune_:Boolean = false;
         
+        private var ishpScaleSet:Boolean = false;
+        
         protected var lastTickUpdateTime_:int = 0;
         
         protected var myLastTickId_:int = -1;
@@ -1044,6 +1046,11 @@ package com.company.assembleegameclient.objects {
                 this.hpbarPath_ = new GraphicsPath(GraphicsUtil.QUAD_COMMANDS,new Vector.<Number>());
             }
             var _local_3:Number = this.maxHP_;
+            if(!this.ishpScaleSet && this.hp_ > this.maxHP_) {
+                this.maxHP_ = this.hp_;
+                _local_3 = this.maxHP_;
+                this.ishpScaleSet = true;
+            }
             if(this.hp_ <= _local_3) {
                 _local_7 = (_local_3 - this.hp_) / _local_3;
                 this.hpbarBackFill_.color = MoreColorUtil.lerpColor(5526612,16711680,Math.abs(Math.sin(param2 / 300)) * _local_7);

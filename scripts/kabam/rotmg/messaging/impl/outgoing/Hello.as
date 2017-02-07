@@ -31,6 +31,8 @@ package kabam.rotmg.messaging.impl.outgoing {
         
         public var platformToken:String = "";
         
+        public var userToken:String = "";
+        
         public function Hello(param1:uint, param2:Function) {
             this.buildVersion_ = new String();
             this.guid_ = new String();
@@ -59,6 +61,7 @@ package kabam.rotmg.messaging.impl.outgoing {
             param1.writeUTF(this.gameNetUserId);
             param1.writeUTF(this.playPlatform);
             param1.writeUTF(this.platformToken);
+            param1.writeUTF(this.userToken);
         }
         
         override public function toString() : String {

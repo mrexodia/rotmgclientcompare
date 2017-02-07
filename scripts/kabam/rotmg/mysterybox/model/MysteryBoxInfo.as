@@ -2,6 +2,7 @@ package kabam.rotmg.mysterybox.model {
     import com.company.assembleegameclient.util.TimeUtil;
     import flash.display.DisplayObject;
     import flash.events.Event;
+    import flash.events.EventDispatcher;
     import flash.events.IOErrorEvent;
     import flash.net.URLRequest;
     import flash.utils.Dictionary;
@@ -9,7 +10,7 @@ package kabam.rotmg.mysterybox.model {
     import kabam.display.Loader.LoaderProxyConcrete;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
     
-    public class MysteryBoxInfo {
+    public class MysteryBoxInfo extends EventDispatcher {
         
         public static var chestImageEmbed:Class = MysteryBoxInfo_chestImageEmbed;
          
@@ -55,6 +56,10 @@ package kabam.rotmg.mysterybox.model {
         public var _rollsWithContents:Vector.<Vector.<int>>;
         
         public var _rollsWithContentsUnique:Vector.<int>;
+        
+        private var _unitsLeft:int = -1;
+        
+        private var _totalUnits:int = -1;
         
         public function MysteryBoxInfo() {
             this._loader = new LoaderProxyConcrete();
@@ -285,6 +290,17 @@ package kabam.rotmg.mysterybox.model {
             return _local_4;
         }
         
+        public function get currencyName() : String {
+            switch(this._priceCurrency) {
+                case "0":
+                    return LineBuilder.getLocalizedStringFromKey("Currency.gold").toLowerCase();
+                case "1":
+                    return LineBuilder.getLocalizedStringFromKey("Currency.fame").toLowerCase();
+                default:
+                    return "";
+            }
+        }
+        
         public function get infoImage() : DisplayObject {
             return this._infoImage;
         }
@@ -307,6 +323,22 @@ package kabam.rotmg.mysterybox.model {
         
         public function set infoImageLoader(param1:LoaderProxy) : void {
             this._infoImageLoader = param1;
+        }
+        
+        public function get unitsLeft() : int {
+            return this._unitsLeft;
+        }
+        
+        public function set unitsLeft(param1:int) : void {
+            this._unitsLeft = param1;
+        }
+        
+        public function get totalUnits() : int {
+            return this._totalUnits;
+        }
+        
+        public function set totalUnits(param1:int) : void {
+            this._totalUnits = param1;
         }
     }
 }

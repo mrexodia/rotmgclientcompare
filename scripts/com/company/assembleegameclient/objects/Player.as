@@ -58,6 +58,8 @@ package com.company.assembleegameclient.objects {
         
         public static var isAdmin:Boolean = false;
         
+        public static var isMod:Boolean = false;
+        
         private static const NEARBY:Vector.<Point> = new <Point>[new Point(0,0),new Point(1,0),new Point(0,1),new Point(1,1)];
         
         private static var newP:Point = new Point();
@@ -1000,6 +1002,9 @@ package com.company.assembleegameclient.objects {
         }
         
         public function isInventoryFull() : Boolean {
+            if(equipment_ == null) {
+                return false;
+            }
             var _local_1:int = equipment_.length;
             var _local_2:uint = 4;
             while(_local_2 < _local_1) {

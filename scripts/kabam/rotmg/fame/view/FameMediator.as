@@ -97,7 +97,7 @@ package kabam.rotmg.fame.view {
         }
         
         private function makeNormalTexture() : BitmapData {
-            return this.factory.makeIcon(this.task.template,250,this.task.texture1,this.task.texture2);
+            return this.factory.makeIcon(this.task.template,this.task.size,this.task.texture1,this.task.texture2);
         }
         
         private function makeZombieTexture() : BitmapData {

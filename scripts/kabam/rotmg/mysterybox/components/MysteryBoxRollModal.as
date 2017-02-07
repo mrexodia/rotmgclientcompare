@@ -123,6 +123,8 @@ package kabam.rotmg.mysterybox.components {
         
         private var goldBackgroundMask:DisplayObject;
         
+        private var rewardsList:Array;
+        
         public function MysteryBoxRollModal(param1:MysteryBoxInfo, param2:int) {
             this.spinners = new Sprite();
             this.itemBitmaps = new Vector.<Bitmap>();
@@ -288,11 +290,11 @@ package kabam.rotmg.mysterybox.components {
             var _local_1:Object = this.account.getCredentials();
             _local_1.boxId = this.mbi.id;
             if(this.mbi.isOnSale()) {
-                _local_1.quantity = this.mbi._quantity;
+                _local_1.quantity = this.quantity_;
                 _local_1.price = this.mbi._saleAmount;
                 _local_1.currency = this.mbi._saleCurrency;
             } else {
-                _local_1.quantity = this.mbi._quantity;
+                _local_1.quantity = this.quantity_;
                 _local_1.price = this.mbi._priceAmount;
                 _local_1.currency = this.mbi._priceCurrency;
             }
@@ -303,6 +305,7 @@ package kabam.rotmg.mysterybox.components {
             addChild(this.infoText);
             this.playRollAnimation();
             this.lastReward = "";
+            this.rewardsList = [];
             this.requestComplete = false;
             this.timerComplete = false;
             this.totalRollTimer.addEventListener(TimerEvent.TIMER,this.onTotalRollTimeComplete);
@@ -327,7 +330,7 @@ package kabam.rotmg.mysterybox.components {
             this.totalRollTimer.stop();
             this.timerComplete = true;
             if(this.requestComplete) {
-                this.showReward(this.lastReward);
+                this.showReward();
             }
             this.totalRollTimer.removeEventListener(TimerEvent.TIMER,this.onTotalRollTimeComplete);
         }
@@ -338,7 +341,19 @@ package kabam.rotmg.mysterybox.components {
             this.shelveReward();
             this.clearReward();
             this.rollCount++;
-            this.sendRollRequest();
+            this.prepareNextRoll();
+        }
+        
+        private function prepareNextRoll() : * {
+            this.titleText = this.getText(this.mbi._title,TEXT_MARGIN,6,true).setSize(18);
+            this.titleText.setColor(16768512);
+            addChild(this.titleText);
+            addChild(this.infoText);
+            this.playRollAnimation();
+            this.timerComplete = false;
+            this.lastReward = this.rewardsList[0];
+            this.totalRollTimer.addEventListener(TimerEvent.TIMER,this.onTotalRollTimeComplete);
+            this.totalRollTimer.start();
         }
         
         private function swapItemImage(param1:TimerEvent) : void {
@@ -384,45 +399,95 @@ package kabam.rotmg.mysterybox.components {
         
         private function onComplete(param1:Boolean, param2:*) : void {
             var _local_3:XML = null;
-            var _local_4:Player = null;
-            var _local_5:PlayerModel = null;
-            var _local_6:OpenDialogSignal = null;
-            var _local_7:Dialog = null;
-            var _local_8:Injector = null;
-            var _local_9:GetMysteryBoxesTask = null;
+            var _local_4:XML = null;
+            var _local_5:Player = null;
+            var _local_6:PlayerModel = null;
+            var _local_7:OpenDialogSignal = null;
+            var _local_8:String = null;
+            var _local_9:Dialog = null;
+            var _local_10:Injector = null;
+            var _local_11:GetMysteryBoxesTask = null;
+            var _local_12:Array = null;
+            var _local_13:int = 0;
+            var _local_14:Array = null;
+            var _local_15:int = 0;
+            var _local_16:Array = null;
             this.requestComplete = true;
             if(param1) {
                 _local_3 = new XML(param2);
-                this.lastReward = _local_3.Awards;
-                if(this.timerComplete) {
-                    this.showReward(_local_3.Awards);
+                for each(_local_4 in _local_3.elements("Awards")) {
+                    this.rewardsList.push(_local_4.toString());
                 }
-                _local_4 = StaticInjectorContext.getInjector().getInstance(GameModel).player;
-                if(_local_4 != null) {
+                this.lastReward = this.rewardsList[0];
+                if(this.timerComplete) {
+                    this.showReward();
+                }
+                if(_local_3.hasOwnProperty("Left") && this.mbi.unitsLeft != -1) {
+                    this.mbi.unitsLeft = int(_local_3.Left);
+                }
+                _local_5 = StaticInjectorContext.getInjector().getInstance(GameModel).player;
+                if(_local_5 != null) {
                     if(_local_3.hasOwnProperty("Gold")) {
-                        _local_4.setCredits(int(_local_3.Gold));
+                        _local_5.setCredits(int(_local_3.Gold));
                     } else if(_local_3.hasOwnProperty("Fame")) {
-                        _local_4.fame_ = _local_3.Fame;
+                        _local_5.fame_ = _local_3.Fame;
                     }
                 } else {
-                    _local_5 = StaticInjectorContext.getInjector().getInstance(PlayerModel);
-                    if(_local_5 != null) {
+                    _local_6 = StaticInjectorContext.getInjector().getInstance(PlayerModel);
+                    if(_local_6 != null) {
                         if(_local_3.hasOwnProperty("Gold")) {
-                            _local_5.setCredits(int(_local_3.Gold));
+                            _local_6.setCredits(int(_local_3.Gold));
                         } else if(_local_3.hasOwnProperty("Fame")) {
-                            _local_5.setFame(int(_local_3.Fame));
+                            _local_6.setFame(int(_local_3.Fame));
                         }
                     }
                 }
             } else {
-                _local_6 = StaticInjectorContext.getInjector().getInstance(OpenDialogSignal);
-                _local_7 = new Dialog("MysteryBoxRollModal.purchaseFailedString","MysteryBoxRollModal.pleaseTryAgainString","MysteryBoxRollModal.okString",null,null);
-                _local_7.addEventListener(Dialog.LEFT_BUTTON,this.onErrorOk);
-                _local_6.dispatch(_local_7);
-                _local_8 = StaticInjectorContext.getInjector();
-                _local_9 = _local_8.getInstance(GetMysteryBoxesTask);
-                _local_9.clearLastRanBlock();
-                _local_9.start();
+                this.totalRollTimer.removeEventListener(TimerEvent.TIMER,this.onTotalRollTimeComplete);
+                this.totalRollTimer.stop();
+                _local_7 = StaticInjectorContext.getInjector().getInstance(OpenDialogSignal);
+                _local_8 = "MysteryBoxRollModal.pleaseTryAgainString";
+                if(LineBuilder.getLocalizedStringFromKey(param2) != "") {
+                    _local_8 = param2;
+                }
+                if(param2.indexOf("MysteryBoxError.soldOut") >= 0) {
+                    _local_12 = param2.split("|");
+                    if(_local_12.length == 2) {
+                        _local_13 = _local_12[1];
+                        if(_local_13 == 0) {
+                            _local_8 = "MysteryBoxError.soldOutAll";
+                        } else {
+                            _local_8 = LineBuilder.getLocalizedStringFromKey("MysteryBoxError.soldOutLeft",{
+                                "left":this.mbi.unitsLeft,
+                                "box":(this.mbi.unitsLeft == 1?LineBuilder.getLocalizedStringFromKey("MysteryBoxError.box"):LineBuilder.getLocalizedStringFromKey("MysteryBoxError.boxes"))
+                            });
+                        }
+                    }
+                }
+                if(param2.indexOf("MysteryBoxError.maxPurchase") >= 0) {
+                    _local_14 = param2.split("|");
+                    if(_local_14.length == 2) {
+                        _local_15 = _local_14[1];
+                        if(_local_15 == 0) {
+                            _local_8 = "MysteryBoxError.maxPurchase";
+                        } else {
+                            _local_8 = LineBuilder.getLocalizedStringFromKey("MysteryBoxError.maxPurchaseLeft",{"left":_local_15});
+                        }
+                    }
+                }
+                if(param2.indexOf("blockedForUser") >= 0) {
+                    _local_16 = param2.split("|");
+                    if(_local_16.length == 2) {
+                        _local_8 = LineBuilder.getLocalizedStringFromKey("MysteryBoxError.blockedForUser",{"date":_local_16[1]});
+                    }
+                }
+                _local_9 = new Dialog("MysteryBoxRollModal.purchaseFailedString",_local_8,"MysteryBoxRollModal.okString",null,null);
+                _local_9.addEventListener(Dialog.LEFT_BUTTON,this.onErrorOk);
+                _local_7.dispatch(_local_9);
+                _local_10 = StaticInjectorContext.getInjector();
+                _local_11 = _local_10.getInstance(GetMysteryBoxesTask);
+                _local_11.clearLastRanBlock();
+                _local_11.start();
                 this.close(true);
             }
         }
@@ -483,6 +548,7 @@ package kabam.rotmg.mysterybox.components {
             if(!param1) {
                 _local_2 = StaticInjectorContext.getInjector().getInstance(OpenDialogSignal);
                 if(this.parentSelectModal != null) {
+                    this.parentSelectModal.updateContent();
                     _local_2.dispatch(this.parentSelectModal);
                 } else {
                     _local_2.dispatch(new MysteryBoxSelectModal());
@@ -495,7 +561,7 @@ package kabam.rotmg.mysterybox.components {
             open = false;
         }
         
-        private function showReward(param1:String) : void {
+        private function showReward() : void {
             var _local_4:String = null;
             var _local_5:uint = 0;
             var _local_6:TextFieldDisplayConcrete = null;
@@ -507,7 +573,8 @@ package kabam.rotmg.mysterybox.components {
                 this.nextRollTimer.start();
             }
             this.closeButton.visible = true;
-            var _local_2:Array = param1.split(",");
+            var _local_1:String = this.rewardsList.shift();
+            var _local_2:Array = _local_1.split(",");
             removeChild(this.infoText);
             this.titleText.setStringBuilder(new LineBuilder().setParams(this.youWonString));
             this.titleText.setColor(16768512);

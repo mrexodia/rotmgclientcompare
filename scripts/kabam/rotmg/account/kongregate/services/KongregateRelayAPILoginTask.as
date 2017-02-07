@@ -54,7 +54,7 @@ package kabam.rotmg.account.kongregate.services {
         
         private function onInternalRegisterDone(param1:String) : void {
             var _local_2:XML = new XML(param1);
-            this.account.updateUser(_local_2.GUID,_local_2.Secret);
+            this.account.updateUser(_local_2.GUID,_local_2.Secret,"");
             this.account.setPlatformToken(_local_2.PlatformToken);
         }
     }

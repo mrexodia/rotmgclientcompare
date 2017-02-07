@@ -81,6 +81,8 @@ package kabam.rotmg.text.model {
         
         public static const CURRENT_CHARACTER_TAGLINE:String = "CurrentCharacter.tagline";
         
+        public static const CURRENT_CHARACTER_TAGLINE_NOQUEST:String = "CurrentCharacter.tagline_noquest";
+        
         public static const CURRENT_CHARACTER_DESCRIPTION:String = "CurrentCharacter.description";
         
         public static const CREATE_NEW_CHARACTER_RECT_NEW_CHARACTER:String = "CreateNewCharacterRect.newCharacter";
@@ -1376,6 +1378,32 @@ package kabam.rotmg.text.model {
         public static const VERIFY_WEB_ACCOUNT_DIALOG_TITLE:String = "VerifyWebAccountDialog.title";
         
         public static const VERIFY_WEB_ACCOUNT_DIALOG_BUTTON:String = "VerifyWebAccountDialog.button";
+        
+        public static const SECURITY_QUESTIONS_DIALOG_TITLE:String = "SecurityQuestionsDialog.title";
+        
+        public static const SECURITY_QUESTIONS_INFO_DIALOG_TITLE:String = "SecurityQuestionsInfoDialog.title";
+        
+        public static const SECURITY_QUESTIONS_INFO_DIALOG_TEXT:String = "SecurityQuestionsInfoDialog.text";
+        
+        public static const SECURITY_QUESTIONS_INFO_DIALOG_RIGHT_BUTTON:String = "SecurityQuestionsInfoDialog.rightButton";
+        
+        public static const SECURITY_QUESTIONS_DIALOG_SAVE:String = "SecurityQuestionsDialog.save";
+        
+        public static const SECURITY_QUESTIONS_TOO_SHORT:String = "SecurityQuestionsDialog.tooShort";
+        
+        public static const SECURITY_QUESTIONS_TOO_LONG:String = "SecurityQuestionsDialog.tooLong";
+        
+        public static const SECURITY_QUESTIONS_WRONG_INPUT_FORMAT:String = "SecurityQuestionsDialog.wrongInputFormat";
+        
+        public static const SECURITY_QUESTIONS_SAVING_IN_PROGRESS:String = "SecurityQuestionsDialog.savingInProgress";
+        
+        public static const SECURITY_QUESTIONS_CONFIRM_TITLE:String = "SecurityQuestionsConfirmDialog.title";
+        
+        public static const SECURITY_QUESTIONS_CONFIRM_TEXT:String = "SecurityQuestionsConfirmDialog.text";
+        
+        public static const SECURITY_QUESTIONS_CONFIRM_LEFT_BUTTON:String = "SecurityQuestionsConfirmDialog.leftButton";
+        
+        public static const SECURITY_QUESTIONS_CONFIRM_RIGHT_BUTTON:String = "SecurityQuestionsConfirmDialog.rightButton";
          
         
         public function TextKey() {

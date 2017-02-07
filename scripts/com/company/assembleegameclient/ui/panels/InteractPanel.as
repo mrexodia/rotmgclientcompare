@@ -61,9 +61,9 @@ package com.company.assembleegameclient.ui.panels {
             _local_1 = this.requestInteractive();
             if(this.currentPanel == null || _local_1 != this.currObj_) {
                 this.currObj_ = _local_1;
+                this.partyPanel_ = new PartyPanel(this.gs_);
                 if(this.currObj_ != null) {
                     _local_2 = this.currObj_.getPanel(this.gs_);
-                    this.partyPanel_ = new PartyPanel(this.gs_);
                 } else {
                     _local_2 = this.partyPanel_;
                 }

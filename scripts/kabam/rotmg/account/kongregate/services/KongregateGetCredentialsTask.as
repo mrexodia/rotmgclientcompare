@@ -42,7 +42,7 @@ package kabam.rotmg.account.kongregate.services {
         }
         
         private function updateGuestAccount() : void {
-            this.account.updateUser(this.local.getGuestGUID(),"");
+            this.account.updateUser(this.local.getGuestGUID(),"","");
             completeTask(true);
         }
     }

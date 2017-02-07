@@ -68,7 +68,7 @@ package kabam.rotmg.legends.view {
         
         private function makeCharacterBitmap() : void {
             this.characterBitmap = new Bitmap(this.legend.character);
-            this.characterBitmap.x = 104;
+            this.characterBitmap.x = 104 + 12;
             this.characterBitmap.y = HEIGHT / 2 - this.characterBitmap.height / 2 - 2;
             addChild(this.characterBitmap);
         }

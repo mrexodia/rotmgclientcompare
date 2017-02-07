@@ -16,7 +16,9 @@ package kabam.rotmg.friends.model {
         [Inject]
         public var serverModel:ServerModel;
         
-        public var task:FriendDataRequestTask;
+        public var friendsTask:FriendDataRequestTask;
+        
+        public var invitationsTask:FriendDataRequestTask;
         
         private var _onlineFriends:Vector.<FriendVO>;
         
@@ -26,7 +28,9 @@ package kabam.rotmg.friends.model {
         
         private var _invitations:Dictionary;
         
-        private var _inProcessFlag:Boolean;
+        private var _friendsLoadInProcess:Boolean;
+        
+        private var _invitationsLoadInProgress:Boolean;
         
         private var _friendTotal:int;
         
@@ -53,8 +57,9 @@ package kabam.rotmg.friends.model {
             this._friends = new Dictionary(true);
             this._onlineFriends = new Vector.<FriendVO>();
             this._offlineFriends = new Vector.<FriendVO>();
-            this._inProcessFlag = false;
-            this.loadFriendListData();
+            this._friendsLoadInProcess = false;
+            this._invitationsLoadInProgress = false;
+            this.loadData();
         }
         
         public function setCurrentServer(param1:Server) : void {
@@ -66,20 +71,23 @@ package kabam.rotmg.friends.model {
             return _local_1;
         }
         
-        public function loadFriendListData() : void {
-            if(this._inProcessFlag) {
+        public function loadData() : void {
+            if(this._friendsLoadInProcess || this._invitationsLoadInProgress) {
                 return;
             }
-            this._inProcessFlag = true;
             var _local_1:Injector = StaticInjectorContext.getInjector();
-            this.task = _local_1.getInstance(FriendDataRequestTask);
-            this.loadList(FriendConstant.getURL(FriendConstant.FRIEND_LIST),this.onFriendListResponse);
+            this._friendsLoadInProcess = true;
+            this.friendsTask = _local_1.getInstance(FriendDataRequestTask);
+            this.loadList(this.friendsTask,FriendConstant.getURL(FriendConstant.FRIEND_LIST),this.onFriendListResponse);
+            this._invitationsLoadInProgress = true;
+            this.invitationsTask = _local_1.getInstance(FriendDataRequestTask);
+            this.loadList(this.invitationsTask,FriendConstant.getURL(FriendConstant.INVITE_LIST),this.onInvitationListResponse);
         }
         
-        private function loadList(param1:String, param2:Function) : void {
-            this.task.requestURL = param1;
-            this.task.finished.addOnce(param2);
-            this.task.start();
+        private function loadList(param1:FriendDataRequestTask, param2:String, param3:Function) : void {
+            param1.requestURL = param2;
+            param1.finished.addOnce(param3);
+            param1.start();
         }
         
         private function onFriendListResponse(param1:FriendDataRequestTask, param2:Boolean, param3:String = "") : void {
@@ -89,7 +97,8 @@ package kabam.rotmg.friends.model {
             this._isFriDataOK = param2;
             this.errorStr = param3;
             param1.reset();
-            this.loadList(FriendConstant.getURL(FriendConstant.INVITE_LIST),this.onInvitationListResponse);
+            this._friendsLoadInProcess = false;
+            this.reportTasksComplete();
         }
         
         private function onInvitationListResponse(param1:FriendDataRequestTask, param2:Boolean, param3:String = "") : void {
@@ -99,8 +108,14 @@ package kabam.rotmg.friends.model {
             this._isInvDataOK = param2;
             this.errorStr = param3;
             param1.reset();
-            this._inProcessFlag = false;
-            this.dataSignal.dispatch(this._isFriDataOK && this._isInvDataOK);
+            this._invitationsLoadInProgress = false;
+            this.reportTasksComplete();
+        }
+        
+        private function reportTasksComplete() : void {
+            if(this._friendsLoadInProcess == false && this._invitationsLoadInProgress == false) {
+                this.dataSignal.dispatch(this._isFriDataOK && this._isInvDataOK);
+            }
         }
         
         public function seedFriends(param1:XML) : void {

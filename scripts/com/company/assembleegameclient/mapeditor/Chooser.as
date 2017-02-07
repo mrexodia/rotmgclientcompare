@@ -17,18 +17,18 @@ package com.company.assembleegameclient.mapeditor {
         
         public static const WIDTH:int = 136;
         
-        public static const HEIGHT:int = 480;
+        public static const HEIGHT:int = 430;
         
         private static const SCROLLBAR_WIDTH:int = 20;
          
         
         public var layer_:int;
         
-        private var elementSprite_:Sprite;
-        
         public var selected_:Element;
         
-        private var scrollBar_:Scrollbar;
+        protected var elementSprite_:Sprite;
+        
+        protected var scrollBar_:Scrollbar;
         
         private var mask_:Shape;
         
@@ -95,6 +95,20 @@ package com.company.assembleegameclient.mapeditor {
             }
             param1.addEventListener(MouseEvent.MOUSE_DOWN,this.onMouseDown);
             this.elements_.push(param1);
+        }
+        
+        protected function removeElements() : void {
+            this.elements_ = new Vector.<Element>();
+            removeChild(this.elementSprite_);
+            this.elementSprite_ = new Sprite();
+            this.elementSprite_.x = 4;
+            this.elementSprite_.y = 6;
+            var _local_1:Shape = new Shape();
+            _local_1.graphics.beginFill(0);
+            _local_1.graphics.drawRect(0,2,Chooser.WIDTH - SCROLLBAR_WIDTH - 4,Chooser.HEIGHT - 4);
+            addChild(_local_1);
+            this.elementSprite_.mask = _local_1;
+            addChild(this.elementSprite_);
         }
         
         protected function onMouseDown(param1:MouseEvent) : void {

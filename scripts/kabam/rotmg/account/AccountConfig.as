@@ -15,6 +15,14 @@ package kabam.rotmg.account {
     import kabam.rotmg.account.core.view.MoneyFrame;
     import kabam.rotmg.account.kabam.KabamAccountConfig;
     import kabam.rotmg.account.kongregate.KongregateAccountConfig;
+    import kabam.rotmg.account.securityQuestions.commands.SaveSecurityQuestionsCommand;
+    import kabam.rotmg.account.securityQuestions.data.SecurityQuestionsModel;
+    import kabam.rotmg.account.securityQuestions.mediators.SecurityQuestionsMediator;
+    import kabam.rotmg.account.securityQuestions.signals.SaveSecurityQuestionsSignal;
+    import kabam.rotmg.account.securityQuestions.tasks.SaveSecurityQuestionsTask;
+    import kabam.rotmg.account.securityQuestions.view.SecurityQuestionsConfirmDialog;
+    import kabam.rotmg.account.securityQuestions.view.SecurityQuestionsDialog;
+    import kabam.rotmg.account.securityQuestions.view.SecurityQuestionsInfoDialog;
     import kabam.rotmg.account.steam.SteamAccountConfig;
     import kabam.rotmg.account.transfer.TransferAccountConfig;
     import kabam.rotmg.account.web.WebAccountConfig;
@@ -68,11 +76,17 @@ package kabam.rotmg.account {
             this.injector.map(VerifyAgeTask);
             this.injector.map(GetCharListTask);
             this.injector.map(MoneyFrameEnableCancelSignal).asSingleton();
+            this.injector.map(SecurityQuestionsModel).asSingleton();
             this.injector.map(OfferModel).asSingleton();
+            this.injector.map(SaveSecurityQuestionsTask);
             this.mediatorMap.map(MoneyFrame).toMediator(MoneyFrameMediator);
+            this.mediatorMap.map(SecurityQuestionsDialog).toMediator(SecurityQuestionsMediator);
+            this.mediatorMap.map(SecurityQuestionsInfoDialog).toMediator(SecurityQuestionsMediator);
+            this.mediatorMap.map(SecurityQuestionsConfirmDialog).toMediator(SecurityQuestionsMediator);
             this.commandMap.map(BuyCharacterSlotSignal).toCommand(BuyCharacterSlotCommand).withGuards(IsAccountRegisteredToBuyGoldGuard);
             this.commandMap.map(PurchaseGoldSignal).toCommand(PurchaseGoldCommand);
             this.commandMap.map(VerifyAgeSignal).toCommand(VerifyAgeCommand);
+            this.commandMap.map(SaveSecurityQuestionsSignal).toCommand(SaveSecurityQuestionsCommand);
         }
         
         private function configureAccountSpecificFunctionality() : void {

@@ -109,7 +109,7 @@ package com.company.assembleegameclient.account.ui {
             addChild(param1);
             param1.y = this.h_ - 60;
             param1.x = 17;
-            this.h_ = this.h_ + TextInputField.HEIGHT;
+            this.h_ = this.h_ + param1.height;
         }
         
         public function addNavigationText(param1:DeprecatedClickableText) : void {

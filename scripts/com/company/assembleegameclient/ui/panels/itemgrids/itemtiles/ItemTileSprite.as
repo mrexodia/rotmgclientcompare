@@ -45,20 +45,29 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles {
         }
         
         public function drawTile() : void {
-            var _local_1:BitmapData = null;
-            var _local_2:XML = null;
-            var _local_3:BitmapData = null;
-            if(this.itemId != ItemConstants.NO_ITEM) {
-                _local_1 = ObjectLibrary.getRedrawnTextureFromType(this.itemId,80,true);
-                _local_2 = ObjectLibrary.xmlLibrary_[this.itemId];
-                if(_local_2 && _local_2.hasOwnProperty("Doses") && this.bitmapFactory) {
-                    _local_1 = _local_1.clone();
-                    _local_3 = this.bitmapFactory.make(new StaticStringBuilder(String(_local_2.Doses)),12,16777215,false,IDENTITY_MATRIX,false);
-                    _local_1.draw(_local_3,DOSE_MATRIX);
+            var _local_2:BitmapData = null;
+            var _local_3:XML = null;
+            var _local_4:BitmapData = null;
+            var _local_1:int = this.itemId;
+            if(_local_1 != ItemConstants.NO_ITEM) {
+                if(_local_1 >= 36864 && _local_1 < 61440) {
+                    _local_1 = 36863;
                 }
-                this.itemBitmap.bitmapData = _local_1;
-                this.itemBitmap.x = -_local_1.width / 2;
-                this.itemBitmap.y = -_local_1.height / 2;
+                _local_2 = ObjectLibrary.getRedrawnTextureFromType(_local_1,80,true);
+                _local_3 = ObjectLibrary.xmlLibrary_[_local_1];
+                if(_local_3 && _local_3.hasOwnProperty("Doses") && this.bitmapFactory) {
+                    _local_2 = _local_2.clone();
+                    _local_4 = this.bitmapFactory.make(new StaticStringBuilder(String(_local_3.Doses)),12,16777215,false,IDENTITY_MATRIX,false);
+                    _local_2.draw(_local_4,DOSE_MATRIX);
+                }
+                if(_local_3 && _local_3.hasOwnProperty("Quantity") && this.bitmapFactory) {
+                    _local_2 = _local_2.clone();
+                    _local_4 = this.bitmapFactory.make(new StaticStringBuilder(String(_local_3.Quantity)),12,16777215,false,IDENTITY_MATRIX,false);
+                    _local_2.draw(_local_4,DOSE_MATRIX);
+                }
+                this.itemBitmap.bitmapData = _local_2;
+                this.itemBitmap.x = -_local_2.width / 2;
+                this.itemBitmap.y = -_local_2.height / 2;
                 visible = true;
             } else {
                 visible = false;

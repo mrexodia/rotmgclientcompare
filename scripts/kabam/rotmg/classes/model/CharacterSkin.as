@@ -23,6 +23,8 @@ package kabam.rotmg.classes.model {
         
         public var skinSelectEnabled:Boolean = true;
         
+        public var is16x16:Boolean = false;
+        
         private var state:CharacterSkinState;
         
         private var isSelected:Boolean;

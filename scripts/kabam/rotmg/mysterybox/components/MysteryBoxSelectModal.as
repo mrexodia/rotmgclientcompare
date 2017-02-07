@@ -38,12 +38,15 @@ package kabam.rotmg.mysterybox.components {
         
         private var titleString:String = "MysteryBoxSelectModal.titleString";
         
+        private var selectEntries:Vector.<MysteryBoxSelectEntry>;
+        
         public function MysteryBoxSelectModal() {
             this.box_ = new Sprite();
             super();
             modalWidth = 385;
             modalHeight = 60;
             aMysteryBoxHeight = 77;
+            this.selectEntries = new Vector.<MysteryBoxSelectEntry>();
             var _local_1:Injector = StaticInjectorContext.getInjector();
             var _local_2:MysteryBoxModel = _local_1.getInstance(MysteryBoxModel);
             this.mysteryData = _local_2.getBoxesOrderByWeight();
@@ -86,6 +89,7 @@ package kabam.rotmg.mysterybox.components {
         private function addBoxChildren() : void {
             var _local_1:MysteryBoxInfo = null;
             var _local_2:DisplayObject = null;
+            var _local_4:Number = NaN;
             var _local_5:int = 0;
             var _local_6:MysteryBoxSelectEntry = null;
             for each(_local_1 in this.mysteryData) {
@@ -102,7 +106,7 @@ package kabam.rotmg.mysterybox.components {
             this.box_.addChild(this.closeButton);
             this.box_.addChild(this.getText(this.titleString,TEXT_MARGIN,6).setSize(18));
             var _local_3:Number = 20;
-            var _local_4:Number = 50;
+            _local_4 = 50;
             _local_5 = 0;
             for each(_local_1 in this.mysteryData) {
                 if(_local_5 == 6) {
@@ -113,7 +117,15 @@ package kabam.rotmg.mysterybox.components {
                 _local_6.y = y + _local_4;
                 _local_4 = _local_4 + aMysteryBoxHeight;
                 this.box_.addChild(_local_6);
+                this.selectEntries.push(_local_6);
                 _local_5++;
+            }
+        }
+        
+        public function updateContent() : * {
+            var _local_1:MysteryBoxSelectEntry = null;
+            for each(_local_1 in this.selectEntries) {
+                _local_1.updateContent();
             }
         }
         

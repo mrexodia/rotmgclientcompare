@@ -155,10 +155,15 @@ package com.company.assembleegameclient.util {
         }
         
         private function parseObjectFiles() : void {
-            var _local_1:* = undefined;
-            for each(_local_1 in EmbeddedData.objectFiles) {
-                currentXmlIsTesting = this.checkIsTestingXML(_local_1);
-                ObjectLibrary.parseFromXML(XML(_local_1));
+            var _local_1:int = 0;
+            while(_local_1 < 25) {
+                currentXmlIsTesting = this.checkIsTestingXML(EmbeddedData.objectFiles[_local_1]);
+                ObjectLibrary.parseFromXML(XML(EmbeddedData.objectFiles[_local_1]));
+                _local_1++;
+            }
+            while(_local_1 < EmbeddedData.objectFiles.length) {
+                ObjectLibrary.parseDungeonXML(getQualifiedClassName(EmbeddedData.objectFiles[_local_1]),XML(EmbeddedData.objectFiles[_local_1]));
+                _local_1++;
             }
             currentXmlIsTesting = false;
         }

@@ -51,10 +51,10 @@ package kabam.rotmg.account.transfer.services {
             var _local_3:XML = null;
             var _local_2:PlatformModel = StaticInjectorContext.getInjector().getInstance(PlatformModel);
             if(_local_2.getPlatform() == PlatformType.WEB) {
-                this.account.updateUser(this.transferData.newEmail,this.transferData.newPassword);
+                this.account.updateUser(this.transferData.newEmail,this.transferData.newPassword,"");
             } else {
                 _local_3 = new XML(param1);
-                this.account.updateUser(_local_3.GUID,_local_3.Secret);
+                this.account.updateUser(_local_3.GUID,_local_3.Secret,"");
                 this.account.setPlatformToken(_local_3.PlatformToken);
             }
         }

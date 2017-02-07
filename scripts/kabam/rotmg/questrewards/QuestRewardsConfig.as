@@ -1,4 +1,5 @@
 package kabam.rotmg.questrewards {
+    import com.company.assembleegameclient.game.events.KeyInfoResponseSignal;
     import kabam.rotmg.questrewards.controller.QuestFetchCompleteSignal;
     import kabam.rotmg.questrewards.controller.QuestRedeemCompleteSignal;
     import kabam.rotmg.questrewards.view.QuestRewardsContainer;
@@ -35,6 +36,7 @@ package kabam.rotmg.questrewards {
             this.mediatorMap.map(QuestRewardsContainer).toMediator(QuestRewardsMediator);
             this.injector.map(QuestFetchCompleteSignal).asSingleton();
             this.injector.map(QuestRedeemCompleteSignal).asSingleton();
+            this.injector.map(KeyInfoResponseSignal).asSingleton();
         }
     }
 }

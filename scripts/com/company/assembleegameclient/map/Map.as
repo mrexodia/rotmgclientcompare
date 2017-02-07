@@ -148,7 +148,7 @@ package com.company.assembleegameclient.map {
         }
         
         private function forceSoftwareRenderCheck(param1:String) : void {
-            forceSoftwareRender = this.forceSoftwareMap[param1] != null || WebMain.STAGE.stage3Ds[0].context3D == null;
+            forceSoftwareRender = this.forceSoftwareMap[param1] != null || WebMain.STAGE != null && WebMain.STAGE.stage3Ds[0].context3D == null;
         }
         
         override public function initialize() : void {

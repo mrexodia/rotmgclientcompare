@@ -1,6 +1,4 @@
 package com.company.assembleegameclient.mapeditor {
-    import com.company.assembleegameclient.map.RegionLibrary;
-    
     public class RegionChooser extends Chooser {
          
         
@@ -8,7 +6,7 @@ package com.company.assembleegameclient.mapeditor {
             var _local_1:XML = null;
             var _local_2:RegionElement = null;
             super(Layer.REGION);
-            for each(_local_1 in RegionLibrary.xmlLibrary_) {
+            for each(_local_1 in GroupDivider.GROUPS["Regions"]) {
                 _local_2 = new RegionElement(_local_1);
                 addElement(_local_2);
             }

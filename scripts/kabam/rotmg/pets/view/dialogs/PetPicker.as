@@ -105,7 +105,7 @@ package kabam.rotmg.pets.view.dialogs {
         }
         
         private function isFusible(param1:PetVO, param2:PetVO) : Boolean {
-            return param1.getFamily() == param2.getFamily() && param1.getRarity() == param2.getRarity();
+            return param1.getRarity() == param2.getRarity() && (param1.getFamily() == "Unknown" || param1.getFamily() == param2.getFamily());
         }
         
         private function addPet(param1:PetVO) : void {

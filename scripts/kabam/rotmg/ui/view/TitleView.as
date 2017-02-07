@@ -152,12 +152,16 @@ package kabam.rotmg.ui.view {
             this.handleOptionalButtons();
         }
         
+        public function putNoticeTagToOption(param1:TitleMenuOption, param2:String, param3:int = 14, param4:uint = 10092390, param5:Boolean = true) : void {
+            param1.createNoticeTag(param2,param3,param4,param5);
+        }
+        
         private function updateVersionText() : void {
             this.versionText.setStringBuilder(new StaticStringBuilder(this.data.buildLabel));
         }
         
         private function handleOptionalButtons() : void {
-            this.data.isAdmin && this.createEditorButton();
+            this.data.canMapEdit && this.createEditorButton();
             this.data.isDesktop && this.createQuitButton();
             this.optionalButtonsAdded.dispatch();
         }

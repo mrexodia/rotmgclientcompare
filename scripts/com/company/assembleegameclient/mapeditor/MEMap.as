@@ -1,4 +1,5 @@
 package com.company.assembleegameclient.mapeditor {
+    import com.adobe.images.PNGEncoder;
     import com.company.assembleegameclient.map.GroundLibrary;
     import com.company.assembleegameclient.map.RegionLibrary;
     import com.company.assembleegameclient.objects.ObjectLibrary;
@@ -17,6 +18,7 @@ package com.company.assembleegameclient.mapeditor {
     import flash.geom.Matrix;
     import flash.geom.Rectangle;
     import flash.ui.Keyboard;
+    import flash.utils.ByteArray;
     import flash.utils.Dictionary;
     
     class MEMap extends Sprite {
@@ -25,15 +27,13 @@ package com.company.assembleegameclient.mapeditor {
         
         private static var transbackgroundBD_:BitmapData = new transbackgroundEmbed_().bitmapData;
         
-        public static const NUM_SQUARES:int = 512;
+        public static var NUM_SQUARES:int = 128;
+        
+        public static const MAX_ALLOWED_SQUARES:int = 512;
         
         public static const SQUARE_SIZE:int = 16;
         
         public static const SIZE:int = 512;
-        
-        public static const MIN_ZOOM:Number = 0.0625;
-        
-        public static const MAX_ZOOM:Number = 16;
          
         
         public var tileDict_:Dictionary;
@@ -45,6 +45,8 @@ package com.company.assembleegameclient.mapeditor {
         public var map_:BitmapData;
         
         public var overlay_:Shape;
+        
+        public var anchorLock:Boolean = false;
         
         public var posT_:IntPoint;
         
@@ -62,7 +64,15 @@ package com.company.assembleegameclient.mapeditor {
         
         private var replaceTexture_:BitmapData;
         
-        public var anchorLock:Boolean = false;
+        private var objectLayer_:BigBitmapData;
+        
+        private var groundLayer_:BigBitmapData;
+        
+        private var ifShowObjectLayer_:Boolean = true;
+        
+        private var ifShowGroundLayer_:Boolean = true;
+        
+        private var ifShowRegionLayer_:Boolean = true;
         
         function MEMap() {
             this.tileDict_ = new Dictionary();
@@ -70,6 +80,8 @@ package com.company.assembleegameclient.mapeditor {
             this.regionMap_ = new BitmapDataSpy(NUM_SQUARES,NUM_SQUARES,true,0);
             this.map_ = new BitmapDataSpy(SIZE,SIZE,true,0);
             this.overlay_ = new Shape();
+            this.objectLayer_ = new BigBitmapData(NUM_SQUARES * SQUARE_SIZE,NUM_SQUARES * SQUARE_SIZE,true,0);
+            this.groundLayer_ = new BigBitmapData(NUM_SQUARES * SQUARE_SIZE,NUM_SQUARES * SQUARE_SIZE,true,0);
             super();
             graphics.beginBitmapFill(transbackgroundBD_,null,true);
             graphics.drawRect(0,0,SIZE,SIZE);
@@ -81,6 +93,57 @@ package com.company.assembleegameclient.mapeditor {
             this.draw();
             addEventListener(Event.ADDED_TO_STAGE,this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE,this.onRemovedFromStage);
+        }
+        
+        private static function minZoom() : Number {
+            return SQUARE_SIZE / NUM_SQUARES * 2;
+        }
+        
+        private static function maxZoom() : Number {
+            return SQUARE_SIZE;
+        }
+        
+        public function set ifShowObjectLayer(param1:Boolean) : void {
+            this.ifShowObjectLayer_ = param1;
+        }
+        
+        public function set ifShowGroundLayer(param1:Boolean) : void {
+            this.ifShowGroundLayer_ = param1;
+        }
+        
+        public function set ifShowRegionLayer(param1:Boolean) : void {
+            this.ifShowRegionLayer_ = param1;
+        }
+        
+        public function resize(param1:Number) : void {
+            var _local_4:METile = null;
+            var _local_5:int = 0;
+            var _local_6:int = 0;
+            var _local_7:int = 0;
+            var _local_8:* = null;
+            var _local_2:* = this.tileDict_;
+            var _local_3:* = NUM_SQUARES;
+            NUM_SQUARES = param1;
+            this.setZoom(minZoom());
+            this.tileDict_ = new Dictionary();
+            this.fullMap_ = new BigBitmapData(NUM_SQUARES * SQUARE_SIZE,NUM_SQUARES * SQUARE_SIZE,true,0);
+            this.objectLayer_ = new BigBitmapData(NUM_SQUARES * SQUARE_SIZE,NUM_SQUARES * SQUARE_SIZE,true,0);
+            this.groundLayer_ = new BigBitmapData(NUM_SQUARES * SQUARE_SIZE,NUM_SQUARES * SQUARE_SIZE,true,0);
+            this.regionMap_ = new BitmapDataSpy(NUM_SQUARES,NUM_SQUARES,true,0);
+            for(_local_8 in _local_2) {
+                _local_4 = _local_2[_local_8];
+                if(_local_4.isEmpty()) {
+                    _local_4 = null;
+                } else {
+                    _local_5 = int(_local_8);
+                    _local_6 = _local_5 % _local_3;
+                    _local_7 = _local_5 / _local_3;
+                    if(_local_6 < NUM_SQUARES && _local_7 < NUM_SQUARES) {
+                        this.setTile(_local_6,_local_7,_local_4);
+                    }
+                }
+            }
+            _local_2 = null;
         }
         
         public function getType(param1:int, param2:int, param3:int) : int {
@@ -132,11 +195,15 @@ package com.company.assembleegameclient.mapeditor {
             param3 = param3.clone();
             this.tileDict_[param1 + param2 * NUM_SQUARES] = param3;
             this.drawTile(param1,param2,param3);
+            param3 = null;
         }
         
         public function eraseTile(param1:int, param2:int) : void {
             this.clearTile(param1,param2);
             this.drawTile(param1,param2,null);
+        }
+        
+        public function toggleLayers(param1:Array) : void {
         }
         
         public function clear() : void {
@@ -189,13 +256,31 @@ package com.company.assembleegameclient.mapeditor {
         }
         
         private function modifyZoom(param1:Number) : void {
-            if(param1 > 1 && this.zoom_ >= MAX_ZOOM || param1 < 1 && this.zoom_ <= MIN_ZOOM) {
+            if(param1 > 1 && this.zoom_ >= maxZoom() || param1 < 1 && this.zoom_ <= minZoom()) {
                 return;
             }
             var _local_2:IntPoint = this.mousePosT();
             this.zoom_ = this.zoom_ * param1;
             var _local_3:IntPoint = this.mousePosT();
             this.movePosT(_local_2.x_ - _local_3.x_,_local_2.y_ - _local_3.y_);
+        }
+        
+        private function setZoom(param1:Number) : void {
+            if(param1 > maxZoom() || param1 < minZoom()) {
+                return;
+            }
+            var _local_2:IntPoint = this.mousePosT();
+            this.zoom_ = param1;
+            var _local_3:IntPoint = this.mousePosT();
+            this.movePosT(_local_2.x_ - _local_3.x_,_local_2.y_ - _local_3.y_);
+        }
+        
+        public function setMinZoom(param1:Number = 0) : void {
+            if(param1 != 0) {
+                this.setZoom(param1);
+            } else {
+                this.setZoom(minZoom());
+            }
         }
         
         private function canMove() : Boolean {
@@ -293,6 +378,7 @@ package com.company.assembleegameclient.mapeditor {
             addEventListener(MouseEvent.MOUSE_WHEEL,this.onMouseWheel);
             addEventListener(MouseEvent.MOUSE_DOWN,this.onMouseDown);
             addEventListener(MouseEvent.MOUSE_MOVE,this.onMouseMove);
+            addEventListener(MouseEvent.RIGHT_CLICK,this.onMouseRightClick);
             stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
             stage.addEventListener(KeyboardEvent.KEY_UP,this.onKeyUp);
         }
@@ -312,12 +398,14 @@ package com.company.assembleegameclient.mapeditor {
                         break;
                     }
                     this.mouseRectAnchorT_ = this.mousePosT();
+                    this.draw();
                     break;
                 case Keyboard.CONTROL:
                     if(this.mouseMoveAnchorT_ != null) {
                         break;
                     }
                     this.mouseMoveAnchorT_ = this.mousePosT();
+                    this.draw();
                     break;
                 case Keyboard.LEFT:
                     this.moveLeft();
@@ -337,18 +425,26 @@ package com.company.assembleegameclient.mapeditor {
                 case KeyCodes.EQUAL:
                     this.increaseZoom();
             }
-            this.draw();
         }
         
         private function onKeyUp(param1:KeyboardEvent) : void {
             switch(param1.keyCode) {
                 case Keyboard.SHIFT:
                     this.mouseRectAnchorT_ = null;
+                    this.draw();
                     break;
                 case Keyboard.CONTROL:
                     this.mouseMoveAnchorT_ = null;
+                    this.draw();
             }
-            this.draw();
+        }
+        
+        public function clearSelectRect() : void {
+            this.mouseRectAnchorT_ = null;
+            this.anchorLock = false;
+        }
+        
+        private function onMouseRightClick(param1:MouseEvent) : void {
         }
         
         private function onMouseWheel(param1:MouseEvent) : void {
@@ -433,20 +529,24 @@ package com.company.assembleegameclient.mapeditor {
             var _local_7:uint = 0;
             var _local_4:Rectangle = new Rectangle(param1 * SQUARE_SIZE,param2 * SQUARE_SIZE,SQUARE_SIZE,SQUARE_SIZE);
             this.fullMap_.erase(_local_4);
+            this.groundLayer_.erase(_local_4);
+            this.objectLayer_.erase(_local_4);
             this.regionMap_.setPixel32(param1,param2,0);
             if(param3 == null) {
+                this.groundLayer_.erase(_local_4);
+                this.objectLayer_.erase(_local_4);
                 return;
             }
             if(param3.types_[Layer.GROUND] != -1) {
                 _local_5 = GroundLibrary.getBitmapData(param3.types_[Layer.GROUND]);
-                this.fullMap_.copyTo(_local_5,_local_5.rect,_local_4);
+                this.groundLayer_.copyTo(_local_5,_local_5.rect,_local_4);
             }
             if(param3.types_[Layer.OBJECT] != -1) {
                 _local_6 = ObjectLibrary.getTextureFromType(param3.types_[Layer.OBJECT]);
                 if(_local_6 == null || _local_6 == this.invisibleTexture_) {
-                    this.fullMap_.copyTo(this.replaceTexture_,this.replaceTexture_.rect,_local_4);
+                    this.objectLayer_.copyTo(_local_5,_local_5.rect,_local_4);
                 } else {
-                    this.fullMap_.copyTo(_local_6,_local_6.rect,_local_4);
+                    this.objectLayer_.copyTo(_local_6,_local_6.rect,_local_4);
                 }
             }
             if(param3.types_[Layer.REGION] != -1) {
@@ -472,21 +572,76 @@ package com.company.assembleegameclient.mapeditor {
             var _local_4:BitmapData = null;
             var _local_1:int = SIZE / this.zoom_;
             this.map_.fillRect(this.map_.rect,0);
-            this.fullMap_.copyFrom(new Rectangle(this.posT_.x_ * SQUARE_SIZE,this.posT_.y_ * SQUARE_SIZE,_local_1,_local_1),this.map_,this.map_.rect);
-            _local_2 = new Matrix();
-            _local_2.identity();
-            _local_3 = SQUARE_SIZE * this.zoom_;
-            if(this.zoom_ > 2) {
-                _local_4 = new BitmapDataSpy(SIZE / _local_3,SIZE / _local_3);
-                _local_4.copyPixels(this.regionMap_,new Rectangle(this.posT_.x_,this.posT_.y_,_local_1,_local_1),PointUtil.ORIGIN);
-                _local_2.scale(_local_3,_local_3);
-                this.map_.draw(_local_4,_local_2);
-            } else {
-                _local_2.translate(-this.posT_.x_,-this.posT_.y_);
-                _local_2.scale(_local_3,_local_3);
-                this.map_.draw(this.regionMap_,_local_2,null,null,this.map_.rect);
+            if(this.ifShowGroundLayer_) {
+                this.groundLayer_.copyFrom(new Rectangle(this.posT_.x_ * SQUARE_SIZE,this.posT_.y_ * SQUARE_SIZE,_local_1,_local_1),this.map_,this.map_.rect);
+            }
+            if(this.ifShowObjectLayer_) {
+                this.objectLayer_.copyFrom(new Rectangle(this.posT_.x_ * SQUARE_SIZE,this.posT_.y_ * SQUARE_SIZE,_local_1,_local_1),this.map_,this.map_.rect);
+            }
+            if(this.ifShowRegionLayer_) {
+                _local_2 = new Matrix();
+                _local_2.identity();
+                _local_3 = SQUARE_SIZE * this.zoom_;
+                if(this.zoom_ > 2) {
+                    _local_4 = new BitmapDataSpy(SIZE / _local_3,SIZE / _local_3);
+                    _local_4.copyPixels(this.regionMap_,new Rectangle(this.posT_.x_,this.posT_.y_,_local_1,_local_1),PointUtil.ORIGIN);
+                    _local_2.scale(_local_3,_local_3);
+                    this.map_.draw(_local_4,_local_2);
+                } else {
+                    _local_2.translate(-this.posT_.x_,-this.posT_.y_);
+                    _local_2.scale(_local_3,_local_3);
+                    this.map_.draw(this.regionMap_,_local_2,null,null,this.map_.rect);
+                }
             }
             this.drawOverlay();
+        }
+        
+        private function generateThumbnail() : ByteArray {
+            var _local_1:Rectangle = this.getTileBounds();
+            var _local_2:int = 8;
+            var _local_3:BitmapData = new BitmapData(_local_1.width * _local_2,_local_1.height * _local_2);
+            this.groundLayer_.copyFrom(new Rectangle(_local_1.x * SQUARE_SIZE,_local_1.y * SQUARE_SIZE,_local_1.width * SQUARE_SIZE,_local_1.height * SQUARE_SIZE),_local_3,_local_3.rect);
+            this.objectLayer_.copyFrom(new Rectangle(_local_1.x * SQUARE_SIZE,_local_1.y * SQUARE_SIZE,_local_1.width * SQUARE_SIZE,_local_1.height * SQUARE_SIZE),_local_3,_local_3.rect);
+            var _local_4:Matrix = new Matrix();
+            _local_4.identity();
+            _local_4.translate(-_local_1.x,-_local_1.y);
+            _local_4.scale(_local_2,_local_2);
+            _local_3.draw(this.regionMap_,_local_4);
+            return PNGEncoder.encode(_local_3);
+        }
+        
+        public function getMapStatistics() : Object {
+            var _local_6:METile = null;
+            var _local_1:int = 0;
+            var _local_2:int = 0;
+            var _local_3:int = 0;
+            var _local_4:int = 0;
+            var _local_5:int = 0;
+            for each(_local_6 in this.tileDict_) {
+                _local_5++;
+                if(_local_6.types_[Layer.GROUND] != -1) {
+                    _local_1++;
+                }
+                if(_local_6.types_[Layer.OBJECT] != -1) {
+                    _local_2++;
+                }
+                if(_local_6.types_[Layer.REGION] != -1) {
+                    if(_local_6.types_[Layer.REGION] == RegionLibrary.EXIT_REGION_TYPE) {
+                        _local_3++;
+                    }
+                    if(_local_6.types_[Layer.REGION] == RegionLibrary.ENTRY_REGION_TYPE) {
+                        _local_4++;
+                    }
+                }
+            }
+            return {
+                "numObjects":_local_2,
+                "numGrounds":_local_1,
+                "numExits":_local_3,
+                "numEntries":_local_4,
+                "numTiles":_local_5,
+                "thumbnail":this.generateThumbnail()
+            };
         }
     }
 }

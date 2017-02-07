@@ -4,7 +4,7 @@ package kabam.rotmg.ui.model {
         
         public var isDesktop:Boolean;
         
-        public var isAdmin:Boolean;
+        public var canMapEdit:Boolean;
         
         public var buildLabel:String;
         

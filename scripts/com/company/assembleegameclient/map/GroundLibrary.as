@@ -17,6 +17,8 @@ package com.company.assembleegameclient.map {
         public static var idToType_:Dictionary = new Dictionary();
         
         public static var defaultProps_:GroundProperties;
+        
+        public static var GROUND_CATEGORY:String = "Ground";
          
         
         public function GroundLibrary() {

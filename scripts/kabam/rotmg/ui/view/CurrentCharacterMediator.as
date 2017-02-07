@@ -4,6 +4,8 @@ package kabam.rotmg.ui.view {
     import com.company.assembleegameclient.screens.CharacterSelectionAndNewsScreen;
     import com.company.assembleegameclient.screens.NewCharacterScreen;
     import com.company.util.MoreDateUtil;
+    import kabam.rotmg.account.securityQuestions.data.SecurityQuestionsModel;
+    import kabam.rotmg.account.securityQuestions.view.SecurityQuestionsInfoDialog;
     import kabam.rotmg.classes.model.CharacterClass;
     import kabam.rotmg.classes.model.ClassesModel;
     import kabam.rotmg.core.model.PlayerModel;
@@ -11,6 +13,7 @@ package kabam.rotmg.ui.view {
     import kabam.rotmg.core.signals.SetScreenSignal;
     import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.core.signals.TrackPageViewSignal;
+    import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.game.model.GameInitData;
     import kabam.rotmg.game.signals.PlayGameSignal;
     import kabam.rotmg.packages.control.BeginnersPackageAvailableSignal;
@@ -63,6 +66,12 @@ package kabam.rotmg.ui.view {
         [Inject]
         public var beginnerModel:BeginnersPackageModel;
         
+        [Inject]
+        public var openDialog:OpenDialogSignal;
+        
+        [Inject]
+        public var securityQuestionsModel:SecurityQuestionsModel;
+        
         public function CurrentCharacterMediator() {
             super();
         }
@@ -80,6 +89,9 @@ package kabam.rotmg.ui.view {
             this.beginnersPackageAvailable.add(this.onBeginner);
             this.packageAvailable.add(this.onPackage);
             this.initPackages.dispatch();
+            if(this.securityQuestionsModel.showSecurityQuestionsOnStartup) {
+                this.openDialog.dispatch(new SecurityQuestionsInfoDialog());
+            }
         }
         
         private function onPackage() : void {

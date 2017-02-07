@@ -11,6 +11,8 @@ package kabam.rotmg.ui.view {
     import flash.system.Capabilities;
     import kabam.rotmg.account.core.Account;
     import kabam.rotmg.account.core.signals.OpenAccountInfoSignal;
+    import kabam.rotmg.account.securityQuestions.data.SecurityQuestionsModel;
+    import kabam.rotmg.account.securityQuestions.view.SecurityQuestionsInfoDialog;
     import kabam.rotmg.application.DynamicSettings;
     import kabam.rotmg.application.api.ApplicationSetup;
     import kabam.rotmg.core.model.PlayerModel;
@@ -60,6 +62,9 @@ package kabam.rotmg.ui.view {
         public var layers:Layers;
         
         [Inject]
+        public var securityQuestionsModel:SecurityQuestionsModel;
+        
+        [Inject]
         public var logger:ILogger;
         
         public function TitleMediator() {
@@ -74,7 +79,13 @@ package kabam.rotmg.ui.view {
             this.view.accountClicked.add(this.handleIntentionToReviewAccount);
             this.view.legendsClicked.add(this.showLegendsScreen);
             this.view.supportClicked.add(this.openSupportPage);
+            if(this.playerModel.isNewToEditing()) {
+                this.view.putNoticeTagToOption(ButtonFactory.getEditorButton(),"new");
+            }
             this.view.kabamTransferClicked.add(this.openKabamTransferView);
+            if(this.securityQuestionsModel.showSecurityQuestionsOnStartup) {
+                this.openDialog.dispatch(new SecurityQuestionsInfoDialog());
+            }
         }
         
         private function openSupportPage() : void {
@@ -121,7 +132,7 @@ package kabam.rotmg.ui.view {
         private function makeEnvironmentData() : EnvironmentData {
             var _local_1:EnvironmentData = new EnvironmentData();
             _local_1.isDesktop = Capabilities.playerType == "Desktop";
-            _local_1.isAdmin = this.playerModel.isAdmin();
+            _local_1.canMapEdit = this.playerModel.isAdmin() || this.playerModel.mapEditor();
             _local_1.buildLabel = this.setup.getBuildLabel();
             return _local_1;
         }
@@ -133,7 +144,6 @@ package kabam.rotmg.ui.view {
             this.view.legendsClicked.remove(this.showLegendsScreen);
             this.view.supportClicked.remove(this.openSupportPage);
             this.view.optionalButtonsAdded.remove(this.onOptionalButtonsAdded);
-            this.view.kabamTransferClicked.remove(this.openKabamTransferView);
             this.view.editorClicked && this.view.editorClicked.remove(this.showMapEditor);
             this.view.quitClicked && this.view.quitClicked.remove(this.attemptToCloseClient);
         }

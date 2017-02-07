@@ -22,7 +22,7 @@ package kabam.rotmg.account.steam {
             super();
         }
         
-        public function updateUser(param1:String, param2:String) : void {
+        public function updateUser(param1:String, param2:String, param3:String) : void {
             this.userId = param1;
             this.password = param2;
         }
@@ -108,6 +108,10 @@ package kabam.rotmg.account.steam {
         
         public function getMoneyUserId() : String {
             throw new Error("No current support for new Kabam offer wall on Steam.");
+        }
+        
+        public function getToken() : String {
+            return "";
         }
     }
 }

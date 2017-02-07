@@ -51,7 +51,7 @@ package kabam.rotmg.account.transfer.services {
         }
         
         private function onChangeDone() : void {
-            this.account.updateUser(this.data.newEmail,this.data.newPassword);
+            this.account.updateUser(this.data.newEmail,this.data.newPassword,"");
             completeTask(true);
         }
     }

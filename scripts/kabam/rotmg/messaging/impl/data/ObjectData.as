@@ -14,7 +14,7 @@ package kabam.rotmg.messaging.impl.data {
         }
         
         public function parseFromInput(param1:IDataInput) : void {
-            this.objectType_ = param1.readShort();
+            this.objectType_ = param1.readUnsignedShort();
             this.status_.parseFromInput(param1);
         }
         

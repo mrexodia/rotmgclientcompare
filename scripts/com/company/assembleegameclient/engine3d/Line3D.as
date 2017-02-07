@@ -15,7 +15,7 @@ package com.company.assembleegameclient.engine3d {
         }
         
         public static function unitTest() : Boolean {
-            return UnitTest#3492.run();
+            return UnitTest#3554.run();
         }
         
         public function crossZ(param1:Line3D) : int {
@@ -57,10 +57,10 @@ import com.company.assembleegameclient.engine3d.Line3D;
 import com.company.assembleegameclient.engine3d.Order;
 import flash.geom.Vector3D;
 
-class UnitTest#3492 {
+class UnitTest#3554 {
      
     
-    function UnitTest#3492() {
+    function UnitTest#3554() {
         super();
     }
     

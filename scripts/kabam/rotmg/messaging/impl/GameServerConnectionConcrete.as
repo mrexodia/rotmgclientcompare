@@ -1,6 +1,7 @@
 package kabam.rotmg.messaging.impl {
     import com.company.assembleegameclient.game.AGameSprite;
     import com.company.assembleegameclient.game.events.GuildResultEvent;
+    import com.company.assembleegameclient.game.events.KeyInfoResponseSignal;
     import com.company.assembleegameclient.game.events.NameResultEvent;
     import com.company.assembleegameclient.game.events.ReconnectEvent;
     import com.company.assembleegameclient.map.AbstractMap;
@@ -117,6 +118,7 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.messaging.impl.incoming.GuildResult;
     import kabam.rotmg.messaging.impl.incoming.InvResult;
     import kabam.rotmg.messaging.impl.incoming.InvitedToGuild;
+    import kabam.rotmg.messaging.impl.incoming.KeyInfoResponse;
     import kabam.rotmg.messaging.impl.incoming.MapInfo;
     import kabam.rotmg.messaging.impl.incoming.NameResult;
     import kabam.rotmg.messaging.impl.incoming.NewAbilityMessage;
@@ -166,6 +168,7 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.messaging.impl.outgoing.InvDrop;
     import kabam.rotmg.messaging.impl.outgoing.InvSwap;
     import kabam.rotmg.messaging.impl.outgoing.JoinGuild;
+    import kabam.rotmg.messaging.impl.outgoing.KeyInfoRequest;
     import kabam.rotmg.messaging.impl.outgoing.Load;
     import kabam.rotmg.messaging.impl.outgoing.Move;
     import kabam.rotmg.messaging.impl.outgoing.OtherHit;
@@ -266,6 +269,8 @@ package kabam.rotmg.messaging.impl {
         
         private var questRedeemComplete:QuestRedeemCompleteSignal;
         
+        private var keyInfoResponse:KeyInfoResponseSignal;
+        
         private var currentArenaRun:CurrentArenaRunModel;
         
         private var classesModel:ClassesModel;
@@ -300,6 +305,7 @@ package kabam.rotmg.messaging.impl {
             this.imminentWave = this.injector.getInstance(ImminentArenaWaveSignal);
             this.questFetchComplete = this.injector.getInstance(QuestFetchCompleteSignal);
             this.questRedeemComplete = this.injector.getInstance(QuestRedeemCompleteSignal);
+            this.keyInfoResponse = this.injector.getInstance(KeyInfoResponseSignal);
             this.logger = this.injector.getInstance(ILogger);
             this.handleDeath = this.injector.getInstance(HandleDeathSignal);
             this.zombify = this.injector.getInstance(ZombifySignal);
@@ -406,6 +412,7 @@ package kabam.rotmg.messaging.impl {
             _local_1.map(ACCEPT_ARENA_DEATH).toMessage(OutgoingMessage);
             _local_1.map(QUEST_FETCH_ASK).toMessage(OutgoingMessage);
             _local_1.map(QUEST_REDEEM).toMessage(QuestRedeem);
+            _local_1.map(KEY_INFO_REQUEST).toMessage(KeyInfoRequest);
             _local_1.map(PET_CHANGE_FORM_MSG).toMessage(ReskinPet);
             _local_1.map(FAILURE).toMessage(Failure).toMethod(this.onFailure);
             _local_1.map(CREATE_SUCCESS).toMessage(CreateSuccess).toMethod(this.onCreateSuccess);
@@ -453,6 +460,7 @@ package kabam.rotmg.messaging.impl {
             _local_1.map(PASSWORD_PROMPT).toMessage(PasswordPrompt).toMethod(this.onPasswordPrompt);
             _local_1.map(QUEST_FETCH_RESPONSE).toMessage(QuestFetchResponse).toMethod(this.onQuestFetchResponse);
             _local_1.map(QUEST_REDEEM_RESPONSE).toMessage(QuestRedeemResponse).toMethod(this.onQuestRedeemResponse);
+            _local_1.map(KEY_INFO_RESPONSE).toMessage(KeyInfoResponse).toMethod(this.onKeyInfoResponse);
         }
         
         private function onHatchPet(param1:HatchPetMessage) : void {
@@ -748,8 +756,13 @@ package kabam.rotmg.messaging.impl {
         }
         
         override public function useItem_new(param1:GameObject, param2:int) : Boolean {
+            var _local_4:XML = null;
             var _local_3:int = param1.equipment_[param2];
-            var _local_4:XML = ObjectLibrary.xmlLibrary_[_local_3];
+            if(_local_3 >= 36864 && _local_3 < 61440) {
+                _local_4 = ObjectLibrary.xmlLibrary_[36863];
+            } else {
+                _local_4 = ObjectLibrary.xmlLibrary_[_local_3];
+            }
             if(_local_4 && !param1.isPaused() && (_local_4.hasOwnProperty("Consumable") || _local_4.hasOwnProperty("InvUse"))) {
                 if(!this.validStatInc(_local_3,param1)) {
                     this.addTextLine.dispatch(ChatMessage.make("",_local_4.attribute("id") + " not consumed. Already at Max."));
@@ -995,6 +1008,7 @@ package kabam.rotmg.messaging.impl {
             _local_2.gameNetUserId = _local_1.gameNetworkUserId();
             _local_2.playPlatform = _local_1.playPlatform();
             _local_2.platformToken = _local_1.getPlatformToken();
+            _local_2.userToken = _local_1.getToken();
             serverConnection.sendMessage(_local_2);
         }
         
@@ -1342,7 +1356,7 @@ package kabam.rotmg.messaging.impl {
                     break;
                 case ShowEffect.COLLAPSE_EFFECT_TYPE:
                     _local_3 = _local_2.goDict_[param1.targetObjectId_];
-                    if(_local_3 == null || this.canShowEffect(_local_3)) {
+                    if(_local_3 == null || !this.canShowEffect(_local_3)) {
                         break;
                     }
                     _local_4 = new CollapseEffect(_local_3,param1.pos1_,param1.pos2_,param1.color_);
@@ -1501,10 +1515,10 @@ package kabam.rotmg.messaging.impl {
                         }
                         continue;
                     case StatData.TEX1_STAT:
-                        param1.setTex1(_local_8);
+                        _local_8 >= 0 && param1.setTex1(_local_8);
                         continue;
                     case StatData.TEX2_STAT:
-                        param1.setTex2(_local_8);
+                        _local_8 >= 0 && param1.setTex2(_local_8);
                         continue;
                     case StatData.MERCHANDISE_TYPE_STAT:
                         _local_5.setMerchandiseType(_local_8);
@@ -1627,7 +1641,7 @@ package kabam.rotmg.messaging.impl {
                         _local_4.magicPotionCount_ = _local_8;
                         continue;
                     case StatData.TEXTURE_STAT:
-                        _local_4.skinId != _local_8 && this.setPlayerSkinTemplate(_local_4,_local_8);
+                        _local_4.skinId != _local_8 && _local_8 >= 0 && this.setPlayerSkinTemplate(_local_4,_local_8);
                         continue;
                     case StatData.HASBACKPACK_STAT:
                         (param1 as Player).hasBackpack_ = Boolean(_local_8);
@@ -1977,6 +1991,16 @@ package kabam.rotmg.messaging.impl {
             _local_4.slotObject.slotId_ = param2;
             _local_4.slotObject.objectType_ = param3;
             serverConnection.sendMessage(_local_4);
+        }
+        
+        override public function keyInfoRequest(param1:int) : void {
+            var _local_2:KeyInfoRequest = this.messages.require(KEY_INFO_REQUEST) as KeyInfoRequest;
+            _local_2.itemType_ = param1;
+            serverConnection.sendMessage(_local_2);
+        }
+        
+        private function onKeyInfoResponse(param1:KeyInfoResponse) : void {
+            this.keyInfoResponse.dispatch(param1);
         }
         
         private function onClosed() : void {

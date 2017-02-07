@@ -55,7 +55,7 @@ package kabam.rotmg.account.steam.services {
         private function onRegisterDone(param1:String) : void {
             var _local_2:XML = new XML(param1);
             this.logger.debug("done - {0}",[_local_2.GUID]);
-            this.account.updateUser(_local_2.GUID,_local_2.Secret);
+            this.account.updateUser(_local_2.GUID,_local_2.Secret,"");
             this.account.setPlatformToken(_local_2.PlatformToken);
             completeTask(true);
         }

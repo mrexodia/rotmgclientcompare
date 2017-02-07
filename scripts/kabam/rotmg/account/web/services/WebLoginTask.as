@@ -37,7 +37,7 @@ package kabam.rotmg.account.web.services {
         }
         
         private function updateUser(param1:String) : void {
-            this.account.updateUser(this.data.username,this.data.password);
+            this.account.updateUser(this.data.username,this.data.password,"");
         }
     }
 }

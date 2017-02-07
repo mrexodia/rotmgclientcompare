@@ -92,6 +92,10 @@ package com.company.assembleegameclient.screens.charrects {
                     "nextStarFame":this.getNextStarFame()
                 }));
                 taglineText.x = taglineText.x + taglineIcon.width;
+            } else {
+                super.makeTaglineIcon();
+                super.makeTaglineText(new LineBuilder().setParams(TextKey.CURRENT_CHARACTER_TAGLINE_NOQUEST,{"fame":this.char.fame()}));
+                taglineText.x = taglineText.x + taglineIcon.width;
             }
         }
         
