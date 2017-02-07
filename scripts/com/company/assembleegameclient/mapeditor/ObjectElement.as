@@ -13,7 +13,6 @@ package com.company.assembleegameclient.mapeditor {
         
         function ObjectElement(param1:XML) {
             var _local_3:Animations = null;
-            var _local_5:Bitmap = null;
             var _local_7:BitmapData = null;
             super(int(param1.@type));
             this.objXML_ = param1;
@@ -26,7 +25,7 @@ package com.company.assembleegameclient.mapeditor {
                     _local_2 = _local_7;
                 }
             }
-            _local_5 = new Bitmap(_local_2);
+            var _local_5:Bitmap = new Bitmap(_local_2);
             var _local_6:Number = (WIDTH - 4) / Math.max(_local_5.width,_local_5.height);
             _local_5.scaleX = _local_5.scaleY = _local_6;
             _local_5.x = WIDTH / 2 - _local_5.width / 2;

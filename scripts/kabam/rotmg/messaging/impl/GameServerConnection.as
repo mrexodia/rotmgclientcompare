@@ -12,189 +12,189 @@ package kabam.rotmg.messaging.impl {
         
         public static const FAILURE:int = 0;
         
-        public static const CREATE_SUCCESS:int = 25;
+        public static const CREATE_SUCCESS:int = 47;
         
-        public static const CREATE:int = 55;
+        public static const CREATE:int = 30;
         
-        public static const PLAYERSHOOT:int = 4;
+        public static const PLAYERSHOOT:int = 88;
         
-        public static const MOVE:int = 52;
+        public static const MOVE:int = 48;
         
-        public static const PLAYERTEXT:int = 88;
+        public static const PLAYERTEXT:int = 64;
         
-        public static const TEXT:int = 94;
+        public static const TEXT:int = 27;
         
-        public static const SERVERPLAYERSHOOT:int = 97;
+        public static const SERVERPLAYERSHOOT:int = 68;
         
-        public static const DAMAGE:int = 17;
+        public static const DAMAGE:int = 9;
         
-        public static const UPDATE:int = 60;
+        public static const UPDATE:int = 1;
         
-        public static const UPDATEACK:int = 19;
+        public static const UPDATEACK:int = 60;
         
-        public static const NOTIFICATION:int = 14;
+        public static const NOTIFICATION:int = 16;
         
-        public static const NEWTICK:int = 47;
+        public static const NEWTICK:int = 23;
         
-        public static const INVSWAP:int = 49;
+        public static const INVSWAP:int = 78;
         
-        public static const USEITEM:int = 48;
+        public static const USEITEM:int = 100;
         
-        public static const SHOWEFFECT:int = 23;
+        public static const SHOWEFFECT:int = 80;
         
-        public static const HELLO:int = 9;
+        public static const HELLO:int = 36;
         
-        public static const GOTO:int = 51;
+        public static const GOTO:int = 33;
         
-        public static const INVDROP:int = 67;
+        public static const INVDROP:int = 12;
         
-        public static const INVRESULT:int = 38;
+        public static const INVRESULT:int = 18;
         
-        public static const RECONNECT:int = 83;
+        public static const RECONNECT:int = 39;
         
-        public static const PING:int = 50;
+        public static const PING:int = 79;
         
-        public static const PONG:int = 61;
+        public static const PONG:int = 34;
         
-        public static const MAPINFO:int = 30;
+        public static const MAPINFO:int = 11;
         
-        public static const LOAD:int = 22;
+        public static const LOAD:int = 49;
         
-        public static const PIC:int = 69;
+        public static const PIC:int = 57;
         
-        public static const SETCONDITION:int = 11;
+        public static const SETCONDITION:int = 93;
         
-        public static const TELEPORT:int = 81;
+        public static const TELEPORT:int = 58;
         
-        public static const USEPORTAL:int = 28;
+        public static const USEPORTAL:int = 86;
         
-        public static const DEATH:int = 42;
+        public static const DEATH:int = 26;
         
-        public static const BUY:int = 31;
+        public static const BUY:int = 90;
         
-        public static const BUYRESULT:int = 18;
+        public static const BUYRESULT:int = 10;
         
-        public static const AOE:int = 46;
+        public static const AOE:int = 94;
         
-        public static const GROUNDDAMAGE:int = 96;
+        public static const GROUNDDAMAGE:int = 46;
         
-        public static const PLAYERHIT:int = 41;
+        public static const PLAYERHIT:int = 28;
         
-        public static const ENEMYHIT:int = 68;
+        public static const ENEMYHIT:int = 21;
         
-        public static const AOEACK:int = 62;
+        public static const AOEACK:int = 92;
         
-        public static const SHOOTACK:int = 99;
+        public static const SHOOTACK:int = 40;
         
-        public static const OTHERHIT:int = 74;
+        public static const OTHERHIT:int = 50;
         
-        public static const SQUAREHIT:int = 40;
+        public static const SQUAREHIT:int = 24;
         
-        public static const GOTOACK:int = 33;
+        public static const GOTOACK:int = 4;
         
-        public static const EDITACCOUNTLIST:int = 16;
+        public static const EDITACCOUNTLIST:int = 95;
         
-        public static const ACCOUNTLIST:int = 3;
+        public static const ACCOUNTLIST:int = 99;
         
-        public static const QUESTOBJID:int = 78;
+        public static const QUESTOBJID:int = 77;
         
-        public static const CHOOSENAME:int = 58;
+        public static const CHOOSENAME:int = 8;
         
-        public static const NAMERESULT:int = 89;
+        public static const NAMERESULT:int = 22;
         
-        public static const CREATEGUILD:int = 75;
+        public static const CREATEGUILD:int = 84;
         
-        public static const GUILDRESULT:int = 44;
+        public static const GUILDRESULT:int = 66;
         
-        public static const GUILDREMOVE:int = 63;
+        public static const GUILDREMOVE:int = 7;
         
-        public static const GUILDINVITE:int = 82;
+        public static const GUILDINVITE:int = 61;
         
-        public static const ALLYSHOOT:int = 59;
+        public static const ALLYSHOOT:int = 31;
         
-        public static const ENEMYSHOOT:int = 13;
+        public static const ENEMYSHOOT:int = 81;
         
-        public static const REQUESTTRADE:int = 90;
+        public static const REQUESTTRADE:int = 82;
         
-        public static const TRADEREQUESTED:int = 21;
+        public static const TRADEREQUESTED:int = 42;
         
-        public static const TRADESTART:int = 101;
+        public static const TRADESTART:int = 45;
         
-        public static const CHANGETRADE:int = 8;
+        public static const CHANGETRADE:int = 17;
         
-        public static const TRADECHANGED:int = 37;
+        public static const TRADECHANGED:int = 87;
         
-        public static const ACCEPTTRADE:int = 100;
+        public static const ACCEPTTRADE:int = 3;
         
-        public static const CANCELTRADE:int = 57;
+        public static const CANCELTRADE:int = 76;
         
-        public static const TRADEDONE:int = 7;
+        public static const TRADEDONE:int = 55;
         
-        public static const TRADEACCEPTED:int = 98;
+        public static const TRADEACCEPTED:int = 15;
         
-        public static const CLIENTSTAT:int = 95;
+        public static const CLIENTSTAT:int = 85;
         
-        public static const CHECKCREDITS:int = 20;
+        public static const CHECKCREDITS:int = 52;
         
-        public static const ESCAPE:int = 77;
+        public static const ESCAPE:int = 98;
         
-        public static const FILE:int = 45;
+        public static const FILE:int = 5;
         
-        public static const INVITEDTOGUILD:int = 6;
+        public static const INVITEDTOGUILD:int = 69;
         
-        public static const JOINGUILD:int = 12;
+        public static const JOINGUILD:int = 25;
         
-        public static const CHANGEGUILDRANK:int = 92;
+        public static const CHANGEGUILDRANK:int = 62;
         
-        public static const PLAYSOUND:int = 34;
+        public static const PLAYSOUND:int = 65;
         
-        public static const GLOBAL_NOTIFICATION:int = 15;
+        public static const GLOBAL_NOTIFICATION:int = 41;
         
-        public static const RESKIN:int = 65;
+        public static const RESKIN:int = 74;
         
-        public static const PETUPGRADEREQUEST:int = 10;
+        public static const PETUPGRADEREQUEST:int = 19;
         
-        public static const ACTIVE_PET_UPDATE_REQUEST:int = 27;
+        public static const ACTIVE_PET_UPDATE_REQUEST:int = 75;
         
-        public static const ACTIVEPETUPDATE:int = 39;
+        public static const ACTIVEPETUPDATE:int = 63;
         
-        public static const NEW_ABILITY:int = 91;
+        public static const NEW_ABILITY:int = 38;
         
-        public static const PETYARDUPDATE:int = 84;
+        public static const PETYARDUPDATE:int = 51;
         
-        public static const EVOLVE_PET:int = 86;
+        public static const EVOLVE_PET:int = 67;
         
-        public static const DELETE_PET:int = 66;
+        public static const DELETE_PET:int = 20;
         
-        public static const HATCH_PET:int = 36;
+        public static const HATCH_PET:int = 96;
         
-        public static const ENTER_ARENA:int = 79;
+        public static const ENTER_ARENA:int = 56;
         
-        public static const IMMINENT_ARENA_WAVE:int = 5;
+        public static const IMMINENT_ARENA_WAVE:int = 35;
         
-        public static const ARENA_DEATH:int = 76;
+        public static const ARENA_DEATH:int = 89;
         
-        public static const ACCEPT_ARENA_DEATH:int = 93;
+        public static const ACCEPT_ARENA_DEATH:int = 83;
         
-        public static const VERIFY_EMAIL:int = 56;
+        public static const VERIFY_EMAIL:int = 14;
         
-        public static const RESKIN_UNLOCK:int = 1;
+        public static const RESKIN_UNLOCK:int = 37;
         
-        public static const PASSWORD_PROMPT:int = 85;
+        public static const PASSWORD_PROMPT:int = 6;
         
-        public static const QUEST_FETCH_ASK:int = 64;
+        public static const QUEST_FETCH_ASK:int = 13;
         
-        public static const QUEST_REDEEM:int = 80;
+        public static const QUEST_REDEEM:int = 101;
         
-        public static const QUEST_FETCH_RESPONSE:int = 53;
+        public static const QUEST_FETCH_RESPONSE:int = 91;
         
-        public static const QUEST_REDEEM_RESPONSE:int = 87;
+        public static const QUEST_REDEEM_RESPONSE:int = 44;
         
-        public static const PET_CHANGE_FORM_MSG:int = 26;
+        public static const PET_CHANGE_FORM_MSG:int = 53;
         
-        public static const KEY_INFO_REQUEST:int = 35;
+        public static const KEY_INFO_REQUEST:int = 59;
         
-        public static const KEY_INFO_RESPONSE:int = 24;
+        public static const KEY_INFO_RESPONSE:int = 97;
         
         public static var instance:GameServerConnection;
          

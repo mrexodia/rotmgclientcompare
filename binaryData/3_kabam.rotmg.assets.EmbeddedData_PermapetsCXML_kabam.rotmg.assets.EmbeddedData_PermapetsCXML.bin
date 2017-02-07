@@ -1572,4 +1572,31 @@
       <BagType>3</BagType>
       <DisplayId>{permapets.Sprite_Star_Egg}</DisplayId>
    </Object>
+   <Object type="0x16f4" id="Valentine Heart Generator">
+      <DisplayId>{permapets.Valentine_Heart_Generator}</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>lofiChar28x8</File>
+         <Index>0x1a</Index>
+      </Texture>
+      <SlotType>10</SlotType>
+      <Description>{permapets.Send_a_heart_to_your__(Requires_a_buddyBANG)}</Description>
+      <BagType>2</BagType>
+      <InvUse/>
+      <Activate objectId="Valentine Heart" cooldown="1" hideEffect="true">PermaPet</Activate>
+      <Soulbound/>
+      <feedPower>500</feedPower>
+   </Object>
+   <Object type="0x16f5" id="Valentine Heart">
+      <Class>Character</Class>
+      <Texture>
+         <File>invisible</File>
+         <Index>0</Index>
+      </Texture>
+      <NoMiniMap/>
+      <ShadowSize>0</ShadowSize>
+      <Size>0</Size>
+      <DisplayId>{permapets.Valentine_Heart}</DisplayId>
+   </Object>
 </Objects>

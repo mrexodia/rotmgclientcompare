@@ -4,12 +4,9 @@ package kabam.rotmg.ui.view {
     import com.company.assembleegameclient.ui.SoundIcon;
     import flash.display.Sprite;
     import flash.events.MouseEvent;
-    import flash.external.ExternalInterface;
     import flash.filters.DropShadowFilter;
     import flash.text.TextFieldAutoSize;
     import kabam.rotmg.account.transfer.view.KabamLoginView;
-    import kabam.rotmg.application.model.PlatformModel;
-    import kabam.rotmg.application.model.PlatformType;
     import kabam.rotmg.core.StaticInjectorContext;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.text.model.TextKey;
@@ -71,7 +68,6 @@ package kabam.rotmg.ui.view {
         private var migrateButton:TitleMenuOption;
         
         public function TitleView() {
-            var _local_2:String = null;
             this.menuOptionsBar = this.makeMenuOptionsBar();
             this.optionalButtonsAdded = new Signal();
             super();
@@ -82,24 +78,6 @@ package kabam.rotmg.ui.view {
             addChild(new AccountScreen());
             this.makeChildren();
             addChild(new SoundIcon());
-            var _local_1:PlatformModel = StaticInjectorContext.getInjector().getInstance(PlatformModel);
-            if(_local_1.getPlatform() == PlatformType.WEB) {
-                this.makeMigrateButton();
-                addChild(this.migrateButton);
-                _local_2 = "";
-                try {
-                    _local_2 = ExternalInterface.call("window.location.search.substring",1);
-                }
-                catch(err:Error) {
-                }
-                if(!kabammigrateOpened && _local_2 && _local_2 == "kabammigrate") {
-                    kabammigrateOpened = true;
-                    this.openKabamTransferView();
-                }
-            } else if(_local_1.getPlatform() == PlatformType.KABAM) {
-                this.makeMigrateButton();
-                addChild(this.migrateButton);
-            }
         }
         
         public function openKabamTransferView() : void {
@@ -140,8 +118,7 @@ package kabam.rotmg.ui.view {
         }
         
         public function makeText() : TextFieldDisplayConcrete {
-            var _local_1:TextFieldDisplayConcrete = null;
-            _local_1 = new TextFieldDisplayConcrete().setSize(12).setColor(8355711);
+            var _local_1:TextFieldDisplayConcrete = new TextFieldDisplayConcrete().setSize(12).setColor(8355711);
             _local_1.filters = [new DropShadowFilter(0,0,0)];
             return _local_1;
         }

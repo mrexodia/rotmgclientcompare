@@ -203,5 +203,9 @@ package com.company.assembleegameclient.util {
             _local_5[ATTACK] = _local_14;
             return _local_5;
         }
+        
+        public function getHeight() : int {
+            return this.height_;
+        }
     }
 }

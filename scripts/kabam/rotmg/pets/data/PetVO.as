@@ -172,7 +172,7 @@ package kabam.rotmg.pets.data {
         public function getSkin() : Bitmap {
             this.makeSkin();
             var _local_1:MaskedImage = this.skin.imageFromAngle(0,AnimatedChar.STAND,0);
-            var _local_2:int = this.rarity == PetRarityEnum.DIVINE.value?40:80;
+            var _local_2:int = this.skin.getHeight() == 16?40:80;
             var _local_3:BitmapData = TextureRedrawer.resize(_local_1.image_,_local_1.mask_,_local_2,true,0,0);
             _local_3 = GlowRedrawer.outlineGlow(_local_3,0);
             return new Bitmap(_local_3);

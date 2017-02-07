@@ -21,6 +21,8 @@ package com.company.assembleegameclient.objects.particles {
                     return new HealingEffect(param2);
                 case "Fountain":
                     return new FountainEffect(param2,param1);
+                case "FountainSnowy":
+                    return new FountainSnowyEffect(param2,param1);
                 case "Gas":
                     return new GasEffect(param2,param1);
                 case "Vent":
