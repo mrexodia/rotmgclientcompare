@@ -106,8 +106,12 @@ package com.company.assembleegameclient.ui.panels.mediators {
             }
             if(_local_3 is InteractiveItemTile) {
                 _local_4 = _local_3 as InteractiveItemTile;
-                if(this.canSwapItems(_local_2,_local_4)) {
-                    this.swapItemTiles(_local_2,_local_4);
+                if(this.view.curPlayer.lockedSlot[_local_4.tileId] == 0) {
+                    if(this.canSwapItems(_local_2,_local_4)) {
+                        this.swapItemTiles(_local_2,_local_4);
+                    }
+                } else {
+                    this.addTextLine.dispatch(ChatMessage.make(Parameters.ERROR_CHAT_NAME,"You cannot put items into this slot right now."));
                 }
             } else if(_local_3 is TabStripView) {
                 _local_5 = _local_3 as TabStripView;

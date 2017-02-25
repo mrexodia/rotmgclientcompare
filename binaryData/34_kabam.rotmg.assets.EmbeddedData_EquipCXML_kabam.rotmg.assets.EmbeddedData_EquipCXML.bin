@@ -1981,14 +1981,14 @@
       </Texture>
       <SlotType>8</SlotType>
       <Description>{equip.A_sound_almost_like_a_wind_chime_emanates_softly_from_this_}</Description>
-      <RateOfFire>1</RateOfFire>
+      <RateOfFire>1.1</RateOfFire>
       <Sound>weapon/wand_of_death</Sound>
       <Projectile>
          <ObjectId>Aqua Missile</ObjectId>
          <Speed>120</Speed>
          <LifetimeMS>750</LifetimeMS>
          <MinDamage>75</MinDamage>
-         <MaxDamage>95</MaxDamage>
+         <MaxDamage>100</MaxDamage>
          <ArmorPiercing/>
       </Projectile>
       <BagType>6</BagType>
@@ -3258,8 +3258,8 @@
       <Projectile>
          <ObjectId>Green Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>10</MinDamage>
-         <MaxDamage>40</MaxDamage>
+         <MinDamage>15</MinDamage>
+         <MaxDamage>45</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3283,8 +3283,8 @@
       <Projectile>
          <ObjectId>Green Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>15</MinDamage>
-         <MaxDamage>45</MaxDamage>
+         <MinDamage>20</MinDamage>
+         <MaxDamage>50</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3308,8 +3308,8 @@
       <Projectile>
          <ObjectId>Crossbow Bolt</ObjectId>
          <Speed>200</Speed>
-         <MinDamage>20</MinDamage>
-         <MaxDamage>50</MaxDamage>
+         <MinDamage>25</MinDamage>
+         <MaxDamage>60</MaxDamage>
          <LifetimeMS>375</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3333,8 +3333,8 @@
       <Projectile>
          <ObjectId>Green Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>25</MinDamage>
-         <MaxDamage>55</MaxDamage>
+         <MinDamage>30</MinDamage>
+         <MaxDamage>65</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3358,8 +3358,8 @@
       <Projectile>
          <ObjectId>Green Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>35</MinDamage>
-         <MaxDamage>65</MaxDamage>
+         <MinDamage>40</MinDamage>
+         <MaxDamage>70</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3383,8 +3383,8 @@
       <Projectile>
          <ObjectId>Red Fire</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>45</MinDamage>
-         <MaxDamage>65</MaxDamage>
+         <MinDamage>50</MinDamage>
+         <MaxDamage>75</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3409,7 +3409,7 @@
          <ObjectId>Blue Arrow</ObjectId>
          <Speed>160</Speed>
          <MinDamage>30</MinDamage>
-         <MaxDamage>50</MaxDamage>
+         <MaxDamage>55</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3434,8 +3434,8 @@
       <Projectile>
          <ObjectId>Heavy Crossbow Bolt</ObjectId>
          <Speed>150</Speed>
-         <MinDamage>50</MinDamage>
-         <MaxDamage>70</MaxDamage>
+         <MinDamage>55</MinDamage>
+         <MaxDamage>80</MaxDamage>
          <LifetimeMS>500</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -3460,13 +3460,14 @@
          <ObjectId>Gold Arrow</ObjectId>
          <Speed>160</Speed>
          <MinDamage>40</MinDamage>
-         <MaxDamage>60</MaxDamage>
+         <MaxDamage>61</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
       <BagType>2</BagType>
       <FameBonus>1</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>100</feedPower>
       <DisplayId>{equip.Golden_Bow}</DisplayId>
@@ -3487,13 +3488,14 @@
          <ObjectId>Green Arrow</ObjectId>
          <Speed>160</Speed>
          <MinDamage>40</MinDamage>
-         <MaxDamage>65</MaxDamage>
+         <MaxDamage>67</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
       <BagType>2</BagType>
       <FameBonus>1</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>145</feedPower>
       <DisplayId>{equip.Verdant_Bow}</DisplayId>
@@ -3513,7 +3515,7 @@
       <Projectile>
          <ObjectId>Blue Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>45</MinDamage>
+         <MinDamage>48</MinDamage>
          <MaxDamage>65</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
@@ -3521,6 +3523,7 @@
       <BagType>4</BagType>
       <FameBonus>2</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>212</feedPower>
       <DisplayId>{equip.Bow_of_Fey_Magic}</DisplayId>
@@ -3540,7 +3543,7 @@
       <Projectile>
          <ObjectId>Red Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>45</MinDamage>
+         <MinDamage>49</MinDamage>
          <MaxDamage>70</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
@@ -3548,6 +3551,7 @@
       <BagType>4</BagType>
       <FameBonus>3</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>310</feedPower>
       <DisplayId>{equip.Bow_of_Innocent_Blood}</DisplayId>
@@ -3568,13 +3572,14 @@
          <ObjectId>Blue Arrow</ObjectId>
          <Speed>160</Speed>
          <MinDamage>50</MinDamage>
-         <MaxDamage>70</MaxDamage>
+         <MaxDamage>75</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
       <BagType>4</BagType>
       <FameBonus>4</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>450</feedPower>
       <DisplayId>{equip.Bow_of_Covert_Havens}</DisplayId>
@@ -3593,7 +3598,7 @@
       <Projectile>
          <ObjectId>Gold Arrow</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>50</MinDamage>
+         <MinDamage>55</MinDamage>
          <MaxDamage>75</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
@@ -3601,6 +3606,7 @@
       <BagType>4</BagType>
       <FameBonus>4</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>0</feedPower>
       <Soulbound/>
@@ -3621,13 +3627,14 @@
          <ObjectId>Black Arrow</ObjectId>
          <Speed>160</Speed>
          <MinDamage>55</MinDamage>
-         <MaxDamage>75</MaxDamage>
+         <MaxDamage>80</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
       <BagType>4</BagType>
       <FameBonus>5</FameBonus>
       <NumProjectiles>3</NumProjectiles>
+      <ArcGap>8</ArcGap>
       <OldSound>arrowShoot</OldSound>
       <feedPower>0</feedPower>
       <Soulbound/>
@@ -10270,10 +10277,10 @@
       <Sound>weapon/blunt_sword</Sound>
       <Projectile>
          <ObjectId>Katana Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>20</MinDamage>
-         <MaxDamage>60</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>25</MinDamage>
+         <MaxDamage>70</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10295,10 +10302,10 @@
       <Sound>weapon/blunt_sword</Sound>
       <Projectile>
          <ObjectId>Kendo Slash</ObjectId>
-         <Speed>120</Speed>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
          <MinDamage>30</MinDamage>
-         <MaxDamage>60</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <MaxDamage>75</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10320,10 +10327,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Katana Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>30</MinDamage>
-         <MaxDamage>70</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>35</MinDamage>
+         <MaxDamage>80</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10345,10 +10352,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Katana Slash</ObjectId>
-         <Speed>120</Speed>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
          <MinDamage>45</MinDamage>
-         <MaxDamage>65</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <MaxDamage>85</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10370,10 +10377,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Line Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>53</MinDamage>
-         <MaxDamage>73</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>55</MinDamage>
+         <MaxDamage>90</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10395,10 +10402,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Night Slash</ObjectId>
-         <Speed>120</Speed>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
          <MinDamage>55</MinDamage>
-         <MaxDamage>85</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <MaxDamage>105</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10420,10 +10427,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Sky Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>70</MinDamage>
-         <MaxDamage>100</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>75</MinDamage>
+         <MaxDamage>110</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>1</BagType>
@@ -10445,10 +10452,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Buster Slash</ObjectId>
-         <Speed>120</Speed>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
          <MinDamage>90</MinDamage>
-         <MaxDamage>110</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <MaxDamage>120</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>2</BagType>
@@ -10470,10 +10477,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Demon Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>100</MinDamage>
-         <MaxDamage>134</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>90</MinDamage>
+         <MaxDamage>150</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>2</BagType>
@@ -10496,10 +10503,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Jewel Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>115</MinDamage>
-         <MaxDamage>135</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>100</MinDamage>
+         <MaxDamage>160</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>2</BagType>
@@ -10522,10 +10529,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Ichimonji Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>112</MinDamage>
-         <MaxDamage>152</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>110</MinDamage>
+         <MaxDamage>165</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>4</BagType>
@@ -10548,10 +10555,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Muramasa Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>110</MinDamage>
-         <MaxDamage>170</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>120</MinDamage>
+         <MaxDamage>175</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>4</BagType>
@@ -10574,10 +10581,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Masamune Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>140</MinDamage>
-         <MaxDamage>160</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>135</MinDamage>
+         <MaxDamage>180</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>4</BagType>
@@ -10624,8 +10631,8 @@
       <Projectile>
          <ObjectId>Beam Slash</ObjectId>
          <Speed>180</Speed>
-         <MinDamage>60</MinDamage>
-         <MaxDamage>95</MaxDamage>
+         <MinDamage>111</MinDamage>
+         <MaxDamage>111</MaxDamage>
          <LifetimeMS>340</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -10875,6 +10882,8 @@
          <Size>120</Size>
          <PassesCover/>
       </Projectile>
+      <ActivateOnEquip stat="26" amount="2">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="27" amount="2">IncrementStat</ActivateOnEquip>
       <Usable/>
       <BagType>4</BagType>
       <FameBonus>4</FameBonus>
@@ -11842,7 +11851,10 @@
       <SlotType>6</SlotType>
       <Description>{equip.Light_armor_crafted_from_the_hard-as-steel_leafy_scales_of_}</Description>
       <ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
-      <ActivateOnEquip stat="21" amount="9">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="21" amount="13">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="22" amount="6">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="26" amount="3">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="27" amount="3">IncrementStat</ActivateOnEquip>
       <BagType>6</BagType>
       <FameBonus>5</FameBonus>
       <feedPower>450</feedPower>
@@ -11858,9 +11870,10 @@
       </Texture>
       <SlotType>14</SlotType>
       <Description>{equip.A_magic_robe_woven_from_enchanted_threads_of_water_harveste}</Description>
-      <ActivateOnEquip stat="20" amount="3">IncrementStat</ActivateOnEquip>
-      <ActivateOnEquip stat="21" amount="10">IncrementStat</ActivateOnEquip>
-      <ActivateOnEquip stat="22" amount="5">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="20" amount="6">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="21" amount="12">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="22" amount="6">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="27" amount="3">IncrementStat</ActivateOnEquip>
       <BagType>6</BagType>
       <FameBonus>5</FameBonus>
       <feedPower>450</feedPower>
@@ -11876,8 +11889,8 @@
       </Texture>
       <SlotType>7</SlotType>
       <Description>{equip.Battle_armor_made_from_Fire_Dragon_scales,_one_of_the_stron}</Description>
-      <ActivateOnEquip stat="20" amount="3">IncrementStat</ActivateOnEquip>
-      <ActivateOnEquip stat="21" amount="15">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="20" amount="4">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="21" amount="17">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="22" amount="3">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="26" amount="3">IncrementStat</ActivateOnEquip>
       <BagType>6</BagType>
@@ -11887,6 +11900,7 @@
       <DisplayId>{equip.Fire_Dragon_Battle_Armor}</DisplayId>
    </Object>
    <Object type="0x7565" id="Annoying Firecracker Katana">
+      <DisplayId>{equip.Annoying_Firecracker_Katana}</DisplayId>
       <Class>Equipment</Class>
       <Item/>
       <Texture>
@@ -11894,15 +11908,15 @@
          <Index>0x229</Index>
       </Texture>
       <SlotType>24</SlotType>
-      <Description>{equip.An_ancient_weapon_imbued_with_the_power_of_the_cosmos.}</Description>
+      <Description>{equip.A_weapon_imbued_with_the_power_of_ancient_dragons,_but_depr}</Description>
       <RateOfFire>1</RateOfFire>
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Celestial Slash</ObjectId>
-         <Speed>145</Speed>
-         <MinDamage>50</MinDamage>
-         <MaxDamage>70</MaxDamage>
-         <LifetimeMS>221</LifetimeMS>
+         <Speed>150</Speed>
+         <MinDamage>40</MinDamage>
+         <MaxDamage>120</MaxDamage>
+         <LifetimeMS>250</LifetimeMS>
          <Amplitude>.5</Amplitude>
          <Frequency>0.5</Frequency>
       </Projectile>
@@ -11910,10 +11924,9 @@
       <BagType>6</BagType>
       <FameBonus>4</FameBonus>
       <feedPower>450</feedPower>
-      <ArcGap>30</ArcGap>
+      <ArcGap>20</ArcGap>
       <OldSound>bladeSwing</OldSound>
       <Soulbound/>
-      <DisplayId>{equip.Annoying_Firecracker_Katana}</DisplayId>
    </Object>
    <Object type="0xcc9" id="Soft Drink">
       <Class>Equipment</Class>
@@ -12232,12 +12245,12 @@
       </Texture>
       <SlotType>24</SlotType>
       <Description>{equip.Stuck_in_the_maw_of_the_Son_of_Arachna,_this_Katana_is_coat}</Description>
-      <RateOfFire>1.25</RateOfFire>
+      <RateOfFire>1.20</RateOfFire>
       <Sound>weapon/long_sword</Sound>
       <Projectile id="0">
          <ObjectId>Poison Katana Slash</ObjectId>
          <Speed>130</Speed>
-         <MinDamage>130</MinDamage>
+         <MinDamage>120</MinDamage>
          <MaxDamage>150</MaxDamage>
          <LifetimeMS>400</LifetimeMS>
          <Amplitude>0.5</Amplitude>
@@ -12261,17 +12274,18 @@
       </Texture>
       <SlotType>3</SlotType>
       <Description>{equip.Why_donAPOSt_you_try_throwing_a_leaf?}</Description>
-      <RateOfFire>1.5</RateOfFire>
+      <RateOfFire>1.6</RateOfFire>
       <Sound>weapon/golden_bow</Sound>
       <Projectile>
          <ObjectId>Leaf Arrow</ObjectId>
          <Speed>70</Speed>
          <MinDamage>95</MinDamage>
-         <MaxDamage>125</MaxDamage>
+         <MaxDamage>130</MaxDamage>
          <LifetimeMS>900</LifetimeMS>
          <Size>50</Size>
          <Wavy/>
       </Projectile>
+      <ActivateOnEquip stat="22" amount="2">IncrementStat</ActivateOnEquip>
       <BagType>6</BagType>
       <FameBonus>4</FameBonus>
       <NumProjectiles>1</NumProjectiles>
@@ -12756,7 +12770,7 @@
       <Description>{equip.DonAPOSt_make_me_hit_you_with_this_rulerBANG}</Description>
       <Activate skinType="884">UnlockSkin</Activate>
       <Consumable/>
-      <BagType>1</BagType>
+      <BagType>4</BagType>
       <DisplayId>{equip.Nun_Skin}</DisplayId>
    </Object>
    <Object type="0x229b" id="Witch Doctor Skin">
@@ -12784,7 +12798,7 @@
       <Description>{equip.Not_all_sorcerers_are_male.}</Description>
       <Activate skinType="899">UnlockSkin</Activate>
       <Consumable/>
-      <BagType>1</BagType>
+      <BagType>4</BagType>
       <DisplayId>{equip.Sorceress_Skin}</DisplayId>
    </Object>
    <Object type="0x229d" id="Artemis Skin">
@@ -12798,7 +12812,7 @@
       <Description>{equip.Found_during_Valentines_Day_2014._Made_by_SlugKing.}</Description>
       <Activate skinType="901">UnlockSkin</Activate>
       <Consumable/>
-      <BagType>1</BagType>
+      <BagType>4</BagType>
       <DisplayId>{equip.Artemis_Skin}</DisplayId>
    </Object>
    <Object type="0x228a" id="Diamond Bladed Katana">
@@ -12814,11 +12828,11 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Glittering Prizes</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>115</MinDamage>
-         <MaxDamage>135</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
          <Size>90</Size>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>100</MinDamage>
+         <MaxDamage>160</MaxDamage>
          <MultiHit/>
       </Projectile>
       <BagType>2</BagType>
@@ -12912,7 +12926,7 @@
          <Index>0x4A3</Index>
       </Texture>
       <SlotType>1</SlotType>
-      <Description>{equip.Strung_together_with_the_deadly_vines_of_Belladonna._Thanks}</Description>
+      <Description>{equip.Strung_together_with_the_deadly_vines_of_Belladonna.\n\nSpr}</Description>
       <RateOfFire>1</RateOfFire>
       <Sound>weapon/mithril_sword</Sound>
       <Projectile>
@@ -12943,7 +12957,7 @@
          <ObjectId>Cupid's Arrow</ObjectId>
          <Speed>160</Speed>
          <MinDamage>40</MinDamage>
-         <MaxDamage>65</MaxDamage>
+         <MaxDamage>67</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
       </Projectile>
@@ -13150,7 +13164,7 @@
          <Index>39</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Customize_your_Paladin_with_the_Holy_Avenger_Skin._Thanks_t}</Description>
+      <Description>{equip.Customize_your_Paladin_with_the_Holy_Avenger_Skin.\n\nSprit}</Description>
       <Activate skinType="885">UnlockSkin</Activate>
       <Consumable/>
       <BagType>0</BagType>
@@ -13273,7 +13287,7 @@
          <Index>58</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.HeAPOSs_big,_heAPOSs_bad,_and_heAPOSs_a_wolf._Thanks_to:_Ro}</Description>
+      <Description>{equip.HeAPOSs_big,_heAPOSs_bad,_and_heAPOSs_a_wolf.\n\nSprite_Cre}</Description>
       <Activate skinType="8967">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -13287,7 +13301,7 @@
          <Index>59</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.A_trend-setter_when_it_comes_to_hoods._Thanks_to:_RotMGBeig}</Description>
+      <Description>{equip.A_trend-setter_when_it_comes_to_hoods.\n\nSprite_Credits:_B}</Description>
       <Activate skinType="8968">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -13430,7 +13444,7 @@
          <Index>60</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Cursed_by_responsibility_and_awesome_knife_skills._Thanks_t}</Description>
+      <Description>{equip.Cursed_by_responsibility_and_awesome_knife_skills.\n\nSprit}</Description>
       <Activate skinType="8969">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -13444,7 +13458,7 @@
          <Index>42</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Customize_your_Archer_with_the_Ranger_Skin._Thanks_to:_Radi}</Description>
+      <Description>{equip.Customize_your_Archer_with_the_Ranger_Skin.\n\nSprite_Credi}</Description>
       <Activate skinType="888">UnlockSkin</Activate>
       <Consumable/>
       <BagType>0</BagType>
@@ -13458,7 +13472,7 @@
          <Index>55</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Knight_of_the_Platinum_Order._Thanks_to:_DELer}</Description>
+      <Description>{equip.Knight_of_the_Platinum_Order.\n\nSprite_Credits:_DELer}</Description>
       <Activate skinType="8964">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -13472,7 +13486,7 @@
          <Index>56</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Warrior_of_the_Platinum_Order._Thanks_to:_DELer}</Description>
+      <Description>{equip.Warrior_of_the_Platinum_Order.\n\nSprite_Credits:_DELer}</Description>
       <Activate skinType="8965">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -13486,7 +13500,7 @@
          <Index>57</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Rogue_of_the_Platinum_Order._Thanks_to:_DELer}</Description>
+      <Description>{equip.Rogue_of_the_Platinum_Order.\n\nSprite_Credits:_DELer}</Description>
       <Activate skinType="8966">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -13514,7 +13528,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x03</Index>
       </Texture>
-      <Description>{equip.The_Devil_-_Card_XV_of_the_Major_Arcana._Thanks_to_Dappertr}</Description>
+      <Description>{equip.The_Devil_-_Card_XV_of_the_Major_Arcana.\n\nSprite_Credits:}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.1_of_8}"/>
       </ExtraTooltipData>
@@ -13532,7 +13546,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x04</Index>
       </Texture>
-      <Description>{equip.The_Sun_-_Card_XIX_of_the_Major_Arcana._Thanks_to_Dappertro}</Description>
+      <Description>{equip.The_Sun_-_Card_XIX_of_the_Major_Arcana.\n\nSprite_Credits:_}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.2_of_8}"/>
       </ExtraTooltipData>
@@ -13550,7 +13564,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x05</Index>
       </Texture>
-      <Description>{equip.Death_-_Card_XIII_of_the_Major_Arcana._Thanks_to_Dappertron}</Description>
+      <Description>{equip.Death_-_Card_XIII_of_the_Major_Arcana.\n\nSprite_Credits:_D}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.3_of_8}"/>
       </ExtraTooltipData>
@@ -13568,7 +13582,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x06</Index>
       </Texture>
-      <Description>{equip.The_Tower_-_Card_XVI_of_the_Major_Arcana._Thanks_to_Dappert}</Description>
+      <Description>{equip.The_Tower_-_Card_XVI_of_the_Major_Arcana.\n\nSprite_Credits}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.4_of_8}"/>
       </ExtraTooltipData>
@@ -13586,7 +13600,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x07</Index>
       </Texture>
-      <Description>{equip.The_Magician_-_Card_I_of_the_Major_Arcana._Thanks_to_Dapper}</Description>
+      <Description>{equip.The_Magician_-_Card_I_of_the_Major_Arcana.\n\nSprite_Credit}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.5_of_8}"/>
       </ExtraTooltipData>
@@ -13604,7 +13618,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x08</Index>
       </Texture>
-      <Description>{equip.The_World_-_Card_XXI_of_the_Major_Arcana._Thanks_to_Dappert}</Description>
+      <Description>{equip.The_World_-_Card_XXI_of_the_Major_Arcana.\n\nSprite_Credits}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.6_of_8}"/>
       </ExtraTooltipData>
@@ -13622,7 +13636,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x09</Index>
       </Texture>
-      <Description>{equip.The_Chariot_-_Card_VII_of_the_Major_Arcana._Thanks_to_Dappe}</Description>
+      <Description>{equip.The_Chariot_-_Card_VII_of_the_Major_Arcana.\n\nSprite_Credi}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.7_of_8}"/>
       </ExtraTooltipData>
@@ -13640,7 +13654,7 @@
          <File>d3LofiObjEmbed</File>
          <Index>0x0a</Index>
       </Texture>
-      <Description>{equip.The_Moon_-_Card_XVIII_of_the_Major_Arcana._Thanks_to_LabdaA}</Description>
+      <Description>{equip.The_Moon_-_Card_XVIII_of_the_Major_Arcana.\n\nSprite_Credit}</Description>
       <ExtraTooltipData>
          <EffectInfo name="{equip.Treasure}" description="{equip.8_of_8}"/>
       </ExtraTooltipData>
@@ -13903,7 +13917,7 @@
          <Index>73</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Hee_Hee,_Ha_Ha,_Ho_HoBANG_Want_to_hear_a_joke?_Thanks_to:_V}</Description>
+      <Description>{equip.Hee_Hee,_Ha_Ha,_Ho_HoBANG_Want_to_hear_a_joke?\n\nSprite_Cr}</Description>
       <Activate skinType="29771">UnlockSkin</Activate>
       <Consumable/>
       <BagType>6</BagType>
@@ -14063,7 +14077,7 @@
       <Projectile>
          <ObjectId>Purple Batshot</ObjectId>
          <Speed>160</Speed>
-         <MinDamage>45</MinDamage>
+         <MinDamage>49</MinDamage>
          <MaxDamage>70</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
@@ -14118,10 +14132,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Cleaved Eyeball</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>110</MinDamage>
-         <MaxDamage>170</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>120</MinDamage>
+         <MaxDamage>175</MaxDamage>
          <MultiHit/>
          <ParticleTrail intensity="0.3" lifetimeMS="200">0xbe0406</ParticleTrail>
       </Projectile>
@@ -14309,7 +14323,7 @@
          <Index>76</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Join_my_legions_of_infected,_hero._Thanks_to:_WunderWafe}</Description>
+      <Description>{equip.Join_my_legions_of_infected,_hero.\n\nSprite_Credits:_Wunde}</Description>
       <Activate skinType="29791">UnlockSkin</Activate>
       <Consumable/>
       <BagType>6</BagType>
@@ -14323,7 +14337,7 @@
          <Index>77</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_WunderWafe}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_WunderWa}</Description>
       <Activate skinType="29799">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14337,7 +14351,7 @@
          <Index>78</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_WunderWafe}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_WunderWa}</Description>
       <Activate skinType="29800">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14351,7 +14365,7 @@
          <Index>79</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Beige}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="29801">UnlockSkin</Activate>
       <Consumable/>
       <BagType>6</BagType>
@@ -14365,7 +14379,7 @@
          <Index>80</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Hawkmin}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Hawkmin}</Description>
       <Activate skinType="29816">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14379,7 +14393,7 @@
          <Index>81</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Beige}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="29817">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14393,7 +14407,7 @@
          <Index>82</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Beige}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="29818">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14407,7 +14421,7 @@
          <Index>83</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Beige}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="29808">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14421,7 +14435,7 @@
          <Index>84</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Thqdfthqdf}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Thqdfthq}</Description>
       <Activate skinType="29809">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14435,7 +14449,7 @@
          <Index>85</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_DG}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_DG}</Description>
       <Activate skinType="29810">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14449,7 +14463,7 @@
          <Index>86</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Thqdfthqdf}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Thqdfthq}</Description>
       <Activate skinType="29811">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14477,7 +14491,7 @@
          <Index>88</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Beige}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="29813">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14491,7 +14505,7 @@
          <Index>89</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Thqdfthqdf}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Thqdfthq}</Description>
       <Activate skinType="29814">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14505,7 +14519,7 @@
          <Index>90</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Unlocked_during_Halloween_2014._Thanks_to:_Beige}</Description>
+      <Description>{equip.Unlocked_during_Halloween_2014.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="29815">UnlockSkin</Activate>
       <Consumable/>
       <BagType>1</BagType>
@@ -14559,7 +14573,7 @@
          <Index>0x550</Index>
       </Texture>
       <SlotType>17</SlotType>
-      <Description>{equip.Perhaps_all_that_remains_of_Esben,_whoever_he_was._Thanks_t}</Description>
+      <Description>{equip.Perhaps_all_that_remains_of_Esben,_whoever_he_was.\n\nSprit}</Description>
       <RateOfFire>0.7</RateOfFire>
       <Sound>weapon/sprite_wand</Sound>
       <Projectile>
@@ -15153,7 +15167,7 @@
          <ObjectId>snow flakes</ObjectId>
          <Size>80</Size>
          <Speed>160</Speed>
-         <MinDamage>45</MinDamage>
+         <MinDamage>49</MinDamage>
          <MaxDamage>70</MaxDamage>
          <LifetimeMS>440</LifetimeMS>
          <MultiHit/>
@@ -15197,7 +15211,7 @@
          <Index>0x55a</Index>
       </Texture>
       <SlotType>8</SlotType>
-      <Description>{equip.How_else_would_the_minions_of_Oryx_get_their_gifts?_Thanks_}</Description>
+      <Description>{equip.How_else_would_the_minions_of_Oryx_get_their_gifts?\n\nSpri}</Description>
       <RateOfFire>1</RateOfFire>
       <Sound>weapon/wand_of_death</Sound>
       <Projectile>
@@ -15280,10 +15294,10 @@
       <Sound>weapon/long_sword</Sound>
       <Projectile>
          <ObjectId>Salju Slash</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>110</MinDamage>
-         <MaxDamage>170</MaxDamage>
-         <LifetimeMS>350</LifetimeMS>
+         <Speed>130</Speed>
+         <LifetimeMS>365</LifetimeMS>
+         <MinDamage>120</MinDamage>
+         <MaxDamage>175</MaxDamage>
          <MultiHit/>
          <ParticleTrail intensity="0.3" lifetimeMS="200">0x1ba38f</ParticleTrail>
       </Projectile>
@@ -15419,7 +15433,7 @@
          <Speed>0</Speed>
          <MinDamage>600</MinDamage>
          <MaxDamage>700</MaxDamage>
-         <LifetimeMS>4500</LifetimeMS>
+         <LifetimeMS>4200</LifetimeMS>
          <MultiHit/>
       </Projectile>
       <ActivateOnEquip stat="28" amount="-5">IncrementStat</ActivateOnEquip>
@@ -15762,14 +15776,14 @@
       </Texture>
       <SlotType>8</SlotType>
       <Description>{equip.From_the_realms_of_frost,_this_wandAPOSs_ice_magic_penetrat}</Description>
-      <RateOfFire>1</RateOfFire>
+      <RateOfFire>1.1</RateOfFire>
       <Sound>weapon/wand_of_death</Sound>
       <Projectile>
          <ObjectId>Frozen Wand Icicle</ObjectId>
          <Speed>120</Speed>
          <LifetimeMS>750</LifetimeMS>
          <MinDamage>75</MinDamage>
-         <MaxDamage>95</MaxDamage>
+         <MaxDamage>100</MaxDamage>
          <ArmorPiercing/>
       </Projectile>
       <BagType>6</BagType>
@@ -16020,7 +16034,7 @@
          <Index>0x19</Index>
       </Texture>
       <SlotType>1</SlotType>
-      <Description>{equip.A_lightweight_blade,_imbued_with_frosty_runes._Thanks_to:_P}</Description>
+      <Description>{equip.A_lightweight_blade,_imbued_with_frosty_runes.\n\nSprite_Cr}</Description>
       <RateOfFire>1</RateOfFire>
       <Sound>weapon/glass_sword</Sound>
       <Projectile>
@@ -16074,7 +16088,7 @@
          <Index>0x1b</Index>
       </Texture>
       <SlotType>8</SlotType>
-      <Description>{equip.A_cool_wand_that_creates_a_flurry_of_beautiful_snowflakes._}</Description>
+      <Description>{equip.A_cool_wand_that_creates_a_flurry_of_beautiful_snowflakes.\}</Description>
       <RateOfFire>0.33</RateOfFire>
       <Sound>weapon/wand_of_death</Sound>
       <Projectile>
@@ -16093,7 +16107,7 @@
       <Soulbound/>
       <DisplayId>{equip.Eternal_Snowflake_Wand}</DisplayId>
    </Object>
-   <Object type="0x16d9" id="Artic Bow">
+   <Object type="0x16d9" id="Arctic Bow">
       <Class>Equipment</Class>
       <Item/>
       <Texture>
@@ -16118,7 +16132,7 @@
       <OldSound>arrowShoot</OldSound>
       <feedPower>1200</feedPower>
       <Soulbound/>
-      <DisplayId>{equip.Artic_Bow}</DisplayId>
+      <DisplayId>{equip.Arctic_Bow}</DisplayId>
    </Object>
    <Object type="0x16da" id="Frost Drake Hide Armor">
       <Class>Equipment</Class>
@@ -16220,7 +16234,7 @@
          <Index>119</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Fashionable_AND_dangerous._Thanks_to:_Beige}</Description>
+      <Description>{equip.Fashionable_AND_dangerous.\n\nSprite_Credits:_Beige}</Description>
       <Activate skinType="5859">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
@@ -16236,7 +16250,7 @@
          <Index>120</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Looks_a_lot_less_cute_once_its_sword_is_in_your_eye._Thanks}</Description>
+      <Description>{equip.Looks_a_lot_less_cute_once_its_sword_is_in_your_eye.\n\nSpr}</Description>
       <Activate skinType="5860">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
@@ -16252,7 +16266,7 @@
          <Index>121</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Smaller_than_the_real_Frimar,_but_no_less_dangerous._Thanks}</Description>
+      <Description>{equip.Smaller_than_the_real_Frimar,_but_no_less_dangerous.\n\nSpr}</Description>
       <Activate skinType="5861">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
@@ -16284,7 +16298,7 @@
          <Index>123</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Some_say_the_world_will_end_in_fire,_some_say_in_ice._Thank}</Description>
+      <Description>{equip.Some_say_the_world_will_end_in_fire,_some_say_in_ice.\n\nSp}</Description>
       <Activate skinType="5863">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
@@ -16300,7 +16314,7 @@
          <Index>124</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Crown_not_included_to_preserve_sanity._Thanks_to:_Kingged}</Description>
+      <Description>{equip.Crown_not_included_to_preserve_sanity.\n\nSprite_Credits:_K}</Description>
       <Activate skinType="5864">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
@@ -16316,7 +16330,7 @@
          <Index>125</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.In_case_of_emergency_use_icicle_to_stab_enemy._Thanks_to:_P}</Description>
+      <Description>{equip.In_case_of_emergency_use_icicle_to_stab_enemy.\n\nSprite_Cr}</Description>
       <Activate skinType="5865">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
@@ -16332,12 +16346,557 @@
          <Index>126</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>{equip.Do_not_follow,_unless_you_like_frostbite._Thanks_to:_Beige}</Description>
+      <Description>{equip.Do_not_follow,_unless_you_like_frostbite.\n\nSprite_Credits}</Description>
       <Activate skinType="5866">UnlockSkin</Activate>
       <Consumable/>
       <Soulbound/>
       <BagType>4</BagType>
       <feedPower>5000</feedPower>
       <DisplayId>{equip.Yuki_Onna_Mystic_Skin}</DisplayId>
+   </Object>
+   <Object type="0x221" id="Heart Item">
+      <DisplayId>{equip.Heart_Item}</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x74</Index>
+      </Texture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Show_your_valentine_spirit_by_presenting_your_big_heartBANG}</Description>
+      <Sound>use_potion</Sound>
+      <Activate hideEffect="true" objectId="Hearticles">Pet</Activate>
+      <Consumable/>
+      <BagType>5</BagType>
+      <Soulbound/>
+      <feedPower>500</feedPower>
+   </Object>
+   <Object type="0x171c" id="Warrior - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5878">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Warrior_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x171d" id="Paladin - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5879">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Paladin_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x171e" id="Knight - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5880">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Knight_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x171f" id="Ninja - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5881">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Ninja_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1739" id="Archer - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5909">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Archer_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x173a" id="Rogue - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5910">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Rogue_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x173b" id="Assassin - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5911">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Assassin_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x173c" id="Wizard - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5912">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Wizard_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x173d" id="Necromancer - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5913">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Necromancer_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x173e" id="Priest - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5914">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Priest_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x173f" id="Sorcerer - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5915">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Sorcerer_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1753" id="Huntress - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>128</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5968">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Huntress_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1768" id="Mystic - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>128</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5969">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Mystic_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1769" id="Trickster - Artist Extraordinaire Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>128</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_ArtistsBANG\n\nSprite_C}</Description>
+      <Activate skinType="5970">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Trickster_-_Artist_Extraordinaire_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1778" id="Wizard - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="5994">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Wizard_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1779" id="Priest - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="5995">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Priest_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x177a" id="Necromancer - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="5996">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Necromancer_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x177b" id="Sorcerer - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="5997">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Sorcerer_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x177c" id="Mystic - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="5998">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Mystic_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x177d" id="Rogue - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="5999">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Rogue_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x177e" id="Warrior - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6000">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Warrior_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x177f" id="Assassin - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6001">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Assassin_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1780" id="Ninja - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6002">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Ninja_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1781" id="Paladin - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6003">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Paladin_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1782" id="Knight - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6004">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Knight_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1783" id="Trickster - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6005">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Trickster_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1784" id="Huntress - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>131</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6006">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Huntress_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x1785" id="Archer - Dungeon Mastermind Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>131</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Our_biggest_thanks_to_our_Community_Dungeon_CreatorsBANG\n\}</Description>
+      <Activate skinType="6007">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Archer_-_Dungeon_Mastermind_Skin}</DisplayId>
+   </Object>
+   <Object type="0x178b" id="Juliet Trickster Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>132</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Oh_white_bag,_white_bagBANG_Wherefore_art_thou_white_bag?\n}</Description>
+      <Activate skinType="6022">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Juliet_Trickster_Skin}</DisplayId>
+   </Object>
+   <Object type="0x178c" id="Heartseeker Huntress Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>133</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.SheAPOSs_coming_for_your_heartBANG\n\nSprite_Credits:_Beige}</Description>
+      <Activate skinType="6023">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Heartseeker_Huntress_Skin}</DisplayId>
+   </Object>
+   <Object type="0x178d" id="Romeo Assassin Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>134</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Is_good_loot_a_tender_thing?_It_is_too_rare,_too_scarce,_to}</Description>
+      <Activate skinType="6024">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Romeo_Assassin_Skin}</DisplayId>
+   </Object>
+   <Object type="0x178e" id="Mardi Gras Sorcerer Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>135</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.LetAPOSs_get_this_clown_fiesta_startedBANG\n\nSprite_Credit}</Description>
+      <Activate skinType="6025">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Mardi_Gras_Sorcerer_Skin}</DisplayId>
+   </Object>
+   <Object type="0x178f" id="Carnivalmancer Skin">
+      <Class>Equipment</Class>
+      <Item/>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>136</Index>
+      </AnimatedTexture>
+      <SlotType>10</SlotType>
+      <Description>{equip.Totally_not_a_Necromancer.\n\nSprite_Credits:_Beige}</Description>
+      <Activate skinType="6026">UnlockSkin</Activate>
+      <Consumable/>
+      <Soulbound/>
+      <BagType>4</BagType>
+      <feedPower>5000</feedPower>
+      <DisplayId>{equip.Carnivalmancer_Skin}</DisplayId>
    </Object>
 </Objects>

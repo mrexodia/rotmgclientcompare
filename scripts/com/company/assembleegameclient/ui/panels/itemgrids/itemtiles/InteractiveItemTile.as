@@ -76,6 +76,9 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles {
         }
         
         private function onMouseDown(param1:MouseEvent) : void {
+            if(getItemId() == -1) {
+                return;
+            }
             this.beginDragCheck(param1);
         }
         

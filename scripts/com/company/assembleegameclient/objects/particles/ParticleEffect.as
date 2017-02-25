@@ -23,6 +23,12 @@ package com.company.assembleegameclient.objects.particles {
                     return new FountainEffect(param2,param1);
                 case "FountainSnowy":
                     return new FountainSnowyEffect(param2,param1);
+                case "SkyBeam":
+                    return new SkyBeamEffect(param2,param1);
+                case "Circle":
+                    return new CircleEffect(param2,param1);
+                case "Heart":
+                    return new HeartEffect(param2,param1);
                 case "Gas":
                     return new GasEffect(param2,param1);
                 case "Vent":

@@ -691,7 +691,7 @@
          <Index>73</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0324</PlayerClassType>
-      <UnlockSpecial>Looted by those who defeat the Puppet Master in his Theatre. Thanks to: Thq32df and ViciousTwo </UnlockSpecial>
+      <UnlockSpecial>Looted by those who defeat the Puppet Master in his Theatre.\n\nSprite Credits: Thq32df and ViciousTwo </UnlockSpecial>
       <DisplayId>{skins.Jester}</DisplayId>
    </Object>
    <Object type="0x745D" id="Ghost Huntress">
@@ -735,7 +735,7 @@
          <Index>77</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0307</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: WunderWafe</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: WunderWafe</UnlockSpecial>
       <DisplayId>{skins.Huntsman}</DisplayId>
    </Object>
    <Object type="0x7468" id="Demon Spawn">
@@ -746,7 +746,7 @@
          <Index>78</Index>
       </AnimatedTexture>
       <PlayerClassType>0x031f</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: WunderWafe</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: WunderWafe</UnlockSpecial>
       <DisplayId>{skins.Demon_Spawn}</DisplayId>
    </Object>
    <Object type="0x7469" id="Dark Elf Huntress">
@@ -757,7 +757,7 @@
          <Index>79</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0322</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Beige</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Beige</UnlockSpecial>
       <DisplayId>{skins.Dark_Elf_Huntress}</DisplayId>
    </Object>
    <Object type="0x7478" id="Hunchback">
@@ -768,7 +768,7 @@
          <Index>80</Index>
       </AnimatedTexture>
       <PlayerClassType>0x031d</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Hawkmin</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Hawkmin</UnlockSpecial>
       <DisplayId>{skins.Hunchback}</DisplayId>
    </Object>
    <Object type="0x7479" id="Vampiress">
@@ -779,7 +779,7 @@
          <Index>81</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0324</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Beige</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Beige</UnlockSpecial>
       <DisplayId>{skins.Vampiress}</DisplayId>
    </Object>
    <Object type="0x747A" id="Frankenstein's Monster">
@@ -790,7 +790,7 @@
          <Index>82</Index>
       </AnimatedTexture>
       <PlayerClassType>0x031e</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Beige</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Beige</UnlockSpecial>
       <DisplayId>{skins.FrankensteinAPOSs_Monster}</DisplayId>
    </Object>
    <Object type="0x7470" id="Jack the Ripper">
@@ -801,7 +801,7 @@
          <Index>83</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0300</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Beige</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Beige</UnlockSpecial>
       <DisplayId>{skins.Jack_the_Ripper}</DisplayId>
    </Object>
    <Object type="0x7471" id="Death">
@@ -812,7 +812,7 @@
          <Index>84</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0326</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Thqdfthqdf</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Thqdfthqdf</UnlockSpecial>
       <DisplayId>{skins.Death}</DisplayId>
    </Object>
    <Object type="0x7472" id="Tiny Avatar">
@@ -823,7 +823,7 @@
          <Index>85</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0321</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: DG</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: DG</UnlockSpecial>
       <DisplayId>{skins.Tiny_Avatar}</DisplayId>
    </Object>
    <Object type="0x7473" id="Zombie Nurse">
@@ -834,7 +834,7 @@
          <Index>86</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0310</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Thqdfthqdf</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Thqdfthqdf</UnlockSpecial>
       <DisplayId>{skins.Zombie_Nurse}</DisplayId>
    </Object>
    <Object type="0x2310" id="Ascended Sorcerer">
@@ -856,7 +856,7 @@
          <Index>88</Index>
       </AnimatedTexture>
       <PlayerClassType>0x030e</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Beige</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Beige</UnlockSpecial>
       <DisplayId>{skins.Mischievous_Imp}</DisplayId>
    </Object>
    <Object type="0x7476" id="Vampire Hunter">
@@ -867,7 +867,7 @@
          <Index>89</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0320</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Thqdfthqdf</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Thqdfthqdf</UnlockSpecial>
       <DisplayId>{skins.Vampire_Hunter}</DisplayId>
    </Object>
    <Object type="0x7477" id="Poltergeist">
@@ -878,7 +878,7 @@
          <Index>90</Index>
       </AnimatedTexture>
       <PlayerClassType>0x0323</PlayerClassType>
-      <UnlockSpecial>Unlocked during Halloween 2014. Thanks to: Beige</UnlockSpecial>
+      <UnlockSpecial>Unlocked during Halloween 2014.\n\nSprite Credits: Beige</UnlockSpecial>
       <DisplayId>{skins.Poltergeist}</DisplayId>
    </Object>
    <Object type="0x7490" id="Baby Djinja">
@@ -1338,5 +1338,368 @@
       <PlayerClassType>0x0323</PlayerClassType>
       <NoSkinSelect/>
       <DisplayId>{skins.Yuki_Onna_Mystic}</DisplayId>
+   </Object>
+   <Object type="0x16f6" id="Warrior - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x031d</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Warrior_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x16f7" id="Paladin - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x031f</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Paladin_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x16f8" id="Knight - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x031e</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Knight_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x16f9" id="Ninja - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0326</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Ninja_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1715" id="Archer - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x307</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Archer_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1716" id="Rogue - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0300</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Rogue_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1717" id="Assassin - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0320</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Assassin_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1718" id="Wizard - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x30e</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Wizard_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1719" id="Necromancer - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0321</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Necromancer_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x171a" id="Priest - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0310</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Priest_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x171b" id="Sorcerer - Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>127</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0325</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Sorcerer_-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1750" id="Huntress- Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>128</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0322</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Huntress-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1751" id="Mystic- Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>128</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0323</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Mystic-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x1752" id="Trickster- Artist Extraordinaire">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>128</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0324</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Trickster-_Artist_Extraordinaire}</DisplayId>
+   </Object>
+   <Object type="0x176a" id="Wizard- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x30e</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Wizard-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x176b" id="Priest- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0310</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Priest-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x176c" id="Necromancer- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0321</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Necromancer-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x176d" id="Sorcerer- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0325</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Sorcerer-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x176e" id="Mystic- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>129</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0323</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Mystic-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x176f" id="Rogue- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0300</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Rogue-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1770" id="Warrior- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x031d</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Warrior-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1771" id="Assassin- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0320</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Assassin-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1772" id="Ninja- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0326</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Ninja-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1773" id="Paladin- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x031f</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Paladin-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1774" id="Knight- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x031e</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Knight-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1775" id="Trickster- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>130</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0324</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Trickster-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1776" id="Huntress- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>131</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0322</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Huntress-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1777" id="Archer- Dungeon Mastermind">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>131</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x307</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Archer-_Dungeon_Mastermind}</DisplayId>
+   </Object>
+   <Object type="0x1786" id="Juliet">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>132</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0324</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Juliet}</DisplayId>
+   </Object>
+   <Object type="0x1787" id="Heartseeker">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>133</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0322</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Heartseeker}</DisplayId>
+   </Object>
+   <Object type="0x1788" id="Romeo">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>134</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0320</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Romeo}</DisplayId>
+   </Object>
+   <Object type="0x1789" id="Mardi Gras Jester">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>135</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0325</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Mardi_Gras_Jester}</DisplayId>
+   </Object>
+   <Object type="0x178a" id="Carnivalmancer">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins</File>
+         <Index>136</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0321</PlayerClassType>
+      <NoSkinSelect/>
+      <DisplayId>{skins.Carnivalmancer}</DisplayId>
    </Object>
 </Objects>

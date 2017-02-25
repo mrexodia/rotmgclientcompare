@@ -1577,11 +1577,11 @@
       <Class>Equipment</Class>
       <Item/>
       <Texture>
-         <File>lofiChar28x8</File>
-         <Index>0x1a</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x76</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{permapets.Send_a_heart_to_your__(Requires_a_buddyBANG)}</Description>
+      <Description>{permapets.Send_a_heart_to_your_closest_buddyBANG}</Description>
       <BagType>2</BagType>
       <InvUse/>
       <Activate objectId="Valentine Heart" cooldown="1" hideEffect="true">PermaPet</Activate>

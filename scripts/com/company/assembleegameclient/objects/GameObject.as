@@ -133,6 +133,8 @@ package com.company.assembleegameclient.objects {
         
         public var equipment_:Vector.<int> = null;
         
+        public var lockedSlot:Vector.<int> = null;
+        
         public var condition_:Vector.<uint>;
         
         protected var tex1Id_:int = 0;
@@ -258,6 +260,7 @@ package com.company.assembleegameclient.objects {
                     this.equipment_[_local_4] = -1;
                     _local_4++;
                 }
+                this.lockedSlot = new Vector.<int>(this.slotTypes_.length);
             }
             if(param1.hasOwnProperty("Tex1")) {
                 this.tex1Id_ = int(param1.Tex1);
@@ -399,6 +402,7 @@ package com.company.assembleegameclient.objects {
             }
             this.slotTypes_ = null;
             this.equipment_ = null;
+            this.lockedSlot = null;
             if(this.nameBitmapData_ != null) {
                 this.nameBitmapData_.dispose();
                 this.nameBitmapData_ = null;

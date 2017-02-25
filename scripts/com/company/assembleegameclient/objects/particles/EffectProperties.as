@@ -10,6 +10,8 @@ package com.company.assembleegameclient.objects.particles {
         
         public var color:uint;
         
+        public var color2:uint;
+        
         public var rate:Number;
         
         public var speed:Number;
@@ -38,6 +40,12 @@ package com.company.assembleegameclient.objects.particles {
         
         public var zOffset:Number;
         
+        public var minRadius:Number;
+        
+        public var maxRadius:Number;
+        
+        public var amount:int;
+        
         public var bitmapFile:String;
         
         public var bitmapIndex:uint;
@@ -48,6 +56,7 @@ package com.company.assembleegameclient.objects.particles {
             this.particle = param1.@particle;
             this.cooldown = param1.@cooldown;
             this.color = param1.@color;
+            this.color2 = param1.@color2;
             this.rate = Number(param1.@rate) || Number(5);
             this.speed = Number(param1.@speed) || Number(0);
             this.speedVariance = Number(param1.@speedVariance) || Number(0.5);
@@ -61,6 +70,9 @@ package com.company.assembleegameclient.objects.particles {
             this.rangeX = int(param1.@rangeX) || 0;
             this.rangeY = int(param1.@rangeY) || 0;
             this.zOffset = Number(param1.@zOffset) || Number(0);
+            this.minRadius = Number(param1.@minRadius) || Number(0);
+            this.maxRadius = Number(param1.@maxRadius) || Number(1);
+            this.amount = int(param1.@amount) || 1;
             this.bitmapFile = param1.@bitmapFile;
             this.bitmapIndex = param1.@bitmapIndex;
         }

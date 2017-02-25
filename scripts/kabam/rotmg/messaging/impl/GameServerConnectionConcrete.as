@@ -810,6 +810,8 @@ package kabam.rotmg.messaging.impl {
             serverConnection.sendMessage(_local_5);
             if(param4.hasOwnProperty("Consumable")) {
                 param1.equipment_[param2] = -1;
+                if(param4.hasOwnProperty("Activate") && param4.Activate == "UnlockSkin") {
+                }
             }
         }
         
@@ -1079,8 +1081,15 @@ package kabam.rotmg.messaging.impl {
         }
         
         private function onReskinUnlock(param1:ReskinUnlock) : void {
-            var _local_2:CharacterSkin = this.classesModel.getCharacterClass(this.model.player.objectType_).skins.getSkin(param1.skinID);
-            _local_2.setState(CharacterSkinState.OWNED);
+            var _local_2:* = null;
+            var _local_3:CharacterSkin = null;
+            for(_local_2 in this.model.player.lockedSlot) {
+                if(this.model.player.lockedSlot[_local_2] == param1.skinID) {
+                    this.model.player.lockedSlot[_local_2] = 0;
+                }
+            }
+            _local_3 = this.classesModel.getCharacterClass(this.model.player.objectType_).skins.getSkin(param1.skinID);
+            _local_3.setState(CharacterSkinState.OWNED);
         }
         
         private function onEnemyShoot(param1:EnemyShoot) : void {
@@ -1433,6 +1442,7 @@ package kabam.rotmg.messaging.impl {
             var _local_7:StatData = null;
             var _local_8:int = 0;
             var _local_9:int = 0;
+            var _local_10:int = 0;
             var _local_4:Player = param1 as Player;
             var _local_5:Merchant = param1 as Merchant;
             var _local_6:Pet = param1 as Pet;
@@ -1503,7 +1513,11 @@ package kabam.rotmg.messaging.impl {
                     case StatData.INVENTORY_9_STAT:
                     case StatData.INVENTORY_10_STAT:
                     case StatData.INVENTORY_11_STAT:
-                        param1.equipment_[_local_7.statType_ - StatData.INVENTORY_0_STAT] = _local_8;
+                        _local_9 = _local_7.statType_ - StatData.INVENTORY_0_STAT;
+                        if(_local_8 != -1) {
+                            param1.lockedSlot[_local_9] = 0;
+                        }
+                        param1.equipment_[_local_9] = _local_8;
                         continue;
                     case StatData.NUM_STARS_STAT:
                         _local_4.numStars_ = _local_8;
@@ -1657,8 +1671,8 @@ package kabam.rotmg.messaging.impl {
                     case StatData.BACKPACK_5_STAT:
                     case StatData.BACKPACK_6_STAT:
                     case StatData.BACKPACK_7_STAT:
-                        _local_9 = _local_7.statType_ - StatData.BACKPACK_0_STAT + GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS;
-                        (param1 as Player).equipment_[_local_9] = _local_8;
+                        _local_10 = _local_7.statType_ - StatData.BACKPACK_0_STAT + GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS;
+                        (param1 as Player).equipment_[_local_10] = _local_8;
                         continue;
                     case StatData.NEW_CON_STAT:
                         param1.condition_[ConditionEffect.CE_SECOND_BATCH] = _local_8;

@@ -11,16 +11,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_1_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>1</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>100</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_1}</DisplayId>
    </Object>
@@ -33,16 +33,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_2_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>2</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>200</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_2}</DisplayId>
    </Object>
@@ -55,16 +55,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_3_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>3</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>300</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_3}</DisplayId>
    </Object>
@@ -77,16 +77,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_4_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>4</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>400</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_4}</DisplayId>
    </Object>
@@ -99,16 +99,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_5_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>5</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>500</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_5}</DisplayId>
    </Object>
@@ -121,16 +121,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_6_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>6</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>600</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_6}</DisplayId>
    </Object>
@@ -143,16 +143,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_7_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>7</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>700</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_7}</DisplayId>
    </Object>
@@ -165,16 +165,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_8_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>8</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>800</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_8}</DisplayId>
    </Object>
@@ -187,16 +187,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_9_-_Can_be_stacked_up_to_50_times,_just_click_a}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>9</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>900</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_9}</DisplayId>
    </Object>
@@ -209,21 +209,21 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_10_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>10</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1000</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_10}</DisplayId>
    </Object>
    <Object type="0xfeab" id="Snowflake Token x 11">
-      <Displayid>Snowflake Token x 1</Displayid>
+      <Displayid>Snowflake Token x 11</Displayid>
       <Class>Equipment</Class>
       <Item/>
       <Texture>
@@ -231,16 +231,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_11_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>11</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1100</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_11}</DisplayId>
    </Object>
@@ -253,16 +253,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_12_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>12</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1200</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_12}</DisplayId>
    </Object>
@@ -275,21 +275,21 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_13_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>13</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1300</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_13}</DisplayId>
    </Object>
    <Object type="0xfeae" id="Snowflake Token x 14">
-      <Displayid>Snowflake Token x 4</Displayid>
+      <Displayid>Snowflake Token x 14</Displayid>
       <Class>Equipment</Class>
       <Item/>
       <Texture>
@@ -297,16 +297,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_14_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>14</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1400</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_14}</DisplayId>
    </Object>
@@ -319,16 +319,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_15_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>15</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1500</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_15}</DisplayId>
    </Object>
@@ -341,16 +341,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_16_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>16</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1600</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_16}</DisplayId>
    </Object>
@@ -363,16 +363,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_17_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>17</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1700</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_17}</DisplayId>
    </Object>
@@ -385,16 +385,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_18_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>18</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1800</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_18}</DisplayId>
    </Object>
@@ -407,16 +407,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_19_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>19</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>1900</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_19}</DisplayId>
    </Object>
@@ -429,16 +429,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_20_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>20</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2000</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_20}</DisplayId>
    </Object>
@@ -451,16 +451,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_21_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>21</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2100</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_21}</DisplayId>
    </Object>
@@ -473,16 +473,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_22_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>22</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2200</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_22}</DisplayId>
    </Object>
@@ -495,16 +495,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_23_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>23</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2300</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_23}</DisplayId>
    </Object>
@@ -517,16 +517,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_24_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>24</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2400</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_24}</DisplayId>
    </Object>
@@ -539,16 +539,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_25_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>25</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2500</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_25}</DisplayId>
    </Object>
@@ -561,16 +561,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_26_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>26</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2600</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_26}</DisplayId>
    </Object>
@@ -583,16 +583,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_27_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>27</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2700</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_27}</DisplayId>
    </Object>
@@ -605,16 +605,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_28_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>28</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2800</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_28}</DisplayId>
    </Object>
@@ -627,16 +627,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_29_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>29</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>2900</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_29}</DisplayId>
    </Object>
@@ -649,16 +649,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_30_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>30</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3000</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_30}</DisplayId>
    </Object>
@@ -671,16 +671,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_31_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>31</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3100</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_31}</DisplayId>
    </Object>
@@ -693,16 +693,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_32_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>32</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3200</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_32}</DisplayId>
    </Object>
@@ -715,16 +715,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_33_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>33</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3300</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_33}</DisplayId>
    </Object>
@@ -737,16 +737,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_34_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>34</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3400</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_34}</DisplayId>
    </Object>
@@ -759,16 +759,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_35_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>35</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3500</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_35}</DisplayId>
    </Object>
@@ -781,16 +781,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_36_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>36</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3600</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_36}</DisplayId>
    </Object>
@@ -803,16 +803,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_37_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>37</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3700</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_37}</DisplayId>
    </Object>
@@ -825,16 +825,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_38_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>38</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3800</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_38}</DisplayId>
    </Object>
@@ -847,16 +847,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_39_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>39</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>3900</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_39}</DisplayId>
    </Object>
@@ -869,16 +869,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_40_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>40</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4000</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_40}</DisplayId>
    </Object>
@@ -891,16 +891,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_41_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>41</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4100</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_41}</DisplayId>
    </Object>
@@ -913,16 +913,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_42_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>42</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4200</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_42}</DisplayId>
    </Object>
@@ -935,16 +935,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_43_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>43</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4300</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_43}</DisplayId>
    </Object>
@@ -957,16 +957,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_44_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>44</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4400</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_44}</DisplayId>
    </Object>
@@ -979,16 +979,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_45_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>45</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4500</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_45}</DisplayId>
    </Object>
@@ -1001,16 +1001,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_46_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>46</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4600</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_46}</DisplayId>
    </Object>
@@ -1023,16 +1023,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_47_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>47</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4700</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_47}</DisplayId>
    </Object>
@@ -1045,16 +1045,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_48_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>48</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4800</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_48}</DisplayId>
    </Object>
@@ -1067,16 +1067,16 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_49_-_Can_be_stacked_up_to_50_times,_just_click_}</Description>
+      <Description>{token.Can_be_stacked_up_to_50_times,_you_can_drag_and_drop_them_o}</Description>
       <Quantity>49</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <BagType>2</BagType>
+      <feedPower>4900</feedPower>
       <Treasure/>
       <DisplayId>{token.Snowflake_Token_x_49}</DisplayId>
    </Object>
@@ -1089,17 +1089,17 @@
          <Index>0x04</Index>
       </Texture>
       <SlotType>10</SlotType>
-      <Description>{token.Snowflake_x_50_-_Double_click_to_create_a_valuable_surprise}</Description>
+      <Description>{token.Double_click_to_create_a_valuable_surpriseBANG_Doing_so_wil}</Description>
       <Quantity>50</Quantity>
       <ExtraTooltipData>
-         <EffectInfo name="{token.Stack_limit}" description=""/>
-         <EffectInfo name="" description="{token.50}"/>
-         <EffectInfo name="{token.Vanishes_on}" description=""/>
-         <EffectInfo name="" description="{token.February_2nd_2017}"/>
+         <EffectInfo name="" description="{token.The_Snowflake_tokens_are_meltingBANG_They_are_no_longer_dro}"/>
+         <EffectInfo name="{token.Stack_limit}" description="{token.50}"/>
+         <EffectInfo name="{token.Melts_in}" description="{token.March_2017}"/>
       </ExtraTooltipData>
       <Soulbound/>
       <Activate id="Freezing Quiver">Exchange</Activate>
       <BagType>2</BagType>
+      <feedPower>5000</feedPower>
       <Treasure/>
       <Track/>
       <Consumable/>

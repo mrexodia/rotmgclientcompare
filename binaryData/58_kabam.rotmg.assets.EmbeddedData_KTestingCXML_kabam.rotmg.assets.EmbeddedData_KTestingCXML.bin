@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <Objects>
+   <Object type="0x222" id="Hearticles">
+      <Class>GameObject</Class>
+      <Effect color="0xCC0000" color2="0xFF0066" minRadius="0.2" maxRadius="3" rise="1.8" life="4.5" amount="60">Heart</Effect>
+      <Texture>
+         <File>invisible</File>
+         <Index>0</Index>
+      </Texture>
+      <Size>0</Size>
+   </Object>
    <Object type="0x217" id="Lvl20 Chicken Spawner">
       <Class>Character</Class>
       <NoMiniMap/>
@@ -23,6 +32,8 @@
       <Class>Character</Class>
       <NoMiniMap/>
       <Size>90</Size>
+      <Enemy/>
+      <MaxHitPoints>10000</MaxHitPoints>
       <Texture>
          <File>lofiEnvironment3</File>
          <Index>0x22</Index>
@@ -39,6 +50,15 @@
             <Index>0x24</Index>
          </Texture>
       </AltTexture>
+      <Projectile id="1">
+         <ObjectId>Puppet Green Wheel</ObjectId>
+         <Speed>0</Speed>
+         <Damage>0</Damage>
+         <Size>80</Size>
+         <LifetimeMS>1000</LifetimeMS>
+         <ConditionEffect duration="10" target="1">Stasis</ConditionEffect>
+         <MultiHit/>
+      </Projectile>
    </Object>
    <Object type="0x203" id="Testing Gift Ring">
       <Group>Testing Gifts</Group>
@@ -110,6 +130,22 @@
          <Index>0x7c</Index>
       </Texture>
    </Object>
+   <Object type="0x238" id="Testing Gift Staff Tier">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x15b" id="Testing Gift Staff Vani">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
    <Object type="0x211" id="Testing Gift Bow">
       <Group>Testing Gifts Weapon</Group>
       <Class>Character</Class>
@@ -122,6 +158,34 @@
       <Texture>
          <File>lofiObj5</File>
          <Index>0x5c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x239" id="Testing Gift Bow Tier">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiObj5</File>
+         <Index>0x50</Index>
+      </Texture>
+   </Object>
+   <Object type="0x15c" id="Testing Gift Bow Vani">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x42b</Index>
       </Texture>
    </Object>
    <Object type="0x212" id="Testing Gift Dagger">
@@ -138,6 +202,22 @@
          <Index>0x6c</Index>
       </Texture>
    </Object>
+   <Object type="0x23a" id="Testing Gift Dagger Tier">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x15d" id="Testing Gift Dagger Vani">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
    <Object type="0x213" id="Testing Gift Sword">
       <Group>Testing Gifts Weapon</Group>
       <Class>Character</Class>
@@ -150,6 +230,22 @@
       <Texture>
          <File>lofiObj5</File>
          <Index>0x3c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x23f" id="Testing Gift Sword Tier">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x15e" id="Testing Gift Sword Vani">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
       </Texture>
    </Object>
    <Object type="0x214" id="Testing Gift Wand">
@@ -166,6 +262,22 @@
          <Index>0x4c</Index>
       </Texture>
    </Object>
+   <Object type="0x240" id="Testing Gift Wand Tier">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x15f" id="Testing Gift Wand Vani">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
    <Object type="0x215" id="Testing Gift Katana">
       <Group>Testing Gifts Weapon</Group>
       <Class>Character</Class>
@@ -178,6 +290,34 @@
       <Texture>
          <File>lofiObj3</File>
          <Index>0x228</Index>
+      </Texture>
+   </Object>
+   <Object type="0x241" id="Testing Gift Katana Tier">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x21c</Index>
+      </Texture>
+   </Object>
+   <Object type="0x164" id="Testing Gift Katana Vani">
+      <Group>Testing Gifts Weapon</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x42d</Index>
       </Texture>
    </Object>
    <Object type="0x22a" id="Testing Gift Rogue">
@@ -599,6 +739,104 @@
          <File>lofiObj3</File>
          <Index>0x231</Index>
       </Texture>
+   </Object>
+   <Object type="0x154" id="Testing Gift ST Oryx">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>00</Index>
+      </AnimatedTexture>
+   </Object>
+   <Object type="0x155" id="Testing Gift ST Geb">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>01</Index>
+      </AnimatedTexture>
+   </Object>
+   <Object type="0x156" id="Testing Gift ST Phylactery">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>02</Index>
+      </AnimatedTexture>
+   </Object>
+   <Object type="0x157" id="Testing Gift ST Swoll">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>03</Index>
+      </AnimatedTexture>
+   </Object>
+   <Object type="0x158" id="Testing Gift ST Skuld">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>04</Index>
+      </AnimatedTexture>
+   </Object>
+   <Object type="0x159" id="Testing Gift ST Twilight">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>05</Index>
+      </AnimatedTexture>
+   </Object>
+   <Object type="0x15a" id="Testing Gift ST Dragon">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>0x0a</Index>
+      </AnimatedTexture>
    </Object>
    <Object type="0x0d0e" id="Head">
       <DisplayId>Willem's Head</DisplayId>
