@@ -1,6 +1,6 @@
 package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.map.Camera;
-    import com.company.assembleegameclient.map.Square#55;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.map.mapoverlay.CharacterStatusText;
     import com.company.assembleegameclient.objects.particles.HealingEffect;
     import com.company.assembleegameclient.objects.particles.LevelUpEffect;

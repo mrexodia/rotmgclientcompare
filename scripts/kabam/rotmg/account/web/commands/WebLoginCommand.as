@@ -16,6 +16,7 @@ package kabam.rotmg.account.web.commands {
     import kabam.rotmg.core.signals.TaskErrorSignal;
     import kabam.rotmg.core.signals.TrackEventSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.mysterybox.services.GetMysteryBoxesTask;
     import kabam.rotmg.packages.services.GetPackagesTask;
     
     public class WebLoginCommand {
@@ -54,6 +55,9 @@ package kabam.rotmg.account.web.commands {
         [Inject]
         public var getPackageTask:GetPackagesTask;
         
+        [Inject]
+        public var mysteryBoxTask:GetMysteryBoxesTask;
+        
         private var setScreenTask:DispatchSignalTask;
         
         public function WebLoginCommand() {
@@ -68,12 +72,15 @@ package kabam.rotmg.account.web.commands {
         }
         
         private function makeSuccessTask() : TaskSequence {
-            var _local_1:TaskSequence = new TaskSequence();
+            var _local_1:TaskSequence = null;
+            _local_1 = new TaskSequence();
             _local_1.add(new DispatchSignalTask(this.closeDialogs));
             _local_1.add(new DispatchSignalTask(this.track,this.getTrackingData()));
             _local_1.add(new DispatchSignalTask(this.updateLogin));
             _local_1.add(new DispatchSignalTask(this.invalidate));
             _local_1.add(this.getPackageTask);
+            this.mysteryBoxTask.lastRan = 0;
+            _local_1.add(this.mysteryBoxTask);
             _local_1.add(this.setScreenTask);
             return _local_1;
         }

@@ -9,6 +9,8 @@ package kabam.rotmg.core.model {
     import org.osflash.signals.Signal;
     
     public class PlayerModel {
+        
+        public static const CHARACTER_SLOT_PRICES:Array = [600,800,1000];
          
         
         public const creditsChanged:Signal = new Signal(int);
@@ -149,7 +151,8 @@ package kabam.rotmg.core.model {
         }
         
         public function getNextCharSlotPrice() : int {
-            return this.charList.nextCharSlotPrice_;
+            var _local_1:int = Math.min(CHARACTER_SLOT_PRICES.length - 1,this.charList.maxNumChars_ - 1);
+            return CHARACTER_SLOT_PRICES[_local_1];
         }
         
         public function getTotalFame() : int {

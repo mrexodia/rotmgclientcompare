@@ -69,6 +69,7 @@ package kabam.rotmg.messaging.impl {
     import kabam.lib.net.impl.Message;
     import kabam.lib.net.impl.SocketServer;
     import kabam.rotmg.account.core.Account;
+    import kabam.rotmg.account.core.view.PurchaseConfirmationDialog;
     import kabam.rotmg.arena.control.ArenaDeathSignal;
     import kabam.rotmg.arena.control.ImminentArenaWaveSignal;
     import kabam.rotmg.arena.model.CurrentArenaRunModel;
@@ -82,6 +83,9 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.constants.GeneralConstants;
     import kabam.rotmg.constants.ItemConstants;
     import kabam.rotmg.core.StaticInjectorContext;
+    import kabam.rotmg.dailyLogin.message.ClaimDailyRewardMessage;
+    import kabam.rotmg.dailyLogin.message.ClaimDailyRewardResponse;
+    import kabam.rotmg.dailyLogin.signal.ClaimDailyRewardResponseSignal;
     import kabam.rotmg.death.control.HandleDeathSignal;
     import kabam.rotmg.death.control.ZombifySignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
@@ -160,6 +164,7 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.messaging.impl.outgoing.EditAccountList;
     import kabam.rotmg.messaging.impl.outgoing.EnemyHit;
     import kabam.rotmg.messaging.impl.outgoing.Escape;
+    import kabam.rotmg.messaging.impl.outgoing.GoToQuestRoom;
     import kabam.rotmg.messaging.impl.outgoing.GotoAck;
     import kabam.rotmg.messaging.impl.outgoing.GroundDamage;
     import kabam.rotmg.messaging.impl.outgoing.GuildInvite;
@@ -271,6 +276,8 @@ package kabam.rotmg.messaging.impl {
         
         private var keyInfoResponse:KeyInfoResponseSignal;
         
+        private var claimDailyRewardResponse:ClaimDailyRewardResponseSignal;
+        
         private var currentArenaRun:CurrentArenaRunModel;
         
         private var classesModel:ClassesModel;
@@ -306,6 +313,7 @@ package kabam.rotmg.messaging.impl {
             this.questFetchComplete = this.injector.getInstance(QuestFetchCompleteSignal);
             this.questRedeemComplete = this.injector.getInstance(QuestRedeemCompleteSignal);
             this.keyInfoResponse = this.injector.getInstance(KeyInfoResponseSignal);
+            this.claimDailyRewardResponse = this.injector.getInstance(ClaimDailyRewardResponseSignal);
             this.logger = this.injector.getInstance(ILogger);
             this.handleDeath = this.injector.getInstance(HandleDeathSignal);
             this.zombify = this.injector.getInstance(ZombifySignal);
@@ -403,6 +411,7 @@ package kabam.rotmg.messaging.impl {
             _local_1.map(CANCELTRADE).toMessage(CancelTrade);
             _local_1.map(CHECKCREDITS).toMessage(CheckCredits);
             _local_1.map(ESCAPE).toMessage(Escape);
+            _local_1.map(QUEST_ROOM_MSG).toMessage(GoToQuestRoom);
             _local_1.map(JOINGUILD).toMessage(JoinGuild);
             _local_1.map(CHANGEGUILDRANK).toMessage(ChangeGuildRank);
             _local_1.map(EDITACCOUNTLIST).toMessage(EditAccountList);
@@ -414,6 +423,7 @@ package kabam.rotmg.messaging.impl {
             _local_1.map(QUEST_REDEEM).toMessage(QuestRedeem);
             _local_1.map(KEY_INFO_REQUEST).toMessage(KeyInfoRequest);
             _local_1.map(PET_CHANGE_FORM_MSG).toMessage(ReskinPet);
+            _local_1.map(CLAIM_LOGIN_REWARD_MSG).toMessage(ClaimDailyRewardMessage);
             _local_1.map(FAILURE).toMessage(Failure).toMethod(this.onFailure);
             _local_1.map(CREATE_SUCCESS).toMessage(CreateSuccess).toMethod(this.onCreateSuccess);
             _local_1.map(SERVERPLAYERSHOOT).toMessage(ServerPlayerShoot).toMethod(this.onServerPlayerShoot);
@@ -461,6 +471,7 @@ package kabam.rotmg.messaging.impl {
             _local_1.map(QUEST_FETCH_RESPONSE).toMessage(QuestFetchResponse).toMethod(this.onQuestFetchResponse);
             _local_1.map(QUEST_REDEEM_RESPONSE).toMessage(QuestRedeemResponse).toMethod(this.onQuestRedeemResponse);
             _local_1.map(KEY_INFO_RESPONSE).toMessage(KeyInfoResponse).toMethod(this.onKeyInfoResponse);
+            _local_1.map(LOGIN_REWARD_MSG).toMessage(ClaimDailyRewardResponse).toMethod(this.onLoginRewardResponse);
         }
         
         private function onHatchPet(param1:HatchPetMessage) : void {
@@ -530,6 +541,7 @@ package kabam.rotmg.messaging.impl {
             _local_1.unmap(CANCELTRADE);
             _local_1.unmap(CHECKCREDITS);
             _local_1.unmap(ESCAPE);
+            _local_1.unmap(QUEST_ROOM_MSG);
             _local_1.unmap(JOINGUILD);
             _local_1.unmap(CHANGEGUILDRANK);
             _local_1.unmap(EDITACCOUNTLIST);
@@ -874,21 +886,35 @@ package kabam.rotmg.messaging.impl {
         }
         
         override public function buy(param1:int, param2:int) : void {
+            var sObj:SellableObject = null;
+            var converted:Boolean = false;
+            var sellableObjectId:int = param1;
+            var quantity:int = param2;
             if(outstandingBuy_ != null) {
                 return;
             }
-            var _local_3:SellableObject = gs_.map.goDict_[param1];
-            if(_local_3 == null) {
+            sObj = gs_.map.goDict_[sellableObjectId];
+            if(sObj == null) {
                 return;
             }
-            var _local_4:Boolean = false;
-            if(_local_3.currency_ == Currency.GOLD) {
-                _local_4 = gs_.model.getConverted() || this.player.credits_ > 100 || _local_3.price_ > this.player.credits_;
+            converted = false;
+            if(sObj.currency_ == Currency.GOLD) {
+                converted = gs_.model.getConverted() || this.player.credits_ > 100 || sObj.price_ > this.player.credits_;
             }
-            outstandingBuy_ = new OutstandingBuy(_local_3.soldObjectInternalName(),_local_3.price_,_local_3.currency_,_local_4);
+            if(sObj.soldObjectName() == TextKey.VAULT_CHEST) {
+                this.openDialog.dispatch(new PurchaseConfirmationDialog(function():* {
+                    buyConfirmation(sObj,converted,sellableObjectId,quantity);
+                }));
+            } else {
+                this.buyConfirmation(sObj,converted,sellableObjectId,quantity);
+            }
+        }
+        
+        private function buyConfirmation(param1:SellableObject, param2:Boolean, param3:int, param4:int) : * {
+            outstandingBuy_ = new OutstandingBuy(param1.soldObjectInternalName(),param1.price_,param1.currency_,param2);
             var _local_5:Buy = this.messages.require(BUY) as Buy;
-            _local_5.objectId_ = param1;
-            _local_5.quantity_ = param2;
+            _local_5.objectId_ = param3;
+            _local_5.quantity_ = param4;
             serverConnection.sendMessage(_local_5);
         }
         
@@ -967,6 +993,10 @@ package kabam.rotmg.messaging.impl {
                 serverConnection.sendMessage(this.messages.require(ESCAPE));
                 this.checkDavyKeyRemoval();
             }
+        }
+        
+        override public function gotoQuestRoom() : void {
+            serverConnection.sendMessage(this.messages.require(QUEST_ROOM_MSG));
         }
         
         override public function joinGuild(param1:String) : void {
@@ -2015,6 +2045,10 @@ package kabam.rotmg.messaging.impl {
         
         private function onKeyInfoResponse(param1:KeyInfoResponse) : void {
             this.keyInfoResponse.dispatch(param1);
+        }
+        
+        private function onLoginRewardResponse(param1:ClaimDailyRewardResponse) : void {
+            this.claimDailyRewardResponse.dispatch(param1);
         }
         
         private function onClosed() : void {

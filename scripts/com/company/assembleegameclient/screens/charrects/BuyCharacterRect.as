@@ -32,9 +32,8 @@ package com.company.assembleegameclient.screens.charrects {
         }
         
         private function makeCoin() : void {
-            var _local_2:Bitmap = null;
             var _local_1:BitmapData = IconFactory.makeCoin();
-            _local_2 = new Bitmap(_local_1);
+            var _local_2:Bitmap = new Bitmap(_local_1);
             _local_2.x = WIDTH - 43;
             _local_2.y = (HEIGHT - _local_2.height) * 0.5 - 1;
             selectContainer.addChild(_local_2);

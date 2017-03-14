@@ -106,10 +106,10 @@ package kabam.rotmg.fame.view {
             if(param2) {
                 _local_3.setParams(TextKey.DEATH_INFO_LONG,{
                     "date":param1,
-                    "killer":param2
+                    "killer":this.convertKillerString(param2)
                 });
             } else {
-                _local_3.setParams(TextKey.DEATH_INFO_SHORT,{"date":this.date});
+                _local_3.setParams(TextKey.DEATH_INFO_SHORT,{"date":param1});
             }
             this.date.setStringBuilder(_local_3);
             this.date.x = stage.stageWidth / 2;
@@ -117,14 +117,31 @@ package kabam.rotmg.fame.view {
             this.infoContainer.addChild(this.date);
         }
         
+        private function convertKillerString(param1:String) : String {
+            var _local_2:Array = param1.split(".");
+            var _local_3:String = _local_2[0];
+            var _local_4:String = _local_2[1];
+            if(_local_4 == null) {
+                _local_4 = _local_3;
+            } else {
+                _local_4 = _local_4.substr(0,_local_4.length - 1);
+                _local_4 = _local_4.replace(/_/g," ");
+                _local_4 = _local_4.replace(/APOS/g,"\'");
+                _local_4 = _local_4.replace(/BANG/g,"!");
+            }
+            if(ObjectLibrary.getPropsFromId(_local_4) != null) {
+                _local_4 = ObjectLibrary.getPropsFromId(_local_4).displayId_;
+            }
+            return _local_4;
+        }
+        
         public function setIcon(param1:BitmapData) : void {
             var _local_2:Sprite = null;
-            var _local_4:Bitmap = null;
             _local_2 = new Sprite();
             var _local_3:Sprite = new FameIconBackgroundDesign();
             _local_3.filters = [new DropShadowFilter(0,0,0,0.5,12,12)];
             _local_2.addChild(_local_3);
-            _local_4 = new Bitmap(param1);
+            var _local_4:Bitmap = new Bitmap(param1);
             _local_4.x = _local_2.width / 2 - _local_4.width / 2;
             _local_4.y = _local_2.height / 2 - _local_4.height / 2;
             _local_2.addChild(_local_4);

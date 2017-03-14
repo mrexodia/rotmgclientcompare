@@ -13,9 +13,9 @@ package kabam.rotmg.assets.services {
             super();
         }
         
-        public static function makeCoin() : BitmapData {
-            var _local_1:BitmapData = TextureRedrawer.resize(AssetLibrary.getImageFromSet("lofiObj3",225),null,40,true,0,0);
-            return cropAndGlowIcon(_local_1);
+        public static function makeCoin(param1:int = 40) : BitmapData {
+            var _local_2:BitmapData = TextureRedrawer.resize(AssetLibrary.getImageFromSet("lofiObj3",225),null,param1,true,0,0);
+            return cropAndGlowIcon(_local_2);
         }
         
         public static function makeFortune() : BitmapData {

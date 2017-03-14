@@ -93,7 +93,7 @@ package com.company.assembleegameclient.screens {
             this.setImage(AnimatedChar.DOWN,AnimatedChar.STAND,0);
             this.graphic_.addChild(this.bitmap_);
             this.classNameText_ = new TextFieldDisplayConcrete().setSize(14).setColor(16777215).setAutoSize(TextFieldAutoSize.CENTER).setTextWidth(this.graphic_.width).setBold(true);
-            this.classNameText_.setStringBuilder(new LineBuilder().setParams(this.playerXML_.DisplayId));
+            this.classNameText_.setStringBuilder(new LineBuilder().setParams(ClassToolTip.getDisplayId(this.playerXML_)));
             this.classNameText_.filters = [new DropShadowFilter(0,0,0,1,4,4)];
             this.graphic_.addChild(this.classNameText_);
             this.setBuyButton();

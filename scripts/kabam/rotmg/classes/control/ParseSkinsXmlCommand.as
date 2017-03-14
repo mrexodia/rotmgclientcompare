@@ -55,7 +55,7 @@ package kabam.rotmg.classes.control {
             var _local_3:int = param1.AnimatedTexture.Index;
             var _local_4:CharacterSkin = new CharacterSkin();
             _local_4.id = param1.@type;
-            _local_4.name = param1.DisplayId;
+            _local_4.name = param1.DisplayId == undefined?param1.@id:param1.DisplayId;
             _local_4.unlockLevel = param1.UnlockLevel;
             if(param1.hasOwnProperty("NoSkinSelect")) {
                 _local_4.skinSelectEnabled = false;

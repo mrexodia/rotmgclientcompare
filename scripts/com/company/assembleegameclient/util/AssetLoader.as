@@ -87,6 +87,8 @@ package com.company.assembleegameclient.util {
             AssetLibrary.addImageSet("d2LofiObjBigEmbed",new EmbeddedAssets.d2LofiObjBigEmbed_().bitmapData,16,16);
             AssetLibrary.addImageSet("d1lofiObjBig",new EmbeddedAssets.d1LofiObjBigEmbed_().bitmapData,16,16);
             AssetLibrary.addImageSet("cursorsEmbed",new EmbeddedAssets.cursorsEmbed_().bitmapData,32,32);
+            AssetLibrary.addImageSet("stPatricksObjects8x8",new EmbeddedAssets.stPatricksObjects8x8Embed_().bitmapData,8,8);
+            AssetLibrary.addImageSet("stPatricksObjects16x16",new EmbeddedAssets.stPatricksObjects16x16Embed_().bitmapData,16,16);
         }
         
         private function addAnimatedCharacters() : void {
@@ -120,6 +122,8 @@ package com.company.assembleegameclient.util {
             AnimatedChars.add("petsDivine",new EmbeddedAssets.petsDivineEmbed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
             AnimatedChars.add("playerskins16",new EmbeddedAssets.playersSkins16Embed_().bitmapData,new EmbeddedAssets.playersSkins16MaskEmbed_().bitmapData,16,16,112,48,AnimatedChar.RIGHT);
             AnimatedChars.add("d1chars16x16r",new EmbeddedAssets.d1Chars16x16rEmbed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
+            AnimatedChars.add("stPatricksChars8x8",new EmbeddedAssets.stPatricksChars8x8Embed_().bitmapData,null,8,8,56,8,AnimatedChar.RIGHT);
+            AnimatedChars.add("stPatricksChars16x16",new EmbeddedAssets.stPatricksChars16x16Embed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
         }
         
         private function addSoundEffects() : void {

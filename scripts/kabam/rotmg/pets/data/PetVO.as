@@ -45,7 +45,7 @@ package kabam.rotmg.pets.data {
         }
         
         private static function getPetDataDisplayId(param1:int) : String {
-            return ObjectLibrary.getPetDataXMLByType(param1).DisplayId;
+            return ObjectLibrary.getPetDataXMLByType(param1).@id;
         }
         
         public static function clone(param1:PetVO) : PetVO {
@@ -143,7 +143,7 @@ package kabam.rotmg.pets.data {
         }
         
         public function setName(param1:String) : void {
-            this.name = param1;
+            this.name = ObjectLibrary.typeToDisplayId_[this.getType()];
             this.updated.dispatch();
         }
         

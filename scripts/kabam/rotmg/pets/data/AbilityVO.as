@@ -28,7 +28,7 @@ package kabam.rotmg.pets.data {
         public function set type(param1:uint) : void {
             this._type = param1;
             this._staticData = ObjectLibrary.getPetDataXMLByType(this._type);
-            this.name = this._staticData.DisplayId;
+            this.name = this._staticData.DisplayId == undefined?this._staticData.@id:this._staticData.DisplayId;
             this.description = this._staticData.Description;
         }
         

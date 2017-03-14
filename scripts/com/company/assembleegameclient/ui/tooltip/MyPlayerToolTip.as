@@ -103,7 +103,7 @@ package com.company.assembleegameclient.ui.tooltip {
             this.nextClassQuest_ = new TextFieldDisplayConcrete().setSize(13).setColor(16549442).setTextWidth(174);
             this.nextClassQuest_.setStringBuilder(new LineBuilder().setParams(TextKey.MY_PLAYER_TOOL_TIP_NEXT_CLASS_QUEST,{
                 "nextStarFame":param1,
-                "character":param2.DisplayId
+                "character":ClassToolTip.getDisplayId(param2)
             }));
             this.nextClassQuest_.filters = [new DropShadowFilter(0,0,0)];
             addChild(this.nextClassQuest_);

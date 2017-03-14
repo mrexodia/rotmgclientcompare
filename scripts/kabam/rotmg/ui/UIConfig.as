@@ -37,6 +37,7 @@ package kabam.rotmg.ui {
     import kabam.rotmg.account.core.view.RegisterPromptDialog;
     import kabam.rotmg.account.core.view.RegisterPromptDialogMediator;
     import kabam.rotmg.application.api.ApplicationSetup;
+    import kabam.rotmg.dailyLogin.tasks.FetchPlayerCalendarTask;
     import kabam.rotmg.death.view.ResurrectionView;
     import kabam.rotmg.death.view.ResurrectionViewMediator;
     import kabam.rotmg.game.model.PotionInventoryModel;
@@ -192,6 +193,7 @@ package kabam.rotmg.ui {
             this.startup.addSignal(ShowLoadingUISignal,-1);
             this.startup.addTask(LoadAccountTask);
             this.startup.addTask(GetCharListTask);
+            this.startup.addTask(FetchPlayerCalendarTask);
             this.startup.addSignal(ShowTitleUISignal,StartupSequence.LAST);
         }
         

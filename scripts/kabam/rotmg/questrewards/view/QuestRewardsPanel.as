@@ -38,7 +38,7 @@ package kabam.rotmg.questrewards.view {
             addChild(this.icon);
             this.objectType = 5972;
             this.titleText.setStringBuilder(new StaticStringBuilder(this.title));
-            this.titleText.x = 78;
+            this.titleText.x = 58;
             this.titleText.y = 28;
             addChild(this.titleText);
             if(hasQuests()) {

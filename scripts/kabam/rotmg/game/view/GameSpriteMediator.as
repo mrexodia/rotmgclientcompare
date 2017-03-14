@@ -10,7 +10,9 @@ package kabam.rotmg.game.view {
     import kabam.rotmg.core.signals.SetScreenSignal;
     import kabam.rotmg.core.signals.SetScreenWithValidDataSignal;
     import kabam.rotmg.core.signals.TrackPageViewSignal;
+    import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.game.logging.LoopMonitor;
     import kabam.rotmg.game.model.GameInitData;
     import kabam.rotmg.game.signals.GameClosedSignal;
@@ -111,6 +113,12 @@ package kabam.rotmg.game.view {
         [Inject]
         public var newsButtonRefreshSignal:NewsButtonRefreshSignal;
         
+        [Inject]
+        public var openDialog:OpenDialogSignal;
+        
+        [Inject]
+        public var showDailyCalendarSignal:ShowDailyCalendarPopupSignal;
+        
         public function GameSpriteMediator() {
             super();
         }
@@ -134,9 +142,11 @@ package kabam.rotmg.game.view {
             this.view.closed.add(this.onClosed);
             this.view.mapModel = this.mapModel;
             this.view.beginnersPackageModel = this.beginnersPackageModel;
+            this.view.openDialog = this.openDialog;
             this.view.connect();
             this.tracking.dispatch("/gameStarted");
             this.view.showBeginnersPackage = this.showBeginnersPackage;
+            this.view.openDailyCalendarPopupSignal = this.showDailyCalendarSignal;
             this.view.showPackage.add(this.onShowPackage);
             this.newsButtonRefreshSignal.add(this.onNewsButtonRefreshSignal);
         }
@@ -145,6 +155,8 @@ package kabam.rotmg.game.view {
             var _local_1:PackageInfo = this.packageModel.getPriorityPackage();
             if(_local_1) {
                 this.openPackageSignal.dispatch(_local_1.packageID);
+            } else {
+                this.showDailyCalendarSignal.dispatch();
             }
         }
         

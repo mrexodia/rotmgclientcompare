@@ -1,5 +1,7 @@
 package kabam.rotmg.packages.view {
+    import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import robotlegs.bender.bundles.mvcs.Mediator;
     
     public class PackageInfoMediator extends Mediator {
@@ -10,6 +12,12 @@ package kabam.rotmg.packages.view {
         
         [Inject]
         public var closeDialogs:CloseDialogsSignal;
+        
+        [Inject]
+        public var openDialog:OpenDialogSignal;
+        
+        [Inject]
+        public var showDailyCalendarSignal:ShowDailyCalendarPopupSignal;
         
         public function PackageInfoMediator() {
             super();
@@ -25,6 +33,7 @@ package kabam.rotmg.packages.view {
         
         private function onClosed() : void {
             this.closeDialogs.dispatch();
+            this.showDailyCalendarSignal.dispatch();
         }
     }
 }

@@ -2,7 +2,7 @@ package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.engine3d.Point3D;
     import com.company.assembleegameclient.map.Camera;
     import com.company.assembleegameclient.map.Map;
-    import com.company.assembleegameclient.map.Square#55;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.objects.particles.HitEffect;
     import com.company.assembleegameclient.objects.particles.SparkParticle;
     import com.company.assembleegameclient.parameters.Parameters;

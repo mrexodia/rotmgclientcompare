@@ -81,6 +81,7 @@ package com.company.assembleegameclient.objects {
             "Portal":Portal,
             "Projectile":Projectile,
             "QuestRewards":QuestRewards,
+            "DailyLoginRewards":DailyLoginRewards,
             "Sign":Sign,
             "SpiderWeb":SpiderWeb,
             "Stalagmite":Stalagmite,
@@ -186,10 +187,18 @@ package com.company.assembleegameclient.objects {
         }
         
         public static function getObjectFromType(param1:int) : GameObject {
-            var _local_2:XML = xmlLibrary_[param1];
-            var _local_3:String = _local_2.Class;
-            var _local_4:Class = TYPE_MAP[_local_3] || makeClass(_local_3);
-            return new _local_4(_local_2);
+            var objectXML:XML = null;
+            var typeReference:String = null;
+            var objectType:int = param1;
+            try {
+                objectXML = xmlLibrary_[objectType];
+                typeReference = objectXML.Class;
+            }
+            catch(e:Error) {
+                throw new Error("Type: 0x" + objectType.toString(16));
+            }
+            var typeClass:Class = TYPE_MAP[typeReference] || makeClass(typeReference);
+            return new typeClass(objectXML);
         }
         
         private static function makeClass(param1:String) : Class {

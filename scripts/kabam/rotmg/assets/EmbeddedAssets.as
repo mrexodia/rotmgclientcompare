@@ -253,6 +253,14 @@ package kabam.rotmg.assets {
         
         public static var cursorsEmbed_:Class = EmbeddedAssets_cursorsEmbed_;
         
+        public static var stPatricksChars8x8Embed_:Class = EmbeddedAssets_stPatricksChars8x8Embed_;
+        
+        public static var stPatricksChars16x16Embed_:Class = EmbeddedAssets_stPatricksChars16x16Embed_;
+        
+        public static var stPatricksObjects8x8Embed_:Class = EmbeddedAssets_stPatricksObjects8x8Embed_;
+        
+        public static var stPatricksObjects16x16Embed_:Class = EmbeddedAssets_stPatricksObjects16x16Embed_;
+        
         public static var models_:Object = {
             "Monster Tank1":new monsterTank1Embed_(),
             "Monster Tank2":new monsterTank2Embed_(),

@@ -1,6 +1,6 @@
 package com.company.assembleegameclient.objects.particles {
     import com.company.assembleegameclient.objects.GameObject;
-    import com.company.assembleegameclient.util.FreeList;
+    import com.company.assembleegameclient.util.ColorUtil;
     
     public class CircleEffect extends ParticleEffect {
          
@@ -56,8 +56,7 @@ package com.company.assembleegameclient.objects.particles {
             if(!this.bInitialized_) {
                 _local_4 = 0;
                 while(_local_4 < this.amount_) {
-                    _local_3 = FreeList.newObject(CircleParticle) as CircleParticle;
-                    _local_3.setColor(this.color_);
+                    _local_3 = new CircleParticle(ColorUtil.randomSmart(this.color_));
                     _local_3.cX_ = x_;
                     _local_3.cY_ = y_;
                     _local_5 = 2 * Math.PI;
@@ -92,6 +91,11 @@ package com.company.assembleegameclient.objects.particles {
                 _local_1.alive_ = false;
             }
         }
+        
+        override public function removeFromMap() : void {
+            this.endEffect();
+            super.removeFromMap();
+        }
     }
 }
 
@@ -115,9 +119,9 @@ class CircleParticle extends Particle {
     
     public var alive_:Boolean = true;
     
-    function CircleParticle() {
-        var _local_1:Number = Math.random();
-        super(2542335,0.2 + Math.random() * 0.2,100 + _local_1 * 20);
+    function CircleParticle(param1:uint = 0) {
+        var _local_2:Number = Math.random();
+        super(param1,0.2 + Math.random() * 0.2,100 + _local_2 * 20);
     }
     
     override public function removeFromMap() : void {

@@ -39,8 +39,8 @@ package com.company.assembleegameclient.ui.panels {
         private function createPartyMemberPanel(param1:int, param2:int) : PlayerGameObjectListItem {
             var _local_3:PlayerGameObjectListItem = new PlayerGameObjectListItem(16777215,false,null);
             addChild(_local_3);
-            _local_3.x = param1;
-            _local_3.y = param2;
+            _local_3.x = param1 - 5;
+            _local_3.y = param2 - 8;
             return _local_3;
         }
         

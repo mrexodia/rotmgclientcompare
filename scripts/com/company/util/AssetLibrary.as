@@ -15,7 +15,7 @@ package com.company.util {
         private static var imageLookup_:Dictionary = new Dictionary();
          
         
-        public function AssetLibrary(param1:StaticEnforcer#90) {
+        public function AssetLibrary(param1:StaticEnforcer#91) {
             super();
         }
         
@@ -91,10 +91,10 @@ package com.company.util {
     }
 }
 
-class StaticEnforcer#90 {
+class StaticEnforcer#91 {
      
     
-    function StaticEnforcer#90() {
+    function StaticEnforcer#91() {
         super();
     }
 }

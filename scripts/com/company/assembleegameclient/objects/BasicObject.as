@@ -1,7 +1,7 @@
 package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.map.Camera;
     import com.company.assembleegameclient.map.Map;
-    import com.company.assembleegameclient.map.Square#55;
+    import com.company.assembleegameclient.map.Square#58;
     import flash.display.IGraphicsData;
     import kabam.rotmg.stage3D.Object3D.Object3DStage3D;
     
@@ -12,7 +12,7 @@ package com.company.assembleegameclient.objects {
         
         public var map_:Map;
         
-        public var square_:Square#55;
+        public var square_:Square#58;
         
         public var objectId_:int;
         

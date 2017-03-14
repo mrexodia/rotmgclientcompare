@@ -1,6 +1,6 @@
 package com.company.assembleegameclient.objects.thrown {
     import com.company.assembleegameclient.map.Camera;
-    import com.company.assembleegameclient.map.Square#55;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.objects.BasicObject;
     import com.company.util.GraphicsUtil;
     import flash.display.BitmapData;

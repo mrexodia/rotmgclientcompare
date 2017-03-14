@@ -196,6 +196,12 @@ package kabam.rotmg.messaging.impl {
         
         public static const KEY_INFO_RESPONSE:int = 97;
         
+        public static const CLAIM_LOGIN_REWARD_MSG:int = 102;
+        
+        public static const LOGIN_REWARD_MSG:int = 103;
+        
+        public static const QUEST_ROOM_MSG:int = 104;
+        
         public static var instance:GameServerConnection;
          
         
@@ -348,6 +354,9 @@ package kabam.rotmg.messaging.impl {
         }
         
         public function keyInfoRequest(param1:int) : void {
+        }
+        
+        public function gotoQuestRoom() : void {
         }
     }
 }

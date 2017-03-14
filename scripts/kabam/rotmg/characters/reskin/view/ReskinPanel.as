@@ -3,6 +3,7 @@ package kabam.rotmg.characters.reskin.view {
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.ui.DeprecatedTextButton;
     import com.company.assembleegameclient.ui.panels.Panel;
+    import flash.events.Event;
     import flash.events.KeyboardEvent;
     import flash.events.MouseEvent;
     import flash.filters.DropShadowFilter;
@@ -27,6 +28,8 @@ package kabam.rotmg.characters.reskin.view {
         public function ReskinPanel(param1:GameSprite = null) {
             super(param1);
             this.click.add(this.onClick);
+            addEventListener(Event.ADDED_TO_STAGE,this.onAddedToStage);
+            addEventListener(Event.REMOVED_FROM_STAGE,this.onRemovedFromStage);
         }
         
         private function onClick() : void {
@@ -36,7 +39,8 @@ package kabam.rotmg.characters.reskin.view {
         private function makeTitle() : TextFieldDisplayConcrete {
             var _local_1:TextFieldDisplayConcrete = null;
             _local_1 = new TextFieldDisplayConcrete().setSize(18).setColor(16777215).setAutoSize(TextFieldAutoSize.CENTER);
-            _local_1.x = WIDTH / 2;
+            _local_1.x = int(WIDTH / 2);
+            _local_1.y = 6;
             _local_1.setBold(true);
             _local_1.filters = [new DropShadowFilter(0,0,0)];
             _local_1.setStringBuilder(new LineBuilder().setParams(TextKey.RESKINPANEL_CHANGESKIN));
@@ -52,8 +56,18 @@ package kabam.rotmg.characters.reskin.view {
         }
         
         private function onTextSet() : void {
-            this.button.x = WIDTH / 2 - this.button.width / 2;
+            this.button.x = int(WIDTH / 2 - this.button.width / 2);
             this.button.y = HEIGHT - this.button.height - 4;
+        }
+        
+        private function onAddedToStage(param1:Event) : void {
+            removeEventListener(Event.ADDED_TO_STAGE,this.onAddedToStage);
+            stage.addEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
+        }
+        
+        private function onRemovedFromStage(param1:Event) : void {
+            removeEventListener(Event.REMOVED_FROM_STAGE,this.onRemovedFromStage);
+            stage.removeEventListener(KeyboardEvent.KEY_DOWN,this.onKeyDown);
         }
         
         private function onKeyDown(param1:KeyboardEvent) : void {

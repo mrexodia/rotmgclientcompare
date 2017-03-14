@@ -8,6 +8,7 @@ package kabam.rotmg.account.core {
     import kabam.lib.tasks.TaskSequence;
     import kabam.rotmg.account.core.services.BuyCharacterSlotTask;
     import kabam.rotmg.account.core.view.BuyingDialog;
+    import kabam.rotmg.account.core.view.PurchaseConfirmationDialog;
     import kabam.rotmg.core.model.PlayerModel;
     import kabam.rotmg.core.service.TrackingData;
     import kabam.rotmg.core.signals.SetScreenSignal;
@@ -67,6 +68,10 @@ package kabam.rotmg.account.core {
         }
         
         private function purchaseSlot() : void {
+            this.openDialog.dispatch(new PurchaseConfirmationDialog(this.purchaseConfirmed));
+        }
+        
+        private function purchaseConfirmed() : void {
             this.openDialog.dispatch(new BuyingDialog());
             var _local_1:TaskSequence = new TaskSequence();
             _local_1.add(new BranchingTask(this.task,this.makeSuccessTask(),this.makeFailureTask()));

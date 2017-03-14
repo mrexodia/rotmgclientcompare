@@ -12,7 +12,7 @@ package com.company.assembleegameclient.parameters {
         
         public static const BUILD_VERSION:String = "27.7";
         
-        public static const MINOR_VERSION:String = "X10.3";
+        public static const MINOR_VERSION:String = "X11";
         
         public static const ENABLE_ENCRYPTION:Boolean = true;
         

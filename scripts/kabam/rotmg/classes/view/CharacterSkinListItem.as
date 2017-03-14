@@ -11,7 +11,6 @@ package kabam.rotmg.classes.view {
     import flash.filters.DropShadowFilter;
     import flash.geom.ColorTransform;
     import flash.text.TextFieldAutoSize;
-    import flash.text.TextFormatAlign;
     import kabam.rotmg.classes.model.CharacterSkin;
     import kabam.rotmg.classes.model.CharacterSkinState;
     import kabam.rotmg.text.model.TextKey;
@@ -92,7 +91,7 @@ package kabam.rotmg.classes.view {
         private function makeSkinContainer() : Sprite {
             var _local_1:Sprite = null;
             _local_1 = new Sprite();
-            _local_1.x = 8;
+            _local_1.x = 4;
             _local_1.y = 4;
             addChild(_local_1);
             return _local_1;
@@ -101,9 +100,22 @@ package kabam.rotmg.classes.view {
         private function makeNameText() : TextFieldDisplayConcrete {
             var _local_1:TextFieldDisplayConcrete = null;
             _local_1 = new TextFieldDisplayConcrete().setSize(18).setColor(16777215).setBold(true);
-            _local_1.x = 75;
-            _local_1.y = 15;
+            _local_1.x = 60;
+            _local_1.setTextWidth(140);
+            _local_1.setWordWrap(true);
+            _local_1.setMultiLine(true);
+            _local_1.setAutoSize(TextFieldAutoSize.LEFT);
             _local_1.filters = [new DropShadowFilter(0,0,0,1,8,8)];
+            addChild(_local_1);
+            return _local_1;
+        }
+        
+        private function makeLockText() : TextFieldDisplayConcrete {
+            var _local_1:TextFieldDisplayConcrete = new TextFieldDisplayConcrete().setSize(14).setColor(16777215);
+            _local_1.setTextWidth(190);
+            _local_1.setWordWrap(true);
+            _local_1.setMultiLine(true);
+            _local_1.setAutoSize(TextFieldAutoSize.LEFT);
             addChild(_local_1);
             return _local_1;
         }
@@ -112,8 +124,8 @@ package kabam.rotmg.classes.view {
             var _local_1:RadioButton = null;
             _local_1 = new RadioButton();
             _local_1.setSelected(false);
-            _local_1.x = WIDTH - _local_1.width - 15;
-            _local_1.y = HEIGHT / 2 - _local_1.height / 2;
+            _local_1.x = 1 + WIDTH - _local_1.width - 15;
+            _local_1.y = 1 + HEIGHT / 2 - _local_1.height / 2;
             addChild(_local_1);
             return _local_1;
         }
@@ -133,17 +145,10 @@ package kabam.rotmg.classes.view {
             this.lock.y = HEIGHT / 2 - this.lock.height * 0.5;
         }
         
-        private function makeLockText() : TextFieldDisplayConcrete {
-            var _local_1:TextFieldDisplayConcrete = new TextFieldDisplayConcrete().setSize(14).setColor(16777215);
-            _local_1.setVerticalAlign(TextFieldDisplayConcrete.MIDDLE);
-            addChild(_local_1);
-            return _local_1;
-        }
-        
         private function makeBuyButtonContainer() : Sprite {
             var _local_1:Sprite = new Sprite();
             _local_1.x = WIDTH - PADDING;
-            _local_1.y = HEIGHT * 0.5;
+            _local_1.y = PADDING;
             addChild(_local_1);
             return _local_1;
         }
@@ -164,7 +169,6 @@ package kabam.rotmg.classes.view {
             this.model && this.setCost();
             this.buyButtonContainer.addChild(param1);
             param1.x = -param1.width;
-            param1.y = -param1.height * 0.5;
             this.buyButtonContainer.visible = this.state == CharacterSkinState.PURCHASABLE;
             this.setLimitedBannerVisibility();
         }
@@ -208,6 +212,11 @@ package kabam.rotmg.classes.view {
         
         private function updateName() : void {
             this.nameText.setStringBuilder(new LineBuilder().setParams(!!this.model?this.model.name:""));
+            this.nameText.textChanged.addOnce(this.alignName);
+        }
+        
+        private function alignName() : void {
+            this.nameText.y = HEIGHT / 2 - this.nameText.height / 2;
         }
         
         private function updateState() : void {
@@ -259,19 +268,15 @@ package kabam.rotmg.classes.view {
         private function updateUnlockText() : void {
             if(this.model != null && this.model.unlockSpecial != null) {
                 this.lockText.setStringBuilder(new StaticStringBuilder(this.model.unlockSpecial));
-                this.lockText.setTextWidth(110);
-                this.lockText.setWordWrap(true);
-                this.lockText.setMultiLine(true);
-                this.lockText.setAutoSize(TextFieldAutoSize.LEFT);
-                this.lockText.setHorizontalAlign(TextFormatAlign.LEFT);
-                this.lockText.setVerticalAlign(TextFieldAutoSize.CENTER);
-                this.lockText.y = HEIGHT / 7;
             } else {
                 this.lockText.setStringBuilder(this.state == CharacterSkinState.PURCHASING?new LineBuilder().setParams(TextKey.PURCHASING_SKIN):this.makeUnlockTextStringBuilder());
-                this.lockText.y = HEIGHT / 2;
             }
-            this.lockText.x = WIDTH - this.lockText.width - 15;
-            this.lock.x = this.lockText.x - this.lock.width - 5;
+            this.lockText.textChanged.addOnce(this.alignText);
+        }
+        
+        private function alignText() : void {
+            this.lockText.y = HEIGHT / 2 - this.lockText.height / 2;
+            this.setTextPosition(WIDTH);
         }
         
         private function makeUnlockTextStringBuilder() : StringBuilder {
@@ -326,11 +331,15 @@ package kabam.rotmg.classes.view {
         
         public function setWidth(param1:int) : void {
             this.buyButtonContainer.x = param1 - PADDING;
-            this.lockText.x = param1 - this.lockText.width - 15;
-            this.lock.x = this.lockText.x - this.lock.width - 5;
+            this.setTextPosition(param1);
             this.selectionButton.x = param1 - this.selectionButton.width - 15;
             this.setLimitedBannerVisibility();
             this.drawBackground(this.background.graphics,param1);
+        }
+        
+        private function setTextPosition(param1:int) : void {
+            this.lockText.x = param1 - this.lockText.width - 4;
+            this.lock.x = this.lockText.x - this.lock.width - 4;
         }
         
         private function drawBackground(param1:Graphics, param2:int) : void {

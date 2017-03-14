@@ -38,7 +38,7 @@ package kabam.rotmg.classes.control {
         private function populateCharacter(param1:CharacterClass, param2:XML) : void {
             var _local_3:XML = null;
             param1.id = param2.@type;
-            param1.name = param2.DisplayId;
+            param1.name = param2.DisplayId == undefined?param2.@id:param2.DisplayId;
             param1.description = param2.Description;
             param1.hitSound = param2.HitSound;
             param1.deathSound = param2.DeathSound;

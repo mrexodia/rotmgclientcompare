@@ -47,7 +47,7 @@ package kabam.rotmg.packages.view {
         
         private const title:TextFieldDisplayConcrete = this.makeTitle();
         
-        private const closeButton:Sprite = this.makeCloseButton();
+        private const closeButton:DialogCloseButton = this.makeCloseButton();
         
         private var packageInfo:PackageInfo;
         
@@ -69,7 +69,7 @@ package kabam.rotmg.packages.view {
             return _local_1;
         }
         
-        private function makeCloseButton() : Sprite {
+        private function makeCloseButton() : DialogCloseButton {
             return new DialogCloseButton();
         }
         
@@ -97,6 +97,7 @@ package kabam.rotmg.packages.view {
         }
         
         private function onMouseUp(param1:MouseEvent) : void {
+            this.closeButton.disabled = true;
             this.closeButton.removeEventListener(MouseEvent.MOUSE_UP,this.onMouseUp);
             this.close.dispatch();
         }

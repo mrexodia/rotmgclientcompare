@@ -5,8 +5,6 @@ package kabam.rotmg.assets {
         
         private static const GroundCXML:Class = EmbeddedData_GroundCXML;
         
-        public static const groundFiles:Array = [new GroundCXML()];
-        
         private static const ProjectilesCXML:Class = EmbeddedData_ProjectilesCXML;
         
         private static const EquipCXML:Class = EmbeddedData_EquipCXML;
@@ -35,19 +33,31 @@ package kabam.rotmg.assets {
         
         private static const KTestingCXML:Class = EmbeddedData_KTestingCXML;
         
+        private static const TestingObjectsCXML:Class = EmbeddedData_TestingObjectsCXML;
+        
+        private static const ContainersCXML:Class = EmbeddedData_ContainersCXML;
+        
         private static const ObjectsCXML:Class = EmbeddedData_ObjectsCXML;
         
-        private static const TestingObjectsCXML:Class = EmbeddedData_TestingObjectsCXML;
+        private static const PortalsCXML:Class = EmbeddedData_PortalsCXML;
         
         private static const StaticObjectsCXML:Class = EmbeddedData_StaticObjectsCXML;
         
         private static const TutorialObjectsCXML:Class = EmbeddedData_TutorialObjectsCXML;
         
-        private static const MonstersCXML:Class = EmbeddedData_MonstersCXML;
+        private static const TutorialMonstersCXML:Class = EmbeddedData_TutorialMonstersCXML;
+        
+        private static const AlliesCXML:Class = EmbeddedData_AlliesCXML;
+        
+        private static const PlayersZombiesCXML:Class = EmbeddedData_PlayersZombiesCXML;
         
         private static const PetsCXML:Class = EmbeddedData_PetsCXML;
         
-        private static const TempObjectsCXML:Class = EmbeddedData_TempObjectsCXML;
+        private static const NPCsCXML:Class = EmbeddedData_NPCsCXML;
+        
+        private static const EncountersCXML:Class = EmbeddedData_EncountersCXML;
+        
+        private static const HeroesCXML:Class = EmbeddedData_HeroesCXML;
         
         private static const ShoreCXML:Class = EmbeddedData_ShoreCXML;
         
@@ -59,7 +69,7 @@ package kabam.rotmg.assets {
         
         private static const MountainsCXML:Class = EmbeddedData_MountainsCXML;
         
-        private static const EncountersCXML:Class = EmbeddedData_EncountersCXML;
+        private static const ArenaCXML:Class = EmbeddedData_ArenaCXML;
         
         private static const OryxCastleCXML:Class = EmbeddedData_OryxCastleCXML;
         
@@ -75,6 +85,8 @@ package kabam.rotmg.assets {
         
         private static const OryxChamberCXML:Class = EmbeddedData_OryxChamberCXML;
         
+        private static const OryxChickenChamberCXML:Class = EmbeddedData_OryxChickenChamberCXML;
+        
         private static const OryxWineCellarCXML:Class = EmbeddedData_OryxWineCellarCXML;
         
         private static const ManorOfTheImmortalsCXML:Class = EmbeddedData_ManorOfTheImmortalsCXML;
@@ -82,6 +94,8 @@ package kabam.rotmg.assets {
         private static const PirateCaveCXML:Class = EmbeddedData_PirateCaveCXML;
         
         private static const SnakePitCXML:Class = EmbeddedData_SnakePitCXML;
+        
+        private static const SpiderDenCXML:Class = EmbeddedData_SpiderDenCXML;
         
         private static const AbyssOfDemonsCXML:Class = EmbeddedData_AbyssOfDemonsCXML;
         
@@ -127,11 +141,17 @@ package kabam.rotmg.assets {
         
         private static const IceTombCXML:Class = EmbeddedData_IceTombCXML;
         
+        private static const stPatricksGroundCXML:Class = EmbeddedData_stPatricksGroundCXML;
+        
+        private static const stPatricksObjectCXML:Class = EmbeddedData_stPatricksObjectCXML;
+        
         public static const skinsXML:XML = XML(new SkinsCXML());
         
         public static const skinsEquipmentSetsXML:XML = XML(new EquipmentSetsCXML());
         
-        public static const objectFiles:Array = [new ProjectilesCXML(),new EquipCXML(),new DyesCXML(),new TextilesCXML(),new PermapetsCXML(),new TokenCXML(),new WillemTestingCXML(),new TTestingCXML(),new BTestingCXML(),new STestingCXML(),new MTestingCXML(),new KTestingCXML(),new PlayersCXML(),new ObjectsCXML(),new TestingObjectsCXML(),new StaticObjectsCXML(),new TutorialObjectsCXML(),new MonstersCXML(),new PetsCXML(),new TempObjectsCXML(),new ShoreCXML(),new LowCXML(),new MidCXML(),new HighCXML(),new MountainsCXML(),new EncountersCXML(),new OryxCastleCXML(),new TombOfTheAncientsCXML(),new SpriteWorldCXML(),new UndeadLairCXML(),new OceanTrenchCXML(),new ForbiddenJungleCXML(),new OryxChamberCXML(),new OryxWineCellarCXML(),new ManorOfTheImmortalsCXML(),new PirateCaveCXML(),new SnakePitCXML(),new AbyssOfDemonsCXML(),new GhostShipCXML(),new MadLabCXML(),new CaveOfAThousandTreasuresCXML(),new CandyLandCXML(),new HauntedCemeteryCXML(),new ForestMazeCXML(),new EpicForestMazeCXML(),new EpicPirateCaveCXML(),new EpicSpiderDenCXML(),new NexusDestroyedCXML(),new MiniDungeonHubCXML(),new LairOfDraconisCXML(),new LairOfShaitanCXML(),new ShattersCXML(),new BelladonnaCXML(),new PuppetMasterCXML(),new IceCaveCXML(),new TheHiveCXML(),new ToxicSewersCXML(),new PuppetMasterEncoreCXML(),new IceTombCXML()];
+        public static const groundFiles:Array = [new GroundCXML(),new stPatricksGroundCXML()];
+        
+        public static const objectFiles:Array = [new ProjectilesCXML(),new EquipCXML(),new DyesCXML(),new TextilesCXML(),new PermapetsCXML(),new TokenCXML(),new WillemTestingCXML(),new TTestingCXML(),new BTestingCXML(),new STestingCXML(),new MTestingCXML(),new KTestingCXML(),new PlayersCXML(),new ContainersCXML(),new ObjectsCXML(),new PortalsCXML(),new TestingObjectsCXML(),new StaticObjectsCXML(),new TutorialObjectsCXML(),new TutorialMonstersCXML(),new AlliesCXML(),new HeroesCXML(),new PlayersZombiesCXML(),new PetsCXML(),new NPCsCXML(),new ShoreCXML(),new LowCXML(),new MidCXML(),new HighCXML(),new MountainsCXML(),new EncountersCXML(),new ArenaCXML(),new OryxCastleCXML(),new TombOfTheAncientsCXML(),new SpriteWorldCXML(),new UndeadLairCXML(),new OceanTrenchCXML(),new ForbiddenJungleCXML(),new OryxChamberCXML(),new OryxChickenChamberCXML(),new OryxWineCellarCXML(),new ManorOfTheImmortalsCXML(),new PirateCaveCXML(),new SnakePitCXML(),new SpiderDenCXML(),new AbyssOfDemonsCXML(),new GhostShipCXML(),new MadLabCXML(),new CaveOfAThousandTreasuresCXML(),new CandyLandCXML(),new HauntedCemeteryCXML(),new ForestMazeCXML(),new EpicForestMazeCXML(),new EpicPirateCaveCXML(),new EpicSpiderDenCXML(),new NexusDestroyedCXML(),new MiniDungeonHubCXML(),new LairOfDraconisCXML(),new LairOfShaitanCXML(),new ShattersCXML(),new BelladonnaCXML(),new PuppetMasterCXML(),new IceCaveCXML(),new TheHiveCXML(),new ToxicSewersCXML(),new PuppetMasterEncoreCXML(),new IceTombCXML(),new stPatricksObjectCXML()];
         
         private static const RegionsCXML:Class = EmbeddedData_RegionsCXML;
         

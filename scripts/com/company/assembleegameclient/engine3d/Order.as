@@ -8,16 +8,16 @@ package com.company.assembleegameclient.engine3d {
         public static const BEHIND:int = 2;
          
         
-        public function Order(param1:StaticEnforcer#191) {
+        public function Order(param1:StaticEnforcer#194) {
             super();
         }
     }
 }
 
-class StaticEnforcer#191 {
+class StaticEnforcer#194 {
      
     
-    function StaticEnforcer#191() {
+    function StaticEnforcer#194() {
         super();
     }
 }

@@ -1,5 +1,8 @@
 package kabam.rotmg.promotions.view {
+    import kabam.rotmg.dailyLogin.model.DailyLoginModel;
+    import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.game.signals.SetWorldInteractionSignal;
     import kabam.rotmg.promotions.model.BeginnersPackageModel;
     import kabam.rotmg.promotions.signals.BuyBeginnersPackageSignal;
@@ -18,10 +21,19 @@ package kabam.rotmg.promotions.view {
         public var closeDialog:CloseDialogsSignal;
         
         [Inject]
+        public var openDialog:OpenDialogSignal;
+        
+        [Inject]
         public var buyPackage:BuyBeginnersPackageSignal;
         
         [Inject]
         public var setWorldInteraction:SetWorldInteractionSignal;
+        
+        [Inject]
+        public var dailyLoginModel:DailyLoginModel;
+        
+        [Inject]
+        public var showDailyCalendarSignal:ShowDailyCalendarPopupSignal;
         
         public function BeginnersPackageOfferDialogMediator() {
             super();
@@ -48,6 +60,7 @@ package kabam.rotmg.promotions.view {
         
         private function onClose() : void {
             this.closeDialog.dispatch();
+            this.showDailyCalendarSignal.dispatch();
         }
     }
 }

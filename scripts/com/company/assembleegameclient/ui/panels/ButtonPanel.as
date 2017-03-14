@@ -29,7 +29,7 @@ package com.company.assembleegameclient.ui.panels {
         }
         
         private function alignButton() : void {
-            this.button_.x = WIDTH / 2 - this.button_.width / 2;
+            this.button_.x = int(WIDTH / 2 - this.button_.width / 2);
             this.button_.y = HEIGHT - this.button_.height - 4;
         }
         

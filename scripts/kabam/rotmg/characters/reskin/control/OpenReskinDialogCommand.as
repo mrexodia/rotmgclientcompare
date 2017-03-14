@@ -38,8 +38,8 @@ package kabam.rotmg.characters.reskin.control {
         private function makeView() : ReskinCharacterView {
             var _local_1:ReskinCharacterView = new ReskinCharacterView();
             _local_1.setList(this.makeList());
-            _local_1.x = (800 - _local_1.width) * 0.5;
-            _local_1.y = (600 - _local_1.viewHeight) * 0.5;
+            _local_1.x = int((800 - _local_1.width) * 0.5);
+            _local_1.y = int((600 - _local_1.viewHeight) * 0.5);
             return _local_1;
         }
         

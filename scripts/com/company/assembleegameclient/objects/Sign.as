@@ -42,6 +42,9 @@ package com.company.assembleegameclient.objects {
             _local_4.bold = true;
             _local_3.defaultTextFormat = _local_4;
             var _local_5:String = this.stringMap.getValue(this.stripCurlyBrackets(name_));
+            if(_local_5 == null) {
+                _local_5 = "null";
+            }
             _local_3.text = _local_5.split("|").join("\n");
             var _local_6:BitmapData = new BitmapDataSpy(_local_3.width,_local_3.height,true,0);
             _local_6.draw(_local_3);

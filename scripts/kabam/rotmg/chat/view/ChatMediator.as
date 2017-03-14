@@ -109,6 +109,7 @@ package kabam.rotmg.chat.view {
             this.showChatInput.remove(this.onShowChatInput);
             this.openDialog.remove(this.onOpenDialog);
             this.closeDialog.remove(this.onCloseDialog);
+            this.register.remove(this.onRegister);
             this.stage = null;
         }
         

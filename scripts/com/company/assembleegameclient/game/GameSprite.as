@@ -36,6 +36,8 @@ package com.company.assembleegameclient.game {
     import kabam.rotmg.core.StaticInjectorContext;
     import kabam.rotmg.core.model.MapModel;
     import kabam.rotmg.core.model.PlayerModel;
+    import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
+    import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.game.view.CreditDisplay;
     import kabam.rotmg.game.view.GiftStatusDisplay;
     import kabam.rotmg.game.view.NewsModalButton;
@@ -96,6 +98,10 @@ package com.company.assembleegameclient.game {
         public var beginnersPackageModel:BeginnersPackageModel;
         
         public var showBeginnersPackage:ShowBeginnersPackageSignal;
+        
+        public var openDailyCalendarPopupSignal:ShowDailyCalendarPopupSignal;
+        
+        public var openDialog:OpenDialogSignal;
         
         public var showPackage:Signal;
         
@@ -215,6 +221,8 @@ package com.company.assembleegameclient.game {
                     this.showPackage.dispatch();
                 }
                 this.packageModel.numSpammed++;
+            } else if(map.name_ == Map.NEXUS) {
+                this.openDailyCalendarPopupSignal.dispatch();
             }
             this.isNexus_ = map.name_ == Map.NEXUS;
             if(this.isNexus_ || map.name_ == Map.DAILY_QUEST_ROOM) {

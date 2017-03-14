@@ -60,8 +60,7 @@ package kabam.rotmg.pets.util {
         }
         
         private static function returnAbilityMeter() : PetAbilityMeter {
-            var _local_1:PetAbilityMeter = null;
-            _local_1 = new PetAbilityMeter();
+            var _local_1:PetAbilityMeter = new PetAbilityMeter();
             _local_1.y = PetsConstants.METER_START_POSITION_Y;
             return _local_1;
         }
@@ -130,8 +129,7 @@ package kabam.rotmg.pets.util {
         }
         
         public static function returnPetSlotShape(param1:uint, param2:uint, param3:int, param4:Boolean, param5:Boolean, param6:int = 2) : Shape {
-            var _local_7:Shape = null;
-            _local_7 = new Shape();
+            var _local_7:Shape = new Shape();
             param4 && _local_7.graphics.beginFill(4605510,1);
             param5 && _local_7.graphics.lineStyle(param6,param2);
             _local_7.graphics.drawRoundRect(0,param3,param1,param1,16,16);
@@ -140,7 +138,8 @@ package kabam.rotmg.pets.util {
         }
         
         public static function returnCloseButton(param1:int) : DialogCloseButton {
-            var _local_2:DialogCloseButton = new DialogCloseButton();
+            var _local_2:DialogCloseButton = null;
+            _local_2 = new DialogCloseButton();
             _local_2.y = 4;
             _local_2.x = param1 - _local_2.width - 5;
             return _local_2;

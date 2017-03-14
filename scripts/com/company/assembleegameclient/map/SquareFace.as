@@ -22,7 +22,7 @@ package com.company.assembleegameclient.map {
         
         public function SquareFace(param1:BitmapData, param2:Vector.<Number>, param3:Number, param4:Number, param5:int, param6:Number, param7:Number) {
             super();
-            this.face_ = new Face3D(param1,param2,Square#55.UVT.concat());
+            this.face_ = new Face3D(param1,param2,Square#58.UVT.concat());
             this.xOffset_ = param3;
             this.yOffset_ = param4;
             if(this.xOffset_ != 0 || this.yOffset_ != 0) {

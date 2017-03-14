@@ -65,47 +65,58 @@ package com.company.assembleegameclient.objects {
         }
         
         private function parse(param1:XML) : void {
-            var _local_2:MaskedImage = null;
-            var _local_3:RemoteTexture = null;
-            var _local_4:XML = null;
-            switch(param1.name().toString()) {
+            var image:MaskedImage = null;
+            var remoteTexture:RemoteTexture = null;
+            var childXML:XML = null;
+            var xml:XML = param1;
+            switch(xml.name().toString()) {
                 case "Texture":
-                    texture_ = AssetLibrary.getImageFromSet(String(param1.File),int(param1.Index));
+                    try {
+                        texture_ = AssetLibrary.getImageFromSet(String(xml.File),int(xml.Index));
+                    }
+                    catch(error:Error) {
+                        throw new Error("Error loading Texture - name: " + String(xml.File) + " - idx: " + int(xml.Index));
+                    }
                     break;
                 case "Mask":
-                    mask_ = AssetLibrary.getImageFromSet(String(param1.File),int(param1.Index));
+                    mask_ = AssetLibrary.getImageFromSet(String(xml.File),int(xml.Index));
                     break;
                 case "Effect":
-                    effectProps_ = new EffectProperties(param1);
+                    effectProps_ = new EffectProperties(xml);
                     break;
                 case "AnimatedTexture":
-                    animatedChar_ = AnimatedChars.getAnimatedChar(String(param1.File),int(param1.Index));
-                    _local_2 = animatedChar_.imageFromAngle(0,AnimatedChar.STAND,0);
-                    texture_ = _local_2.image_;
-                    mask_ = _local_2.mask_;
+                    animatedChar_ = AnimatedChars.getAnimatedChar(String(xml.File),int(xml.Index));
+                    try {
+                        image = animatedChar_.imageFromAngle(0,AnimatedChar.STAND,0);
+                        texture_ = image.image_;
+                        mask_ = image.mask_;
+                    }
+                    catch(error:Error) {
+                        throw new Error("Error loading AnimatedTexture - name: " + String(xml.File) + " - idx: " + int(xml.Index));
+                    }
                     break;
                 case "RemoteTexture":
                     texture_ = AssetLibrary.getImageFromSet("lofiObj3",255);
                     if(this.isUsingLocalTextures) {
-                        _local_3 = new RemoteTexture(param1.Id,param1.Instance,this.onRemoteTexture);
-                        _local_3.run();
+                        remoteTexture = new RemoteTexture(xml.Id,xml.Instance,this.onRemoteTexture);
+                        remoteTexture.run();
                         if(!AssetLoader.currentXmlIsTesting) {
                             remoteTexturesUsed = true;
                         }
                     }
-                    remoteTextureDir_ = !!param1.hasOwnProperty("Right")?int(AnimatedChar.RIGHT):int(AnimatedChar.DOWN);
+                    remoteTextureDir_ = !!xml.hasOwnProperty("Right")?int(AnimatedChar.RIGHT):int(AnimatedChar.DOWN);
                     break;
                 case "RandomTexture":
                     randomTextureData_ = new Vector.<TextureData>();
-                    for each(_local_4 in param1.children()) {
-                        randomTextureData_.push(new TextureDataConcrete(_local_4));
+                    for each(childXML in xml.children()) {
+                        randomTextureData_.push(new TextureDataConcrete(childXML));
                     }
                     break;
                 case "AltTexture":
                     if(altTextures_ == null) {
                         altTextures_ = new Dictionary();
                     }
-                    altTextures_[int(param1.@id)] = new TextureDataConcrete(param1);
+                    altTextures_[int(xml.@id)] = new TextureDataConcrete(xml);
             }
         }
         

@@ -7,6 +7,7 @@ package kabam.rotmg.core.commands {
     import kabam.rotmg.account.core.services.GetCharListTask;
     import kabam.rotmg.core.model.PlayerModel;
     import kabam.rotmg.core.signals.SetScreenSignal;
+    import kabam.rotmg.dailyLogin.tasks.FetchPlayerCalendarTask;
     
     public class SetScreenWithValidDataCommand {
          
@@ -26,6 +27,9 @@ package kabam.rotmg.core.commands {
         [Inject]
         public var task:GetCharListTask;
         
+        [Inject]
+        public var calendarTask:FetchPlayerCalendarTask;
+        
         public function SetScreenWithValidDataCommand() {
             super();
         }
@@ -42,6 +46,7 @@ package kabam.rotmg.core.commands {
             this.setScreen.dispatch(new LoadingScreen());
             var _local_1:TaskSequence = new TaskSequence();
             _local_1.add(this.task);
+            _local_1.add(this.calendarTask);
             _local_1.add(new DispatchSignalTask(this.setScreen,this.view));
             this.monitor.add(_local_1);
             _local_1.start();

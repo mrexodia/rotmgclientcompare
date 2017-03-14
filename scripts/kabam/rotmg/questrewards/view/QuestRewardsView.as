@@ -292,7 +292,8 @@ package kabam.rotmg.questrewards.view {
         }
         
         public function onQuestComplete() : void {
-            var _local_1:DisplayObject = new questCompleteBanner();
+            var _local_1:DisplayObject = null;
+            _local_1 = new questCompleteBanner();
             _local_1.x = 120;
             _local_1.y = 180;
             _local_1.scaleX = 0.1;

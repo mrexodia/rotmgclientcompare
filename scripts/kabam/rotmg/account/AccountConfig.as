@@ -13,6 +13,8 @@ package kabam.rotmg.account {
     import kabam.rotmg.account.core.signals.UpdateAccountInfoSignal;
     import kabam.rotmg.account.core.signals.VerifyAgeSignal;
     import kabam.rotmg.account.core.view.MoneyFrame;
+    import kabam.rotmg.account.core.view.PurchaseConfirmationDialog;
+    import kabam.rotmg.account.core.view.PurchaseConfirmationMediator;
     import kabam.rotmg.account.kabam.KabamAccountConfig;
     import kabam.rotmg.account.kongregate.KongregateAccountConfig;
     import kabam.rotmg.account.securityQuestions.commands.SaveSecurityQuestionsCommand;
@@ -83,6 +85,7 @@ package kabam.rotmg.account {
             this.mediatorMap.map(SecurityQuestionsDialog).toMediator(SecurityQuestionsMediator);
             this.mediatorMap.map(SecurityQuestionsInfoDialog).toMediator(SecurityQuestionsMediator);
             this.mediatorMap.map(SecurityQuestionsConfirmDialog).toMediator(SecurityQuestionsMediator);
+            this.mediatorMap.map(PurchaseConfirmationDialog).toMediator(PurchaseConfirmationMediator);
             this.commandMap.map(BuyCharacterSlotSignal).toCommand(BuyCharacterSlotCommand).withGuards(IsAccountRegisteredToBuyGoldGuard);
             this.commandMap.map(PurchaseGoldSignal).toCommand(PurchaseGoldCommand);
             this.commandMap.map(VerifyAgeSignal).toCommand(VerifyAgeCommand);

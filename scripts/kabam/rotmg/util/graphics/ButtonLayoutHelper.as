@@ -33,8 +33,8 @@ package kabam.rotmg.util.graphics {
             var _local_5:Rectangle = null;
             var _local_4:Rectangle = param2.getRect(param2);
             _local_5 = param3.getRect(param3);
-            param2.x = (param1 - 2 * param2.width) * 0.25 - _local_4.left;
-            param3.x = (3 * param1 - 2 * param3.width) * 0.25 - _local_5.left;
+            param2.x = int((param1 - 2 * param2.width) * 0.25 - _local_4.left);
+            param3.x = int((3 * param1 - 2 * param3.width) * 0.25 - _local_5.left);
         }
     }
 }

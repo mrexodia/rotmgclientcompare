@@ -69,7 +69,7 @@ package com.company.assembleegameclient.ui.tooltip {
             addChild(this.portrait_);
             this.nameText_ = new TextFieldDisplayConcrete().setSize(13).setColor(11776947);
             this.nameText_.setBold(true);
-            this.nameText_.setStringBuilder(new LineBuilder().setParams(param1.DisplayId));
+            this.nameText_.setStringBuilder(new LineBuilder().setParams(getDisplayId(param1)));
             this.nameText_.filters = [new DropShadowFilter(0,0,0)];
             waiter.push(this.nameText_.textChanged);
             addChild(this.nameText_);
@@ -126,13 +126,17 @@ package com.company.assembleegameclient.ui.tooltip {
                     this.nextClassQuest_ = new TextFieldDisplayConcrete().setSize(13).setColor(16549442).setTextWidth(160).setMultiLine(true).setWordWrap(true);
                     this.nextClassQuest_.setStringBuilder(new LineBuilder().setParams(TextKey.NEXT_CLASS_QUEST,{
                         "nextStarFame":_local_14,
-                        "typeToDisplay":param1.DisplayId
+                        "typeToDisplay":getDisplayId(param1)
                     }));
                     this.nextClassQuest_.filters = [new DropShadowFilter(0,0,0)];
                     waiter.push(this.nextClassQuest_.textChanged);
                     addChild(this.nextClassQuest_);
                 }
             }
+        }
+        
+        public static function getDisplayId(param1:XML) : String {
+            return param1.DisplayId == undefined?param1.@id:param1.DisplayId;
         }
         
         override protected function alignUI() : void {

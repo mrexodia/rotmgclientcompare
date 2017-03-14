@@ -39,6 +39,8 @@ package com.company.assembleegameclient.map {
         
         public static const DAILY_QUEST_ROOM:String = "Daily Quest Room";
         
+        public static const DAILY_LOGIN_ROOM:String = "Daily Login Room";
+        
         public static const PET_YARD_1:String = "Pet Yard";
         
         public static const PET_YARD_2:String = "Pet Yard 2";
@@ -94,9 +96,9 @@ package com.company.assembleegameclient.map {
         
         public var visibleUnder_:Array;
         
-        public var visibleSquares_:Vector.<Square#55>;
+        public var visibleSquares_:Vector.<Square#58>;
         
-        public var topSquares_:Vector.<Square#55>;
+        public var topSquares_:Vector.<Square#58>;
         
         public function Map(param1:AGameSprite) {
             this.objsToAdd_ = new Vector.<BasicObject>();
@@ -108,8 +110,8 @@ package com.company.assembleegameclient.map {
             this.graphicsData3d_ = new Vector.<Object3DStage3D>();
             this.visible_ = new Array();
             this.visibleUnder_ = new Array();
-            this.visibleSquares_ = new Vector.<Square#55>();
-            this.topSquares_ = new Vector.<Square#55>();
+            this.visibleSquares_ = new Vector.<Square#58>();
+            this.topSquares_ = new Vector.<Square#58>();
             super();
             gs_ = param1;
             hurtOverlay_ = new HurtOverlay();
@@ -309,21 +311,21 @@ package com.company.assembleegameclient.map {
             delete _local_2[param1];
         }
         
-        public function getSquare(param1:Number, param2:Number) : Square#55 {
+        public function getSquare(param1:Number, param2:Number) : Square#58 {
             if(param1 < 0 || param1 >= width_ || param2 < 0 || param2 >= height_) {
                 return null;
             }
             var _local_3:int = int(param1) + int(param2) * width_;
             var _local_4:Square = squares_[_local_3];
             if(_local_4 == null) {
-                _local_4 = new Square#55(this,int(param1),int(param2));
+                _local_4 = new Square#58(this,int(param1),int(param2));
                 squares_[_local_3] = _local_4;
                 squareList_.push(_local_4);
             }
             return _local_4;
         }
         
-        public function lookupSquare(param1:int, param2:int) : Square#55 {
+        public function lookupSquare(param1:int, param2:int) : Square#58 {
             if(param1 < 0 || param1 >= width_ || param2 < 0 || param2 >= height_) {
                 return null;
             }
