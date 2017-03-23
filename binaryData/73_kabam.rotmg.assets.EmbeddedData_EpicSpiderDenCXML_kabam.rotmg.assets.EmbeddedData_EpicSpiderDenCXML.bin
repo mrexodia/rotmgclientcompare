@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <Objects>
-   <Object type="0x072e" id="The Crawling Depths">
-      <Class>Portal</Class>
-      <IntergamePortal/>
-      <DungeonName>The Crawling Depths</DungeonName>
-      <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3e8</Index>
-      </Texture>
-   </Object>
    <Object type="0x708f" id="Blue Egg Summoner">
       <Class>Character</Class>
       <Texture>

@@ -1698,7 +1698,7 @@
       <PlayerClassType>0x0326</PlayerClassType>
       <NoSkinSelect/>
    </Object>
-   <Object type="0x2ad0" id="Leprechaun ">
+   <Object type="0x2ad0" id="Leprechaun Mystic">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>

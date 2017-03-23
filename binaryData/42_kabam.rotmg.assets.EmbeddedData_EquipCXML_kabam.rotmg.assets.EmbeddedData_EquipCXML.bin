@@ -15283,6 +15283,21 @@
       <Soulbound/>
       <feedPower>5000</feedPower>
    </Object>
+   <Object type="0x5e2d" id="Treasure Map">
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x20e</Index>
+      </Texture>
+      <SlotType>10</SlotType>
+      <Description>A map that reveals the way to hidden treasure.</Description>
+      <Sound>use_key</Sound>
+      <Consumable/>
+      <Soulbound/>
+      <Activate id="Treasure Cave Portal">Create</Activate>
+      <feedPower>250</feedPower>
+   </Object>
    <Object type="0x16d6" id="Enchanted Ice Blade">
       <Class>Equipment</Class>
       <Item/>

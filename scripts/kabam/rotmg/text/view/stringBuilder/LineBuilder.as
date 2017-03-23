@@ -29,7 +29,7 @@ package kabam.rotmg.text.view.stringBuilder {
             _local_3.setParams(param1,param2);
             var _local_4:StringMap = StaticInjectorContext.getInjector().getInstance(StringMap);
             _local_3.setStringMap(_local_4);
-            return _local_3.getString();
+            return _local_3.getString() == ""?param1:_local_3.getString();
         }
         
         public static function getLocalizedStringFromJSON(param1:String) : String {

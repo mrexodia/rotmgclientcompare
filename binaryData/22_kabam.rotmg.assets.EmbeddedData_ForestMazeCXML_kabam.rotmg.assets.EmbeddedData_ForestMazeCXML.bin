@@ -137,16 +137,6 @@
          <Size>90</Size>
       </Projectile>
    </Object>
-   <Object type="0x5f34" id="Forest Maze Portal">
-      <Class>Portal</Class>
-      <IntergamePortal/>
-      <DungeonName>Forest Maze</DungeonName>
-      <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3dd</Index>
-      </Texture>
-      <ShadowSize>0</ShadowSize>
-   </Object>
    <Object type="0x5e5f" id="Forrest Shady Floor">
       <Class>GameObject</Class>
       <Texture>

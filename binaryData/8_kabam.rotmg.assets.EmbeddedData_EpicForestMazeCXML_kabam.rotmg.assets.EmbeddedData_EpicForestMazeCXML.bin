@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
 <Objects>
-   <Object type="0x075c" id="Woodland Labyrinth">
-      <Class>Portal</Class>
-      <IntergamePortal/>
-      <DungeonName>Woodland Labyrinth</DungeonName>
-      <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3e5</Index>
-      </Texture>
-   </Object>
    <Object type="0x217a" id="Woodland Moth Dust">
       <Class>Projectile</Class>
       <RandomTexture>

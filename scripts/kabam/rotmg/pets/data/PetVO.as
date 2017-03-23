@@ -143,7 +143,7 @@ package kabam.rotmg.pets.data {
         }
         
         public function setName(param1:String) : void {
-            this.name = ObjectLibrary.typeToDisplayId_[this.getType()];
+            this.name = ObjectLibrary.typeToDisplayId_[this.skinID];
             this.updated.dispatch();
         }
         
