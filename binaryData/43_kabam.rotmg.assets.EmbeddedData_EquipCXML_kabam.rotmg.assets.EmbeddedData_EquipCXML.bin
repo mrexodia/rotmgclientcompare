@@ -1415,23 +1415,24 @@
       <Soulbound/>
    </Object>
    <Object type="0xa03" id="Crystal Sword">
-      <Class>Equipment</Class>
-      <Item/>
+      <DisplayId>Mithril Sword</DisplayId>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x68</Index>
+         <File>lofiObj</File>
+         <Index>0x38</Index>
       </Texture>
-      <SlotType>1</SlotType>
-      <Description>A lightweight blade that seems to dance in your hands.</Description>
-      <RateOfFire>1</RateOfFire>
-      <Sound>weapon/glass_sword</Sound>
+      <Description>An extremely sharp sword made from the strongest and most desirable of all metals. You should go to the Nexus and show everyone!</Description>
       <Projectile>
-         <ObjectId>Aqua Slash</ObjectId>
+         <ObjectId>Blue Bolt</ObjectId>
          <Speed>100</Speed>
          <MinDamage>180</MinDamage>
          <MaxDamage>210</MaxDamage>
          <LifetimeMS>450</LifetimeMS>
       </Projectile>
+      <Class>Equipment</Class>
+      <Item/>
+      <SlotType>1</SlotType>
+      <RateOfFire>1</RateOfFire>
+      <Sound>weapon/glass_sword</Sound>
       <BagType>6</BagType>
       <FameBonus>3</FameBonus>
       <OldSound>bladeSwing</OldSound>
@@ -2427,13 +2428,15 @@
    <Object type="0xaf9" id="Hydra Skin Armor">
       <Class>Equipment</Class>
       <Item/>
+      <DisplayId>BUFFED Hydra Skin Armor</DisplayId>
+      <ActivateOnEquip stat="3" amount="1">IncrementStat</ActivateOnEquip>
+      <Description>Superlative leather armor fashioned from the skin of an extra beefy twelve-headed swamp hydra.</Description>
       <Texture>
          <File>lofiObj5</File>
          <Index>0x0c</Index>
       </Texture>
       <SlotType>6</SlotType>
       <Tier>13</Tier>
-      <Description>Superlative leather armor fashioned from the skin of a twelve-headed swamp hydra.</Description>
       <ActivateOnEquip stat="21" amount="17">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="28" amount="5">IncrementStat</ActivateOnEquip>
       <BagType>4</BagType>
@@ -5575,7 +5578,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x488</Index>
+         <Index>0x478</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -5590,7 +5593,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x489</Index>
+         <Index>0x479</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -5605,7 +5608,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x48a</Index>
+         <Index>0x47a</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -5620,7 +5623,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x48b</Index>
+         <Index>0x47b</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -5635,7 +5638,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x48c</Index>
+         <Index>0x47c</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -5650,7 +5653,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x48d</Index>
+         <Index>0x47d</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -5665,7 +5668,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x48e</Index>
+         <Index>0x47e</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Description>A huge, flawless topaz set in a stunningly beautiful gold ring.</Description>
@@ -5694,7 +5697,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x48f</Index>
+         <Index>0x47f</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Tier>6</Tier>
@@ -8583,29 +8586,6 @@
       <BagType>4</BagType>
       <feedPower>500</feedPower>
    </Object>
-   <Object type="0x9d4" id="Admin Sword">
-      <Class>Equipment</Class>
-      <Item/>
-      <Texture>
-         <File>lofiObj5</File>
-         <Index>0x30</Index>
-      </Texture>
-      <SlotType>1</SlotType>
-      <Description>The sacred blade of the Cult of Admin. Not to be trifled with.</Description>
-      <RateOfFire>1</RateOfFire>
-      <Sound>weapon/fire_dagger</Sound>
-      <Soulbound/>
-      <Projectile>
-         <ObjectId>Blade</ObjectId>
-         <Speed>120</Speed>
-         <MinDamage>2000</MinDamage>
-         <MaxDamage>2000</MaxDamage>
-         <LifetimeMS>600</LifetimeMS>
-      </Projectile>
-      <BagType>6</BagType>
-      <feedPower>100000</feedPower>
-      <Soulbound/>
-   </Object>
    <Object type="0x701" id="Undead Lair Key">
       <Class>Equipment</Class>
       <Item/>
@@ -9384,7 +9364,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x1af</Index>
+         <Index>0x10a</Index>
       </Texture>
       <SlotType>23</SlotType>
       <Description>This scepter's blast is so powerful it will slow opponents.</Description>
@@ -9404,7 +9384,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x1b0</Index>
+         <Index>0x10b</Index>
       </Texture>
       <SlotType>9</SlotType>
       <Description>An early prototype ring.</Description>
@@ -9422,7 +9402,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x1b1</Index>
+         <Index>0x10c</Index>
       </Texture>
       <SlotType>14</SlotType>
       <Description>A well-worn robe used for Science!</Description>
@@ -9441,7 +9421,7 @@
       <Item/>
       <Texture>
          <File>lofiObj3</File>
-         <Index>0x1b2</Index>
+         <Index>0x10d</Index>
       </Texture>
       <SlotType>8</SlotType>
       <Description>This wand is powerful at conducting magical energy into a devastating blast.</Description>
@@ -10715,36 +10695,6 @@
       <Timer>1200</Timer>
       <XpBoost/>
       <feedPower>75</feedPower>
-   </Object>
-   <Object type="0x9d3" id="Admin Staff">
-      <Class>Equipment</Class>
-      <Item/>
-      <Texture>
-         <File>lofiObj5</File>
-         <Index>0x70</Index>
-      </Texture>
-      <SlotType>17</SlotType>
-      <Description>A godly weapon belonging to the Cult of Admin.</Description>
-      <RateOfFire>1.1</RateOfFire>
-      <Sound>monster/djinn_hit</Sound>
-      <Projectile>
-         <ObjectId>Crystal Serpent Missile</ObjectId>
-         <Speed>180</Speed>
-         <MinDamage>2000</MinDamage>
-         <MaxDamage>2000</MaxDamage>
-         <LifetimeMS>600</LifetimeMS>
-         <Amplitude>0.5</Amplitude>
-         <Frequency>2</Frequency>
-         <PassesCover/>
-      </Projectile>
-      <Soulbound/>
-      <BagType>6</BagType>
-      <FameBonus>2</FameBonus>
-      <NumProjectiles>3</NumProjectiles>
-      <ArcGap>0</ArcGap>
-      <OldSound>magicShoot</OldSound>
-      <feedPower>50000</feedPower>
-      <Soulbound/>
    </Object>
    <Object type="0x9d2" id="Strike Amulet">
       <Class>Equipment</Class>
@@ -14818,22 +14768,6 @@
       <DisplayId>Orb of Sweet Demise</DisplayId>
       <Soulbound/>
    </Object>
-   <Object type="0x12f" id="Mountain Temple Key">
-      <Class>Equipment</Class>
-      <Item/>
-      <DisplayId>Mountain Temple key</DisplayId>
-      <Texture>
-         <File>lofiObj3</File>
-         <Index>0x58b</Index>
-      </Texture>
-      <SlotType>10</SlotType>
-      <Description>A key which opens an entrance to The Mountain Temple.</Description>
-      <Sound>use_key</Sound>
-      <Consumable/>
-      <Soulbound/>
-      <Activate id="Mountain Temple Portal">Create</Activate>
-      <Track/>
-   </Object>
    <Object type="0x0d41" id="Wooden Box">
       <Class>Equipment</Class>
       <Item/>
@@ -15140,6 +15074,40 @@
       <feedPower>260</feedPower>
       <Track/>
    </Object>
+   <Object type="0xbb4" id="Court of Oryx Key">
+      <Class>Equipment</Class>
+      <Item/>
+      <DisplayId>Court of Oryx Key</DisplayId>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x5f</Index>
+      </Texture>
+      <SlotType>10</SlotType>
+      <Description>A key which opens an entrance to the Court of Oryx. Say hi to Craig for me. For testing purposes.</Description>
+      <Sound>use_key</Sound>
+      <Consumable/>
+      <Soulbound/>
+      <Activate id="Court of Oryx Portal">Create</Activate>
+      <feedPower>260</feedPower>
+      <Track/>
+   </Object>
+   <Object type="0xbb6" id="Oryx Chicken Chamber Key">
+      <Class>Equipment</Class>
+      <Item/>
+      <DisplayId>Oryx Chicken Chamber Key</DisplayId>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x5f</Index>
+      </Texture>
+      <SlotType>10</SlotType>
+      <Description>A key which opens an entrance to the Oryx Chicken Chamber. For testing purposes.</Description>
+      <Sound>use_key</Sound>
+      <Consumable/>
+      <Soulbound/>
+      <Activate id="Oryx Chicken Chamber Portal">Create</Activate>
+      <feedPower>260</feedPower>
+      <Track/>
+   </Object>
    <Object type="0x7fb7" id="Ice Tomb Key">
       <Class>Equipment</Class>
       <Item/>
@@ -15156,72 +15124,6 @@
       <Activate id="Ice Tomb Portal">Create</Activate>
       <feedPower>260</feedPower>
       <Track/>
-   </Object>
-   <Object type="0xbb2" id="Test Pentaract">
-      <Class>Equipment</Class>
-      <Item/>
-      <DisplayId>Test Pentaract</DisplayId>
-      <Texture>
-         <File>lofiChar8x8</File>
-         <Index>0xb5</Index>
-      </Texture>
-      <SlotType>10</SlotType>
-      <Description>Spawns a Pentaract. Do not use in the Nexus!</Description>
-      <Sound>use_key</Sound>
-      <Consumable/>
-      <Soulbound/>
-      <Activate id="Pentaract Thrower">Create</Activate>
-   </Object>
-   <Object type="0xbb3" id="Pentaract Thrower">
-      <Class>Character</Class>
-      <Texture>
-         <File>invisible</File>
-         <Index>0</Index>
-      </Texture>
-   </Object>
-   <Object type="0xbb4" id="Test Cube God">
-      <Class>Equipment</Class>
-      <Item/>
-      <DisplayId>Test Cube God</DisplayId>
-      <Texture>
-         <File>lofiChar28x8</File>
-         <Index>0x40</Index>
-      </Texture>
-      <SlotType>10</SlotType>
-      <Description>Spawns a Cube God. Do not use in the Nexus!</Description>
-      <Sound>use_key</Sound>
-      <Consumable/>
-      <Soulbound/>
-      <Activate id="Cube God Thrower">Create</Activate>
-   </Object>
-   <Object type="0xbb5" id="Cube God Thrower">
-      <Class>Character</Class>
-      <Texture>
-         <File>invisible</File>
-         <Index>0</Index>
-      </Texture>
-   </Object>
-   <Object type="0xbb6" id="Test Skull Shrine">
-      <Class>Equipment</Class>
-      <Item/>
-      <DisplayId>Test Skull Shrine</DisplayId>
-      <Texture>
-         <File>lofiChar8x8</File>
-         <Index>0x65</Index>
-      </Texture>
-      <SlotType>10</SlotType>
-      <Description>Spawns a Skull Shrine. Do not use in the Nexus!</Description>
-      <Sound>use_key</Sound>
-      <Consumable/>
-      <Soulbound/>
-      <Activate id="Skull Shrine Thrower">Create</Activate>
-   </Object>
-   <Object type="0xbb7" id="Skull Shrine Thrower">
-      <Class>Character</Class>
-      <Texture>
-         <File>invisible</File>
-         <Index>0</Index>
-      </Texture>
    </Object>
    <Object type="0x190" id="Apple">
       <DisplayId>Apple of Extreme Maxening</DisplayId>
@@ -15278,6 +15180,23 @@
       <Description>Opens everything! For testing purposes.</Description>
       <Sound>use_potion</Sound>
       <Activate id="Key Spawner">Create</Activate>
+      <Consumable/>
+      <BagType>5</BagType>
+      <Soulbound/>
+      <feedPower>50000</feedPower>
+   </Object>
+   <Object type="0x933" id="TKeys">
+      <DisplayId>Testing Gift</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>lofiObj</File>
+         <Index>0x20</Index>
+      </Texture>
+      <SlotType>10</SlotType>
+      <Description>Spawns an object that drops keys and items. For testing purposes.</Description>
+      <Sound>use_potion</Sound>
+      <Activate id="Testing Key Dropper">Create</Activate>
       <Consumable/>
       <BagType>5</BagType>
       <Soulbound/>
@@ -16636,5 +16555,35 @@
       <Soulbound/>
       <BagType>4</BagType>
       <feedPower>2000</feedPower>
+   </Object>
+   <Object type="0x6a9" id="Apocalypse Feather">
+      <DisplayId>Apocalypse Feather</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xce</Index>
+      </Texture>
+      <SlotType>1</SlotType>
+      <Description>A relic from an age when evil chickens had taken over the realm. Their tyranny ended eventually at the hands of an exceptional wielder of the dirk.</Description>
+      <RateOfFire>2</RateOfFire>
+      <Sound>weapon/blunt_sword</Sound>
+      <OldSound>weapon/blunt_sword</OldSound>
+      <Projectile>
+         <ObjectId>Apo Feather</ObjectId>
+         <Speed>75</Speed>
+         <MinDamage>15</MinDamage>
+         <MaxDamage>45</MaxDamage>
+         <LifetimeMS>675</LifetimeMS>
+         <Amplitude>0.5</Amplitude>
+         <Frequency>0.75</Frequency>
+         <Size>100</Size>
+      </Projectile>
+      <NumProjectiles>1</NumProjectiles>
+      <ArcGap>10</ArcGap>
+      <BagType>6</BagType>
+      <FameBonus>4</FameBonus>
+      <feedPower>1000</feedPower>
+      <Soulbound/>
    </Object>
 </Objects>

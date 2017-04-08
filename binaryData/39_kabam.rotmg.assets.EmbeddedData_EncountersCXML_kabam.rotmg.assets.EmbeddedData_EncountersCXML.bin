@@ -1062,6 +1062,7 @@
       </Projectile>
    </Object>
    <Object type="0x0d50" id="Lord of the Lost Lands">
+      <DisplayId>Lord of the Lol 0</DisplayId>
       <Group>Knights of the Lost Lands</Group>
       <Enemy/>
       <Class>Character</Class>
@@ -1205,8 +1206,8 @@
       <Enemy/>
       <Class>Character</Class>
       <AnimatedTexture>
-         <File>chars16x16rEncounters</File>
-         <Index>4</Index>
+         <File>d3Chars16x16rEmbed</File>
+         <Index>30</Index>
       </AnimatedTexture>
       <HitSound>monster/ghost_god_hit</HitSound>
       <DeathSound>monster/ghost_god_death</DeathSound>
@@ -1255,8 +1256,8 @@
       <Enemy/>
       <Class>Character</Class>
       <AnimatedTexture>
-         <File>chars8x8dEncounters</File>
-         <Index>8</Index>
+         <File>d3Chars8x8rEmbed</File>
+         <Index>15</Index>
       </AnimatedTexture>
       <HitSound>monster/trees_hit</HitSound>
       <DeathSound>monster/trees_death</DeathSound>
@@ -1283,9 +1284,10 @@
    </Object>
    <Object type="0x0d56" id="Skull Shrine">
       <Class>Character</Class>
+      <DisplayId>Cool Shrine</DisplayId>
       <Texture>
-         <File>lofiChar216x16</File>
-         <Index>0x35</Index>
+         <File>d3LofiObjEmbed16</File>
+         <Index>0x2f</Index>
       </Texture>
       <HitSound>monster/skull_shrine_hit</HitSound>
       <DeathSound>monster/skull_shrine_death</DeathSound>
@@ -1310,9 +1312,10 @@
       <Group>Flaming Skulls</Group>
       <Class>Character</Class>
       <Enemy/>
+      <DisplayId>Cool Skull</DisplayId>
       <Texture>
-         <File>lofiChar8x8</File>
-         <Index>0x65</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x7e</Index>
       </Texture>
       <HitSound>monster/flaming_skulls_hit</HitSound>
       <DeathSound>monster/flaming_skulls_death</DeathSound>
@@ -1332,9 +1335,10 @@
       <Group>Flaming Skulls</Group>
       <Class>Character</Class>
       <Enemy/>
+      <DisplayId>Cooler Skull</DisplayId>
       <Texture>
-         <File>lofiChar8x8</File>
-         <Index>0x66</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x7f</Index>
       </Texture>
       <HitSound>monster/flaming_skulls_hit</HitSound>
       <DeathSound>monster/flaming_skulls_death</DeathSound>
@@ -1421,8 +1425,8 @@
    <Object type="0x0d59" id="Cube God">
       <Class>Character</Class>
       <Texture>
-         <File>lofiChar216x16</File>
-         <Index>0x37</Index>
+         <File>d3LofiObjEmbed16</File>
+         <Index>0x2e</Index>
       </Texture>
       <HitSound>monster/cubes_hit</HitSound>
       <DeathSound>monster/cubes_death</DeathSound>
@@ -1454,8 +1458,8 @@
       <Class>Character</Class>
       <Enemy/>
       <Texture>
-         <File>lofiChar28x8</File>
-         <Index>0x40</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x6f</Index>
       </Texture>
       <HitSound>monster/cubes_hit</HitSound>
       <DeathSound>monster/cubes_death</DeathSound>
@@ -1481,8 +1485,8 @@
       <Class>Character</Class>
       <Enemy/>
       <Texture>
-         <File>lofiChar28x8</File>
-         <Index>0x41</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x6e</Index>
       </Texture>
       <HitSound>monster/cubes_hit</HitSound>
       <DeathSound>monster/cubes_death</DeathSound>
@@ -1503,8 +1507,8 @@
       <Class>Character</Class>
       <Enemy/>
       <Texture>
-         <File>lofiChar28x8</File>
-         <Index>0x42</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x6d</Index>
       </Texture>
       <HitSound>monster/cubes_hit</HitSound>
       <DeathSound>monster/cubes_death</DeathSound>
@@ -1831,13 +1835,13 @@
       <PerRealmMax>1</PerRealmMax>
       <KeepDamageRecord/>
       <AnimatedTexture>
-         <File>chars16x16dEncounters2</File>
-         <Index>11</Index>
+         <File>d3Chars16x16rEmbed</File>
+         <Index>31</Index>
       </AnimatedTexture>
       <Portrait>
          <AnimatedTexture>
-            <File>chars16x16dEncounters2</File>
-            <Index>11</Index>
+            <File>d3Chars16x16rEmbed</File>
+            <Index>31</Index>
          </AnimatedTexture>
       </Portrait>
       <AltTexture id="1">
@@ -1860,8 +1864,8 @@
       </AltTexture>
       <AltTexture id="4">
          <AnimatedTexture>
-            <File>chars16x16dEncounters2</File>
-            <Index>14</Index>
+            <File>d3Chars16x16rEmbed</File>
+            <Index>32</Index>
          </AnimatedTexture>
       </AltTexture>
       <HitSound>monster/skeletons_hit</HitSound>
@@ -1914,8 +1918,8 @@
       <HitSound>monster/wooden_walls_hit</HitSound>
       <DeathSound>monster/stone_walls_death</DeathSound>
       <AnimatedTexture>
-         <File>chars8x8rEncounters</File>
-         <Index>21</Index>
+         <File>d3Chars8x8rEmbed</File>
+         <Index>16</Index>
       </AnimatedTexture>
       <Projectile id="0">
          <ObjectId>Snake Shot Yellow</ObjectId>
@@ -2116,5 +2120,315 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <XpMult>0.0</XpMult>
       <NoMiniMap/>
+   </Object>
+   <Object type="0x0e56" id="Masked Party God">
+      <Enemy/>
+      <Class>Character</Class>
+      <Texture>
+         <File>lofiObjBig</File>
+         <Index>0x40</Index>
+      </Texture>
+      <AltTexture id="1">
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0x41</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="2">
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0x42</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="3">
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0x3f</Index>
+         </Texture>
+      </AltTexture>
+      <HitSound>monster/default_hit</HitSound>
+      <DeathSound>monster/dark_elves_death</DeathSound>
+      <Size>140</Size>
+      <ShadowSize>70</ShadowSize>
+      <MaxHitPoints>30000</MaxHitPoints>
+      <Defense>10</Defense>
+   </Object>
+   <Object type="0x0e55" id="Beach Bum">
+      <Enemy/>
+      <Class>Character</Class>
+      <AnimatedTexture>
+         <File>chars8x8rEncounters</File>
+         <Index>37</Index>
+      </AnimatedTexture>
+      <HitSound>monster/default_hit</HitSound>
+      <DeathSound>monster/dark_elves_death</DeathSound>
+      <Size>100</Size>
+      <ShadowSize>100</ShadowSize>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>15</Defense>
+   </Object>
+   <Object type="0x0e4f" id="Water Mine">
+      <Enemy/>
+      <Class>Character</Class>
+      <DisplayId>Soap Mine</DisplayId>
+      <AnimatedTexture>
+         <File>d3Chars16x16rEmbed</File>
+         <Index>29</Index>
+      </AnimatedTexture>
+      <HitSound>monster/traps_hit</HitSound>
+      <DeathSound>monster/traps_death</DeathSound>
+      <Size>100</Size>
+      <ShadowSize>100</ShadowSize>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>30</Defense>
+      <XpMult>0</XpMult>
+      <Projectile id="0">
+         <ObjectId>LavaBombBlast</ObjectId>
+         <Damage>80</Damage>
+         <Speed>60</Speed>
+         <Size>120</Size>
+         <LifetimeMS>450</LifetimeMS>
+      </Projectile>
+   </Object>
+   <Object type="0x0e4e" id="Water Mine Path">
+      <Enemy/>
+      <Class>Character</Class>
+      <DisplayId>Soap Mine</DisplayId>
+      <AnimatedTexture>
+         <File>d3Chars16x16rEmbed</File>
+         <Index>29</Index>
+      </AnimatedTexture>
+      <HitSound>monster/traps_hit</HitSound>
+      <DeathSound>monster/traps_death</DeathSound>
+      <Size>100</Size>
+      <ShadowSize>100</ShadowSize>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>30</Defense>
+      <XpMult>0</XpMult>
+      <Projectile id="0">
+         <ObjectId>LavaBombBlast</ObjectId>
+         <Damage>80</Damage>
+         <Speed>60</Speed>
+         <Size>120</Size>
+         <LifetimeMS>450</LifetimeMS>
+      </Projectile>
+   </Object>
+   <Object type="0x0e3d" id="Beach Spectre">
+      <Enemy/>
+      <Class>Character</Class>
+      <DisplayId>Beach Towel</DisplayId>
+      <AnimatedTexture>
+         <File>d3Chars8x8rEmbed</File>
+         <Index>14</Index>
+      </AnimatedTexture>
+      <HitSound>monster/dragons_hit</HitSound>
+      <DeathSound>monster/dragons_death</DeathSound>
+      <Size>100</Size>
+      <ShadowSize>100</ShadowSize>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Defense>5</Defense>
+      <NoMiniMap/>
+      <Flying/>
+      <Z>0.2</Z>
+      <XpMult>0.0</XpMult>
+      <Projectile>
+         <ObjectId>Ghostly Arrow</ObjectId>
+         <Speed>66</Speed>
+         <Damage>35</Damage>
+         <Size>50</Size>
+         <LifetimeMS>800</LifetimeMS>
+      </Projectile>
+   </Object>
+   <Object type="0x0e3c" id="Beach Spectre Spawner">
+      <Enemy/>
+      <Class>Character</Class>
+      <AnimatedTexture>
+         <File>chars8x8rEncounters</File>
+         <Index>36</Index>
+      </AnimatedTexture>
+      <Size>0</Size>
+      <ShadowSize>0</ShadowSize>
+      <MaxHitPoints>1000</MaxHitPoints>
+      <Defense>100</Defense>
+      <NoMiniMap/>
+   </Object>
+   <Object type="0x0e3b" id="Tempest Cloud">
+      <Enemy/>
+      <Class>Character</Class>
+      <Texture>
+         <File>invisible</File>
+         <Index>0</Index>
+      </Texture>
+      <DisplayId>Tempest Sponge</DisplayId>
+      <AltTexture id="1">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x23</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="2">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x23</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="3">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x24</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="4">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x25</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="5">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x26</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="6">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x27</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="7">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x2b</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="8">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x2c</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="9">
+         <Texture>
+            <File>d3LofiObjEmbed16</File>
+            <Index>0x2d</Index>
+         </Texture>
+      </AltTexture>
+      <HitSound>monster/sprites_hit</HitSound>
+      <DeathSound>monster/sprites_death</DeathSound>
+      <Size>0</Size>
+      <MaxHitPoints>800</MaxHitPoints>
+      <Defense>15</Defense>
+      <Flying/>
+      <Z>0.8</Z>
+      <Projectile id="0">
+         <ObjectId>Lightning Bolt</ObjectId>
+         <Damage>66</Damage>
+         <Speed>40</Speed>
+         <Size>80</Size>
+         <LifetimeMS>600</LifetimeMS>
+      </Projectile>
+   </Object>
+   <Object type="0x0e39" id="Vengeful Spirit">
+      <Class>Character</Class>
+      <DisplayId>Vengeful Shampoo</DisplayId>
+      <AnimatedTexture>
+         <File>d3Chars16x16rEmbed</File>
+         <Index>28</Index>
+      </AnimatedTexture>
+      <HitSound>monster/flaming_skulls_hit</HitSound>
+      <DeathSound>monster/beholder_death</DeathSound>
+      <MaxHitPoints>2000</MaxHitPoints>
+      <XpMult>0</XpMult>
+      <Enemy/>
+      <Size>0</Size>
+      <ShadowSize>80</ShadowSize>
+      <Z>0.3</Z>
+      <Flying/>
+      <Projectile>
+         <ObjectId>Ghostly Blast</ObjectId>
+         <Speed>85</Speed>
+         <Damage>65</Damage>
+         <Size>100</Size>
+         <LifetimeMS>600</LifetimeMS>
+      </Projectile>
+   </Object>
+   <Object type="0x0e38" id="Ghost Ship Anchor">
+      <Enemy/>
+      <Class>Character</Class>
+      <DisplayId>Ghost Ship Whirlpool</DisplayId>
+      <AnimatedTexture>
+         <File>chars16x16dEncounters2</File>
+         <Index>40</Index>
+      </AnimatedTexture>
+      <HitSound>monster/sprites_hit</HitSound>
+      <DeathSound>monster/sprites_death</DeathSound>
+      <Size>0</Size>
+      <ShadowSize>0</ShadowSize>
+      <MaxHitPoints>6000</MaxHitPoints>
+      <Defense>2000</Defense>
+      <NoMiniMap/>
+      <PerRealmMax>1</PerRealmMax>
+      <Encounter/>
+      <Projectile id="0">
+         <ObjectId>Invisible</ObjectId>
+         <MinDamage>50</MinDamage>
+         <MaxDamage>100</MaxDamage>
+         <Speed>0</Speed>
+         <Size>100</Size>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit/>
+      </Projectile>
+   </Object>
+   <Object type="0x0e37" id="Ghost Ship">
+      <Enemy/>
+      <Class>Character</Class>
+      <DisplayId>Rubber Ducky</DisplayId>
+      <AnimatedTexture>
+         <File>d3Chars16x16rEmbed</File>
+         <Index>27</Index>
+      </AnimatedTexture>
+      <AltTexture id="1">
+         <AnimatedTexture>
+            <File>d3Chars16x16rEmbed</File>
+            <Index>26</Index>
+         </AnimatedTexture>
+      </AltTexture>
+      <AltTexture id="2">
+         <AnimatedTexture>
+            <File>d3Chars16x16rEmbed</File>
+            <Index>27</Index>
+         </AnimatedTexture>
+         <Effect particle="SwirlingMist" cooldown="0.2">XMLEffect</Effect>
+      </AltTexture>
+      <HitSound>monster/stone_walls_death</HitSound>
+      <DeathSound>monster/flaming_skulls_death</DeathSound>
+      <Size>130</Size>
+      <ShadowSize>100</ShadowSize>
+      <MaxHitPoints>42000</MaxHitPoints>
+      <Defense>40</Defense>
+      <Flying/>
+      <Hero/>
+      <Level>20</Level>
+      <Quest/>
+      <God/>
+      <StasisImmune/>
+      <KeepDamageRecord/>
+      <Projectile id="0">
+         <ObjectId>Cannonball</ObjectId>
+         <Damage>80</Damage>
+         <Speed>60</Speed>
+         <Size>80</Size>
+         <LifetimeMS>4000</LifetimeMS>
+         <MultiHit/>
+      </Projectile>
+      <Projectile id="1">
+         <ObjectId>Giant Cannonball</ObjectId>
+         <Damage>250</Damage>
+         <Speed>40</Speed>
+         <Size>180</Size>
+         <LifetimeMS>4000</LifetimeMS>
+         <MultiHit/>
+      </Projectile>
    </Object>
 </Objects>
