@@ -10,9 +10,9 @@ package com.company.assembleegameclient.parameters {
     
     public class Parameters {
         
-        public static const BUILD_VERSION:String = "27.7";
+        public static const BUILD_VERSION:String = "X12";
         
-        public static const MINOR_VERSION:String = "X11.2";
+        public static const MINOR_VERSION:String = "0";
         
         public static const ENABLE_ENCRYPTION:Boolean = true;
         
@@ -88,9 +88,9 @@ package com.company.assembleegameclient.parameters {
         
         public static var toggleHPBar_:Boolean = false;
         
-        public static const skinTypes16:Vector.<int> = new <int>[1027,1028,1029,1030];
+        public static const skinTypes16:Vector.<int> = new <int>[1027,1028,1029,1030,10973];
         
-        public static const itemTypes16:Vector.<int> = new <int>[5473,5474,5475,5476];
+        public static const itemTypes16:Vector.<int> = new <int>[5473,5474,5475,5476,10939];
         
         private static var keyNames_:Dictionary = new Dictionary();
          
@@ -185,7 +185,7 @@ package com.company.assembleegameclient.parameters {
             setDefaultKey("resetToDefaultCameraAngle",KeyCodes.Z);
             setDefaultKey("togglePerformanceStats",KeyCodes.UNSET);
             setDefaultKey("options",KeyCodes.O);
-            setDefaultKey("toggleCentering",KeyCodes.UNSET);
+            setDefaultKey("toggleCentering",KeyCodes.X);
             setDefaultKey("chat",KeyCodes.ENTER);
             setDefaultKey("chatCommand",KeyCodes.SLASH);
             setDefaultKey("tell",KeyCodes.TAB);
@@ -215,7 +215,7 @@ package com.company.assembleegameclient.parameters {
             setDefault("protipIndex",0);
             setDefault("joinDate",MoreDateUtil.getDayStringInPT());
             setDefault("lastDailyAnalytics",null);
-            setDefault("allowRotation",false);
+            setDefault("allowRotation",true);
             setDefault("allowMiniMapRotation",false);
             setDefault("charIdUseMap",{});
             setDefault("drawShadows",true);

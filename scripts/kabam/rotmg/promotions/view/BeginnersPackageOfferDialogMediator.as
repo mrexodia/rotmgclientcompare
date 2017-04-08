@@ -1,7 +1,7 @@
 package kabam.rotmg.promotions.view {
     import kabam.rotmg.dailyLogin.model.DailyLoginModel;
-    import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.game.signals.SetWorldInteractionSignal;
     import kabam.rotmg.promotions.model.BeginnersPackageModel;
@@ -33,7 +33,7 @@ package kabam.rotmg.promotions.view {
         public var dailyLoginModel:DailyLoginModel;
         
         [Inject]
-        public var showDailyCalendarSignal:ShowDailyCalendarPopupSignal;
+        public var flushStartupQueue:FlushPopupStartupQueueSignal;
         
         public function BeginnersPackageOfferDialogMediator() {
             super();
@@ -60,7 +60,7 @@ package kabam.rotmg.promotions.view {
         
         private function onClose() : void {
             this.closeDialog.dispatch();
-            this.showDailyCalendarSignal.dispatch();
+            this.flushStartupQueue.dispatch();
         }
     }
 }

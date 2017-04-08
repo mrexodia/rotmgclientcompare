@@ -70,7 +70,8 @@ package kabam.rotmg.pets.util {
         }
         
         public static function returnFuseDescriptionTextfield() : TextFieldDisplayConcrete {
-            var _local_1:TextFieldDisplayConcrete = new TextFieldDisplayConcrete();
+            var _local_1:TextFieldDisplayConcrete = null;
+            _local_1 = new TextFieldDisplayConcrete();
             _local_1.setStringBuilder(new LineBuilder().setParams(TextKey.PET_FUSER_DESCRIPTION));
             _local_1.setTextWidth(PetsConstants.WINDOW_BACKGROUND_WIDTH - 20).setWordWrap(true).setHorizontalAlign(TextFormatAlign.CENTER).setSize(PetsConstants.MEDIUM_TEXT_SIZE).setColor(11776947);
             _local_1.y = 42;
@@ -162,7 +163,7 @@ package kabam.rotmg.pets.util {
         }
         
         public static function returnCaretakerBitmap(param1:uint) : Bitmap {
-            return new Bitmap(ObjectLibrary.getRedrawnTextureFromType(param1,80,true));
+            return new Bitmap(ObjectLibrary.getRedrawnTextureFromType(param1,80,true,true,10));
         }
         
         private static function getBitmapForItem(param1:uint) : Bitmap {

@@ -4,7 +4,8 @@ package kabam.rotmg.promotions.view {
     import flash.geom.Rectangle;
     import kabam.lib.resizing.view.Resizable;
     import kabam.rotmg.core.StaticInjectorContext;
-    import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
+    import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     
     public class AlreadyPurchasedBeginnersPackageDialog extends Sprite implements Resizable {
         
@@ -36,9 +37,11 @@ package kabam.rotmg.promotions.view {
         }
         
         private function onClose(param1:MouseEvent) : void {
-            parent.removeChild(this);
-            var _local_2:ShowDailyCalendarPopupSignal = StaticInjectorContext.getInjector().getInstance(ShowDailyCalendarPopupSignal);
+            removeEventListener(MouseEvent.CLICK,this.onClose);
+            var _local_2:CloseDialogsSignal = StaticInjectorContext.getInjector().getInstance(CloseDialogsSignal);
             _local_2.dispatch();
+            var _local_3:FlushPopupStartupQueueSignal = StaticInjectorContext.getInjector().getInstance(FlushPopupStartupQueueSignal);
+            _local_3.dispatch();
         }
         
         public function resize(param1:Rectangle) : void {

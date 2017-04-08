@@ -61,10 +61,6 @@ package kabam.rotmg.packages.services {
             return _local_2;
         }
         
-        public function shouldSpam() : Boolean {
-            return this.numSpammed == 0 && "production".toLowerCase() != "localhost";
-        }
-        
         public function hasPackages() : Boolean {
             var _local_1:Object = null;
             for each(_local_1 in this.models) {

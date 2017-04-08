@@ -11,8 +11,11 @@ package kabam.rotmg.game.view {
     import kabam.rotmg.core.signals.SetScreenWithValidDataSignal;
     import kabam.rotmg.core.signals.TrackPageViewSignal;
     import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
+    import kabam.rotmg.dialogs.control.AddPopupToStartupQueueSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
+    import kabam.rotmg.dialogs.model.DialogsModel;
     import kabam.rotmg.game.logging.LoopMonitor;
     import kabam.rotmg.game.model.GameInitData;
     import kabam.rotmg.game.signals.GameClosedSignal;
@@ -117,7 +120,16 @@ package kabam.rotmg.game.view {
         public var openDialog:OpenDialogSignal;
         
         [Inject]
+        public var dialogsModel:DialogsModel;
+        
+        [Inject]
         public var showDailyCalendarSignal:ShowDailyCalendarPopupSignal;
+        
+        [Inject]
+        public var addToQueueSignal:AddPopupToStartupQueueSignal;
+        
+        [Inject]
+        public var flushQueueSignal:FlushPopupStartupQueueSignal;
         
         public function GameSpriteMediator() {
             super();
@@ -141,8 +153,11 @@ package kabam.rotmg.game.view {
             this.view.monitor.add(this.onMonitor);
             this.view.closed.add(this.onClosed);
             this.view.mapModel = this.mapModel;
+            this.view.dialogsModel = this.dialogsModel;
             this.view.beginnersPackageModel = this.beginnersPackageModel;
             this.view.openDialog = this.openDialog;
+            this.view.addToQueueSignal = this.addToQueueSignal;
+            this.view.flushQueueSignal = this.flushQueueSignal;
             this.view.connect();
             this.tracking.dispatch("/gameStarted");
             this.view.showBeginnersPackage = this.showBeginnersPackage;
@@ -156,7 +171,7 @@ package kabam.rotmg.game.view {
             if(_local_1) {
                 this.openPackageSignal.dispatch(_local_1.packageID);
             } else {
-                this.showDailyCalendarSignal.dispatch();
+                this.flushQueueSignal.dispatch();
             }
         }
         

@@ -145,13 +145,17 @@ package kabam.rotmg.assets {
         
         private static const stPatricksObjectCXML:Class = EmbeddedData_stPatricksObjectCXML;
         
+        private static const hanaminexusGroundCXML:Class = EmbeddedData_hanaminexusGroundCXML;
+        
+        private static const hanaminexusObjectCXML:Class = EmbeddedData_hanaminexusObjectCXML;
+        
         public static const skinsXML:XML = XML(new SkinsCXML());
         
         public static const skinsEquipmentSetsXML:XML = XML(new EquipmentSetsCXML());
         
-        public static const groundFiles:Array = [new GroundCXML(),new stPatricksGroundCXML()];
+        public static const groundFiles:Array = [new GroundCXML(),new stPatricksGroundCXML(),new hanaminexusGroundCXML()];
         
-        public static const objectFiles:Array = [new ProjectilesCXML(),new EquipCXML(),new DyesCXML(),new TextilesCXML(),new PermapetsCXML(),new TokenCXML(),new WillemTestingCXML(),new TTestingCXML(),new BTestingCXML(),new STestingCXML(),new MTestingCXML(),new KTestingCXML(),new PlayersCXML(),new ContainersCXML(),new ObjectsCXML(),new PortalsCXML(),new TestingObjectsCXML(),new StaticObjectsCXML(),new TutorialObjectsCXML(),new TutorialMonstersCXML(),new AlliesCXML(),new HeroesCXML(),new PlayersZombiesCXML(),new PetsCXML(),new NPCsCXML(),new ShoreCXML(),new LowCXML(),new MidCXML(),new HighCXML(),new MountainsCXML(),new EncountersCXML(),new ArenaCXML(),new OryxCastleCXML(),new TombOfTheAncientsCXML(),new SpriteWorldCXML(),new UndeadLairCXML(),new OceanTrenchCXML(),new ForbiddenJungleCXML(),new OryxChamberCXML(),new OryxChickenChamberCXML(),new OryxWineCellarCXML(),new ManorOfTheImmortalsCXML(),new PirateCaveCXML(),new SnakePitCXML(),new SpiderDenCXML(),new AbyssOfDemonsCXML(),new GhostShipCXML(),new MadLabCXML(),new CaveOfAThousandTreasuresCXML(),new CandyLandCXML(),new HauntedCemeteryCXML(),new ForestMazeCXML(),new EpicForestMazeCXML(),new EpicPirateCaveCXML(),new EpicSpiderDenCXML(),new NexusDestroyedCXML(),new MiniDungeonHubCXML(),new LairOfDraconisCXML(),new LairOfShaitanCXML(),new ShattersCXML(),new BelladonnaCXML(),new PuppetMasterCXML(),new IceCaveCXML(),new TheHiveCXML(),new ToxicSewersCXML(),new PuppetMasterEncoreCXML(),new IceTombCXML(),new stPatricksObjectCXML()];
+        public static const objectFiles:Array = [new ProjectilesCXML(),new EquipCXML(),new DyesCXML(),new TextilesCXML(),new PermapetsCXML(),new TokenCXML(),new WillemTestingCXML(),new TTestingCXML(),new BTestingCXML(),new STestingCXML(),new MTestingCXML(),new KTestingCXML(),new PlayersCXML(),new ContainersCXML(),new ObjectsCXML(),new PortalsCXML(),new TestingObjectsCXML(),new StaticObjectsCXML(),new TutorialObjectsCXML(),new TutorialMonstersCXML(),new AlliesCXML(),new HeroesCXML(),new PlayersZombiesCXML(),new PetsCXML(),new NPCsCXML(),new ShoreCXML(),new LowCXML(),new MidCXML(),new HighCXML(),new MountainsCXML(),new EncountersCXML(),new ArenaCXML(),new OryxCastleCXML(),new TombOfTheAncientsCXML(),new SpriteWorldCXML(),new UndeadLairCXML(),new OceanTrenchCXML(),new ForbiddenJungleCXML(),new OryxChamberCXML(),new OryxChickenChamberCXML(),new OryxWineCellarCXML(),new ManorOfTheImmortalsCXML(),new PirateCaveCXML(),new SnakePitCXML(),new SpiderDenCXML(),new AbyssOfDemonsCXML(),new GhostShipCXML(),new MadLabCXML(),new CaveOfAThousandTreasuresCXML(),new CandyLandCXML(),new HauntedCemeteryCXML(),new ForestMazeCXML(),new EpicForestMazeCXML(),new EpicPirateCaveCXML(),new EpicSpiderDenCXML(),new NexusDestroyedCXML(),new MiniDungeonHubCXML(),new LairOfDraconisCXML(),new LairOfShaitanCXML(),new ShattersCXML(),new BelladonnaCXML(),new PuppetMasterCXML(),new IceCaveCXML(),new TheHiveCXML(),new ToxicSewersCXML(),new PuppetMasterEncoreCXML(),new IceTombCXML(),new stPatricksObjectCXML(),new hanaminexusObjectCXML()];
         
         private static const RegionsCXML:Class = EmbeddedData_RegionsCXML;
         

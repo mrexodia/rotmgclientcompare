@@ -89,6 +89,9 @@ package com.company.assembleegameclient.util {
             AssetLibrary.addImageSet("cursorsEmbed",new EmbeddedAssets.cursorsEmbed_().bitmapData,32,32);
             AssetLibrary.addImageSet("stPatricksObjects8x8",new EmbeddedAssets.stPatricksObjects8x8Embed_().bitmapData,8,8);
             AssetLibrary.addImageSet("stPatricksObjects16x16",new EmbeddedAssets.stPatricksObjects16x16Embed_().bitmapData,16,16);
+            AssetLibrary.addImageSet("SakuraEnvironment16x16",new EmbeddedAssets.SakuraEnvironment16x16Embed_().bitmapData,16,16);
+            AssetLibrary.addImageSet("SakuraEnvironment8x8",new EmbeddedAssets.SakuraEnvironment8x8Embed_().bitmapData,8,8);
+            AssetLibrary.addImageSet("HanamiParts",new EmbeddedAssets.HanamiParts8x8Embed_().bitmapData,8,8);
         }
         
         private function addAnimatedCharacters() : void {
@@ -124,6 +127,7 @@ package com.company.assembleegameclient.util {
             AnimatedChars.add("d1chars16x16r",new EmbeddedAssets.d1Chars16x16rEmbed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
             AnimatedChars.add("stPatricksChars8x8",new EmbeddedAssets.stPatricksChars8x8Embed_().bitmapData,null,8,8,56,8,AnimatedChar.RIGHT);
             AnimatedChars.add("stPatricksChars16x16",new EmbeddedAssets.stPatricksChars16x16Embed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
+            AnimatedChars.add("Hanami8x8chars",new EmbeddedAssets.Hanami8x8charsEmbed_().bitmapData,null,8,8,64,8,AnimatedChar.RIGHT);
         }
         
         private function addSoundEffects() : void {

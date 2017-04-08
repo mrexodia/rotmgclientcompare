@@ -1,11 +1,16 @@
 package kabam.rotmg.dialogs.view {
     import flash.display.Sprite;
+    import kabam.rotmg.dialogs.control.AddPopupToStartupQueueSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.dialogs.control.OpenDialogNoModalSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.dialogs.control.PopDialogSignal;
     import kabam.rotmg.dialogs.control.PushDialogSignal;
     import kabam.rotmg.dialogs.control.ShowDialogBackgroundSignal;
+    import kabam.rotmg.dialogs.model.DialogsModel;
+    import kabam.rotmg.dialogs.model.PopupQueueEntry;
+    import org.osflash.signals.Signal;
     import robotlegs.bender.bundles.mvcs.Mediator;
     
     public class DialogsMediator extends Mediator {
@@ -32,6 +37,15 @@ package kabam.rotmg.dialogs.view {
         [Inject]
         public var popDialogSignal:PopDialogSignal;
         
+        [Inject]
+        public var addToQueueSignal:AddPopupToStartupQueueSignal;
+        
+        [Inject]
+        public var flushStartupQueue:FlushPopupStartupQueueSignal;
+        
+        [Inject]
+        public var dialogsModel:DialogsModel;
+        
         public function DialogsMediator() {
             super();
         }
@@ -43,6 +57,19 @@ package kabam.rotmg.dialogs.view {
             this.closeDialog.add(this.onCloseDialog);
             this.pushDialogSignal.add(this.onPushDialog);
             this.popDialogSignal.add(this.onPopDialog);
+            this.addToQueueSignal.add(this.onAddToQueue);
+            this.flushStartupQueue.add(this.onFlushQueue);
+        }
+        
+        private function onFlushQueue() : void {
+            var _local_1:PopupQueueEntry = this.dialogsModel.flushStartupQueue();
+            if(_local_1 != null) {
+                _local_1.signal.dispatch();
+            }
+        }
+        
+        private function onAddToQueue(param1:String, param2:Signal, param3:int) : void {
+            this.dialogsModel.addPopupToStartupQueue(param1,param2,param3);
         }
         
         private function onPushDialog(param1:Sprite) : void {

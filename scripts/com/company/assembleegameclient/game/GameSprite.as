@@ -37,7 +37,11 @@ package com.company.assembleegameclient.game {
     import kabam.rotmg.core.model.MapModel;
     import kabam.rotmg.core.model.PlayerModel;
     import kabam.rotmg.dailyLogin.signal.ShowDailyCalendarPopupSignal;
+    import kabam.rotmg.dialogs.control.AddPopupToStartupQueueSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
+    import kabam.rotmg.dialogs.model.DialogsModel;
+    import kabam.rotmg.dialogs.model.PopupNamesConfig;
     import kabam.rotmg.game.view.CreditDisplay;
     import kabam.rotmg.game.view.GiftStatusDisplay;
     import kabam.rotmg.game.view.NewsModalButton;
@@ -59,6 +63,7 @@ package com.company.assembleegameclient.game {
     import kabam.rotmg.ui.UIUtils;
     import kabam.rotmg.ui.view.HUDView;
     import org.osflash.signals.Signal;
+    import robotlegs.bender.framework.api.ILogger;
     
     public class GameSprite extends AGameSprite {
         
@@ -97,6 +102,8 @@ package com.company.assembleegameclient.game {
         
         public var beginnersPackageModel:BeginnersPackageModel;
         
+        public var dialogsModel:DialogsModel;
+        
         public var showBeginnersPackage:ShowBeginnersPackageSignal;
         
         public var openDailyCalendarPopupSignal:ShowDailyCalendarPopupSignal;
@@ -106,6 +113,10 @@ package com.company.assembleegameclient.game {
         public var showPackage:Signal;
         
         public var packageModel:PackageModel;
+        
+        public var addToQueueSignal:AddPopupToStartupQueueSignal;
+        
+        public var flushQueueSignal:FlushPopupStartupQueueSignal;
         
         private var focus:GameObject;
         
@@ -214,15 +225,14 @@ package com.company.assembleegameclient.game {
                 this.showWaveCounter();
             }
             _local_1 = StaticInjectorContext.getInjector().getInstance(Account);
-            if(this.packageModel.shouldSpam() && map.name_ == Map.NEXUS) {
+            if(map.name_ == Map.NEXUS) {
+                this.addToQueueSignal.dispatch(PopupNamesConfig.DAILY_LOGIN_POPUP,this.openDailyCalendarPopupSignal,-1);
                 if(this.beginnersPackageModel.isBeginnerAvailable()) {
-                    this.showBeginnersPackage.dispatch();
+                    this.addToQueueSignal.dispatch(PopupNamesConfig.BEGINNERS_OFFER_POPUP,this.showBeginnersPackage,1);
                 } else {
-                    this.showPackage.dispatch();
+                    this.addToQueueSignal.dispatch(PopupNamesConfig.PACKAGES_OFFER_POPUP,this.showPackage,1);
                 }
-                this.packageModel.numSpammed++;
-            } else if(map.name_ == Map.NEXUS) {
-                this.openDailyCalendarPopupSignal.dispatch();
+                this.flushQueueSignal.dispatch();
             }
             this.isNexus_ = map.name_ == Map.NEXUS;
             if(this.isNexus_ || map.name_ == Map.DAILY_QUEST_ROOM) {
@@ -309,19 +319,22 @@ package com.company.assembleegameclient.game {
         }
         
         private function showNewsUpdate(param1:Boolean = true) : void {
-            var _local_3:NewsModalButton = null;
-            var _local_2:NewsModel = StaticInjectorContext.getInjector().getInstance(NewsModel);
-            if(_local_2.hasValidModalNews()) {
-                _local_3 = new NewsModalButton();
-                _local_3.x = 6;
-                _local_3.y = 92;
+            var _local_4:NewsModalButton = null;
+            var _local_2:ILogger = StaticInjectorContext.getInjector().getInstance(ILogger);
+            var _local_3:NewsModel = StaticInjectorContext.getInjector().getInstance(NewsModel);
+            _local_2.debug("NEWS UPDATE -- making button");
+            if(_local_3.hasValidModalNews()) {
+                _local_2.debug("NEWS UPDATE -- making button - ok");
+                _local_4 = new NewsModalButton();
+                _local_4.x = 6;
+                _local_4.y = 92;
                 if(param1) {
                     this.displaysPosY = this.displaysPosY + UIUtils.NOTIFICATION_SPACE;
                 }
                 if(this.newsModalButton != null) {
                     removeChild(this.newsModalButton);
                 }
-                this.newsModalButton = _local_3;
+                this.newsModalButton = _local_4;
                 addChild(this.newsModalButton);
             }
         }

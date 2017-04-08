@@ -1,7 +1,10 @@
 package kabam.rotmg.dialogs {
     import kabam.lib.console.signals.RegisterConsoleActionSignal;
     import kabam.lib.console.vo.ConsoleAction;
+    import kabam.rotmg.dailyLogin.model.DailyLoginModel;
+    import kabam.rotmg.dialogs.control.AddPopupToStartupQueueSignal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.dialogs.control.OpenDialogNoModalSignal;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.dialogs.control.PopDialogSignal;
@@ -35,6 +38,9 @@ package kabam.rotmg.dialogs {
             this.injector.map(OpenDialogSignal).asSingleton();
             this.injector.map(OpenDialogNoModalSignal).asSingleton();
             this.injector.map(CloseDialogsSignal).asSingleton();
+            this.injector.map(FlushPopupStartupQueueSignal).asSingleton();
+            this.injector.map(AddPopupToStartupQueueSignal).asSingleton();
+            this.injector.map(DailyLoginModel).asSingleton();
             this.injector.map(PushDialogSignal).asSingleton();
             this.injector.map(PopDialogSignal).asSingleton();
             this.mediatorMap.map(DialogsView).toMediator(DialogsMediator);

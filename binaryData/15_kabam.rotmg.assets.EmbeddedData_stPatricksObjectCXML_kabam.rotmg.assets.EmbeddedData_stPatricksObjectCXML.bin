@@ -38,6 +38,7 @@
       <Description>Good thing this bow is lucky because it sure doesn't hit very hard! Thanks to: Beige</Description>
       <RateOfFire>0.5</RateOfFire>
       <Sound>weapon/golden_bow</Sound>
+      <OldSound>weapon/golden_bow</OldSound>
       <Projectile>
          <ObjectId>4-Leaf Clover</ObjectId>
          <Speed>90</Speed>
@@ -67,6 +68,7 @@
       <Description>Colourful and fashionable, but not very good for hunting monsters. Thanks to: Beige</Description>
       <RateOfFire>1.5</RateOfFire>
       <Sound>weapon/mithril_sword</Sound>
+      <OldSound>spell/light_heal</OldSound>
       <Projectile>
          <ObjectId>Patty Rainbow Bolt</ObjectId>
          <Speed>80</Speed>
@@ -117,7 +119,7 @@
       <DeathSound>monster/stone_walls_death</DeathSound>
       <Size>100</Size>
       <ShadowSize>100</ShadowSize>
-      <MaxHitPoints>60000</MaxHitPoints>
+      <MaxHitPoints>120000</MaxHitPoints>
       <Defense>5</Defense>
       <XpMult>0.8</XpMult>
       <StasisImmune/>

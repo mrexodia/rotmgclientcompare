@@ -1,8 +1,8 @@
 package kabam.rotmg.pets.view {
-    import com.company.assembleegameclient.objects.ObjectLibrary;
     import flash.display.BitmapData;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
     import kabam.rotmg.pets.data.PetsModel;
+    import kabam.rotmg.pets.util.PetsViewAssetFactory;
     import kabam.rotmg.pets.view.dialogs.CaretakerQueryDialog;
     import robotlegs.bender.bundles.mvcs.Mediator;
     
@@ -29,7 +29,7 @@ package kabam.rotmg.pets.view {
         
         private function makeCaretakerIcon() : BitmapData {
             var _local_1:int = this.model.getPetYardObjectID();
-            return ObjectLibrary.getRedrawnTextureFromType(_local_1,80,true);
+            return PetsViewAssetFactory.returnCaretakerBitmap(_local_1).bitmapData;
         }
         
         override public function destroy() : void {

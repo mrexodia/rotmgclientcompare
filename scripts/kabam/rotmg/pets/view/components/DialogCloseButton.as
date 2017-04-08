@@ -13,6 +13,8 @@ package kabam.rotmg.pets.view.components {
         
         public const clicked:Signal = new Signal();
         
+        public const closeClicked:Signal = new Signal();
+        
         public var disabled:Boolean = false;
         
         public function DialogCloseButton(param1:Number = -1) {
@@ -46,8 +48,9 @@ package kabam.rotmg.pets.view.components {
         
         private function onClicked(param1:MouseEvent) : void {
             if(!this.disabled) {
-                this.clicked.dispatch();
                 removeEventListener(MouseEvent.CLICK,this.onClicked);
+                this.closeClicked.dispatch();
+                this.clicked.dispatch();
             }
         }
     }

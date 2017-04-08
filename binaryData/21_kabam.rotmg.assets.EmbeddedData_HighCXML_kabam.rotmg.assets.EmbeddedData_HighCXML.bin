@@ -184,7 +184,6 @@
       <DeathSound>monster/undead_dwarves_death</DeathSound>
       <Size>90</Size>
       <MaxHitPoints>250</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>7</Defense>
       <Terrain>HighPlains</Terrain>
       <Projectile id="0">
@@ -206,12 +205,11 @@
       <DeathSound>monster/undead_dwarves_death</DeathSound>
       <Size>90</Size>
       <MaxHitPoints>260</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>7</Defense>
       <Terrain>HighPlains</Terrain>
       <Projectile id="0">
          <ObjectId>Blade</ObjectId>
-         <Damage>50</Damage>
+         <Damage>46</Damage>
          <Speed>120</Speed>
          <LifetimeMS>400</LifetimeMS>
       </Projectile>
@@ -228,12 +226,11 @@
       <DeathSound>monster/undead_dwarves_death</DeathSound>
       <Size>90</Size>
       <MaxHitPoints>210</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>0</Defense>
       <Terrain>HighPlains</Terrain>
       <Projectile id="0">
          <ObjectId>Blue Bolt</ObjectId>
-         <Damage>29</Damage>
+         <Damage>32</Damage>
          <Speed>50</Speed>
          <LifetimeMS>2400</LifetimeMS>
          <MultiHit/>
@@ -251,12 +248,11 @@
       <DeathSound>monster/undead_dwarves_death</DeathSound>
       <Size>90</Size>
       <MaxHitPoints>400</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>7</Defense>
       <Terrain>HighPlains</Terrain>
       <Projectile id="0">
          <ObjectId>Blade</ObjectId>
-         <Damage>55</Damage>
+         <Damage>52</Damage>
          <Speed>100</Speed>
          <LifetimeMS>600</LifetimeMS>
       </Projectile>
@@ -273,7 +269,6 @@
       <DeathSound>monster/undead_dwarves_death</DeathSound>
       <Size>90</Size>
       <MaxHitPoints>250</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>11</Defense>
       <Terrain>HighPlains</Terrain>
       <Projectile id="0">
@@ -296,7 +291,7 @@
       <Size>90</Size>
       <MaxHitPoints>800</MaxHitPoints>
       <Defense>11</Defense>
-      <XpMult>4.0</XpMult>
+      <XpMult>2.0</XpMult>
       <Terrain>HighPlains</Terrain>
       <SpawnProb>1.0</SpawnProb>
       <Projectile id="0">
@@ -627,7 +622,7 @@
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
          <ObjectId>Blade</ObjectId>
-         <Damage>48</Damage>
+         <Damage>45</Damage>
          <Speed>100</Speed>
          <LifetimeMS>400</LifetimeMS>
       </Projectile>
@@ -648,7 +643,7 @@
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
          <ObjectId>Green Bolt</ObjectId>
-         <Damage>42</Damage>
+         <Damage>40</Damage>
          <Speed>50</Speed>
          <LifetimeMS>2200</LifetimeMS>
          <Size>100</Size>
@@ -687,7 +682,6 @@
       <DeathSound>monster/night_elves_death</DeathSound>
       <Size>100</Size>
       <MaxHitPoints>240</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>0</Defense>
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
@@ -709,12 +703,11 @@
       <DeathSound>monster/night_elves_death</DeathSound>
       <Size>100</Size>
       <MaxHitPoints>280</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>2</Defense>
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
          <ObjectId>Blade</ObjectId>
-         <Damage>40</Damage>
+         <Damage>36</Damage>
          <Speed>100</Speed>
          <LifetimeMS>800</LifetimeMS>
       </Projectile>
@@ -731,7 +724,6 @@
       <DeathSound>monster/night_elves_death</DeathSound>
       <Size>100</Size>
       <MaxHitPoints>220</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>0</Defense>
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
@@ -754,12 +746,11 @@
       <DeathSound>monster/night_elves_death</DeathSound>
       <Size>100</Size>
       <MaxHitPoints>300</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>4</Defense>
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
          <ObjectId>Gold Arrow</ObjectId>
-         <Damage>52</Damage>
+         <Damage>45</Damage>
          <Speed>80</Speed>
          <LifetimeMS>2000</LifetimeMS>
          <Size>120</Size>
@@ -778,12 +769,11 @@
       <DeathSound>monster/night_elves_death</DeathSound>
       <Size>100</Size>
       <MaxHitPoints>180</MaxHitPoints>
-      <XpMult>0.0</XpMult>
       <Defense>5</Defense>
       <Terrain>HighForest</Terrain>
       <Projectile id="0">
          <ObjectId>Green Magic</ObjectId>
-         <Damage>60</Damage>
+         <Damage>55</Damage>
          <Speed>70</Speed>
          <LifetimeMS>1200</LifetimeMS>
       </Projectile>
@@ -800,7 +790,7 @@
       <DeathSound>monster/lizard_god_death</DeathSound>
       <Size>100</Size>
       <MaxHitPoints>900</MaxHitPoints>
-      <XpMult>4.0</XpMult>
+      <XpMult>2.0</XpMult>
       <Defense>12</Defense>
       <Terrain>HighForest</Terrain>
       <God/>
@@ -881,6 +871,7 @@
       <HitSound>monster/dragons_hit</HitSound>
       <DeathSound>monster/dragons_death</DeathSound>
       <MaxHitPoints>400</MaxHitPoints>
+      <XpMult>2.0</XpMult>
       <Terrain>HighForest</Terrain>
       <Enemy/>
       <Projectile>

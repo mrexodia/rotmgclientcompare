@@ -6,6 +6,7 @@ package kabam.rotmg.dailyLogin.controller {
     import kabam.rotmg.dailyLogin.model.DailyLoginModel;
     import kabam.rotmg.dailyLogin.view.DailyLoginModal;
     import kabam.rotmg.dialogs.control.CloseDialogsSignal;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.game.signals.ExitGameSignal;
     import kabam.rotmg.pets.view.components.DialogCloseButton;
     import kabam.rotmg.ui.model.HUDModel;
@@ -31,6 +32,9 @@ package kabam.rotmg.dailyLogin.controller {
         
         [Inject]
         public var closeDialog:CloseDialogsSignal;
+        
+        [Inject]
+        public var flushStartupQueue:FlushPopupStartupQueueSignal;
         
         public function DailyLoginModalMediator() {
             super();
@@ -59,7 +63,7 @@ package kabam.rotmg.dailyLogin.controller {
         
         public function onCloseButtonClicked() : * {
             this.view.closeButton.clicked.remove(this.onCloseButtonClicked);
-            this.closeDialogs.dispatch();
+            this.flushStartupQueue.dispatch();
         }
         
         override public function destroy() : void {
@@ -67,7 +71,6 @@ package kabam.rotmg.dailyLogin.controller {
                 this.view.claimButton.removeEventListener(MouseEvent.CLICK,this.onClaimClickHandler);
                 this.view.removeEventListener(MouseEvent.CLICK,this.onPopupClickHandler);
             }
-            this.view.closeButton.clicked.remove(this.onCloseButtonClicked);
             super.destroy();
         }
         

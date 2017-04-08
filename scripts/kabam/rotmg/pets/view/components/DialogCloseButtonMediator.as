@@ -16,7 +16,7 @@ package kabam.rotmg.pets.view.components {
         }
         
         override public function initialize() : void {
-            this.view.clicked.addOnce(this.closeDialog);
+            this.view.closeClicked.addOnce(this.closeDialog);
         }
         
         private function closeDialog() : void {

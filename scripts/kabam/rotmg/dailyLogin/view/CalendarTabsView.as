@@ -45,7 +45,8 @@ package kabam.rotmg.dailyLogin.view {
         }
         
         public function addCalendar(param1:String, param2:String, param3:String) : CalendarTabButton {
-            var _local_4:CalendarTabButton = new CalendarTabButton(param1,param3,param2,CalendarTabButton.STATE_IDLE,this.tabs.length);
+            var _local_4:CalendarTabButton = null;
+            _local_4 = new CalendarTabButton(param1,param3,param2,CalendarTabButton.STATE_IDLE,this.tabs.length);
             this.addChild(_local_4);
             _local_4.x = (CalendarSettings.TABS_WIDTH - 1) * this.tabs.length;
             this.tabs.push(_local_4);
