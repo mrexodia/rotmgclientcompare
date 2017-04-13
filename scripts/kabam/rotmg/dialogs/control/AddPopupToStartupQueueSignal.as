@@ -5,7 +5,7 @@ package kabam.rotmg.dialogs.control {
          
         
         public function AddPopupToStartupQueueSignal() {
-            super(String,Signal,int);
+            super(String,Signal,int,Object);
         }
     }
 }

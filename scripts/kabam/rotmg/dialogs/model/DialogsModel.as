@@ -10,14 +10,14 @@ package kabam.rotmg.dialogs.model {
         private var queue:Vector.<PopupQueueEntry>;
         
         public function DialogsModel() {
-            this.popupPriority = [PopupNamesConfig.BEGINNERS_OFFER_POPUP,PopupNamesConfig.DAILY_LOGIN_POPUP,PopupNamesConfig.PACKAGES_OFFER_POPUP];
+            this.popupPriority = [PopupNamesConfig.BEGINNERS_OFFER_POPUP,PopupNamesConfig.NEWS_POPUP,PopupNamesConfig.DAILY_LOGIN_POPUP,PopupNamesConfig.PACKAGES_OFFER_POPUP];
             this.queue = new Vector.<PopupQueueEntry>();
             super();
         }
         
-        public function addPopupToStartupQueue(param1:String, param2:Signal, param3:int) : void {
+        public function addPopupToStartupQueue(param1:String, param2:Signal, param3:int, param4:Object) : void {
             if(param3 == -1 || this.canDisplayPopupToday(param1)) {
-                this.queue.push(new PopupQueueEntry(param1,param2,param3));
+                this.queue.push(new PopupQueueEntry(param1,param2,param3,param4));
                 this.sortQueue();
             }
         }

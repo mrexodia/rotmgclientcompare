@@ -1,4 +1,5 @@
 package kabam.rotmg.news.view {
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.news.controller.NewsDataUpdatedSignal;
     import kabam.rotmg.news.model.NewsCellVO;
     import kabam.rotmg.news.model.NewsModel;
@@ -19,6 +20,9 @@ package kabam.rotmg.news.view {
         [Inject]
         public var getNews:GetAppEngineNewsTask;
         
+        [Inject]
+        public var flushStartupQueue:FlushPopupStartupQueueSignal;
+        
         public function NewsModalMediator() {
             super();
         }
@@ -28,7 +32,6 @@ package kabam.rotmg.news.view {
             this.getNews.start();
             if(firstRun) {
                 firstRun = false;
-                this.model.buildModalPages();
             }
         }
         
@@ -37,7 +40,6 @@ package kabam.rotmg.news.view {
         }
         
         private function onUpdate(param1:Vector.<NewsCellVO>) : void {
-            this.model.buildModalPages();
         }
     }
 }

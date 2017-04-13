@@ -226,11 +226,11 @@ package com.company.assembleegameclient.game {
             }
             _local_1 = StaticInjectorContext.getInjector().getInstance(Account);
             if(map.name_ == Map.NEXUS) {
-                this.addToQueueSignal.dispatch(PopupNamesConfig.DAILY_LOGIN_POPUP,this.openDailyCalendarPopupSignal,-1);
+                this.addToQueueSignal.dispatch(PopupNamesConfig.DAILY_LOGIN_POPUP,this.openDailyCalendarPopupSignal,-1,null);
                 if(this.beginnersPackageModel.isBeginnerAvailable()) {
-                    this.addToQueueSignal.dispatch(PopupNamesConfig.BEGINNERS_OFFER_POPUP,this.showBeginnersPackage,1);
+                    this.addToQueueSignal.dispatch(PopupNamesConfig.BEGINNERS_OFFER_POPUP,this.showBeginnersPackage,1,null);
                 } else {
-                    this.addToQueueSignal.dispatch(PopupNamesConfig.PACKAGES_OFFER_POPUP,this.showPackage,1);
+                    this.addToQueueSignal.dispatch(PopupNamesConfig.PACKAGES_OFFER_POPUP,this.showPackage,1,null);
                 }
                 this.flushQueueSignal.dispatch();
             }
@@ -284,9 +284,7 @@ package com.company.assembleegameclient.game {
             this.showGuildText();
             this.setYAndPositionPackage();
             this.showGiftStatusDisplay();
-            if("production".toLowerCase() == "dev" || Player.isAdmin || "production".toLowerCase() == "localhost") {
-                this.showNewsUpdate();
-            }
+            this.showNewsUpdate();
             this.showNewsTicker();
         }
         
@@ -340,6 +338,8 @@ package com.company.assembleegameclient.game {
         }
         
         public function refreshNewsUpdateButton() : void {
+            var _local_1:ILogger = StaticInjectorContext.getInjector().getInstance(ILogger);
+            _local_1.debug("NEWS UPDATE -- refreshing button, update noticed");
             this.showNewsUpdate(false);
         }
         

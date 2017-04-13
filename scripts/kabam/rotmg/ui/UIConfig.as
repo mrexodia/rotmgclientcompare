@@ -47,6 +47,7 @@ package kabam.rotmg.ui {
     import kabam.rotmg.game.view.TextPanelMediator;
     import kabam.rotmg.game.view.components.StatsTabHotKeyInputSignal;
     import kabam.rotmg.game.view.components.StatsUndockedSignal;
+    import kabam.rotmg.news.services.GetInGameNewsTask;
     import kabam.rotmg.startup.control.StartupSequence;
     import kabam.rotmg.ui.commands.ChooseNameCommand;
     import kabam.rotmg.ui.commands.EnterGameCommand;
@@ -194,6 +195,7 @@ package kabam.rotmg.ui {
             this.startup.addTask(LoadAccountTask);
             this.startup.addTask(GetCharListTask);
             this.startup.addTask(FetchPlayerCalendarTask);
+            this.startup.addTask(GetInGameNewsTask);
             this.startup.addSignal(ShowTitleUISignal,StartupSequence.LAST);
         }
         

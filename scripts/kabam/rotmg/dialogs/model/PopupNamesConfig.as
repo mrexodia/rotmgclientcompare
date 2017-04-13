@@ -6,6 +6,8 @@ package kabam.rotmg.dialogs.model {
         public static const BEGINNERS_OFFER_POPUP:String = "beginners_offer_popup";
         
         public static const PACKAGES_OFFER_POPUP:String = "packages_offer_popup";
+        
+        public static const NEWS_POPUP:String = "news_popup";
          
         
         public function PopupNamesConfig() {

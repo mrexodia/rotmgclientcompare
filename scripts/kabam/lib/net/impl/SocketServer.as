@@ -1,4 +1,5 @@
 package kabam.lib.net.impl {
+    import com.company.assembleegameclient.parameters.Parameters;
     import com.hurlant.crypto.symmetric.ICipher;
     import flash.events.Event;
     import flash.events.IOErrorEvent;
@@ -157,7 +158,7 @@ package kabam.lib.net.impl {
         }
         
         private function onSecurityError(param1:SecurityErrorEvent) : void {
-            var _local_2:String = this.parseString("Socket-Server Security Error: {0}",[param1.text]);
+            var _local_2:String = this.parseString("Socket-Server Security: {0}. Please open port " + Parameters.PORT + " in your firewall and/or router settings and try again",[param1.text]);
             this.error.dispatch(_local_2);
             this.closed.dispatch();
         }

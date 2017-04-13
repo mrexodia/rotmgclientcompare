@@ -10,6 +10,7 @@ package kabam.rotmg.game.view {
     import flash.geom.Rectangle;
     import kabam.rotmg.core.StaticInjectorContext;
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
+    import kabam.rotmg.news.model.NewsModel;
     import kabam.rotmg.news.view.NewsModal;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.StaticStringBuilder;
@@ -62,7 +63,8 @@ package kabam.rotmg.game.view {
         }
         
         public function drawAsOpen() : void {
-            if(NewsModal.hasUpdates()) {
+            var _local_1:NewsModel = StaticInjectorContext.getInjector().getInstance(NewsModel);
+            if(_local_1.hasUpdates()) {
                 showsHasUpdate = true;
                 addChild(this.background);
                 addChild(this.text);

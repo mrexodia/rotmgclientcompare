@@ -1,5 +1,4 @@
 package kabam.rotmg.news.view {
-    import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.sound.SoundEffectLibrary;
     import com.company.util.AssetLibrary;
     import com.company.util.KeyCodes;
@@ -19,6 +18,7 @@ package kabam.rotmg.news.view {
     import flash.text.TextFormatAlign;
     import kabam.rotmg.account.core.view.EmptyFrame;
     import kabam.rotmg.core.StaticInjectorContext;
+    import kabam.rotmg.dialogs.control.FlushPopupStartupQueueSignal;
     import kabam.rotmg.news.model.NewsModel;
     import kabam.rotmg.pets.view.components.PopupWindowBackground;
     import kabam.rotmg.text.model.FontModel;
@@ -66,42 +66,39 @@ package kabam.rotmg.news.view {
         
         private var pageNavs:Vector.<TextField>;
         
+        private var pageIndicator:TextField;
+        
+        private var fontModel:FontModel;
+        
         private var leftNavSprite:Sprite;
         
         private var rightNavSprite:Sprite;
         
-        public function NewsModal(param1:int = 1) {
+        private var newsModel:NewsModel;
+        
+        private var currentPageNumber:int = 1;
+        
+        private var triggeredOnStartup:Boolean;
+        
+        public function NewsModal(param1:Boolean = false) {
+            this.triggeredOnStartup = param1;
+            this.newsModel = StaticInjectorContext.getInjector().getInstance(NewsModel);
+            this.fontModel = StaticInjectorContext.getInjector().getInstance(FontModel);
             modalWidth = MODAL_WIDTH;
             modalHeight = MODAL_HEIGHT;
             super(modalWidth,modalHeight);
             this.setCloseButton(true);
+            this.pageIndicator = new TextField();
             this.initNavButtons();
-            this.setPage(param1);
+            this.setPage(this.currentPageNumber);
             WebMain.STAGE.addEventListener(KeyboardEvent.KEY_DOWN,this.keyDownListener);
+            addEventListener(Event.ADDED_TO_STAGE,this.onAdded);
             addEventListener(Event.REMOVED_FROM_STAGE,this.destroy);
-        }
-        
-        public static function refreshNewsButton() : void {
-            var _local_1:HUDModel = StaticInjectorContext.getInjector().getInstance(HUDModel);
-            if(_local_1 != null && _local_1.gameSprite != null) {
-                _local_1.gameSprite.refreshNewsUpdateButton();
-            }
-        }
-        
-        public static function hasUpdates() : Boolean {
-            var _local_1:int = 1;
-            while(_local_1 <= NewsModel.MODAL_PAGE_COUNT) {
-                if(Parameters.data_["hasNewsUpdate" + _local_1] != null && Parameters.data_["hasNewsUpdate" + _local_1] == true) {
-                    return true;
-                }
-                _local_1++;
-            }
-            return false;
+            closeButton.clicked.add(this.onCloseButtonClicked);
         }
         
         public static function getText(param1:String, param2:int, param3:int, param4:Boolean) : TextFieldDisplayConcrete {
-            var _local_5:TextFieldDisplayConcrete = null;
-            _local_5 = new TextFieldDisplayConcrete().setSize(18).setColor(16777215).setTextWidth(NewsModal.modalWidth - TEXT_MARGIN * 2);
+            var _local_5:TextFieldDisplayConcrete = new TextFieldDisplayConcrete().setSize(18).setColor(16777215).setTextWidth(NewsModal.modalWidth - TEXT_MARGIN * 2 - 10);
             _local_5.setBold(true);
             if(param4) {
                 _local_5.setStringBuilder(new StaticStringBuilder(param1));
@@ -118,101 +115,58 @@ package kabam.rotmg.news.view {
             return _local_5;
         }
         
-        private function initNavButtons() : void {
-            var _local_4:TextField = null;
-            var _local_1:int = NewsModel.MODAL_PAGE_COUNT;
-            this.pageNavs = new Vector.<TextField>(_local_1,true);
-            this.pageOneNav = new TextField();
-            this.pageTwoNav = new TextField();
-            this.pageThreeNav = new TextField();
-            this.pageFourNav = new TextField();
-            this.pageNavs[0] = this.pageOneNav;
-            this.pageNavs[1] = this.pageTwoNav;
-            this.pageNavs[2] = this.pageThreeNav;
-            this.pageNavs[3] = this.pageFourNav;
-            var _local_2:FontModel = StaticInjectorContext.getInjector().getInstance(FontModel);
-            var _local_3:int = 1;
-            for each(_local_4 in this.pageNavs) {
-                _local_2.apply(_local_4,20,16777215,true);
-                _local_4.filters = filterNoGlow;
-                if(_local_3 > 0 && _local_3 <= NewsModel.MODAL_PAGE_COUNT) {
-                    _local_4.text = "  " + _local_3 + "  ";
-                    _local_4.width = _local_4.textWidth;
-                    _local_4.x = modalWidth * (_local_3 + 3) / 11 - _local_4.textWidth / 2;
-                    _local_4.addEventListener(MouseEvent.ROLL_OVER,this.onNavHover);
-                    _local_4.addEventListener(MouseEvent.ROLL_OUT,this.onNavHoverOut);
-                }
-                _local_4.height = _local_4.textHeight;
-                _local_4.y = modalHeight - 33;
-                _local_4.selectable = false;
-                _local_4.addEventListener(MouseEvent.CLICK,this.onClick);
-                addChild(_local_4);
-                _local_3++;
+        public function onCloseButtonClicked() : * {
+            var _local_1:FlushPopupStartupQueueSignal = StaticInjectorContext.getInjector().getInstance(FlushPopupStartupQueueSignal);
+            closeButton.clicked.remove(this.onCloseButtonClicked);
+            if(this.triggeredOnStartup) {
+                _local_1.dispatch();
             }
+        }
+        
+        private function onAdded(param1:Event) : * {
+            this.newsModel.markAsRead();
+            this.refreshNewsButton();
+        }
+        
+        private function updateIndicator() : * {
+            this.fontModel.apply(this.pageIndicator,24,16777215,true);
+            this.pageIndicator.text = this.currentPageNumber + " / " + this.newsModel.numberOfNews;
+            addChild(this.pageIndicator);
+            this.pageIndicator.y = modalHeight - 33;
+            this.pageIndicator.x = modalWidth / 2 - this.pageIndicator.textWidth / 2;
+            this.pageIndicator.width = this.pageIndicator.textWidth + 4;
+        }
+        
+        private function initNavButtons() : void {
+            this.updateIndicator();
             this.leftNavSprite = this.makeLeftNav();
             this.rightNavSprite = this.makeRightNav();
-            this.leftNavSprite.x = modalWidth * 3 / 11 - this.rightNavSprite.width / 2;
+            this.leftNavSprite.x = modalWidth * 4 / 11 - this.rightNavSprite.width / 2;
             this.leftNavSprite.y = modalHeight - 4;
             addChild(this.leftNavSprite);
-            this.rightNavSprite.x = modalWidth * 8 / 11 - this.rightNavSprite.width / 2;
+            this.rightNavSprite.x = modalWidth * 7 / 11 - this.rightNavSprite.width / 2;
             this.rightNavSprite.y = modalHeight - 4;
             addChild(this.rightNavSprite);
-        }
-        
-        public function onNavHover(param1:MouseEvent) : void {
-            var _local_2:TextField = param1.currentTarget as TextField;
-            _local_2.textColor = 16701832;
-        }
-        
-        public function onNavHoverOut(param1:MouseEvent) : void {
-            var _local_2:TextField = param1.currentTarget as TextField;
-            _local_2.textColor = 16777215;
         }
         
         public function onClick(param1:MouseEvent) : void {
             switch(param1.currentTarget) {
                 case this.rightNavSprite:
-                    if(this.currentPageNum + 1 <= NewsModel.MODAL_PAGE_COUNT) {
-                        this.setPage(this.currentPageNum + 1);
+                    if(this.currentPageNumber + 1 <= this.newsModel.numberOfNews) {
+                        this.setPage(this.currentPageNumber + 1);
                     }
                     break;
                 case this.leftNavSprite:
-                    if(this.currentPageNum - 1 >= 1) {
-                        this.setPage(this.currentPageNum - 1);
+                    if(this.currentPageNumber - 1 >= 1) {
+                        this.setPage(this.currentPageNumber - 1);
                     }
-                    break;
-                case this.pageOneNav:
-                    this.setPage(1);
-                    break;
-                case this.pageTwoNav:
-                    this.setPage(2);
-                    break;
-                case this.pageThreeNav:
-                    this.setPage(3);
-                    break;
-                case this.pageFourNav:
-                    this.setPage(4);
             }
-        }
-        
-        private function getPageNavForGlow(param1:int) : TextField {
-            if(param1 >= 0 < NewsModel.MODAL_PAGE_COUNT) {
-                return this.pageNavs[param1 - 1];
-            }
-            return null;
         }
         
         private function destroy(param1:Event) : void {
-            var _local_2:TextField = null;
+            removeEventListener(Event.ADDED_TO_STAGE,this.onAdded);
             WebMain.STAGE.removeEventListener(KeyboardEvent.KEY_DOWN,this.keyDownListener);
             removeEventListener(Event.REMOVED_FROM_STAGE,this.destroy);
-            if(this.pageNavs != null) {
-                for each(_local_2 in this.pageNavs) {
-                    _local_2.removeEventListener(MouseEvent.CLICK,this.onClick);
-                    _local_2.removeEventListener(MouseEvent.ROLL_OVER,this.onNavHover);
-                    _local_2.removeEventListener(MouseEvent.ROLL_OUT,this.onNavHoverOut);
-                }
-            }
             this.leftNavSprite.removeEventListener(MouseEvent.CLICK,this.onClick);
             this.leftNavSprite.removeEventListener(MouseEvent.MOUSE_OVER,this.onArrowHover);
             this.leftNavSprite.removeEventListener(MouseEvent.MOUSE_OUT,this.onArrowHoverOut);
@@ -222,43 +176,30 @@ package kabam.rotmg.news.view {
         }
         
         private function setPage(param1:int) : void {
-            var _local_3:TextField = null;
-            var _local_2:Boolean = hasUpdates();
-            if(param1 < 1 || param1 > NewsModel.MODAL_PAGE_COUNT) {
-                return;
-            }
-            if(this.currentPageNum != -1) {
+            this.currentPageNumber = param1;
+            if(this.currentPage && this.currentPage.parent) {
                 removeChild(this.currentPage);
-                _local_3 = this.getPageNavForGlow(this.currentPageNum);
-                if(_local_3 != null) {
-                    _local_3.filters = filterNoGlow;
-                }
-                SoundEffectLibrary.play("button_click");
             }
-            this.currentPageNum = param1;
-            var _local_4:NewsModel = StaticInjectorContext.getInjector().getInstance(NewsModel);
-            this.currentPage = _local_4.getModalPage(param1);
+            this.currentPage = this.newsModel.getModalPage(param1);
             addChild(this.currentPage);
-            _local_3 = this.getPageNavForGlow(this.currentPageNum);
-            if(_local_3 != null) {
-                _local_3.filters = filterWithGlow;
-            }
-            Parameters.data_["hasNewsUpdate" + param1] = false;
-            var _local_5:Boolean = hasUpdates();
-            if(_local_2 != _local_5) {
-                refreshNewsButton();
+            this.updateIndicator();
+        }
+        
+        private function refreshNewsButton() : void {
+            var _local_1:HUDModel = StaticInjectorContext.getInjector().getInstance(HUDModel);
+            if(_local_1 != null && _local_1.gameSprite != null) {
+                _local_1.gameSprite.refreshNewsUpdateButton();
             }
         }
         
         override protected function makeModalBackground() : Sprite {
-            var _local_3:DisplayObject = null;
             var _local_1:Sprite = new Sprite();
             var _local_2:DisplayObject = new backgroundImageEmbed();
             _local_2.width = modalWidth + 1;
             _local_2.height = modalHeight - 25;
             _local_2.y = 27;
             _local_2.alpha = 0.95;
-            _local_3 = new foregroundImageEmbed();
+            var _local_3:DisplayObject = new foregroundImageEmbed();
             _local_3.width = modalWidth + 1;
             _local_3.height = modalHeight - 67;
             _local_3.y = 27;
@@ -273,12 +214,12 @@ package kabam.rotmg.news.view {
         
         private function keyDownListener(param1:KeyboardEvent) : void {
             if(param1.keyCode == KeyCodes.RIGHT) {
-                if(this.currentPageNum + 1 <= NewsModel.MODAL_PAGE_COUNT) {
-                    this.setPage(this.currentPageNum + 1);
+                if(this.currentPageNumber + 1 <= this.newsModel.numberOfNews) {
+                    this.setPage(this.currentPageNumber + 1);
                 }
             } else if(param1.keyCode == KeyCodes.LEFT) {
-                if(this.currentPageNum - 1 >= 1) {
-                    this.setPage(this.currentPageNum - 1);
+                if(this.currentPageNumber - 1 >= 1) {
+                    this.setPage(this.currentPageNumber - 1);
                 }
             }
         }

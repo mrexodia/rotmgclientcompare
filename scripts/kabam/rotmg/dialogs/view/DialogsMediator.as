@@ -64,12 +64,16 @@ package kabam.rotmg.dialogs.view {
         private function onFlushQueue() : void {
             var _local_1:PopupQueueEntry = this.dialogsModel.flushStartupQueue();
             if(_local_1 != null) {
-                _local_1.signal.dispatch();
+                if(_local_1.paramObject) {
+                    _local_1.signal.dispatch(_local_1.paramObject);
+                } else {
+                    _local_1.signal.dispatch();
+                }
             }
         }
         
-        private function onAddToQueue(param1:String, param2:Signal, param3:int) : void {
-            this.dialogsModel.addPopupToStartupQueue(param1,param2,param3);
+        private function onAddToQueue(param1:String, param2:Signal, param3:int, param4:Object) : void {
+            this.dialogsModel.addPopupToStartupQueue(param1,param2,param3,param4);
         }
         
         private function onPushDialog(param1:Sprite) : void {
