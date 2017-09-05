@@ -2350,6 +2350,7 @@
       <ActivateOnEquip stat="21" amount="13">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="28" amount="3">IncrementStat</ActivateOnEquip>
       <BagType>2</BagType>
+      <FameBonus>1</FameBonus>
       <feedPower>77</feedPower>
    </Object>
    <Object type="0xa3e" id="Snake Skin Armor">
@@ -10740,8 +10741,8 @@
       <Class>Equipment</Class>
       <Item/>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x2dc</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x130</Index>
       </Texture>
       <SlotType>10</SlotType>
       <Description>A potion that boosts the tier level of dropped loot. Up to +3 tiers! Lasts 30 minutes.</Description>
@@ -10761,8 +10762,8 @@
       <Class>Equipment</Class>
       <Item/>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x2dd</Index>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x131</Index>
       </Texture>
       <SlotType>10</SlotType>
       <Description>A potion that causes enemies to drop more loot! Lasts 30 minutes.</Description>

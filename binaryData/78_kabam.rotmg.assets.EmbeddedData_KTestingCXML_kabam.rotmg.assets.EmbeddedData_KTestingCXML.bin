@@ -73,7 +73,6 @@
       <Hero/>
       <Quest/>
       <God/>
-      <Encounter/>
       <Level>20</Level>
    </Object>
    <Object type="0xc0c" id="0Def">

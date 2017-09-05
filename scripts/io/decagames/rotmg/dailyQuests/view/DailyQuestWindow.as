@@ -35,6 +35,8 @@ package io.decagames.rotmg.dailyQuests.view {
         
         private var questRefreshText:TextFieldDisplayConcrete;
         
+        private var completedCounter:TextFieldDisplayConcrete;
+        
         public function DailyQuestWindow() {
             var _local_1:Bitmap = null;
             var _local_4:TextFieldDisplayConcrete = null;
@@ -68,15 +70,14 @@ package io.decagames.rotmg.dailyQuests.view {
             _local_4.x = 24;
             _local_4.setStringBuilder(new StaticStringBuilder("Quest completed"));
             addChild(_local_4);
+            this.completedCounter = new TextFieldDisplayConcrete().setSize(16).setColor(13224136).setBold(true).setTextWidth(50).setHorizontalAlign(TextFormatAlign.RIGHT);
+            this.completedCounter.y = 533;
+            this.completedCounter.x = 207;
+            addChild(this.completedCounter);
         }
         
         public function setCompletedCounter(param1:int, param2:int) : void {
-            var _local_3:TextFieldDisplayConcrete = null;
-            _local_3 = new TextFieldDisplayConcrete().setSize(16).setColor(13224136).setBold(true).setTextWidth(50).setHorizontalAlign(TextFormatAlign.RIGHT);
-            _local_3.y = 533;
-            _local_3.x = 207;
-            _local_3.setStringBuilder(new StaticStringBuilder(param1 + "/" + param2));
-            addChild(_local_3);
+            this.completedCounter.setStringBuilder(new StaticStringBuilder(param1 + "/" + param2));
         }
         
         public function setQuestRefreshHeader(param1:String) : void {

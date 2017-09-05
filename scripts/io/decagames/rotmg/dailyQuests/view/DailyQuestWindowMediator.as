@@ -72,12 +72,14 @@ package io.decagames.rotmg.dailyQuests.view {
         
         private function onRedeemComplete(param1:QuestRedeemResponse) : void {
             if(param1.ok) {
-                this.showRewardsPopup();
                 this.dailyQuestsModel.markAsCompleted(this.dailyQuestsModel.currentQuest.id);
                 this.dailyQuestsModel.currentQuest.completed = true;
                 this.view.renderList();
                 this.view.renderQuestInfo();
                 this.view.setCompletedCounter(this.dailyQuestsModel.numberOfCompletedQuests,this.dailyQuestsModel.numberOfActiveQuests);
+                this.view.hideFade();
+                this.view.showFade();
+                this.showRewardsPopup();
             }
         }
         

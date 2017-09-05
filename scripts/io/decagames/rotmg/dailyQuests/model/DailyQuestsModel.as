@@ -96,7 +96,7 @@ package io.decagames.rotmg.dailyQuests.model {
         
         public function get first() : DailyQuest {
             if(this._questsList.length > 0) {
-                return this._questsList[0];
+                return this.questsList[0];
             }
             return null;
         }
