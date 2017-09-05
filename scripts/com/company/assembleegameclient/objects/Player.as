@@ -279,44 +279,46 @@ package com.company.assembleegameclient.objects {
             this.dexterityBoost_ = 0;
             var _local_1:uint = 0;
             while(_local_1 < GeneralConstants.NUM_EQUIPMENT_SLOTS) {
-                _local_2 = equipment_[_local_1];
-                if(_local_2 != -1) {
-                    _local_3 = ObjectLibrary.xmlLibrary_[_local_2];
-                    if(_local_3 != null && _local_3.hasOwnProperty("ActivateOnEquip")) {
-                        for each(_local_4 in _local_3.ActivateOnEquip) {
-                            if(_local_4.toString() == "IncrementStat") {
-                                _local_5 = int(_local_4.@stat);
-                                _local_6 = int(_local_4.@amount);
-                                switch(_local_5) {
-                                    case StatData.MAX_HP_STAT:
-                                        this.maxHPBoost_ = this.maxHPBoost_ + _local_6;
-                                        continue;
-                                    case StatData.MAX_MP_STAT:
-                                        this.maxMPBoost_ = this.maxMPBoost_ + _local_6;
-                                        continue;
-                                    case StatData.ATTACK_STAT:
-                                        this.attackBoost_ = this.attackBoost_ + _local_6;
-                                        continue;
-                                    case StatData.DEFENSE_STAT:
-                                        this.defenseBoost_ = this.defenseBoost_ + _local_6;
-                                        continue;
-                                    case StatData.SPEED_STAT:
-                                        this.speedBoost_ = this.speedBoost_ + _local_6;
-                                        continue;
-                                    case StatData.VITALITY_STAT:
-                                        this.vitalityBoost_ = this.vitalityBoost_ + _local_6;
-                                        continue;
-                                    case StatData.WISDOM_STAT:
-                                        this.wisdomBoost_ = this.wisdomBoost_ + _local_6;
-                                        continue;
-                                    case StatData.DEXTERITY_STAT:
-                                        this.dexterityBoost_ = this.dexterityBoost_ + _local_6;
-                                        continue;
-                                    default:
-                                        continue;
+                if(equipment_ && equipment_.length > _local_1) {
+                    _local_2 = equipment_[_local_1];
+                    if(_local_2 != -1) {
+                        _local_3 = ObjectLibrary.xmlLibrary_[_local_2];
+                        if(_local_3 != null && _local_3.hasOwnProperty("ActivateOnEquip")) {
+                            for each(_local_4 in _local_3.ActivateOnEquip) {
+                                if(_local_4.toString() == "IncrementStat") {
+                                    _local_5 = int(_local_4.@stat);
+                                    _local_6 = int(_local_4.@amount);
+                                    switch(_local_5) {
+                                        case StatData.MAX_HP_STAT:
+                                            this.maxHPBoost_ = this.maxHPBoost_ + _local_6;
+                                            continue;
+                                        case StatData.MAX_MP_STAT:
+                                            this.maxMPBoost_ = this.maxMPBoost_ + _local_6;
+                                            continue;
+                                        case StatData.ATTACK_STAT:
+                                            this.attackBoost_ = this.attackBoost_ + _local_6;
+                                            continue;
+                                        case StatData.DEFENSE_STAT:
+                                            this.defenseBoost_ = this.defenseBoost_ + _local_6;
+                                            continue;
+                                        case StatData.SPEED_STAT:
+                                            this.speedBoost_ = this.speedBoost_ + _local_6;
+                                            continue;
+                                        case StatData.VITALITY_STAT:
+                                            this.vitalityBoost_ = this.vitalityBoost_ + _local_6;
+                                            continue;
+                                        case StatData.WISDOM_STAT:
+                                            this.wisdomBoost_ = this.wisdomBoost_ + _local_6;
+                                            continue;
+                                        case StatData.DEXTERITY_STAT:
+                                            this.dexterityBoost_ = this.dexterityBoost_ + _local_6;
+                                            continue;
+                                        default:
+                                            continue;
+                                    }
+                                } else {
+                                    continue;
                                 }
-                            } else {
-                                continue;
                             }
                         }
                     }
