@@ -105,8 +105,35 @@ package kabam.rotmg.news.model {
                     }
                 }
             }
+            this.sortByPriority(_local_2);
             this.update.dispatch(this.news);
             this.updateNoParams.dispatch();
+        }
+        
+        private function sortByPriority(param1:Vector.<NewsCellVO>) : void {
+            var _local_2:NewsCellVO = null;
+            for each(_local_2 in param1) {
+                if(this.isNewsTimely(_local_2) && this.isValidForPlatformGlobal(_local_2)) {
+                    this.prioritize(_local_2);
+                }
+            }
+        }
+        
+        private function prioritize(param1:NewsCellVO) : void {
+            var _local_2:uint = param1.slot - 1;
+            if(this.news[_local_2]) {
+                param1 = this.comparePriority(this.news[_local_2],param1);
+            }
+            this.news[_local_2] = param1;
+        }
+        
+        private function comparePriority(param1:NewsCellVO, param2:NewsCellVO) : NewsCellVO {
+            return param1.priority < param2.priority?param1:param2;
+        }
+        
+        private function isNewsTimely(param1:NewsCellVO) : Boolean {
+            var _local_2:Number = new Date().getTime();
+            return param1.startDate < _local_2 && _local_2 < param1.endDate;
         }
         
         public function hasValidNews() : Boolean {
@@ -128,6 +155,11 @@ package kabam.rotmg.news.model {
                 return new NewsModalPage(_local_2.title,_local_2.text);
             }
             return new NewsModalPage("No new information","Please check back later.");
+        }
+        
+        private function isValidForPlatformGlobal(param1:NewsCellVO) : Boolean {
+            var _local_2:String = this.account.gameNetwork();
+            return param1.networks.indexOf(_local_2) != -1;
         }
         
         private function isValidForPlatform(param1:InGameNews) : Boolean {
