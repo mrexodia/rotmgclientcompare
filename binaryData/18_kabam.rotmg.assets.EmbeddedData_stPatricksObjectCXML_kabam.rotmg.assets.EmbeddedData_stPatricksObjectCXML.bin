@@ -84,6 +84,8 @@
       </AnimatedTexture>
       <HitSound>monster/dwarves_hit</HitSound>
       <DeathSound>monster/dwarves_death</DeathSound>
+      <Terrain>MidForest</Terrain>
+      <SpawnProb>0.10</SpawnProb>
       <PerRealmMax>1</PerRealmMax>
       <Size>20</Size>
       <ShadowSize>60</ShadowSize>
@@ -310,7 +312,6 @@
       <Hero/>
       <Level>20</Level>
       <ParalyzeImmune/>
-      <Terrain>MidForest</Terrain>
    </Object>
    <Object type="0x5b03" id="MotMG St. Patricks Event 2">
       <DisplayId>Leprechaun</DisplayId>
@@ -334,14 +335,14 @@
    </Object>
    <Object type="0x5b04" id="MotMG St. Patricks Event Piece 1">
       <Group>Patty Statue Pieces</Group>
-      <Enemy/>
       <Class>Character</Class>
-      <NoMiniMap/>
-      <StasisImmune/>
+      <Enemy/>
       <Texture>
          <File>stPatricksObjects8x8</File>
          <Index>0x30</Index>
       </Texture>
+      <NoMiniMap/>
+      <StasisImmune/>
       <Size>100</Size>
       <ShadowSize>0</ShadowSize>
       <MaxHitPoints>10000</MaxHitPoints>
