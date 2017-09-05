@@ -144,7 +144,7 @@ package com.company.assembleegameclient.ui.panels.itemgrids.itemtiles {
         }
         
         public function updateDim(param1:Player) : void {
-            itemSprite.setDim(param1 && param1.mp_ < this.minManaUsage);
+            itemSprite.setDim(param1 && (param1.mp_ < this.minManaUsage || this.minManaUsage && param1.isSilenced()));
         }
         
         override protected function beginDragCallback() : void {

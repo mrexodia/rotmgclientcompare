@@ -41,6 +41,7 @@ package io.decagames.rotmg.dailyQuests.view {
             this.closeRedeem.add(this.onRedeemClose);
             this.view.closeButton.addEventListener(MouseEvent.CLICK,this.onCloseClickHandler);
             this.view.addEventListener(Event.ENTER_FRAME,this.updateTimeHandler);
+            this.view.setCompletedCounter(this.dailyQuestsModel.numberOfCompletedQuests,this.dailyQuestsModel.numberOfActiveQuests);
         }
         
         private function updateTimeHandler(param1:Event) : void {
@@ -76,6 +77,7 @@ package io.decagames.rotmg.dailyQuests.view {
                 this.dailyQuestsModel.currentQuest.completed = true;
                 this.view.renderList();
                 this.view.renderQuestInfo();
+                this.view.setCompletedCounter(this.dailyQuestsModel.numberOfCompletedQuests,this.dailyQuestsModel.numberOfActiveQuests);
             }
         }
         

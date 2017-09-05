@@ -6,6 +6,8 @@ package io.decagames.rotmg.dailyQuests.config {
     import io.decagames.rotmg.dailyQuests.signal.QuestFetchCompleteSignal;
     import io.decagames.rotmg.dailyQuests.signal.QuestRedeemCompleteSignal;
     import io.decagames.rotmg.dailyQuests.signal.ShowQuestInfoSignal;
+    import io.decagames.rotmg.dailyQuests.ui.scrollbar.DailyQuestListScrollbar;
+    import io.decagames.rotmg.dailyQuests.ui.scrollbar.DailyQuestListScrollbarMediator;
     import io.decagames.rotmg.dailyQuests.view.DailyQuestWindow;
     import io.decagames.rotmg.dailyQuests.view.DailyQuestWindowMediator;
     import io.decagames.rotmg.dailyQuests.view.info.DailyQuestInfo;
@@ -49,6 +51,7 @@ package io.decagames.rotmg.dailyQuests.config {
             this.mediatorMap.map(DailyQuestItemSlot).toMediator(DailyQuestItemSlotMediator);
             this.mediatorMap.map(DailyQuestWindow).toMediator(DailyQuestWindowMediator);
             this.mediatorMap.map(DailyQuestRedeemPopup).toMediator(DailyQuestRedeemPopupMediator);
+            this.mediatorMap.map(DailyQuestListScrollbar).toMediator(DailyQuestListScrollbarMediator);
             this.injector.map(DailyQuestsModel).asSingleton();
             this.injector.map(ShowQuestInfoSignal).asSingleton();
             this.injector.map(LockQuestScreenSignal).asSingleton();

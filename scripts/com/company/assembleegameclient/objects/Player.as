@@ -945,6 +945,10 @@ package com.company.assembleegameclient.objects {
             if(_local_5 == null || !_local_5.hasOwnProperty("Usable")) {
                 return false;
             }
+            if(isSilenced()) {
+                SoundEffectLibrary.play("error");
+                return false;
+            }
             var _local_6:Point = map_.pSTopW(param1,param2);
             if(_local_6 == null) {
                 SoundEffectLibrary.play("error");

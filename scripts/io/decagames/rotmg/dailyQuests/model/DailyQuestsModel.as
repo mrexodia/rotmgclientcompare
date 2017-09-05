@@ -34,6 +34,21 @@ package io.decagames.rotmg.dailyQuests.model {
             return this._questsList.length > 0;
         }
         
+        public function get numberOfActiveQuests() : int {
+            return this._questsList.length;
+        }
+        
+        public function get numberOfCompletedQuests() : int {
+            var _local_2:DailyQuest = null;
+            var _local_1:int = 0;
+            for each(_local_2 in this._questsList) {
+                if(_local_2.completed) {
+                    _local_1++;
+                }
+            }
+            return _local_1;
+        }
+        
         public function get questsList() : Vector.<DailyQuest> {
             var _local_1:Vector.<DailyQuest> = this._questsList.concat();
             return _local_1.sort(this.questsCompleteSort);

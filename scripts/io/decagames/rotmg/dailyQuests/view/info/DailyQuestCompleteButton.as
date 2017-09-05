@@ -4,16 +4,13 @@ package io.decagames.rotmg.dailyQuests.view.info {
     import flash.display.Sprite;
     import flash.text.TextFieldAutoSize;
     import flash.text.TextFormatAlign;
+    import io.decagames.rotmg.dailyQuests.assets.DailyQuestAssets;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.StaticStringBuilder;
     
     public class DailyQuestCompleteButton extends Sprite {
         
-        public static var backgroundOff:Class = DailyQuestCompleteButton_backgroundOff;
-        
-        public static var backgroundOn:Class = DailyQuestCompleteButton_backgroundOn;
-        
-        public static const BUTTON_WIDTH:int = 188;
+        public static const BUTTON_WIDTH:int = 149;
          
         
         private var _enabled:Boolean;
@@ -29,9 +26,9 @@ package io.decagames.rotmg.dailyQuests.view.info {
         }
         
         private function createLabel() : void {
-            this.buttonLabel = new TextFieldDisplayConcrete().setSize(30).setColor(!!this._completed?uint(1286144):!!this._enabled?uint(16777215):uint(3552822)).setBold(true).setTextWidth(BUTTON_WIDTH).setAutoSize(TextFieldAutoSize.CENTER).setHorizontalAlign(TextFormatAlign.CENTER);
+            this.buttonLabel = new TextFieldDisplayConcrete().setSize(18).setColor(16777215).setBold(true).setTextWidth(BUTTON_WIDTH).setAutoSize(TextFieldAutoSize.CENTER).setHorizontalAlign(TextFormatAlign.CENTER);
             this.buttonLabel.setStringBuilder(new StaticStringBuilder(!!this._completed?"Completed":"Complete!"));
-            this.buttonLabel.y = 12;
+            this.buttonLabel.y = 7;
             this.buttonLabel.x = 0;
             addChild(this.buttonLabel);
         }
@@ -55,7 +52,7 @@ package io.decagames.rotmg.dailyQuests.view.info {
             this.safetyRemove(this.buttonLabel);
             this.safetyRemove(this.background);
             if(!this._completed) {
-                _local_1 = !!this._enabled?backgroundOn:backgroundOff;
+                _local_1 = !!this._enabled?DailyQuestAssets.DailyQuestsCompleteButtonOn:DailyQuestAssets.DailyQuestsCompleteButtonOff;
                 this.background = new _local_1();
                 addChildAt(this.background,0);
             }

@@ -566,6 +566,10 @@ package com.company.assembleegameclient.objects {
             return (this.condition_[ConditionEffect.CE_SECOND_BATCH] & ConditionEffect.CURSE_IMMUNE_BIT) != 0;
         }
         
+        public function isSilenced() : Boolean {
+            return (this.condition_[ConditionEffect.CE_SECOND_BATCH] & ConditionEffect.SILENCED_BIT) != 0;
+        }
+        
         public function isSafe(param1:int = 20) : Boolean {
             var _local_2:GameObject = null;
             var _local_3:int = 0;
@@ -772,6 +776,7 @@ package com.company.assembleegameclient.objects {
                             case ConditionEffect.UNSTABLE:
                             case ConditionEffect.DARKNESS:
                             case ConditionEffect.PETRIFIED_IMMUNE:
+                            case ConditionEffect.SILENCED:
                                 _local_9 = ConditionEffect.effects_[_local_8];
                                 break;
                             case ConditionEffect.SLOWED:
