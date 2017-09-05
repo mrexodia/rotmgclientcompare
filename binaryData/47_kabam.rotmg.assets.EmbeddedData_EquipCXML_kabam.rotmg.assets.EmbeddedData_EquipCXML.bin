@@ -17625,6 +17625,7 @@
       <Consumable/>
       <Activate stat="0" amount="75" range="5" duration="10">StatBoostAura</Activate>
       <Activate effect="Healing" duration="10" range="5">ConditionEffectAura</Activate>
+      <feedPower>37</feedPower>
    </Object>
    <Object type="0x109f" id="EH Queen's Stinger Dagger">
       <DisplayId>Queen's Stinger Dagger</DisplayId>
