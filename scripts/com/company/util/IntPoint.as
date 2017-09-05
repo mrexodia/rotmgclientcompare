@@ -16,7 +16,7 @@ package com.company.util {
         }
         
         public static function unitTest() : void {
-            var _local_1:UnitTest = new UnitTest#2797();
+            var _local_1:UnitTest = new UnitTest#1961();
         }
         
         public static function fromPoint(param1:Point) : IntPoint {
@@ -96,10 +96,10 @@ package com.company.util {
 
 import com.company.util.IntPoint;
 
-class UnitTest#2797 {
+class UnitTest#1961 {
      
     
-    function UnitTest#2797() {
+    function UnitTest#1961() {
         var _local_1:IntPoint = null;
         var _local_2:IntPoint = null;
         var _local_3:Number = NaN;

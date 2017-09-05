@@ -8,7 +8,7 @@ package com.company.util {
     public class BitmapUtil {
          
         
-        public function BitmapUtil(param1:StaticEnforcer#111) {
+        public function BitmapUtil(param1:StaticEnforcer#1304) {
             super();
         }
         
@@ -178,10 +178,10 @@ package com.company.util {
     }
 }
 
-class StaticEnforcer#111 {
+class StaticEnforcer#1304 {
      
     
-    function StaticEnforcer#111() {
+    function StaticEnforcer#1304() {
         super();
     }
 }

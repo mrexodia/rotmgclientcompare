@@ -24,6 +24,8 @@ package com.company.assembleegameclient.ui.options {
     import flash.ui.Mouse;
     import flash.ui.MouseCursor;
     import flash.ui.MouseCursorData;
+    import kabam.rotmg.core.StaticInjectorContext;
+    import kabam.rotmg.dialogs.control.CloseDialogsSignal;
     import kabam.rotmg.game.view.components.StatView;
     import kabam.rotmg.text.model.TextKey;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
@@ -69,8 +71,8 @@ package com.company.assembleegameclient.ui.options {
         
         public function Options(param1:GameSprite) {
             var _local_2:TextFieldDisplayConcrete = null;
-            var _local_5:int = 0;
-            var _local_6:OptionsTabTitle = null;
+            var _local_6:int = 0;
+            var _local_7:OptionsTabTitle = null;
             this.tabs_ = new Vector.<OptionsTabTitle>();
             this.options_ = new Vector.<Sprite>();
             super();
@@ -112,25 +114,27 @@ package com.company.assembleegameclient.ui.options {
                     TABS.push("Experimental");
                 }
             } else {
-                _local_5 = TABS.indexOf("Experimental");
-                if(_local_5 != -1) {
+                _local_6 = TABS.indexOf("Experimental");
+                if(_local_6 != -1) {
                     TABS.pop();
                 }
             }
             var _local_3:int = 14;
             var _local_4:int = 0;
             while(_local_4 < TABS.length) {
-                _local_6 = new OptionsTabTitle(TABS[_local_4]);
-                _local_6.x = _local_3;
-                _local_6.y = 70;
-                addChild(_local_6);
-                _local_6.addEventListener(MouseEvent.CLICK,this.onTabClick);
-                this.tabs_.push(_local_6);
+                _local_7 = new OptionsTabTitle(TABS[_local_4]);
+                _local_7.x = _local_3;
+                _local_7.y = 70;
+                addChild(_local_7);
+                _local_7.addEventListener(MouseEvent.CLICK,this.onTabClick);
+                this.tabs_.push(_local_7);
                 _local_3 = _local_3 + (!!UIUtils.SHOW_EXPERIMENTAL_MENU?90:108);
                 _local_4++;
             }
             addEventListener(Event.ADDED_TO_STAGE,this.onAddedToStage);
             addEventListener(Event.REMOVED_FROM_STAGE,this.onRemovedFromStage);
+            var _local_5:CloseDialogsSignal = StaticInjectorContext.getInjector().getInstance(CloseDialogsSignal);
+            _local_5.dispatch();
         }
         
         private static function makePotionBuy() : ChoiceOption {

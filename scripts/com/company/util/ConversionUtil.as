@@ -6,7 +6,7 @@ package com.company.util {
     public class ConversionUtil {
          
         
-        public function ConversionUtil(param1:StaticEnforcer#112) {
+        public function ConversionUtil(param1:StaticEnforcer#1307) {
             super();
         }
         
@@ -140,10 +140,10 @@ package com.company.util {
     }
 }
 
-class StaticEnforcer#112 {
+class StaticEnforcer#1307 {
      
     
-    function StaticEnforcer#112() {
+    function StaticEnforcer#1307() {
         super();
     }
 }

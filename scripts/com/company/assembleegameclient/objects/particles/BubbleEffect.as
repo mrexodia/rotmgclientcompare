@@ -30,6 +30,7 @@ package com.company.assembleegameclient.objects.particles {
             var _local_5:int = 0;
             var _local_6:Number = NaN;
             var _local_7:Number = NaN;
+            var _local_8:Number = NaN;
             var _local_9:Number = NaN;
             var _local_11:BubbleParticle = null;
             var _local_12:Number = NaN;
@@ -43,7 +44,7 @@ package com.company.assembleegameclient.objects.particles {
             }
             _local_3 = int(this.lastUpdate_ / this.rate_);
             var _local_4:int = int(param1 / this.rate_);
-            var _local_8:Number = this.go_.x_;
+            _local_8 = this.go_.x_;
             _local_9 = this.go_.y_;
             if(this.lastUpdate_ < 0) {
                 this.lastUpdate_ = Math.max(0,param1 - PERIOD_MAX);

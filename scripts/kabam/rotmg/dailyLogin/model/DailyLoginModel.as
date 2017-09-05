@@ -53,6 +53,12 @@ package kabam.rotmg.dailyLogin.model {
             return this.daysConfig[param1].length > 0;
         }
         
+        public function getServerUTCTime() : Date {
+            var _local_1:Date = new Date();
+            _local_1.setUTCMilliseconds(this.serverTimestamp);
+            return _local_1;
+        }
+        
         public function getServerTime() : Date {
             var _local_1:Date = new Date();
             _local_1.setTime(this.serverTimestamp + (_local_1.getTime() - this.serverMeasureTime));

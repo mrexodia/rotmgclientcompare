@@ -11,7 +11,7 @@ package kabam.rotmg.game.view.components {
         
         private var backpackContent:Sprite;
         
-        private var backpack:InventoryGrid;
+        private var _backpack:InventoryGrid;
         
         private var backpackPotionsInventory:PotionInventoryView;
         
@@ -26,19 +26,23 @@ package kabam.rotmg.game.view.components {
         
         private function init(param1:Player) : void {
             this.backpackContent.name = TabStripModel.BACKPACK;
-            this.backpack = new InventoryGrid(param1,param1,GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS,true);
+            this._backpack = new InventoryGrid(param1,param1,GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS,true);
         }
         
         private function positionChildren() : void {
             this.backpackContent.x = 7;
             this.backpackContent.y = 7;
-            this.backpackPotionsInventory.y = this.backpack.height + 4;
+            this.backpackPotionsInventory.y = this._backpack.height + 4;
         }
         
         private function addChildren() : void {
-            this.backpackContent.addChild(this.backpack);
+            this.backpackContent.addChild(this._backpack);
             this.backpackContent.addChild(this.backpackPotionsInventory);
             addChild(this.backpackContent);
+        }
+        
+        public function get backpack() : InventoryGrid {
+            return this._backpack;
         }
     }
 }

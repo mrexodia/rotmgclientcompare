@@ -37,6 +37,8 @@ package kabam.rotmg.assets {
         
         public static var lofiObj5Embed_:Class = EmbeddedAssets_lofiObj5Embed_;
         
+        public static var lofiObj5bEmbed_:Class = EmbeddedAssets_lofiObj5bEmbed_;
+        
         public static var lofiObj6Embed_:Class = EmbeddedAssets_lofiObj6Embed_;
         
         public static var lofiObjBigEmbed_:Class = EmbeddedAssets_lofiObjBigEmbed_;
@@ -275,6 +277,14 @@ package kabam.rotmg.assets {
         
         public static var mountainTempleObjects16x16Embed_:Class = EmbeddedAssets_mountainTempleObjects16x16Embed_;
         
+        public static var oryxHordeChars8x8Embed_:Class = EmbeddedAssets_oryxHordeChars8x8Embed_;
+        
+        public static var oryxHordeChars16x16Embed_:Class = EmbeddedAssets_oryxHordeChars16x16Embed_;
+        
+        public static var oryxHordeObjects8x8Embed_:Class = EmbeddedAssets_oryxHordeObjects8x8Embed_;
+        
+        public static var oryxHordeObjects16x16Embed_:Class = EmbeddedAssets_oryxHordeObjects16x16Embed_;
+        
         public static var Hanami8x8charsEmbed_:Class = EmbeddedAssets_Hanami8x8charsEmbed_;
         
         public static var SakuraEnvironment16x16Embed_:Class = EmbeddedAssets_SakuraEnvironment16x16Embed_;
@@ -298,6 +308,14 @@ package kabam.rotmg.assets {
         public static var epicHiveObjects8x8Embed_:Class = EmbeddedAssets_epicHiveObjects8x8Embed_;
         
         public static var epicHiveObjects16x16Embed_:Class = EmbeddedAssets_epicHiveObjects16x16Embed_;
+        
+        public static var LHObjEmbed_:Class = EmbeddedAssets_LHObjEmbed_;
+        
+        public static var LHObjBigEmbed_:Class = EmbeddedAssets_LHObjBigEmbed_;
+        
+        public static var LH16x16charsEmbed_:Class = EmbeddedAssets_LH16x16charsEmbed_;
+        
+        public static var LH8x8charsEmbed_:Class = EmbeddedAssets_LH8x8charsEmbed_;
         
         public static var models_:Object = {
             "Monster Tank1":new monsterTank1Embed_(),

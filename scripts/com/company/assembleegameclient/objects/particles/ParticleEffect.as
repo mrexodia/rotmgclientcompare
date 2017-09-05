@@ -35,6 +35,8 @@ package com.company.assembleegameclient.objects.particles {
                     return new VentEffect(param2);
                 case "Bubbles":
                     return new BubbleEffect(param2,param1);
+                case "Vortex":
+                    return new VortexEffect(param2,param1);
                 case "XMLEffect":
                     return new XMLEffect(param2,param1);
                 case "CustomParticles":

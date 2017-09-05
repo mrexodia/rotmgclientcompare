@@ -10,7 +10,7 @@ package kabam.rotmg.game.view.components {
         
         private var storageContent:Sprite;
         
-        private var storage:InventoryGrid;
+        private var _storage:InventoryGrid;
         
         private var potionsInventory:PotionInventoryView;
         
@@ -24,12 +24,12 @@ package kabam.rotmg.game.view.components {
         }
         
         private function init(param1:Player) : void {
-            this.storage = new InventoryGrid(param1,param1,4);
+            this._storage = new InventoryGrid(param1,param1,4);
             this.storageContent.name = TabStripModel.MAIN_INVENTORY;
         }
         
         private function addChildren() : void {
-            this.storageContent.addChild(this.storage);
+            this.storageContent.addChild(this._storage);
             this.storageContent.addChild(this.potionsInventory);
             addChild(this.storageContent);
         }
@@ -37,7 +37,11 @@ package kabam.rotmg.game.view.components {
         private function positionChildren() : void {
             this.storageContent.x = 7;
             this.storageContent.y = 7;
-            this.potionsInventory.y = this.storage.height + 4;
+            this.potionsInventory.y = this._storage.height + 4;
+        }
+        
+        public function get storage() : InventoryGrid {
+            return this._storage;
         }
     }
 }

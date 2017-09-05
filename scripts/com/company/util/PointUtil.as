@@ -6,7 +6,7 @@ package com.company.util {
         public static const ORIGIN:Point = new Point(0,0);
          
         
-        public function PointUtil(param1:StaticEnforcer#122) {
+        public function PointUtil(param1:StaticEnforcer#1862) {
             super();
         }
         
@@ -50,10 +50,10 @@ package com.company.util {
     }
 }
 
-class StaticEnforcer#122 {
+class StaticEnforcer#1862 {
      
     
-    function StaticEnforcer#122() {
+    function StaticEnforcer#1862() {
         super();
     }
 }

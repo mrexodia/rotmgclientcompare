@@ -10,7 +10,7 @@ package com.company.assembleegameclient.parameters {
     
     public class Parameters {
         
-        public static const BUILD_VERSION:String = "X15.1";
+        public static const BUILD_VERSION:String = "X16.0";
         
         public static const MINOR_VERSION:String = "0";
         
@@ -88,9 +88,9 @@ package com.company.assembleegameclient.parameters {
         
         public static var toggleHPBar_:Boolean = false;
         
-        public static const skinTypes16:Vector.<int> = new <int>[1027,1028,1029,1030,10973];
+        public static const skinTypes16:Vector.<int> = new <int>[1027,1028,1029,1030,10973,19494,19531];
         
-        public static const itemTypes16:Vector.<int> = new <int>[5473,5474,5475,5476,10939];
+        public static const itemTypes16:Vector.<int> = new <int>[5473,5474,5475,5476,10939,19494,19531];
         
         private static var keyNames_:Dictionary = new Dictionary();
          

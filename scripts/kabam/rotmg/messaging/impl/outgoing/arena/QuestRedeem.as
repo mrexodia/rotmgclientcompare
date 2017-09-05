@@ -6,15 +6,21 @@ package kabam.rotmg.messaging.impl.outgoing.arena {
     public class QuestRedeem extends OutgoingMessage {
          
         
-        public var slotObject:SlotObjectData;
+        public var questID:String;
+        
+        public var slots:Vector.<SlotObjectData>;
         
         public function QuestRedeem(param1:uint, param2:Function) {
-            this.slotObject = new SlotObjectData();
             super(param1,param2);
         }
         
         override public function writeToOutput(param1:IDataOutput) : void {
-            this.slotObject.writeToOutput(param1);
+            var _local_2:SlotObjectData = null;
+            param1.writeUTF(this.questID);
+            param1.writeShort(this.slots.length);
+            for each(_local_2 in this.slots) {
+                _local_2.writeToOutput(param1);
+            }
         }
     }
 }

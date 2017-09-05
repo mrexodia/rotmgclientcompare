@@ -6,7 +6,7 @@ package com.company.util {
         public static const toRadians:Number = Math.PI / 180;
          
         
-        public function Trig(param1:StaticEnforcer#130) {
+        public function Trig(param1:StaticEnforcer#1883) {
             super();
         }
         
@@ -184,10 +184,10 @@ package com.company.util {
     }
 }
 
-class StaticEnforcer#130 {
+class StaticEnforcer#1883 {
      
     
-    function StaticEnforcer#130() {
+    function StaticEnforcer#1883() {
         super();
     }
 }

@@ -5,6 +5,7 @@ package com.company.assembleegameclient.ui.tooltip {
     import com.company.assembleegameclient.objects.Player;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.ui.LineBreakDesign;
+    import com.company.assembleegameclient.util.MathUtil;
     import com.company.util.BitmapUtil;
     import com.company.util.KeyCodes;
     import flash.display.Bitmap;
@@ -527,10 +528,7 @@ package com.company.assembleegameclient.ui.tooltip {
                         this.effects.push(new Effect(TextKey.BLANK,{"data":new LineBuilder().setParams(TextKey.TELEPORT_TO_TARGET)}));
                         continue;
                     case ActivationType.VAMPIRE_BLAST:
-                        this.effects.push(new Effect(TextKey.STEAL,{"effect":new AppendingLineBuilder().pushParams(TextKey.HP_WITHIN_SQRS,{
-                            "amount":activateXML.@totalDamage,
-                            "range":activateXML.@radius
-                        },TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
+                        this.getSkull(activateXML,compareXML);
                         continue;
                     case ActivationType.TRAP:
                         this.getTrap(activateXML,compareXML);
@@ -641,131 +639,115 @@ package com.company.assembleegameclient.ui.tooltip {
         }
         
         private function getSkull(param1:XML, param2:XML = null) : void {
-            var _local_3:int = 0;
-            var _local_4:int = 0;
-            var _local_5:Number = NaN;
-            var _local_6:Number = NaN;
-            var _local_7:int = 0;
-            var _local_8:int = 0;
-            var _local_9:int = 0;
-            var _local_10:int = 0;
-            _local_3 = _local_4 = param1.@totalDamage;
-            if(param2) {
-                _local_4 = param2.@totalDamage;
+            var _local_18:Number = NaN;
+            var _local_3:int = this.player != null?int(this.player.wisdom_):10;
+            var _local_4:int = this.GetIntArgument(param1,"wisPerRad",10);
+            var _local_5:Number = this.GetFloatArgument(param1,"incrRad",0.5);
+            var _local_6:int = this.GetIntArgument(param1,"wisDamageBase",0);
+            var _local_7:int = this.GetIntArgument(param1,"wisMin",50);
+            var _local_8:int = Math.max(0,_local_3 - _local_7);
+            var _local_9:int = _local_6 / 10 * _local_8;
+            var _local_10:Number = MathUtil.round(int(_local_8 / _local_4) * _local_5,2);
+            var _local_11:ComPair = new ComPair(param1,param2,"totalDamage");
+            _local_11.add(_local_9);
+            var _local_12:ComPair = new ComPair(param1,param2,"radius");
+            var _local_13:ComPair = new ComPair(param1,param2,"healRange",5);
+            _local_13.add(_local_10);
+            var _local_14:ComPair = new ComPair(param1,param2,"heal");
+            var _local_15:ComPair = new ComPair(param1,param2,"ignoreDef",0);
+            var _local_16:* = this.colorUntiered("Skull: ");
+            _local_16 = _local_16 + ("{damage}" + this.colorWisBonus(_local_9) + " damage\n");
+            _local_16 = _local_16 + "within {radius} squares\n";
+            _local_16 = _local_16 + "Steals {heal} HP";
+            if(_local_15.a) {
+                _local_16 = _local_16 + " and ignores {ignoreDef} defense";
             }
-            _local_5 = _local_6 = param1.@radius;
-            if(param2) {
-                _local_6 = param2.@radius;
-            }
-            _local_7 = _local_8 = param1.@heal;
-            if(param2) {
-                _local_8 = param2.@heal;
-            }
-            _local_9 = _local_10 = !!param1.hasOwnProperty("@ignoreDef")?int(param1.@ignoreDef):0;
-            if(param2) {
-                _local_10 = !!param2.hasOwnProperty("@ignoreDef")?int(param2.@ignoreDef):0;
-            }
-            var _local_11:* = this.colorUntiered("Skull: ");
-            _local_11 = _local_11 + "{damage} damage within {radius} squares\n";
-            _local_11 = _local_11 + "Steals {heal} HP";
-            if(_local_9) {
-                _local_11 = _local_11 + " and ignores {ignoreDef} defense";
-            }
-            this.effects.push(new Effect(_local_11,{
-                "damage":TooltipHelper.compare(_local_3,_local_4),
-                "radius":TooltipHelper.compare(_local_5,_local_6),
-                "heal":TooltipHelper.compare(_local_7,_local_8),
-                "ignoreDef":TooltipHelper.compare(_local_9,_local_10)
+            _local_16 = _local_16 + ("\nHeals allies within {healRange}" + this.colorWisBonus(_local_10) + " squares");
+            this.effects.push(new Effect(_local_16,{
+                "damage":TooltipHelper.compare(_local_11.a,_local_11.b),
+                "radius":TooltipHelper.compare(_local_12.a,_local_12.b),
+                "heal":TooltipHelper.compare(_local_14.a,_local_14.b),
+                "ignoreDef":TooltipHelper.compare(_local_15.a,_local_15.b),
+                "healRange":TooltipHelper.compare(MathUtil.round(_local_13.a,2),MathUtil.round(_local_13.b,2))
             }));
+            var _local_17:String = param1.@condEffect;
+            if(_local_17) {
+                _local_18 = this.GetFloatArgument(param1,"condDuration",2.5);
+                this.effects.push(new Effect("{condition} for {duration} ",{
+                    "condition":_local_17,
+                    "duration":TooltipHelper.getPlural(_local_18,"second")
+                }));
+            }
         }
         
         private function getTrap(param1:XML, param2:XML = null) : void {
-            var _local_3:int = 0;
-            var _local_4:int = 0;
-            var _local_5:Number = NaN;
-            var _local_6:Number = NaN;
-            var _local_7:Number = NaN;
-            var _local_8:Number = NaN;
-            var _local_9:Number = NaN;
-            var _local_10:Number = NaN;
-            var _local_13:int = 0;
-            var _local_14:int = 0;
-            var _local_15:String = null;
-            _local_3 = _local_4 = param1.@totalDamage;
-            if(param2) {
-                _local_4 = param2.@totalDamage;
-            }
-            _local_5 = _local_6 = param1.@radius;
-            if(param2) {
-                _local_6 = param2.@radius;
-            }
-            _local_7 = _local_8 = !!param1.hasOwnProperty("@duration")?Number(param1.@duration):Number(20);
-            if(param2) {
-                _local_8 = !!param2.hasOwnProperty("@duration")?Number(param2.@duration):Number(20);
-            }
-            _local_9 = _local_10 = !!param1.hasOwnProperty("@tilArmed")?Number(param1.@tilArmed):Number(1);
-            if(param2) {
-                _local_10 = !!param2.hasOwnProperty("@tilArmed")?Number(param2.@tilArmed):Number(1);
-            }
-            var _local_11:* = this.colorUntiered("Trap: ");
-            _local_11 = _local_11 + "{damage} damage within {radius} squares";
-            this.effects.push(new Effect(_local_11,{
-                "damage":TooltipHelper.compare(_local_3,_local_4),
-                "radius":TooltipHelper.compare(_local_5,_local_6)
+            var _local_12:ComPair = null;
+            var _local_13:String = null;
+            var _local_3:ComPair = new ComPair(param1,param2,"totalDamage");
+            var _local_4:ComPair = new ComPair(param1,param2,"radius");
+            var _local_5:ComPair = new ComPair(param1,param2,"duration",20);
+            var _local_6:ComPair = new ComPair(param1,param2,"tilArmed",1);
+            var _local_7:ComPair = new ComPair(param1,param2,"sensitivity",0.5);
+            var _local_8:Number = MathUtil.round(_local_4.a * _local_7.a,2);
+            var _local_9:Number = MathUtil.round(_local_4.b * _local_7.b,2);
+            var _local_10:* = this.colorUntiered("Trap: ");
+            _local_10 = _local_10 + "{damage} damage within {radius} squares";
+            this.effects.push(new Effect(_local_10,{
+                "damage":TooltipHelper.compare(_local_3.a,_local_3.b),
+                "radius":TooltipHelper.compare(_local_4.a,_local_4.b)
             }));
-            var _local_12:String = !!param1.hasOwnProperty("@condEffect")?param1.@condEffect:"Slowed";
-            if(_local_12 != "Nothing") {
-                _local_13 = _local_14 = !!param1.hasOwnProperty("@condDuration")?int(param1.@condDuration):5;
+            var _local_11:String = !!param1.hasOwnProperty("@condEffect")?param1.@condEffect:"Slowed";
+            if(_local_11 != "Nothing") {
+                _local_12 = new ComPair(param1,param2,"condDuration",5);
                 if(param2) {
-                    _local_14 = !!param2.hasOwnProperty("@condDuration")?int(param2.@condDuration):5;
-                    _local_15 = !!param2.hasOwnProperty("@condEffect")?param2.@condEffect:"Slowed";
-                    if(_local_15 == "Nothing") {
-                        _local_14 = 0;
+                    _local_13 = !!param2.hasOwnProperty("@condEffect")?param2.@condEffect:"Slowed";
+                    if(_local_13 == "Nothing") {
+                        _local_12.b = 0;
                     }
                 }
-                this.effects.push(new Effect("{condition} for {duration} ",{
-                    "condition":_local_12,
-                    "duration":TooltipHelper.compareAndGetPlural(_local_13,_local_14,"second")
+                this.effects.push(new Effect("Inflicts {condition} for {duration} ",{
+                    "condition":_local_11,
+                    "duration":TooltipHelper.compareAndGetPlural(_local_12.a,_local_12.b,"second")
                 }));
             }
             this.effects.push(new Effect("{tilArmed} to arm for {duration} ",{
-                "tilArmed":TooltipHelper.compareAndGetPlural(_local_9,_local_10,"second",false),
-                "duration":TooltipHelper.compareAndGetPlural(_local_7,_local_8,"second")
+                "tilArmed":TooltipHelper.compareAndGetPlural(_local_6.a,_local_6.b,"second",false),
+                "duration":TooltipHelper.compareAndGetPlural(_local_5.a,_local_5.b,"second")
             }));
+            this.effects.push(new Effect("Triggers within {triggerRadius} squares",{"triggerRadius":TooltipHelper.compare(_local_8,_local_9)}));
         }
         
         private function getLightning(param1:XML, param2:XML = null) : void {
-            var _local_13:Number = NaN;
-            var _local_3:int = this.player.wisdom_;
+            var _local_15:Number = NaN;
+            var _local_3:int = this.player != null?int(this.player.wisdom_):10;
             var _local_4:ComPair = new ComPair(param1,param2,"decrDamage",0);
             var _local_5:int = this.GetIntArgument(param1,"wisPerTarget",10);
             var _local_6:int = this.GetIntArgument(param1,"wisDamageBase",_local_4.a);
             var _local_7:int = this.GetIntArgument(param1,"wisMin",50);
-            var _local_8:Number = 0;
-            if(_local_3 > _local_7) {
-                _local_8 = (_local_3 - _local_7) / _local_5;
+            var _local_8:int = Math.max(0,_local_3 - _local_7);
+            var _local_9:int = _local_8 / _local_5;
+            var _local_10:int = _local_6 / 10 * _local_8;
+            var _local_11:ComPair = new ComPair(param1,param2,"maxTargets");
+            _local_11.add(_local_9);
+            var _local_12:ComPair = new ComPair(param1,param2,"totalDamage");
+            _local_12.add(_local_10);
+            var _local_13:* = this.colorUntiered("Lightning: ");
+            _local_13 = _local_13 + ("{targets}" + this.colorWisBonus(_local_9) + " targets\n");
+            _local_13 = _local_13 + ("{damage}" + this.colorWisBonus(_local_10) + " damage");
+            if(_local_4.a) {
+                _local_13 = _local_13 + ", reduced by \n{decrDamage} for each subsequent target";
             }
-            var _local_9:ComPair = new ComPair(param1,param2,"maxTargets");
-            _local_9.add(_local_8);
-            var _local_10:ComPair = new ComPair(param1,param2,"totalDamage");
-            _local_10.add(_local_6 * _local_8);
-            var _local_11:* = this.colorUntiered("Lightning: ");
-            _local_11 = _local_11 + ("{targets}" + this.colorWisBonus(int(_local_8)) + " targets\n");
-            _local_11 = _local_11 + ("{damage}" + this.colorWisBonus(int(_local_6 * _local_8)) + " damage");
-            if(_local_4) {
-                _local_11 = _local_11 + ", reduced by \n{decrDamage} for each subsequent target";
-            }
-            this.effects.push(new Effect(_local_11,{
-                "targets":TooltipHelper.compare(_local_9.a,_local_9.b),
-                "damage":TooltipHelper.compare(_local_10.a,_local_10.b),
+            this.effects.push(new Effect(_local_13,{
+                "targets":TooltipHelper.compare(_local_11.a,_local_11.b),
+                "damage":TooltipHelper.compare(_local_12.a,_local_12.b),
                 "decrDamage":TooltipHelper.compare(_local_4.a,_local_4.b,false)
             }));
-            var _local_12:String = param1.@condEffect;
-            if(_local_12) {
-                _local_13 = this.GetFloatArgument(param1,"condDuration",5);
+            var _local_14:String = param1.@condEffect;
+            if(_local_14) {
+                _local_15 = this.GetFloatArgument(param1,"condDuration",5);
                 this.effects.push(new Effect("{condition} for {duration} ",{
-                    "condition":_local_12,
-                    "duration":TooltipHelper.getPlural(_local_13,"second")
+                    "condition":_local_14,
+                    "duration":TooltipHelper.getPlural(_local_15,"second")
                 }));
             }
         }
@@ -1174,7 +1156,7 @@ class ComPair {
         }
     }
     
-    public function add(param1:int) : void {
+    public function add(param1:Number) : void {
         this.a = this.a + param1;
         this.b = this.b + param1;
     }

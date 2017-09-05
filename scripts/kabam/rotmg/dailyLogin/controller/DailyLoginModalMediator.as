@@ -49,7 +49,7 @@ package kabam.rotmg.dailyLogin.controller {
             var _local_3:Date = new Date(_local_2.fullYear,_local_2.month + 1,1,0,0,0);
             _local_3.time = _local_3.time - 1;
             this.view.showLegend(this.hudModel.gameSprite.map.name_ == Map.DAILY_QUEST_ROOM);
-            this.view.showServerTime(_local_1.format(this.dailyLoginModel.getServerTime()),_local_1.format(_local_3));
+            this.view.showServerTime(_local_1.formatUTC(this.dailyLoginModel.getServerTime()),_local_1.format(_local_3));
             if(this.hudModel.gameSprite.map.name_ != Map.DAILY_QUEST_ROOM) {
                 this.view.claimButton.addEventListener(MouseEvent.CLICK,this.onClaimClickHandler);
                 this.view.addEventListener(MouseEvent.CLICK,this.onPopupClickHandler);

@@ -64,6 +64,9 @@ package kabam.rotmg.messaging.impl {
     import flash.utils.ByteArray;
     import flash.utils.Timer;
     import flash.utils.getTimer;
+    import io.decagames.rotmg.dailyQuests.messages.incoming.QuestFetchResponse;
+    import io.decagames.rotmg.dailyQuests.signal.QuestFetchCompleteSignal;
+    import io.decagames.rotmg.dailyQuests.signal.QuestRedeemCompleteSignal;
     import kabam.lib.net.api.MessageMap;
     import kabam.lib.net.api.MessageProvider;
     import kabam.lib.net.impl.Message;
@@ -103,6 +106,7 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.messaging.impl.data.GroundTileData;
     import kabam.rotmg.messaging.impl.data.ObjectData;
     import kabam.rotmg.messaging.impl.data.ObjectStatusData;
+    import kabam.rotmg.messaging.impl.data.SlotObjectData;
     import kabam.rotmg.messaging.impl.data.StatData;
     import kabam.rotmg.messaging.impl.incoming.AccountList;
     import kabam.rotmg.messaging.impl.incoming.AllyShoot;
@@ -132,7 +136,6 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.messaging.impl.incoming.Pic;
     import kabam.rotmg.messaging.impl.incoming.Ping;
     import kabam.rotmg.messaging.impl.incoming.PlaySound;
-    import kabam.rotmg.messaging.impl.incoming.QuestFetchResponse;
     import kabam.rotmg.messaging.impl.incoming.QuestObjId;
     import kabam.rotmg.messaging.impl.incoming.QuestRedeemResponse;
     import kabam.rotmg.messaging.impl.incoming.Reconnect;
@@ -202,8 +205,6 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.pets.controller.UpdateActivePet;
     import kabam.rotmg.pets.controller.UpdatePetYardSignal;
     import kabam.rotmg.pets.data.PetsModel;
-    import kabam.rotmg.questrewards.controller.QuestFetchCompleteSignal;
-    import kabam.rotmg.questrewards.controller.QuestRedeemCompleteSignal;
     import kabam.rotmg.servers.api.Server;
     import kabam.rotmg.text.model.TextKey;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
@@ -2034,12 +2035,11 @@ package kabam.rotmg.messaging.impl {
             this.questRedeemComplete.dispatch(param1);
         }
         
-        override public function questRedeem(param1:int, param2:int, param3:int) : void {
-            var _local_4:QuestRedeem = this.messages.require(QUEST_REDEEM) as QuestRedeem;
-            _local_4.slotObject.objectId_ = param1;
-            _local_4.slotObject.slotId_ = param2;
-            _local_4.slotObject.objectType_ = param3;
-            serverConnection.sendMessage(_local_4);
+        override public function questRedeem(param1:String, param2:Vector.<SlotObjectData>) : void {
+            var _local_3:QuestRedeem = this.messages.require(QUEST_REDEEM) as QuestRedeem;
+            _local_3.questID = param1;
+            _local_3.slots = param2;
+            serverConnection.sendMessage(_local_3);
         }
         
         override public function keyInfoRequest(param1:int) : void {

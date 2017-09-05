@@ -184,8 +184,8 @@ package com.company.assembleegameclient.util {
             _local_5.scale(5,5);
             var _local_6:BitmapData = new BitmapDataSpy(param1.width * 5,param1.height * 5,true,0);
             _local_6.draw(param1,_local_5);
-            var _local_7:BitmapData = getTexture(param3,colorTexture1);
-            var _local_8:BitmapData = getTexture(param4,colorTexture2);
+            var _local_7:BitmapData = getTexture(param3 >= 0?int(param3):0,colorTexture1);
+            var _local_8:BitmapData = getTexture(param4 >= 0?int(param4):0,colorTexture2);
             var _local_9:Shader = new Shader(textureShaderData_);
             _local_9.data.src.input = _local_6;
             _local_9.data.mask.input = param2;

@@ -56,7 +56,7 @@ package com.company.util {
         public static const makeWhiteCT:ColorTransform = new ColorTransform(1,1,1,1,255,255,255,0);
          
         
-        public function MoreColorUtil(param1:StaticEnforcer#110) {
+        public function MoreColorUtil(param1:StaticEnforcer#1843) {
             super();
         }
         
@@ -199,10 +199,10 @@ package com.company.util {
     }
 }
 
-class StaticEnforcer#110 {
+class StaticEnforcer#1843 {
      
     
-    function StaticEnforcer#110() {
+    function StaticEnforcer#1843() {
         super();
     }
 }

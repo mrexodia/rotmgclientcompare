@@ -86,6 +86,16 @@ package kabam.rotmg.game.view.components {
             }
         }
         
+        public function getTabView(param1:Class) : * {
+            var _local_2:Sprite = null;
+            for each(_local_2 in this.contents) {
+                if(_local_2 is param1) {
+                    return _local_2 as param1;
+                }
+            }
+            return null;
+        }
+        
         public function drawBackground() : void {
             var _local_1:GraphicsSolidFill = new GraphicsSolidFill(TabConstants.BACKGROUND_COLOR,1);
             var _local_2:GraphicsPath = new GraphicsPath(new Vector.<int>(),new Vector.<Number>());
@@ -144,8 +154,9 @@ package kabam.rotmg.game.view.components {
         }
         
         private function addTextTab(param1:int, param2:BaseSimpleText) : TabTextView {
+            var _local_4:TabTextView = null;
             var _local_3:Sprite = new TabBackground();
-            var _local_4:TabTextView = new TabTextView(param1,_local_3,param2);
+            _local_4 = new TabTextView(param1,_local_3,param2);
             _local_4.x = param1 * (_local_3.width + TabConstants.PADDING);
             _local_4.y = TabConstants.TAB_Y_POS;
             return _local_4;

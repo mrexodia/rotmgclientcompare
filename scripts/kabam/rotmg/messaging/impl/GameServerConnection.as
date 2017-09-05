@@ -5,6 +5,7 @@ package kabam.rotmg.messaging.impl {
     import com.company.assembleegameclient.objects.Projectile;
     import flash.utils.ByteArray;
     import kabam.lib.net.impl.SocketServer;
+    import kabam.rotmg.messaging.impl.data.SlotObjectData;
     import kabam.rotmg.servers.api.Server;
     import org.osflash.signals.Signal;
     
@@ -350,7 +351,7 @@ package kabam.rotmg.messaging.impl {
         public function questFetch() : void {
         }
         
-        public function questRedeem(param1:int, param2:int, param3:int) : void {
+        public function questRedeem(param1:String, param2:Vector.<SlotObjectData>) : void {
         }
         
         public function keyInfoRequest(param1:int) : void {

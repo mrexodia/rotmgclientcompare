@@ -9,7 +9,6 @@ package com.company.assembleegameclient.ui.tooltip {
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.QuiverComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SealComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.ShieldComparison;
-    import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SkullComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SlotComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SpellComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.TomeComparison;
@@ -41,7 +40,6 @@ package com.company.assembleegameclient.ui.tooltip {
             this.hash[ItemConstants.HELM_TYPE] = new HelmetComparison();
             this.hash[ItemConstants.STAFF_TYPE] = _local_1;
             this.hash[ItemConstants.POISON_TYPE] = new PoisonComparison();
-            this.hash[ItemConstants.SKULL_TYPE] = new SkullComparison();
             this.hash[ItemConstants.ORB_TYPE] = new OrbComparison();
             this.hash[ItemConstants.PRISM_TYPE] = new PrismComparison();
             this.hash[ItemConstants.KATANA_TYPE] = _local_1;

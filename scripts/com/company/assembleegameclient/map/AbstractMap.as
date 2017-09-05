@@ -44,9 +44,9 @@ package com.company.assembleegameclient.map {
         
         public var partyOverlay_:PartyOverlay = null;
         
-        public var squareList_:Vector.<Square#58>;
+        public var squareList_:Vector.<Square#54>;
         
-        public var squares_:Vector.<Square#58>;
+        public var squares_:Vector.<Square#54>;
         
         public var boDict_:Dictionary;
         
@@ -65,8 +65,8 @@ package com.company.assembleegameclient.map {
         public function AbstractMap() {
             this.goDict_ = new Dictionary();
             this.map_ = new Sprite();
-            this.squareList_ = new Vector.<Square#58>();
-            this.squares_ = new Vector.<Square#58>();
+            this.squareList_ = new Vector.<Square#54>();
+            this.squares_ = new Vector.<Square#54>();
             this.boDict_ = new Dictionary();
             this.merchLookup_ = new Object();
             this.signalRenderSwitch = new Signal(Boolean);

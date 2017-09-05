@@ -4,9 +4,7 @@ package kabam.rotmg.questrewards.view {
     import com.company.assembleegameclient.ui.panels.Panel;
     import flash.display.Bitmap;
     import kabam.rotmg.core.StaticInjectorContext;
-    import kabam.rotmg.messaging.impl.incoming.QuestFetchResponse;
     import kabam.rotmg.pets.util.PetsViewAssetFactory;
-    import kabam.rotmg.questrewards.controller.QuestFetchCompleteSignal;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.StaticStringBuilder;
     import kabam.rotmg.ui.model.HUDModel;
@@ -50,19 +48,7 @@ package kabam.rotmg.questrewards.view {
         
         public static function checkQuests() : void {
             var _local_1:HUDModel = StaticInjectorContext.getInjector().getInstance(HUDModel);
-            var _local_2:QuestFetchCompleteSignal = StaticInjectorContext.getInjector().getInstance(QuestFetchCompleteSignal);
             if(_local_1 != null && _local_1.gameSprite != null && _local_1.gameSprite.gsc_ != null) {
-                _local_2.add(onCheckQuestsComplete);
-                _local_1.gameSprite.gsc_.questFetch();
-            }
-        }
-        
-        public static function onCheckQuestsComplete(param1:QuestFetchResponse) : void {
-            var _local_2:int = param1.tier;
-            if(_local_2 > 0) {
-                questDataExists = true;
-            } else {
-                questDataExists = false;
             }
         }
         

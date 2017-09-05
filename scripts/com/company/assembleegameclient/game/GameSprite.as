@@ -57,7 +57,6 @@ package com.company.assembleegameclient.game {
     import kabam.rotmg.promotions.signals.ShowBeginnersPackageSignal;
     import kabam.rotmg.promotions.view.BeginnersPackageButton;
     import kabam.rotmg.protip.signals.ShowProTipSignal;
-    import kabam.rotmg.questrewards.view.QuestRewardsPanel;
     import kabam.rotmg.servers.api.Server;
     import kabam.rotmg.stage3D.Renderer;
     import kabam.rotmg.ui.UIUtils;
@@ -272,8 +271,8 @@ package com.company.assembleegameclient.game {
                 _local_4 = StaticInjectorContext.getInjector().getInstance(ShowProTipSignal);
                 _local_4 && _local_4.dispatch();
             }
-            if(map.name_ == "Daily Quest Room") {
-                QuestRewardsPanel.checkQuests();
+            if(map.name_ == Map.DAILY_QUEST_ROOM) {
+                gsc_.questFetch();
             }
             Parameters.save();
             hidePreloader();

@@ -1,7 +1,7 @@
 package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.game.GameSprite;
     import com.company.assembleegameclient.ui.panels.Panel;
-    import kabam.rotmg.questrewards.view.QuestRewardsPanel;
+    import io.decagames.rotmg.dailyQuests.view.panel.DailyQuestsPanel;
     
     public class QuestRewards extends GameObject implements IInteractiveObject {
          
@@ -12,7 +12,7 @@ package com.company.assembleegameclient.objects {
         }
         
         public function getPanel(param1:GameSprite) : Panel {
-            return new QuestRewardsPanel(param1);
+            return new DailyQuestsPanel(param1);
         }
     }
 }

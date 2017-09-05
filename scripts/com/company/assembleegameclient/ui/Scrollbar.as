@@ -91,6 +91,9 @@ package com.company.assembleegameclient.ui {
         }
         
         public function setPos(param1:Number) : void {
+            if(param1 == Number.POSITIVE_INFINITY || param1 == Number.NEGATIVE_INFINITY) {
+                return;
+            }
             param1 = Math.max(0,Math.min(1,param1));
             this.posIndicator_.y = param1 * (this.indicatorRect_.height - this.posIndicator_.height) + this.indicatorRect_.y;
             this.sendPos();

@@ -6,11 +6,8 @@ package kabam.rotmg.questrewards.view {
     import kabam.rotmg.dialogs.control.OpenDialogSignal;
     import kabam.rotmg.fortune.components.TimerCallback;
     import kabam.rotmg.messaging.impl.GameServerConnection;
-    import kabam.rotmg.messaging.impl.incoming.QuestFetchResponse;
     import kabam.rotmg.messaging.impl.incoming.QuestRedeemResponse;
     import kabam.rotmg.questrewards.components.ModalItemSlot;
-    import kabam.rotmg.questrewards.controller.QuestFetchCompleteSignal;
-    import kabam.rotmg.questrewards.controller.QuestRedeemCompleteSignal;
     import kabam.rotmg.ui.model.HUDModel;
     import kabam.rotmg.util.components.LegacyBuyButton;
     import org.swiftsuspenders.Injector;
@@ -35,12 +32,6 @@ package kabam.rotmg.questrewards.view {
         
         [Inject]
         public var hudModel:HUDModel;
-        
-        [Inject]
-        public var questFetchComplete:QuestFetchCompleteSignal;
-        
-        [Inject]
-        public var questRedeemComplete:QuestRedeemCompleteSignal;
         
         public var targetItem:int = -1;
         
@@ -79,10 +70,7 @@ package kabam.rotmg.questrewards.view {
             new GTween(this.view,_local_1,{"alpha":1});
             if(this.hudModel != null && this.hudModel.gameSprite != null && this.hudModel.gameSprite.gsc_ != null) {
                 this.gsc = this.hudModel.gameSprite.gsc_;
-                this.gsc.questFetch();
                 this.view.setCloseButton(true);
-                this.questFetchComplete.add(this.onQuestFetchComplete);
-                this.questRedeemComplete.add(this.onQuestRedeemComplete);
                 QuestRewardsView.closed.add(this.onClose);
                 return;
             }
@@ -114,24 +102,6 @@ package kabam.rotmg.questrewards.view {
             }
         }
         
-        private function onQuestFetchComplete(param1:QuestFetchResponse) : void {
-            this.targetItem = int(param1.goal);
-            var _local_2:int = param1.tier;
-            if(_local_2 > 0) {
-                this.view.init(int(param1.tier),this.targetItem,param1.description,param1.image);
-                this.setupEvents();
-            } else if(_local_2 == -1) {
-                if(this.oldView != null || questsCompletedDayUTC != -1 && questsCompletedDayUTC == new Date().dayUTC) {
-                    this.view.noNewQuests();
-                    questsCompletedDayUTC = new Date().dayUTC;
-                } else {
-                    this.onClose();
-                }
-            } else {
-                this.view.constructDescription(param1.description);
-            }
-        }
-        
         private function onQuestRedeemComplete(param1:QuestRedeemResponse) : void {
             var _local_2:Boolean = Boolean(param1.ok);
             var _local_3:String = String(param1.message);
@@ -159,8 +129,6 @@ package kabam.rotmg.questrewards.view {
         }
         
         private function removeEvents() : void {
-            this.questFetchComplete.remove(this.onQuestFetchComplete);
-            this.questRedeemComplete.remove(this.onQuestFetchComplete);
             if(this.itemslot != null) {
                 this.itemslot.foodLoaded.remove(this.onNewItem);
                 this.itemslot.foodUnloaded.remove(this.onClearItem);
@@ -204,15 +172,6 @@ package kabam.rotmg.questrewards.view {
         }
         
         private function onExchangeClick(param1:MouseEvent) : void {
-            if(this.gsc != null) {
-                this.exchangeButton.removeEventListener(MouseEvent.CLICK,this.onExchangeClick);
-                this.exchangeButton.setText("Tinkering");
-                this.exchangeButton.setOutLineColor(5526612);
-                this.exchangeButton.draw();
-                this.state_tinkering = true;
-                this.gsc.questRedeem(this.itemslot.objectId,this.itemslot.slotId,this.itemslot.itemId);
-                this.view.onExchangeClick();
-            }
         }
         
         private function onOKClick(param1:MouseEvent) : void {

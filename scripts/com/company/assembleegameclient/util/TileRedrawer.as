@@ -2,7 +2,7 @@ package com.company.assembleegameclient.util {
     import com.company.assembleegameclient.map.GroundLibrary;
     import com.company.assembleegameclient.map.GroundProperties;
     import com.company.assembleegameclient.map.Map;
-    import com.company.assembleegameclient.map.Square#58;
+    import com.company.assembleegameclient.map.Square#54;
     import com.company.assembleegameclient.parameters.Parameters;
     import com.company.util.AssetLibrary;
     import com.company.util.BitmapUtil;
@@ -75,7 +75,7 @@ package com.company.assembleegameclient.util {
             super();
         }
         
-        public static function redraw(param1:Square#58, param2:Boolean) : BitmapData {
+        public static function redraw(param1:Square#54, param2:Boolean) : BitmapData {
             var _local_3:Array = null;
             var _local_5:BitmapData = null;
             if(Parameters.blendType_ == 0) {
@@ -187,7 +187,7 @@ package com.company.assembleegameclient.util {
             param1.copyPixels(_local_9,param2,param3,_local_10,p0,true);
         }
         
-        private static function getSig(param1:Square#58) : Array {
+        private static function getSig(param1:Square#54) : Array {
             var _local_6:int = 0;
             var _local_7:Square = null;
             var _local_2:Array = new Array();
@@ -236,7 +236,7 @@ package com.company.assembleegameclient.util {
             return _local_3;
         }
         
-        private static function getCompositeSig(param1:Square#58) : Array {
+        private static function getCompositeSig(param1:Square#54) : Array {
             var _local_14:Square = null;
             var _local_15:Square = null;
             var _local_16:Square = null;
@@ -311,7 +311,7 @@ package com.company.assembleegameclient.util {
             return _local_2;
         }
         
-        private static function getEdgeSig(param1:Square#58) : Array {
+        private static function getEdgeSig(param1:Square#54) : Array {
             var _local_7:int = 0;
             var _local_8:Square = null;
             var _local_9:Boolean = false;
