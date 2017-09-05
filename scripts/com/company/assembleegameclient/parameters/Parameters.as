@@ -10,7 +10,7 @@ package com.company.assembleegameclient.parameters {
     
     public class Parameters {
         
-        public static const BUILD_VERSION:String = "X16.0";
+        public static const BUILD_VERSION:String = "X17.0";
         
         public static const MINOR_VERSION:String = "0";
         
@@ -72,9 +72,9 @@ package com.company.assembleegameclient.parameters {
         
         public static const MAX_SINK_LEVEL:Number = 18;
         
-        public static const TERMS_OF_USE_URL:String = "http://legal.decagames.io/tos";
+        public static const TERMS_OF_USE_URL:String = "http://legal.decagames.com/tos/";
         
-        public static const PRIVACY_POLICY_URL:String = "http://legal.decagames.io/privacy";
+        public static const PRIVACY_POLICY_URL:String = "http://legal.decagames.com/privacy/";
         
         public static const USER_GENERATED_CONTENT_TERMS:String = "/UGDTermsofUse.html";
         
@@ -270,6 +270,10 @@ package com.company.assembleegameclient.parameters {
             setDefault("friendStarRequirement",0);
             setDefault("HPBar",false);
             setDefault("newMiniMapColors",false);
+            setDefault("noParticlesMaster",false);
+            setDefault("noAllyNotifications",false);
+            setDefault("noAllyDamage",false);
+            setDefault("noEnemyDamage",false);
             if(!data_.hasOwnProperty("needsSurvey")) {
                 data_.needsSurvey = data_.needsTutorial;
                 switch(int(Math.random() * 5)) {

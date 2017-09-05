@@ -9,7 +9,7 @@ package kabam.rotmg.pets.data {
         }
         
         public function getID(param1:int) : String {
-            return ObjectLibrary.getPetDataXMLByType(param1).DisplayId;
+            return String(ObjectLibrary.getPetDataXMLByType(param1).@id);
         }
     }
 }

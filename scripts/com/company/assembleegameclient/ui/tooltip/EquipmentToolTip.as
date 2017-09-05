@@ -183,7 +183,7 @@ package com.company.assembleegameclient.ui.tooltip {
             }
             for each(_local_4 in _local_3.ActivateOnEquipAll) {
                 if(_local_4.toString() == "ChangeSkin") {
-                    if(this.player.skinId == int(_local_4.@skinType)) {
+                    if(this.player != null && this.player.skinId == int(_local_4.@skinType)) {
                         _local_2 = TooltipHelper.SET_COLOR;
                     }
                 }
@@ -265,10 +265,11 @@ package com.company.assembleegameclient.ui.tooltip {
             var _local_1:* = this.isPet() == false;
             var _local_2:* = this.objectXML.hasOwnProperty("Consumable") == false;
             var _local_3:* = this.objectXML.hasOwnProperty("Treasure") == false;
-            var _local_4:Boolean = this.objectXML.hasOwnProperty("Tier");
-            if(_local_1 && _local_2 && _local_3) {
+            var _local_4:* = this.objectXML.hasOwnProperty("PetFood") == false;
+            var _local_5:Boolean = this.objectXML.hasOwnProperty("Tier");
+            if(_local_1 && _local_2 && _local_3 && _local_4) {
                 this.tierText = new TextFieldDisplayConcrete().setSize(16).setColor(16777215).setTextWidth(30).setBold(true);
-                if(_local_4) {
+                if(_local_5) {
                     this.tierText.setStringBuilder(new LineBuilder().setParams(TextKey.TIER_ABBR,{"tier":this.objectXML.Tier}));
                 } else if(this.objectXML.hasOwnProperty("@setType")) {
                     this.tierText.setColor(TooltipHelper.SET_COLOR);
@@ -501,6 +502,13 @@ package com.company.assembleegameclient.ui.tooltip {
                         this.effects.push(new Effect(TextKey.EFFECT_FOR_DURATION,{
                             "effect":activateXML.@effect,
                             "duration":activateXML.@duration
+                        }));
+                        continue;
+                    case ActivationType.STAT_BOOST_SELF:
+                        this.effects.push(new Effect("{amount} {stat} for {duration} ",{
+                            "amount":this.prefix(activateXML.@amount),
+                            "stat":new LineBuilder().setParams(StatData.statToName(int(activateXML.@stat))),
+                            "duration":TooltipHelper.getPlural(activateXML.@duration,"second")
                         }));
                         continue;
                     case ActivationType.HEAL:
@@ -828,11 +836,15 @@ package com.company.assembleegameclient.ui.tooltip {
         private function getComparedStatText(param1:XML) : Object {
             var _local_2:int = int(param1.@stat);
             var _local_3:int = int(param1.@amount);
-            var _local_4:String = _local_3 > -1?"+":"";
             return {
-                "statAmount":_local_4 + String(_local_3) + " ",
+                "statAmount":this.prefix(_local_3) + " ",
                 "statName":new LineBuilder().setParams(StatData.statToName(_local_2))
             };
+        }
+        
+        private function prefix(param1:int) : String {
+            var _local_2:String = param1 > -1?"+":"";
+            return _local_2 + param1;
         }
         
         private function getComparedStatColor(param1:XML) : uint {
@@ -858,7 +870,9 @@ package com.company.assembleegameclient.ui.tooltip {
         }
         
         private function addEquipmentItemRestrictions() : void {
-            if(this.objectXML.hasOwnProperty("Treasure") == false) {
+            if(this.objectXML.hasOwnProperty("PetFood")) {
+                this.restrictions.push(new Restriction("Used to feed your pet in the pet yard",11776947,false));
+            } else if(this.objectXML.hasOwnProperty("Treasure") == false) {
                 this.restrictions.push(new Restriction(TextKey.EQUIP_TO_USE,11776947,false));
                 if(this.isInventoryFull || this.inventoryOwnerType == InventoryOwnerTypes.CURRENT_PLAYER) {
                     this.restrictions.push(new Restriction(TextKey.DOUBLE_CLICK_EQUIP,11776947,false));

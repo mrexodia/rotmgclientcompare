@@ -309,13 +309,13 @@ package kabam.rotmg.assets {
         
         public static var epicHiveObjects16x16Embed_:Class = EmbeddedAssets_epicHiveObjects16x16Embed_;
         
-        public static var LHObjEmbed_:Class = EmbeddedAssets_LHObjEmbed_;
+        public static var lostHallsObjects8x8Embed_:Class = EmbeddedAssets_lostHallsObjects8x8Embed_;
         
-        public static var LHObjBigEmbed_:Class = EmbeddedAssets_LHObjBigEmbed_;
+        public static var lostHallsObjects16x16Embed_:Class = EmbeddedAssets_lostHallsObjects16x16Embed_;
         
-        public static var LH16x16charsEmbed_:Class = EmbeddedAssets_LH16x16charsEmbed_;
+        public static var lostHallsChars16x16Embed_:Class = EmbeddedAssets_lostHallsChars16x16Embed_;
         
-        public static var LH8x8charsEmbed_:Class = EmbeddedAssets_LH8x8charsEmbed_;
+        public static var lostHallsChars8x8Embed_:Class = EmbeddedAssets_lostHallsChars8x8Embed_;
         
         public static var models_:Object = {
             "Monster Tank1":new monsterTank1Embed_(),

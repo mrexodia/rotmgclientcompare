@@ -460,6 +460,10 @@ package com.company.assembleegameclient.ui.options {
             this.addOptionAndPosition(new ChoiceOption("disablePlayersHitParticles",makeOnOffLabels(),[true,false],"Disable Players Hit Particles","Disable player and ally hit particles.",null));
             this.addOptionAndPosition(new ChoiceOption("toggleToMaxText",makeOnOffLabels(),[true,false],TextKey.OPTIONS_TOGGLE_TOMAXTEXT,TextKey.OPTIONS_TOGGLE_TOMAXTEXT_DESC,onToMaxTextToggle));
             this.addOptionAndPosition(new ChoiceOption("newMiniMapColors",makeOnOffLabels(),[true,false],TextKey.OPTIONS_TOGGLE_NEWMINIMAPCOLORS,TextKey.OPTIONS_TOGGLE_NEWMINIMAPCOLORS_DESC,null));
+            this.addOptionAndPosition(new ChoiceOption("noParticlesMaster",makeOnOffLabels(),[true,false],"Disable Particles Master","Disable all nonessential particles besides enemy and ally hits. Throw, Area and certain other effects will remain.",null));
+            this.addOptionAndPosition(new ChoiceOption("noAllyNotifications",makeOnOffLabels(),[true,false],"Disable Ally Notifications","Disable text notifications above allies.",null));
+            this.addOptionAndPosition(new ChoiceOption("noEnemyDamage",makeOnOffLabels(),[true,false],"Disable Enemy Damage Text","Disable damage from other players above enemies.",null));
+            this.addOptionAndPosition(new ChoiceOption("noAllyDamage",makeOnOffLabels(),[true,false],"Disable Ally Damage Text","Disable damage above allies.",null));
         }
         
         private function addGraphicsOptions() : void {

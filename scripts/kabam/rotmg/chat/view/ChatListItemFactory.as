@@ -157,48 +157,47 @@ package kabam.rotmg.chat.view {
         }
         
         private function makeNewLineFreeMessageText(param1:String, param2:Boolean) : void {
-            var _local_8:DisplayObject = null;
-            var _local_9:int = 0;
-            var _local_10:uint = 0;
+            var _local_7:DisplayObject = null;
+            var _local_8:int = 0;
+            var _local_9:uint = 0;
+            var _local_10:int = 0;
             var _local_11:int = 0;
-            var _local_12:int = 0;
             var _local_3:String = param1;
             var _local_4:int = 0;
-            var _local_5:int = this.fontModel.getFont().getXHeight(15);
-            var _local_6:int = 0;
+            var _local_5:int = 0;
             if(param2) {
-                for each(_local_8 in this.buffer) {
-                    _local_4 = _local_4 + _local_8.width;
+                for each(_local_7 in this.buffer) {
+                    _local_4 = _local_4 + _local_7.width;
                 }
-                _local_6 = _local_3.length;
+                _local_5 = _local_3.length;
                 testField.text = _local_3;
                 while(testField.textWidth >= this.model.bounds.width - _local_4) {
-                    _local_6 = _local_6 - 10;
-                    testField.text = _local_3.substr(0,_local_6);
+                    _local_5 = _local_5 - 10;
+                    testField.text = _local_3.substr(0,_local_5);
                 }
-                if(_local_6 < _local_3.length) {
-                    _local_9 = _local_3.substr(0,_local_6).lastIndexOf(" ");
-                    _local_6 = _local_9 == 0 || _local_9 == -1?int(_local_6):int(_local_9);
+                if(_local_5 < _local_3.length) {
+                    _local_8 = _local_3.substr(0,_local_5).lastIndexOf(" ");
+                    _local_5 = _local_8 == 0 || _local_8 == -1?int(_local_5):int(_local_8 + 1);
                 }
-                this.makeMessageLine(_local_3.substr(0,_local_6));
+                this.makeMessageLine(_local_3.substr(0,_local_5));
             }
-            var _local_7:int = _local_3.length;
-            if(_local_7 > _local_6) {
-                _local_10 = this.model.bounds.width / _local_5;
-                _local_11 = _local_6;
-                while(_local_11 < _local_3.length) {
-                    testField.text = _local_3.substr(_local_11,_local_10);
-                    while(testField.textWidth >= this.model.bounds.width - _local_4) {
-                        _local_10 = _local_10 - 5;
-                        testField.text = _local_3.substr(_local_11,_local_10);
+            var _local_6:int = _local_3.length;
+            if(_local_6 > _local_5) {
+                _local_9 = _local_3.length;
+                _local_10 = _local_5;
+                while(_local_10 < _local_3.length) {
+                    testField.text = _local_3.substr(_local_10,_local_9);
+                    while(testField.textWidth >= this.model.bounds.width) {
+                        _local_9 = _local_9 - 2;
+                        testField.text = _local_3.substr(_local_10,_local_9);
                     }
-                    _local_12 = _local_10;
-                    if(_local_3.length > _local_11 + _local_10) {
-                        _local_12 = _local_3.substr(_local_11,_local_10).lastIndexOf(" ");
-                        _local_12 = _local_12 == 0 || _local_12 == -1?int(_local_10):int(_local_12);
+                    _local_11 = _local_9;
+                    if(_local_3.length > _local_10 + _local_9) {
+                        _local_11 = _local_3.substr(_local_10,_local_9).lastIndexOf(" ");
+                        _local_11 = _local_11 == 0 || _local_11 == -1?int(_local_9):int(_local_11 + 1);
                     }
-                    this.makeMessageLine(_local_3.substr(_local_11,_local_12));
-                    _local_11 = _local_11 + _local_12;
+                    this.makeMessageLine(_local_3.substr(_local_10,_local_11));
+                    _local_10 = _local_10 + _local_11;
                 }
             }
         }

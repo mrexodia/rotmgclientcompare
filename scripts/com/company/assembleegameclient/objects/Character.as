@@ -16,7 +16,7 @@ package com.company.assembleegameclient.objects {
             SoundEffectLibrary.load(this.deathSound_);
         }
         
-        override public function damage(param1:int, param2:int, param3:Vector.<uint>, param4:Boolean, param5:Projectile) : void {
+        override public function damage(param1:Boolean, param2:int, param3:Vector.<uint>, param4:Boolean, param5:Projectile) : void {
             super.damage(param1,param2,param3,param4,param5);
             if(dead_) {
                 SoundEffectLibrary.play(this.deathSound_);

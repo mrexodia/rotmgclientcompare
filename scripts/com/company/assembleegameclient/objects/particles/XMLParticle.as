@@ -1,6 +1,6 @@
 package com.company.assembleegameclient.objects.particles {
     import com.company.assembleegameclient.map.Camera;
-    import com.company.assembleegameclient.map.Square#61;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.objects.BasicObject;
     import com.company.assembleegameclient.objects.animation.Animations;
     import com.company.assembleegameclient.util.TextureRedrawer;

@@ -1,6 +1,6 @@
 package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.map.Camera;
-    import com.company.assembleegameclient.map.Square#61;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.map.mapoverlay.CharacterStatusText;
     import com.company.assembleegameclient.objects.particles.HealingEffect;
     import com.company.assembleegameclient.objects.particles.LevelUpEffect;
@@ -410,7 +410,7 @@ package com.company.assembleegameclient.objects {
         }
         
         public function levelUpEffect(param1:String, param2:Boolean = true) : void {
-            if(param2) {
+            if(!Parameters.data_.noParticlesMaster && param2) {
                 this.levelUpParticleEffect();
             }
             var _local_3:QueuedStatusText = new QueuedStatusText(this,new LineBuilder().setParams(param1),65280,2000);
@@ -649,7 +649,7 @@ package com.company.assembleegameclient.objects {
                 }
             }
             if(isHealing() && !isPaused()) {
-                if(this.healingEffect_ == null) {
+                if(!Parameters.data_.noParticlesMaster && this.healingEffect_ == null) {
                     this.healingEffect_ = new HealingEffect(this);
                     map_.addObj(this.healingEffect_,x_,y_);
                 }
@@ -702,7 +702,7 @@ package com.company.assembleegameclient.objects {
                 _local_8 = map_.gs_.gsc_.getNextDamage(square_.props_.minDamage_,square_.props_.maxDamage_);
                 _local_9 = new Vector.<uint>();
                 _local_9.push(ConditionEffect.GROUND_DAMAGE);
-                damage(-1,_local_8,_local_9,hp_ <= _local_8,null);
+                damage(true,_local_8,_local_9,hp_ <= _local_8,null);
                 map_.gs_.gsc_.groundDamage(param1,x_,y_);
                 square_.lastDamage_ = param1;
             }

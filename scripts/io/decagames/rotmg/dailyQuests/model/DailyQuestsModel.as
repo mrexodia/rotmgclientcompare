@@ -1,4 +1,8 @@
 package io.decagames.rotmg.dailyQuests.model {
+    import io.decagames.rotmg.dailyQuests.view.info.DailyQuestInfo;
+    import kabam.rotmg.constants.GeneralConstants;
+    import kabam.rotmg.ui.model.HUDModel;
+    
     public class DailyQuestsModel {
          
         
@@ -7,6 +11,9 @@ package io.decagames.rotmg.dailyQuests.model {
         public var currentQuest:DailyQuest;
         
         public var isPopupOpened:Boolean;
+        
+        [Inject]
+        public var hud:HUDModel;
         
         public function DailyQuestsModel() {
             this._questsList = new Vector.<DailyQuest>();
@@ -28,6 +35,10 @@ package io.decagames.rotmg.dailyQuests.model {
                     _local_2.completed = true;
                 }
             }
+        }
+        
+        public function get playerItemsFromInventory() : Vector.<int> {
+            return !!this.hud.gameSprite.map.player_?this.hud.gameSprite.map.player_.equipment_.slice(GeneralConstants.NUM_EQUIPMENT_SLOTS - 1,GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS * 2):new Vector.<int>();
         }
         
         public function hasQuests() : Boolean {
@@ -61,14 +72,16 @@ package io.decagames.rotmg.dailyQuests.model {
             return -1;
         }
         
-        private function questsCategorySort(param1:DailyQuest, param2:DailyQuest) : int {
-            if(param1.category > param2.category) {
-                return 1;
+        private function questsReadySort(param1:DailyQuest, param2:DailyQuest) : int {
+            var _local_3:Boolean = DailyQuestInfo.hasAllItems(param1.requirements,this.playerItemsFromInventory);
+            var _local_4:Boolean = DailyQuestInfo.hasAllItems(param2.requirements,this.playerItemsFromInventory);
+            if(_local_3 && !_local_4) {
+                return -1;
             }
-            if(param1.category == param2.category) {
+            if(_local_3 && _local_4) {
                 return this.questsNameSort(param1,param2);
             }
-            return -1;
+            return 1;
         }
         
         private function questsCompleteSort(param1:DailyQuest, param2:DailyQuest) : int {
@@ -76,10 +89,10 @@ package io.decagames.rotmg.dailyQuests.model {
                 return 1;
             }
             if(param1.completed && param2.completed) {
-                return this.questsCategorySort(param1,param2);
+                return this.questsReadySort(param1,param2);
             }
             if(!param1.completed && !param2.completed) {
-                return this.questsCategorySort(param1,param2);
+                return this.questsReadySort(param1,param2);
             }
             return -1;
         }

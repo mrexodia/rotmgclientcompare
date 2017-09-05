@@ -99,7 +99,7 @@ package kabam.rotmg.ui.view {
                 _local_1.language = "en_US";
                 _local_1.game = "a0Za000000jIBFUEA4";
                 _local_1.issue = "Other_Game_Issues";
-                _local_2.url = "http://rotmg.decagames.io";
+                _local_2.url = "http://rotmg.decagames.com";
                 _local_2.method = URLRequestMethod.GET;
                 _local_2.data = _local_1;
                 navigateToURL(_local_2,"_blank");
@@ -112,7 +112,7 @@ package kabam.rotmg.ui.view {
                 }
             } else {
                 _local_1.data = _local_4;
-                _local_2.url = "http://rotmg.decagames.io";
+                _local_2.url = "http://rotmg.decagames.com";
                 _local_2.method = URLRequestMethod.GET;
                 _local_2.data = _local_1;
                 navigateToURL(_local_2,"_blank");

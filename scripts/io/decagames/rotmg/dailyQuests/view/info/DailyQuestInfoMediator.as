@@ -6,7 +6,6 @@ package io.decagames.rotmg.dailyQuests.view.info {
     import io.decagames.rotmg.dailyQuests.signal.LockQuestScreenSignal;
     import io.decagames.rotmg.dailyQuests.signal.QuestRedeemCompleteSignal;
     import io.decagames.rotmg.dailyQuests.signal.ShowQuestInfoSignal;
-    import kabam.rotmg.constants.GeneralConstants;
     import kabam.rotmg.game.view.components.BackpackTabContent;
     import kabam.rotmg.game.view.components.InventoryTabContent;
     import kabam.rotmg.messaging.impl.data.SlotObjectData;
@@ -55,7 +54,7 @@ package io.decagames.rotmg.dailyQuests.view.info {
         private function showQuestInfo(param1:String) : void {
             this.view.clear();
             this.model.currentQuest = this.model.getQuestById(param1);
-            this.view.show(this.model.currentQuest,!!this.hud.gameSprite.map.player_?this.hud.gameSprite.map.player_.equipment_.slice(GeneralConstants.NUM_EQUIPMENT_SLOTS - 1,GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS * 2):new Vector.<int>());
+            this.view.show(this.model.currentQuest,this.model.playerItemsFromInventory);
         }
         
         private function tileToSlot(param1:InventoryTile) : SlotObjectData {

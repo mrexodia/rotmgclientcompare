@@ -140,6 +140,7 @@
       </Projectile>
    </Object>
    <Object type="0x0d06" id="Limon the Sprite God">
+      <DisplayId>Limon the Sprite Goddess</DisplayId>
       <Class>Character</Class>
       <Texture>
          <File>lofiChar216x16</File>

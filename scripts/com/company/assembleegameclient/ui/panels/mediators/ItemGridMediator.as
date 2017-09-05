@@ -28,7 +28,6 @@ package com.company.assembleegameclient.ui.panels.mediators {
     import kabam.rotmg.pets.data.PetSlotsState;
     import kabam.rotmg.pets.data.PetsModel;
     import kabam.rotmg.pets.view.components.slot.FoodFeedFuseSlot;
-    import kabam.rotmg.questrewards.view.QuestRewardsView;
     import kabam.rotmg.ui.model.HUDModel;
     import kabam.rotmg.ui.model.TabStripModel;
     import robotlegs.bender.bundles.mvcs.Mediator;
@@ -99,7 +98,7 @@ package com.company.assembleegameclient.ui.panels.mediators {
             var _local_7:FoodFeedFuseSlot = null;
             var _local_8:int = 0;
             var _local_2:InteractiveItemTile = param1.tile;
-            var _local_3:* = DisplayHierarchy.getParentWithTypeArray(_local_2.getDropTarget(),TabStripView,InteractiveItemTile,FoodFeedFuseSlot,QuestRewardsView,Map);
+            var _local_3:* = DisplayHierarchy.getParentWithTypeArray(_local_2.getDropTarget(),TabStripView,InteractiveItemTile,FoodFeedFuseSlot,Map);
             if(_local_2.getItemId() == PotionInventoryModel.HEALTH_POTION_ID || _local_2.getItemId() == PotionInventoryModel.MAGIC_POTION_ID && !Boolean(_local_3 as FoodFeedFuseSlot)) {
                 this.onPotionMove(param1);
                 return;

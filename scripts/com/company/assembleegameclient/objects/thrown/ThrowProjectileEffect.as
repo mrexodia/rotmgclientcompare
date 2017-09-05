@@ -11,18 +11,21 @@ package com.company.assembleegameclient.objects.thrown {
         
         public var id_:uint;
         
-        public function ThrowProjectileEffect(param1:int, param2:Point, param3:Point) {
+        public var duration_:int;
+        
+        public function ThrowProjectileEffect(param1:int, param2:Point, param3:Point, param4:int = 1500) {
             super();
             this.start_ = param2;
             this.end_ = param3;
             this.id_ = param1;
+            this.duration_ = param4;
         }
         
         override public function update(param1:int, param2:int) : Boolean {
             x_ = this.start_.x;
             y_ = this.start_.y;
             var _local_3:int = 10000;
-            var _local_4:ThrownProjectile = new ThrownProjectile(this.id_,1500,this.start_,this.end_);
+            var _local_4:ThrownProjectile = new ThrownProjectile(this.id_,this.duration_,this.start_,this.end_);
             map_.addObj(_local_4,x_,y_);
             return false;
         }

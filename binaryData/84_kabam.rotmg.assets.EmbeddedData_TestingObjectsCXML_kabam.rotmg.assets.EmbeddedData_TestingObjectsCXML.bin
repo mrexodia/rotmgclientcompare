@@ -39,6 +39,45 @@
          <Index>0x02</Index>
       </Texture>
    </Object>
+   <Object type="0x713" id="Consumables Gift 1">
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>200</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiChar8x8</File>
+         <Index>0xeb</Index>
+      </Texture>
+   </Object>
+   <Object type="0x714" id="Consumables Gift 2">
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>200</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiObj2</File>
+         <Index>0xc7</Index>
+      </Texture>
+   </Object>
+   <Object type="0x735d" id="Consumables Gift 3">
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>200</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x172</Index>
+      </Texture>
+   </Object>
    <Object type="0xb03" id="Egg Gift 1">
       <Class>Character</Class>
       <StasisImmune/>
@@ -154,6 +193,32 @@
          <Index>0x5f</Index>
       </Texture>
    </Object>
+   <Object type="0x1714" id="Mark Dropper 1">
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>100</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>d2LofiObjEmbed</File>
+         <Index>0x45</Index>
+      </Texture>
+   </Object>
+   <Object type="0x1759" id="Mark Dropper 2">
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>100</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>80</Size>
+      <Texture>
+         <File>d2LofiObjEmbed</File>
+         <Index>0x54</Index>
+      </Texture>
+   </Object>
    <Object type="0x1fb" id="Testing Gift Spawner">
       <Class>Character</Class>
       <NoMiniMap/>
@@ -190,7 +255,7 @@
       <MaxHitPoints>50000</MaxHitPoints>
       <XpMult>0.0</XpMult>
       <Projectile id="1">
-         <ObjectId>Puppet Green Wheel</ObjectId>
+         <ObjectId>Invisible</ObjectId>
          <Speed>0</Speed>
          <Damage>0</Damage>
          <Size>60</Size>
@@ -541,7 +606,7 @@
       <XpMult>0.0</XpMult>
       <Size>80</Size>
       <Texture>
-         <File>LHObj</File>
+         <File>lostHallsObjects8x8</File>
          <Index>0xab</Index>
       </Texture>
    </Object>

@@ -1,4 +1,5 @@
 package io.decagames.rotmg.dailyQuests.view {
+    import com.company.assembleegameclient.map.ParticleModalMap;
     import flash.display.Bitmap;
     import flash.display.Sprite;
     import flash.text.TextFieldAutoSize;
@@ -29,6 +30,8 @@ package io.decagames.rotmg.dailyQuests.view {
         
         private var _closeButton:Sprite;
         
+        private var _infoButton:Sprite;
+        
         private var questList:DailyQuestsList;
         
         private var questInfo:DailyQuestInfo;
@@ -37,9 +40,12 @@ package io.decagames.rotmg.dailyQuests.view {
         
         private var completedCounter:TextFieldDisplayConcrete;
         
+        private var completedTxt:TextFieldDisplayConcrete;
+        
+        private var particleLayer:ParticleModalMap;
+        
         public function DailyQuestWindow() {
             var _local_1:Bitmap = null;
-            var _local_4:TextFieldDisplayConcrete = null;
             super();
             _local_1 = new DailyQuestAssets.DailyQuestsWindowBackground();
             _local_1.y = 1;
@@ -54,22 +60,22 @@ package io.decagames.rotmg.dailyQuests.view {
             this._closeButton.x = 546;
             this._closeButton.y = 46;
             addChild(this._closeButton);
-            var _local_3:Sprite = new Sprite();
-            _local_3.addChild(new DailyQuestAssets.DailyQuestsInfoButton());
-            _local_3.x = 16;
-            _local_3.y = this._closeButton.y;
-            addChild(_local_3);
+            this._infoButton = new Sprite();
+            this._infoButton.addChild(new DailyQuestAssets.DailyQuestsInfoButton());
+            this._infoButton.x = 16;
+            this._infoButton.y = this._closeButton.y;
+            addChild(this._infoButton);
             this.renderQuestInfo();
             this.renderList();
             this.questRefreshText = new TextFieldDisplayConcrete().setSize(14).setColor(10724259).setBold(true).setTextWidth(234).setAutoSize(TextFieldAutoSize.CENTER).setHorizontalAlign(TextFormatAlign.CENTER);
             this.questRefreshText.y = 503;
             this.questRefreshText.x = 10;
             addChild(this.questRefreshText);
-            _local_4 = new TextFieldDisplayConcrete().setSize(16).setColor(13224136).setBold(true).setTextWidth(160).setHorizontalAlign(TextFormatAlign.LEFT);
-            _local_4.y = 533;
-            _local_4.x = 24;
-            _local_4.setStringBuilder(new StaticStringBuilder("Quest completed"));
-            addChild(_local_4);
+            this.completedTxt = new TextFieldDisplayConcrete().setSize(16).setColor(13224136).setBold(true).setTextWidth(160).setHorizontalAlign(TextFormatAlign.LEFT);
+            this.completedTxt.y = 533;
+            this.completedTxt.x = 24;
+            this.completedTxt.setStringBuilder(new StaticStringBuilder("Quests completed"));
+            addChild(this.completedTxt);
             this.completedCounter = new TextFieldDisplayConcrete().setSize(16).setColor(13224136).setBold(true).setTextWidth(50).setHorizontalAlign(TextFormatAlign.RIGHT);
             this.completedCounter.y = 533;
             this.completedCounter.x = 207;
@@ -77,6 +83,10 @@ package io.decagames.rotmg.dailyQuests.view {
         }
         
         public function setCompletedCounter(param1:int, param2:int) : void {
+            if(param1 == param2) {
+                this.completedCounter.setColor(3971635);
+                this.completedTxt.setColor(3971635);
+            }
             this.completedCounter.setStringBuilder(new StaticStringBuilder(param1 + "/" + param2));
         }
         
@@ -104,17 +114,24 @@ package io.decagames.rotmg.dailyQuests.view {
             addChild(this.questList);
         }
         
-        public function showFade(param1:int = 1381653) : void {
+        public function showFade(param1:int = 1381653, param2:Boolean = false) : void {
             this.fade = new Sprite();
             this.fade.graphics.clear();
-            this.fade.graphics.beginFill(param1,0.6);
+            this.fade.graphics.beginFill(param1,0.8);
             this.fade.graphics.drawRect(0,0,MODAL_FULL_WIDTH,MODAL_HEIGHT);
             addChild(this.fade);
+            if(param2) {
+                this.particleLayer = new ParticleModalMap(1);
+                addChild(this.particleLayer);
+            }
         }
         
         public function hideFade() : void {
             if(this.fade && this.fade.parent) {
                 removeChild(this.fade);
+            }
+            if(this.particleLayer && this.particleLayer.parent) {
+                removeChild(this.particleLayer);
             }
         }
         
@@ -127,13 +144,17 @@ package io.decagames.rotmg.dailyQuests.view {
         public function showRewardsPopup(param1:DailyQuest) : DailyQuestRedeemPopup {
             this.rewardPopup = new DailyQuestRedeemPopup(param1);
             addChild(this.rewardPopup);
-            this.rewardPopup.x = Math.round((MODAL_WIDTH - this.rewardPopup.width) / 2);
+            this.rewardPopup.x = Math.round((MODAL_FULL_WIDTH - this.rewardPopup.width) / 2);
             this.rewardPopup.y = Math.round((MODAL_HEIGHT - this.rewardPopup.height) / 2);
             return this.rewardPopup;
         }
         
         public function get closeButton() : Sprite {
             return this._closeButton;
+        }
+        
+        public function get infoButton() : Sprite {
+            return this._infoButton;
         }
     }
 }

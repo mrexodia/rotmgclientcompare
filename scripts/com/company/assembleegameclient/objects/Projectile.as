@@ -2,7 +2,7 @@ package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.engine3d.Point3D;
     import com.company.assembleegameclient.map.Camera;
     import com.company.assembleegameclient.map.Map;
-    import com.company.assembleegameclient.map.Square#61;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.objects.particles.HitEffect;
     import com.company.assembleegameclient.objects.particles.SparkParticle;
     import com.company.assembleegameclient.parameters.Parameters;
@@ -235,15 +235,17 @@ package com.company.assembleegameclient.objects {
                 if(this.damagesPlayers_) {
                     map_.gs_.gsc_.squareHit(param1,this.bulletId_,this.ownerId_);
                 } else if(square_.obj_ != null) {
-                    _local_5 = BloodComposition.getColors(this.texture_);
-                    map_.addObj(new HitEffect(_local_5,100,3,this.angle_,this.projProps_.speed_),_local_4.x,_local_4.y);
+                    if(!Parameters.data_.noParticlesMaster) {
+                        _local_5 = BloodComposition.getColors(this.texture_);
+                        map_.addObj(new HitEffect(_local_5,100,3,this.angle_,this.projProps_.speed_),_local_4.x,_local_4.y);
+                    }
                 }
                 return false;
             }
             if(square_.obj_ != null && (!square_.obj_.props_.isEnemy_ || !this.damagesEnemies_) && (square_.obj_.props_.enemyOccupySquare_ || !this.projProps_.passesCover_ && square_.obj_.props_.occupySquare_)) {
                 if(this.damagesPlayers_) {
                     map_.gs_.gsc_.otherHit(param1,this.bulletId_,this.ownerId_,square_.obj_.objectId_);
-                } else {
+                } else if(!Parameters.data_.noParticlesMaster) {
                     _local_5 = BloodComposition.getColors(this.texture_);
                     map_.addObj(new HitEffect(_local_5,100,3,this.angle_,this.projProps_.speed_),_local_4.x,_local_4.y);
                 }
@@ -266,10 +268,10 @@ package com.company.assembleegameclient.objects {
                     }
                     if(_local_6 == _local_7) {
                         map_.gs_.gsc_.playerHit(this.bulletId_,this.ownerId_);
-                        _local_6.damage(this.containerType_,_local_11,this.projProps_.effects_,false,this);
+                        _local_6.damage(true,_local_11,this.projProps_.effects_,false,this);
                     } else if(_local_6.props_.isEnemy_) {
                         map_.gs_.gsc_.enemyHit(param1,this.bulletId_,_local_6.objectId_,_local_12);
-                        _local_6.damage(this.containerType_,_local_11,this.projProps_.effects_,_local_12,this);
+                        _local_6.damage(true,_local_11,this.projProps_.effects_,_local_12,this);
                     } else if(!this.projProps_.multiHit_) {
                         map_.gs_.gsc_.otherHit(param1,this.bulletId_,this.ownerId_,_local_6.objectId_);
                     }
@@ -363,7 +365,7 @@ package com.company.assembleegameclient.objects {
             var _local_6:Number = !!this.projProps_.faceDir_?Number(this.getDirectionAngle(param3)):Number(this.angle_);
             var _local_7:Number = !!this.projProps_.noRotation_?Number(param2.angleRad_ + this.props_.angleCorrection_):Number(_local_6 - param2.angleRad_ + this.props_.angleCorrection_ + _local_5);
             this.p_.draw(param1,this.staticVector3D_,_local_7,param2.wToS_,param2,_local_4);
-            if(this.projProps_.particleTrail_) {
+            if(!Parameters.data_.noParticlesMaster && this.projProps_.particleTrail_) {
                 _local_10 = this.projProps_.particleTrailLifetimeMS != -1?int(this.projProps_.particleTrailLifetimeMS):600;
                 _local_11 = 0;
                 for(; _local_11 < 3; _local_11++) {

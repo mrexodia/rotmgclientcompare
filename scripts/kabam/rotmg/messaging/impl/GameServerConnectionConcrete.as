@@ -100,7 +100,6 @@ package kabam.rotmg.messaging.impl {
     import kabam.rotmg.game.signals.AddSpeechBalloonSignal;
     import kabam.rotmg.game.signals.AddTextLineSignal;
     import kabam.rotmg.game.signals.GiftStatusUpdateSignal;
-    import kabam.rotmg.game.view.components.QueuedStatusText;
     import kabam.rotmg.maploading.signals.ChangeMapSignal;
     import kabam.rotmg.maploading.signals.HideMapLoadingSignal;
     import kabam.rotmg.messaging.impl.data.GroundTileData;
@@ -1059,6 +1058,7 @@ package kabam.rotmg.messaging.impl {
         
         private function onDamage(param1:Damage) : void {
             var _local_5:int = 0;
+            var _local_6:Boolean = false;
             var _local_2:AbstractMap = gs_.map;
             var _local_3:Projectile = null;
             if(param1.objectId_ >= 0 && param1.bulletId_ > 0) {
@@ -1070,7 +1070,8 @@ package kabam.rotmg.messaging.impl {
             }
             var _local_4:GameObject = _local_2.goDict_[param1.targetId_];
             if(_local_4 != null) {
-                _local_4.damage(-1,param1.damageAmount_,param1.effects_,param1.kill_,_local_3);
+                _local_6 = param1.objectId_ == this.player.objectId_?true:false;
+                _local_4.damage(_local_6,param1.damageAmount_,param1.effects_,param1.kill_,_local_3);
             }
         }
         
@@ -1244,23 +1245,24 @@ package kabam.rotmg.messaging.impl {
         
         private function onNotification(param1:Notification) : void {
             var _local_3:LineBuilder = null;
-            var _local_4:CharacterStatusText = null;
-            var _local_5:QueuedStatusText = null;
             var _local_2:GameObject = gs_.map.goDict_[param1.objectId_];
             if(_local_2 != null) {
                 _local_3 = LineBuilder.fromJSON(param1.message);
-                if(_local_3.key == "server.plus_symbol") {
-                    _local_4 = new CharacterStatusText(_local_2,param1.color_,1000);
-                    _local_4.setStringBuilder(_local_3);
-                    gs_.map.mapOverlay_.addStatusText(_local_4);
-                } else {
-                    _local_5 = new QueuedStatusText(_local_2,_local_3,param1.color_,2000);
-                    gs_.map.mapOverlay_.addQueuedText(_local_5);
-                    if(_local_2 == this.player && _local_3.key == "server.quest_complete") {
+                if(_local_2 == this.player) {
+                    if(_local_3.key == "server.quest_complete") {
                         gs_.map.quest_.completed();
                     }
+                    this.makeNotification(_local_3,_local_2,param1.color_,1000);
+                } else if(_local_2.props_.isEnemy_ || !Parameters.data_.noAllyNotifications) {
+                    this.makeNotification(_local_3,_local_2,param1.color_,1000);
                 }
             }
+        }
+        
+        private function makeNotification(param1:LineBuilder, param2:GameObject, param3:uint, param4:int) : void {
+            var _local_5:CharacterStatusText = new CharacterStatusText(param2,param3,param4);
+            _local_5.setStringBuilder(param1);
+            gs_.map.mapOverlay_.addStatusText(_local_5);
         }
         
         private function onGlobalNotification(param1:GlobalNotification) : void {
@@ -1318,6 +1320,9 @@ package kabam.rotmg.messaging.impl {
             var _local_4:ParticleEffect = null;
             var _local_5:Point = null;
             var _local_6:uint = 0;
+            if(Parameters.data_.noParticlesMaster && (param1.effectType_ == ShowEffect.HEAL_EFFECT_TYPE || param1.effectType_ == ShowEffect.TELEPORT_EFFECT_TYPE || param1.effectType_ == ShowEffect.STREAM_EFFECT_TYPE || param1.effectType_ == ShowEffect.POISON_EFFECT_TYPE || param1.effectType_ == ShowEffect.LINE_EFFECT_TYPE || param1.effectType_ == ShowEffect.FLOW_EFFECT_TYPE || param1.effectType_ == ShowEffect.COLLAPSE_EFFECT_TYPE || param1.effectType_ == ShowEffect.CONEBLAST_EFFECT_TYPE || param1.effectType_ == ShowEffect.NOVA_NO_AOE_EFFECT_TYPE)) {
+                return;
+            }
             var _local_2:AbstractMap = gs_.map;
             switch(param1.effectType_) {
                 case ShowEffect.HEAL_EFFECT_TYPE:
@@ -1344,6 +1349,7 @@ package kabam.rotmg.messaging.impl {
                     _local_2.addObj(_local_4,_local_5.x,_local_5.y);
                     break;
                 case ShowEffect.NOVA_EFFECT_TYPE:
+                case ShowEffect.NOVA_NO_AOE_EFFECT_TYPE:
                     _local_3 = _local_2.goDict_[param1.targetObjectId_];
                     if(_local_3 == null || !this.canShowEffect(_local_3)) {
                         break;
@@ -1430,7 +1436,7 @@ package kabam.rotmg.messaging.impl {
                     if(_local_3 != null && !this.canShowEffect(_local_3)) {
                         break;
                     }
-                    _local_4 = new ThrowProjectileEffect(param1.color_,param1.pos2_.toPoint(),param1.pos1_.toPoint());
+                    _local_4 = new ThrowProjectileEffect(param1.color_,param1.pos2_.toPoint(),param1.pos1_.toPoint(),param1.duration_ * 1000);
                     _local_2.addObj(_local_4,_local_5.x,_local_5.y);
                     break;
                 case ShowEffect.SHOCKER_EFFECT_TYPE:
@@ -1497,6 +1503,9 @@ package kabam.rotmg.messaging.impl {
                         continue;
                     case StatData.HP_STAT:
                         param1.hp_ = _local_8;
+                        if(param1.dead_ && _local_8 > 1 && param1.props_.isEnemy_) {
+                            param1.dead_ = false;
+                        }
                         continue;
                     case StatData.SIZE_STAT:
                         param1.size_ = _local_8;
@@ -1944,7 +1953,7 @@ package kabam.rotmg.messaging.impl {
                     _local_5 = new Vector.<uint>();
                     _local_5.push(param1.effect_);
                 }
-                this.player.damage(param1.origType_,_local_4,_local_5,false,null);
+                this.player.damage(this.player.objectType_ == param1.origType_,_local_4,_local_5,false,null);
             }
             this.aoeAck(gs_.lastUpdate_,this.player.x_,this.player.y_);
         }

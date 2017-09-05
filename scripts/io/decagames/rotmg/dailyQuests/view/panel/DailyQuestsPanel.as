@@ -20,7 +20,7 @@ package io.decagames.rotmg.dailyQuests.view.panel {
         
         private var title:String = "The Tinkerer";
         
-        private var feedPetText:String = "See Offers";
+        private var feedPetText:String = "See Quests";
         
         private var checkBackLaterText:String = "Check Back Later";
         

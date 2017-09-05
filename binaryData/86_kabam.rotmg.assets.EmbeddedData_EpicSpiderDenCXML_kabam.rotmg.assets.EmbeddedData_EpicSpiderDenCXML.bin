@@ -315,7 +315,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -339,7 +338,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -363,7 +361,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -387,7 +384,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -411,7 +407,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -435,7 +430,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -459,7 +453,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -483,7 +476,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
@@ -507,7 +499,6 @@
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
-      <StasisImmune/>
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>

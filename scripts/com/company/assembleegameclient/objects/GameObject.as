@@ -3,7 +3,7 @@ package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.engine3d.Object3D;
     import com.company.assembleegameclient.map.Camera;
     import com.company.assembleegameclient.map.Map;
-    import com.company.assembleegameclient.map.Square#61;
+    import com.company.assembleegameclient.map.Square#58;
     import com.company.assembleegameclient.map.mapoverlay.CharacterStatusText;
     import com.company.assembleegameclient.objects.animation.Animations;
     import com.company.assembleegameclient.objects.animation.AnimationsData;
@@ -333,7 +333,7 @@ package com.company.assembleegameclient.objects {
                 map_.removeObj(this.effect_.objectId_);
                 this.effect_ = null;
             }
-            if(_local_3.effectProps_ != null) {
+            if(!Parameters.data_.noParticlesMaster && _local_3.effectProps_ != null) {
                 this.effect_ = ParticleEffect.fromProps(_local_3.effectProps_,this);
                 if(map_ != null) {
                     map_.addObj(this.effect_,x_,y_);
@@ -730,7 +730,7 @@ package com.company.assembleegameclient.objects {
             this.myLastTickId_ = param4;
         }
         
-        public function damage(param1:int, param2:int, param3:Vector.<uint>, param4:Boolean, param5:Projectile) : void {
+        public function damage(param1:Boolean, param2:int, param3:Vector.<uint>, param4:Boolean, param5:Projectile) : void {
             var _local_7:int = 0;
             var _local_8:uint = 0;
             var _local_9:ConditionEffect = null;
@@ -864,7 +864,7 @@ package com.company.assembleegameclient.objects {
                     }
                 }
             }
-            if(!(this.props_.isEnemy_ && Parameters.data_.disableEnemyParticles)) {
+            if(!(this.props_.isEnemy_ && Parameters.data_.disableEnemyParticles) && !(!this.props_.isEnemy_ && Parameters.data_.disablePlayersHitParticles)) {
                 _local_14 = BloodComposition.getBloodComposition(this.objectType_,this.texture_,this.props_.bloodProb_,this.props_.bloodColor_);
                 if(this.dead_) {
                     map_.addObj(new ExplosionEffect(_local_14,this.size_,30),x_,y_);
@@ -873,6 +873,9 @@ package com.company.assembleegameclient.objects {
                 } else {
                     map_.addObj(new ExplosionEffect(_local_14,this.size_,10),x_,y_);
                 }
+            }
+            if(!param1 && (Parameters.data_.noEnemyDamage && this.props_.isEnemy_ || Parameters.data_.noAllyDamage && this.props_.isPlayer_)) {
+                return;
             }
             if(param2 > 0) {
                 _local_15 = this.isArmorBroken() || param5 != null && param5.projProps_.armorPiercing_ || _local_6;
@@ -992,11 +995,11 @@ package com.company.assembleegameclient.objects {
                 _local_5 = null;
                 _local_4 = this.size_ * Math.min(1.5,_local_12 / _local_3.width);
             }
-            if(this.isCursed() && !(this is Pet)) {
-                _local_3 = CachingColorTransformer.filterBitmapData(_local_3,CURSED_FILTER);
-            }
-            if((this.isStasis() || this.isPetrified()) && !(this is Pet)) {
-                _local_3 = CachingColorTransformer.filterBitmapData(_local_3,PAUSED_FILTER);
+            if(!(this is Pet)) {
+                if(this.isStasis() || this.isPetrified()) {
+                    _local_3 = CachingColorTransformer.filterBitmapData(_local_3,PAUSED_FILTER);
+                } else if(!this.isCursed()) {
+                }
             }
             if(this.tex1Id_ == 0 && this.tex2Id_ == 0) {
                 _local_3 = TextureRedrawer.redraw(_local_3,_local_4,false,0);

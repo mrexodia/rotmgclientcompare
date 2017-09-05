@@ -2,7 +2,7 @@ package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.engine3d.Object3D;
     import com.company.assembleegameclient.engine3d.ObjectFace3D;
     import com.company.assembleegameclient.map.Camera;
-    import com.company.assembleegameclient.map.Square#61;
+    import com.company.assembleegameclient.map.Square#58;
     import flash.display.BitmapData;
     import flash.display.IGraphicsData;
     import flash.geom.Utils3D;

@@ -1,4 +1,5 @@
 package io.decagames.rotmg.dailyQuests.view {
+    import com.company.assembleegameclient.ui.tooltip.TextToolTip;
     import flash.events.Event;
     import flash.events.MouseEvent;
     import io.decagames.rotmg.dailyQuests.model.DailyQuestsModel;
@@ -6,8 +7,11 @@ package io.decagames.rotmg.dailyQuests.view {
     import io.decagames.rotmg.dailyQuests.signal.LockQuestScreenSignal;
     import io.decagames.rotmg.dailyQuests.signal.QuestRedeemCompleteSignal;
     import io.decagames.rotmg.utils.date.TimeSpan;
+    import kabam.rotmg.core.signals.HideTooltipsSignal;
+    import kabam.rotmg.core.signals.ShowTooltipSignal;
     import kabam.rotmg.dailyLogin.model.DailyLoginModel;
     import kabam.rotmg.messaging.impl.incoming.QuestRedeemResponse;
+    import kabam.rotmg.tooltips.HoverTooltipDelegate;
     import robotlegs.bender.bundles.mvcs.Mediator;
     
     public class DailyQuestWindowMediator extends Mediator {
@@ -31,7 +35,18 @@ package io.decagames.rotmg.dailyQuests.view {
         [Inject]
         public var dailyLoginModel:DailyLoginModel;
         
+        [Inject]
+        public var showTooltipSignal:ShowTooltipSignal;
+        
+        [Inject]
+        public var hideTooltipsSignal:HideTooltipsSignal;
+        
+        private var toolTip:TextToolTip;
+        
+        private var hoverTooltipDelegate:HoverTooltipDelegate;
+        
         public function DailyQuestWindowMediator() {
+            this.hoverTooltipDelegate = new HoverTooltipDelegate();
             super();
         }
         
@@ -42,6 +57,15 @@ package io.decagames.rotmg.dailyQuests.view {
             this.view.closeButton.addEventListener(MouseEvent.CLICK,this.onCloseClickHandler);
             this.view.addEventListener(Event.ENTER_FRAME,this.updateTimeHandler);
             this.view.setCompletedCounter(this.dailyQuestsModel.numberOfCompletedQuests,this.dailyQuestsModel.numberOfActiveQuests);
+            this.setToolTipTitle("Daily Quests","Complete the quests to earn great rewards!\n\nYou can select a quest from the list to display the quest requirements. Bring the items back to me to complete the quest and rewards will be sent directly to your Gift Chest.\n\nItems will be directly consumed from your inventory or backpack when you press \"Complete!\".\n\nYou can complete each quest only once per day but the Tinkerer will offer you new quests everyday!");
+        }
+        
+        private function setToolTipTitle(param1:String, param2:String) : void {
+            this.toolTip = new TextToolTip(3552822,10197915,param1,param2,300,null);
+            this.hoverTooltipDelegate.setDisplayObject(this.view.infoButton);
+            this.hoverTooltipDelegate.setHideToolTipsSignal(this.hideTooltipsSignal);
+            this.hoverTooltipDelegate.setShowToolTipSignal(this.showTooltipSignal);
+            this.hoverTooltipDelegate.tooltip = this.toolTip;
         }
         
         private function updateTimeHandler(param1:Event) : void {
@@ -64,6 +88,9 @@ package io.decagames.rotmg.dailyQuests.view {
             this.view.closeButton.removeEventListener(MouseEvent.CLICK,this.onCloseClickHandler);
             this.view.removeEventListener(Event.ENTER_FRAME,this.updateTimeHandler);
             this.dailyQuestsModel.isPopupOpened = false;
+            this.toolTip = null;
+            this.hoverTooltipDelegate.removeDisplayObject();
+            this.hoverTooltipDelegate = null;
         }
         
         private function onCloseClickHandler(param1:MouseEvent) : void {
@@ -71,15 +98,17 @@ package io.decagames.rotmg.dailyQuests.view {
         }
         
         private function onRedeemComplete(param1:QuestRedeemResponse) : void {
+            var _local_2:String = null;
             if(param1.ok) {
+                _local_2 = this.dailyQuestsModel.currentQuest.id;
                 this.dailyQuestsModel.markAsCompleted(this.dailyQuestsModel.currentQuest.id);
                 this.dailyQuestsModel.currentQuest.completed = true;
                 this.view.renderList();
                 this.view.renderQuestInfo();
                 this.view.setCompletedCounter(this.dailyQuestsModel.numberOfCompletedQuests,this.dailyQuestsModel.numberOfActiveQuests);
                 this.view.hideFade();
-                this.view.showFade();
-                this.showRewardsPopup();
+                this.view.showFade(1381653,this.dailyQuestsModel.numberOfCompletedQuests == this.dailyQuestsModel.numberOfActiveQuests);
+                this.showRewardsPopup(_local_2);
             }
         }
         
@@ -92,8 +121,8 @@ package io.decagames.rotmg.dailyQuests.view {
             this.view.hideRewardsPopup();
         }
         
-        private function showRewardsPopup() : void {
-            this.view.showRewardsPopup(this.dailyQuestsModel.currentQuest);
+        private function showRewardsPopup(param1:String) : void {
+            this.view.showRewardsPopup(this.dailyQuestsModel.getQuestById(param1));
         }
     }
 }

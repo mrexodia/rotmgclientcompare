@@ -46,7 +46,7 @@ package io.decagames.rotmg.dailyQuests.view.popup {
             addChild(_local_4);
             SlotsRendered.renderSlots(param1.rewards,new Vector.<int>(),DailyQuestItemSlotType.REWARD,_local_4,this.slotContainerPosition,4,width,this.slots);
             var _local_5:TextFieldDisplayConcrete = new TextFieldDisplayConcrete().setSize(14).setColor(10724259).setBold(true).setTextWidth(this.w_).setAutoSize(TextFieldAutoSize.CENTER).setHorizontalAlign(TextFormatAlign.CENTER);
-            _local_5.setStringBuilder(new StaticStringBuilder("has been sent to the Gift Chest!"));
+            _local_5.setStringBuilder(new StaticStringBuilder("Rewards are sent to the Gift Chest!"));
             _local_5.y = 150;
             addChild(_local_5);
         }

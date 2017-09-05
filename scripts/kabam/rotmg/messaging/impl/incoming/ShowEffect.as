@@ -43,6 +43,8 @@ package kabam.rotmg.messaging.impl.incoming {
         public static const SHOCKEE_EFFECT_TYPE:int = 18;
         
         public static const RISING_FURY_EFFECT_TYPE:int = 19;
+        
+        public static const NOVA_NO_AOE_EFFECT_TYPE:int = 20;
          
         
         public var effectType_:uint;

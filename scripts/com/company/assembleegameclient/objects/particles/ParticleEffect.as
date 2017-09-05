@@ -1,6 +1,7 @@
 package com.company.assembleegameclient.objects.particles {
     import com.company.assembleegameclient.map.Camera;
     import com.company.assembleegameclient.objects.GameObject;
+    import com.company.assembleegameclient.parameters.Parameters;
     import flash.display.IGraphicsData;
     
     public class ParticleEffect extends GameObject {
@@ -16,6 +17,9 @@ package com.company.assembleegameclient.objects.particles {
         }
         
         public static function fromProps(param1:EffectProperties, param2:GameObject) : ParticleEffect {
+            if(Parameters.data_.noParticlesMaster && !(param1.id == "Vortex" || param1.id == "Vent")) {
+                return null;
+            }
             switch(param1.id) {
                 case "Healing":
                     return new HealingEffect(param2);
