@@ -124,7 +124,7 @@ package com.company.assembleegameclient.map {
             this.topFace_ = null;
             var _local_1:BitmapData = null;
             if(this.props_.animate_.type_ != AnimateProperties.NO_ANIMATE) {
-                this.faces_.push(new SquareFace(this.texture_,this.vin_,this.props_.xOffset_,this.props_.xOffset_,this.props_.animate_.type_,this.props_.animate_.dx_,this.props_.animate_.dy_));
+                this.faces_.push(new SquareFace(this.texture_,this.vin_,this.props_.xOffset_,this.props_.yOffset_,this.props_.animate_.type_,this.props_.animate_.dx_,this.props_.animate_.dy_));
                 _local_1 = TileRedrawer.redraw(this,false);
                 if(_local_1 != null) {
                     this.faces_.push(new SquareFace(_local_1,this.vin_,0,0,AnimateProperties.NO_ANIMATE,0,0));

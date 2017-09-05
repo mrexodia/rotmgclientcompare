@@ -16,6 +16,7 @@ package com.company.assembleegameclient.background {
             this.stars_ = new Vector.<Star>();
             this.graphicsData_ = new Vector.<IGraphicsData>();
             super();
+            visible = true;
             var _local_1:int = 0;
             while(_local_1 < 100) {
                 this.tryAddStar();

@@ -1339,7 +1339,7 @@ package kabam.rotmg.messaging.impl {
                     if(_local_3 != null && !this.canShowEffect(_local_3)) {
                         break;
                     }
-                    _local_4 = new ThrowEffect(_local_5,param1.pos1_.toPoint(),param1.color_);
+                    _local_4 = new ThrowEffect(_local_5,param1.pos1_.toPoint(),param1.color_,param1.duration_ * 1000);
                     _local_2.addObj(_local_4,_local_5.x,_local_5.y);
                     break;
                 case ShowEffect.NOVA_EFFECT_TYPE:

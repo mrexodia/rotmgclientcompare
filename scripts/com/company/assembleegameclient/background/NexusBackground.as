@@ -31,6 +31,7 @@ package com.company.assembleegameclient.background {
             this.bitmapFill_ = new GraphicsBitmapFill(null,new Matrix(),true,false);
             this.path_ = new GraphicsPath(GraphicsUtil.QUAD_COMMANDS,new Vector.<Number>());
             super();
+            visible = true;
             this.water_ = new BitmapDataSpy(1024,1024,false,0);
             this.water_.perlinNoise(1024,1024,8,Math.random(),true,true,BitmapDataChannel.BLUE,false,null);
         }

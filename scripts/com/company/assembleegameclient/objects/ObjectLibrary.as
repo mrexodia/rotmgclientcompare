@@ -8,6 +8,7 @@ package com.company.assembleegameclient.objects {
     import flash.display.BitmapData;
     import flash.utils.Dictionary;
     import flash.utils.getDefinitionByName;
+    import kabam.rotmg.assets.EmbeddedData;
     import kabam.rotmg.constants.GeneralConstants;
     import kabam.rotmg.constants.ItemConstants;
     import kabam.rotmg.messaging.impl.data.StatData;
@@ -29,6 +30,8 @@ package com.company.assembleegameclient.objects {
         public static const propsLibrary_:Dictionary = new Dictionary();
         
         public static const xmlLibrary_:Dictionary = new Dictionary();
+        
+        public static const setLibrary_:Dictionary = new Dictionary();
         
         public static const idToType_:Dictionary = new Dictionary();
         
@@ -174,6 +177,19 @@ package com.company.assembleegameclient.objects {
                 return null;
             }
             return String(_local_2.@id);
+        }
+        
+        public static function getSetXMLFromType(param1:int) : XML {
+            var _local_2:XML = null;
+            var _local_3:int = 0;
+            if(setLibrary_[param1] != undefined) {
+                return setLibrary_[param1];
+            }
+            for each(_local_2 in EmbeddedData.skinsEquipmentSetsXML.EquipmentSet) {
+                _local_3 = int(_local_2.@type);
+                setLibrary_[_local_3] = _local_2;
+            }
+            return setLibrary_[param1];
         }
         
         public static function getPropsFromId(param1:String) : ObjectProperties {

@@ -23,9 +23,9 @@ package com.company.assembleegameclient.util {
             var _local_2:uint = param1 >> 16 & 255;
             var _local_3:uint = param1 >> 8 & 255;
             var _local_4:uint = param1 & 255;
-            var _local_5:* = Math.max(0,Math.min(255,_local_2 + RandomUtil.plusMinus(_local_2 * 0.05)));
-            var _local_6:* = Math.max(0,Math.min(255,_local_3 + RandomUtil.plusMinus(_local_3 * 0.05)));
-            var _local_7:* = Math.max(0,Math.min(255,_local_4 + RandomUtil.plusMinus(_local_4 * 0.05)));
+            var _local_5:uint = Math.max(0,Math.min(255,_local_2 + RandomUtil.plusMinus(_local_2 * 0.05)));
+            var _local_6:uint = Math.max(0,Math.min(255,_local_3 + RandomUtil.plusMinus(_local_3 * 0.05)));
+            var _local_7:uint = Math.max(0,Math.min(255,_local_4 + RandomUtil.plusMinus(_local_4 * 0.05)));
             return _local_5 << 16 | _local_6 << 8 | _local_7;
         }
         

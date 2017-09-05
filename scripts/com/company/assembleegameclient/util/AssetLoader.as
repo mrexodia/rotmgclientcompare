@@ -96,6 +96,8 @@ package com.company.assembleegameclient.util {
             AssetLibrary.addImageSet("SakuraEnvironment16x16",new EmbeddedAssets.SakuraEnvironment16x16Embed_().bitmapData,16,16);
             AssetLibrary.addImageSet("SakuraEnvironment8x8",new EmbeddedAssets.SakuraEnvironment8x8Embed_().bitmapData,8,8);
             AssetLibrary.addImageSet("HanamiParts",new EmbeddedAssets.HanamiParts8x8Embed_().bitmapData,8,8);
+            AssetLibrary.addImageSet("summerNexusObjects8x8",new EmbeddedAssets.summerNexusObjects8x8Embed_().bitmapData,8,8);
+            AssetLibrary.addImageSet("summerNexusObjects16x16",new EmbeddedAssets.summerNexusObjects16x16Embed_().bitmapData,16,16);
         }
         
         private function addAnimatedCharacters() : void {
@@ -135,6 +137,8 @@ package com.company.assembleegameclient.util {
             AnimatedChars.add("mountainTempleChars8x8",new EmbeddedAssets.mountainTempleChars8x8Embed_().bitmapData,null,8,8,56,8,AnimatedChar.RIGHT);
             AnimatedChars.add("mountainTempleChars16x16",new EmbeddedAssets.mountainTempleChars16x16Embed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
             AnimatedChars.add("Hanami8x8chars",new EmbeddedAssets.Hanami8x8charsEmbed_().bitmapData,null,8,8,64,8,AnimatedChar.RIGHT);
+            AnimatedChars.add("summerNexusChars8x8",new EmbeddedAssets.summerNexusChars8x8Embed_().bitmapData,null,8,8,56,8,AnimatedChar.RIGHT);
+            AnimatedChars.add("summerNexusChars16x16",new EmbeddedAssets.summerNexusChars16x16Embed_().bitmapData,null,16,16,112,16,AnimatedChar.RIGHT);
         }
         
         private function addSoundEffects() : void {

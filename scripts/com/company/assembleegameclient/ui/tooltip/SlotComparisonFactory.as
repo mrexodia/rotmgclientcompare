@@ -7,14 +7,12 @@ package com.company.assembleegameclient.ui.tooltip {
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.PoisonComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.PrismComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.QuiverComparison;
-    import com.company.assembleegameclient.ui.tooltip.slotcomparisons.ScepterComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SealComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.ShieldComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SkullComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SlotComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.SpellComparison;
     import com.company.assembleegameclient.ui.tooltip.slotcomparisons.TomeComparison;
-    import com.company.assembleegameclient.ui.tooltip.slotcomparisons.TrapComparison;
     import kabam.rotmg.constants.ItemConstants;
     
     public class SlotComparisonFactory {
@@ -44,10 +42,8 @@ package com.company.assembleegameclient.ui.tooltip {
             this.hash[ItemConstants.STAFF_TYPE] = _local_1;
             this.hash[ItemConstants.POISON_TYPE] = new PoisonComparison();
             this.hash[ItemConstants.SKULL_TYPE] = new SkullComparison();
-            this.hash[ItemConstants.TRAP_TYPE] = new TrapComparison();
             this.hash[ItemConstants.ORB_TYPE] = new OrbComparison();
             this.hash[ItemConstants.PRISM_TYPE] = new PrismComparison();
-            this.hash[ItemConstants.SCEPTER_TYPE] = new ScepterComparison();
             this.hash[ItemConstants.KATANA_TYPE] = _local_1;
             this.hash[ItemConstants.SHURIKEN_TYPE] = _local_1;
         }

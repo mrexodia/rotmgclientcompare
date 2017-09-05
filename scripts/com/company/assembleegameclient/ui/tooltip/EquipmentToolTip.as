@@ -44,7 +44,11 @@ package com.company.assembleegameclient.ui.tooltip {
         
         private var line2:LineBreakDesign;
         
+        private var line3:LineBreakDesign;
+        
         private var restrictionsText:TextFieldDisplayConcrete;
+        
+        private var setInfoText:TextFieldDisplayConcrete;
         
         private var player:Player;
         
@@ -63,6 +67,8 @@ package com.company.assembleegameclient.ui.tooltip {
         private var slotTypeToTextBuilder:SlotComparisonFactory;
         
         private var restrictions:Vector.<Restriction>;
+        
+        private var setInfo:Vector.<Effect>;
         
         private var effects:Vector.<Effect>;
         
@@ -108,6 +114,7 @@ package com.company.assembleegameclient.ui.tooltip {
             this.slotTypeToTextBuilder = new SlotComparisonFactory();
             this.objectXML = ObjectLibrary.xmlLibrary_[this.objectType];
             this.isEquippable = _local_5 != -1;
+            this.setInfo = new Vector.<Effect>();
             this.effects = new Vector.<Effect>();
             this.itemSlotTypeId = int(this.objectXML.SlotType);
             if(this.player == null) {
@@ -147,11 +154,42 @@ package com.company.assembleegameclient.ui.tooltip {
             this.addDoseTagsToEffectsList();
             this.addMpCostTagToEffectsList();
             this.addFameBonusTagToEffectsList();
+            this.addCooldownTagToEffectsList();
+            this.addSetInfo();
+            this.makeSetInfoText();
             this.makeEffectsList();
             this.makeLineTwo();
             this.makeRestrictionList();
             this.makeRestrictionText();
             this.makeItemPowerText();
+        }
+        
+        private function addSetInfo() : void {
+            if(!this.objectXML.hasOwnProperty("@setType")) {
+                return;
+            }
+            var _local_1:int = this.objectXML.attribute("setType");
+            this.setInfo.push(new Effect("Part of {name}",{"name":"<b>" + this.objectXML.attribute("setName") + "</b>"}).setColor(TooltipHelper.SET_COLOR).setReplacementsColor(TooltipHelper.SET_COLOR));
+            this.addSetActivateOnEquipTagsToEffectsList(_local_1);
+        }
+        
+        private function addSetActivateOnEquipTagsToEffectsList(param1:int) : void {
+            var _local_4:XML = null;
+            var _local_2:uint = 8805920;
+            var _local_3:XML = ObjectLibrary.getSetXMLFromType(param1);
+            if(!_local_3.hasOwnProperty("ActivateOnEquipAll")) {
+                return;
+            }
+            for each(_local_4 in _local_3.ActivateOnEquipAll) {
+                if(_local_4.toString() == "ChangeSkin") {
+                    if(this.player.skinId == int(_local_4.@skinType)) {
+                        _local_2 = TooltipHelper.SET_COLOR;
+                    }
+                }
+                if(_local_4.toString() == "IncrementStat") {
+                    this.setInfo.push(new Effect(TextKey.INCREMENT_STAT,this.getComparedStatText(_local_4)).setColor(_local_2).setReplacementsColor(_local_2));
+                }
+            }
         }
         
         private function makeItemPowerText() : void {
@@ -232,10 +270,10 @@ package com.company.assembleegameclient.ui.tooltip {
                 if(_local_4) {
                     this.tierText.setStringBuilder(new LineBuilder().setParams(TextKey.TIER_ABBR,{"tier":this.objectXML.Tier}));
                 } else if(this.objectXML.hasOwnProperty("@setType")) {
-                    this.tierText.setColor(16750848);
+                    this.tierText.setColor(TooltipHelper.SET_COLOR);
                     this.tierText.setStringBuilder(new StaticStringBuilder("ST"));
                 } else {
-                    this.tierText.setColor(9055202);
+                    this.tierText.setColor(TooltipHelper.UNTIERED_COLOR);
                     this.tierText.setStringBuilder(new LineBuilder().setParams(TextKey.UNTIERED_ABBR));
                 }
                 addChild(this.tierText);
@@ -345,14 +383,26 @@ package com.company.assembleegameclient.ui.tooltip {
         }
         
         private function addMpCostTagToEffectsList() : void {
+            var _local_1:int = 0;
+            var _local_2:int = 0;
             if(this.objectXML.hasOwnProperty("MpEndCost")) {
-                if(!this.comparisonResults.processedTags[this.objectXML.MpEndCost[0].toXMLString()]) {
-                    this.effects.push(new Effect(TextKey.MP_COST,{"cost":this.objectXML.MpEndCost}));
+                _local_1 = _local_2 = this.objectXML.MpEndCost;
+                if(this.curItemXML && this.curItemXML.hasOwnProperty("MpEndCost")) {
+                    _local_2 = this.curItemXML.MpEndCost;
                 }
-            } else if(this.objectXML.hasOwnProperty("MpCost") && !this.comparisonResults.processedTags[this.objectXML.MpCost[0].toXMLString()]) {
-                if(!this.comparisonResults.processedTags[this.objectXML.MpCost[0].toXMLString()]) {
-                    this.effects.push(new Effect(TextKey.MP_COST,{"cost":this.objectXML.MpCost}));
+                this.effects.push(new Effect(TextKey.MP_COST,{"cost":TooltipHelper.compare(_local_1,_local_2,false)}));
+            } else if(this.objectXML.hasOwnProperty("MpCost")) {
+                _local_1 = _local_2 = this.objectXML.MpCost;
+                if(this.curItemXML && this.curItemXML.hasOwnProperty("MpCost")) {
+                    _local_2 = this.curItemXML.MpCost;
                 }
+                this.effects.push(new Effect(TextKey.MP_COST,{"cost":TooltipHelper.compare(_local_1,_local_2,false)}));
+            }
+        }
+        
+        private function addCooldownTagToEffectsList() : void {
+            if(this.objectXML.hasOwnProperty("Cooldown")) {
+                this.effects.push(new Effect("Cooldown: {cd}",{"cd":TooltipHelper.getPlural(this.objectXML.Cooldown,"second")}));
             }
         }
         
@@ -400,117 +450,106 @@ package com.company.assembleegameclient.ui.tooltip {
         }
         
         private function addActivateTagsToEffectsList() : void {
-            var _local_1:XML = null;
-            var _local_2:String = null;
-            var _local_3:int = 0;
-            var _local_4:int = 0;
-            var _local_5:String = null;
-            var _local_6:String = null;
-            var _local_7:Object = null;
-            var _local_8:String = null;
-            var _local_9:uint = 0;
-            var _local_10:XML = null;
-            var _local_11:Object = null;
-            var _local_12:String = null;
-            var _local_13:uint = 0;
-            var _local_14:XML = null;
-            var _local_15:String = null;
-            var _local_16:Object = null;
-            var _local_17:String = null;
-            var _local_18:Object = null;
-            var _local_19:Number = NaN;
-            var _local_20:Number = NaN;
-            var _local_21:Number = NaN;
-            var _local_22:Number = NaN;
-            var _local_23:Number = NaN;
-            var _local_24:Number = NaN;
-            var _local_25:Number = NaN;
-            var _local_26:Number = NaN;
-            var _local_27:Number = NaN;
-            var _local_28:Number = NaN;
-            var _local_29:Number = NaN;
-            var _local_30:Number = NaN;
-            var _local_31:AppendingLineBuilder = null;
-            for each(_local_1 in this.objectXML.Activate) {
-                _local_5 = this.comparisonResults.processedTags[_local_1.toXMLString()];
-                if(this.comparisonResults.processedTags[_local_1.toXMLString()] == true) {
+            var activateXML:XML = null;
+            var val:String = null;
+            var stat:int = 0;
+            var amt:int = 0;
+            var test:String = null;
+            var activationType:String = null;
+            var compareXML:XML = null;
+            var effectColor:uint = 0;
+            var current:XML = null;
+            var tokens:Object = null;
+            var template:String = null;
+            var effectColor2:uint = 0;
+            var current2:XML = null;
+            var statStr:String = null;
+            var tokens2:Object = null;
+            var template2:String = null;
+            var replaceParams:Object = null;
+            var rNew:Number = NaN;
+            var rCurrent:Number = NaN;
+            var dNew:Number = NaN;
+            var dCurrent:Number = NaN;
+            var comparer:Number = NaN;
+            var rNew2:Number = NaN;
+            var rCurrent2:Number = NaN;
+            var dNew2:Number = NaN;
+            var dCurrent2:Number = NaN;
+            var aNew2:Number = NaN;
+            var aCurrent2:Number = NaN;
+            var comparer2:Number = NaN;
+            var alb:AppendingLineBuilder = null;
+            for each(activateXML in this.objectXML.Activate) {
+                test = this.comparisonResults.processedTags[activateXML.toXMLString()];
+                if(this.comparisonResults.processedTags[activateXML.toXMLString()] == true) {
                     continue;
                 }
-                _local_6 = _local_1.toString();
-                switch(_local_6) {
+                activationType = activateXML.toString();
+                compareXML = this.curItemXML == null?null:this.curItemXML.Activate.(text() == activationType)[0];
+                switch(activationType) {
                     case ActivationType.COND_EFFECT_AURA:
-                        this.effects.push(new Effect(TextKey.PARTY_EFFECT,{"effect":new AppendingLineBuilder().pushParams(TextKey.WITHIN_SQRS,{"range":_local_1.@range},TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
+                        this.effects.push(new Effect(TextKey.PARTY_EFFECT,{"effect":new AppendingLineBuilder().pushParams(TextKey.WITHIN_SQRS,{"range":activateXML.@range},TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
                         this.effects.push(new Effect(TextKey.EFFECT_FOR_DURATION,{
-                            "effect":_local_1.@effect,
-                            "duration":_local_1.@duration
+                            "effect":activateXML.@effect,
+                            "duration":activateXML.@duration
                         }).setColor(TooltipHelper.NO_DIFF_COLOR));
                         continue;
                     case ActivationType.COND_EFFECT_SELF:
                         this.effects.push(new Effect(TextKey.EFFECT_ON_SELF,{"effect":""}));
                         this.effects.push(new Effect(TextKey.EFFECT_FOR_DURATION,{
-                            "effect":_local_1.@effect,
-                            "duration":_local_1.@duration
+                            "effect":activateXML.@effect,
+                            "duration":activateXML.@duration
                         }));
                         continue;
                     case ActivationType.HEAL:
                         this.effects.push(new Effect(TextKey.INCREMENT_STAT,{
-                            "statAmount":"+" + _local_1.@amount + " ",
+                            "statAmount":"+" + activateXML.@amount + " ",
                             "statName":new LineBuilder().setParams(TextKey.STATUS_BAR_HEALTH_POINTS)
                         }));
                         continue;
                     case ActivationType.HEAL_NOVA:
                         this.effects.push(new Effect(TextKey.PARTY_HEAL,{"effect":new AppendingLineBuilder().pushParams(TextKey.HP_WITHIN_SQRS,{
-                            "amount":_local_1.@amount,
-                            "range":_local_1.@range
+                            "amount":activateXML.@amount,
+                            "range":activateXML.@range
                         },TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
                         continue;
                     case ActivationType.MAGIC:
                         this.effects.push(new Effect(TextKey.INCREMENT_STAT,{
-                            "statAmount":"+" + _local_1.@amount + " ",
+                            "statAmount":"+" + activateXML.@amount + " ",
                             "statName":new LineBuilder().setParams(TextKey.STATUS_BAR_MANA_POINTS)
                         }));
                         continue;
                     case ActivationType.MAGIC_NOVA:
-                        this.effects.push(new Effect(TextKey.FILL_PARTY_MAGIC,_local_1.@amount + " MP at " + _local_1.@range + " sqrs"));
+                        this.effects.push(new Effect(TextKey.FILL_PARTY_MAGIC,activateXML.@amount + " MP at " + activateXML.@range + " sqrs"));
                         continue;
                     case ActivationType.TELEPORT:
                         this.effects.push(new Effect(TextKey.BLANK,{"data":new LineBuilder().setParams(TextKey.TELEPORT_TO_TARGET)}));
                         continue;
                     case ActivationType.VAMPIRE_BLAST:
                         this.effects.push(new Effect(TextKey.STEAL,{"effect":new AppendingLineBuilder().pushParams(TextKey.HP_WITHIN_SQRS,{
-                            "amount":_local_1.@totalDamage,
-                            "range":_local_1.@radius
+                            "amount":activateXML.@totalDamage,
+                            "range":activateXML.@radius
                         },TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
                         continue;
                     case ActivationType.TRAP:
-                        _local_7 = !!_local_1.hasOwnProperty("@condEffect")?_local_1.@condEffect:new LineBuilder().setParams(TextKey.CONDITION_EFFECT_SLOWED);
-                        _local_8 = !!_local_1.hasOwnProperty("@condDuration")?_local_1.@condDuration:"5";
-                        this.effects.push(new Effect(TextKey.TRAP,{"data":new AppendingLineBuilder().pushParams(TextKey.HP_WITHIN_SQRS,{
-                            "amount":_local_1.@totalDamage,
-                            "range":_local_1.@radius
-                        },TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag()).pushParams(TextKey.EFFECT_FOR_DURATION,{
-                            "effect":_local_7,
-                            "duration":_local_8
-                        },TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
+                        this.getTrap(activateXML,compareXML);
                         continue;
                     case ActivationType.STASIS_BLAST:
-                        this.effects.push(new Effect(TextKey.STASIS_GROUP,{"stasis":new AppendingLineBuilder().pushParams(TextKey.SEC_COUNT,{"duration":_local_1.@duration},TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
+                        this.effects.push(new Effect(TextKey.STASIS_GROUP,{"stasis":new AppendingLineBuilder().pushParams(TextKey.SEC_COUNT,{"duration":activateXML.@duration},TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
                         continue;
                     case ActivationType.DECOY:
-                        this.effects.push(new Effect(TextKey.DECOY,{"data":new AppendingLineBuilder().pushParams(TextKey.SEC_COUNT,{"duration":_local_1.@duration},TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
+                        this.effects.push(new Effect(TextKey.DECOY,{"data":new AppendingLineBuilder().pushParams(TextKey.SEC_COUNT,{"duration":activateXML.@duration},TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
                         continue;
                     case ActivationType.LIGHTNING:
-                        this.effects.push(new Effect(TextKey.LIGHTNING,{"data":new AppendingLineBuilder().pushParams(TextKey.DAMAGE_TO_TARGETS,{
-                            "damage":_local_1.@totalDamage,
-                            "targets":_local_1.@maxTargets
-                        },TooltipHelper.getOpenTag(TooltipHelper.NO_DIFF_COLOR),TooltipHelper.getCloseTag())}));
+                        this.getLightning(activateXML,compareXML);
                         continue;
                     case ActivationType.POISON_GRENADE:
                         this.effects.push(new Effect(TextKey.POISON_GRENADE,{"data":""}));
                         this.effects.push(new Effect(TextKey.POISON_GRENADE_DATA,{
-                            "damage":_local_1.@totalDamage,
-                            "duration":_local_1.@duration,
-                            "radius":_local_1.@radius
+                            "damage":activateXML.@totalDamage,
+                            "duration":activateXML.@duration,
+                            "radius":activateXML.@radius
                         }).setColor(TooltipHelper.NO_DIFF_COLOR));
                         continue;
                     case ActivationType.REMOVE_NEG_COND:
@@ -520,85 +559,246 @@ package com.company.assembleegameclient.ui.tooltip {
                         this.effects.push(new Effect(TextKey.REMOVES_NEGATIVE,{}).setColor(TooltipHelper.NO_DIFF_COLOR));
                         continue;
                     case ActivationType.GENERIC_ACTIVATE:
-                        _local_9 = 16777103;
+                        effectColor = 16777103;
                         if(this.curItemXML != null) {
-                            _local_10 = this.getEffectTag(this.curItemXML,_local_1.@effect);
-                            if(_local_10 != null) {
-                                _local_19 = Number(_local_1.@range);
-                                _local_20 = Number(_local_10.@range);
-                                _local_21 = Number(_local_1.@duration);
-                                _local_22 = Number(_local_10.@duration);
-                                _local_23 = _local_19 - _local_20 + (_local_21 - _local_22);
-                                if(_local_23 > 0) {
-                                    _local_9 = 65280;
-                                } else if(_local_23 < 0) {
-                                    _local_9 = 16711680;
+                            current = this.getEffectTag(this.curItemXML,activateXML.@effect);
+                            if(current != null) {
+                                rNew = Number(activateXML.@range);
+                                rCurrent = Number(current.@range);
+                                dNew = Number(activateXML.@duration);
+                                dCurrent = Number(current.@duration);
+                                comparer = rNew - rCurrent + (dNew - dCurrent);
+                                if(comparer > 0) {
+                                    effectColor = 65280;
+                                } else if(comparer < 0) {
+                                    effectColor = 16711680;
                                 }
                             }
                         }
-                        _local_11 = {
-                            "range":_local_1.@range,
-                            "effect":_local_1.@effect,
-                            "duration":_local_1.@duration
+                        tokens = {
+                            "range":activateXML.@range,
+                            "effect":activateXML.@effect,
+                            "duration":activateXML.@duration
                         };
-                        _local_12 = "Within {range} sqrs {effect} for {duration} seconds";
-                        if(_local_1.@target != "enemy") {
-                            this.effects.push(new Effect(TextKey.PARTY_EFFECT,{"effect":LineBuilder.returnStringReplace(_local_12,_local_11)}).setReplacementsColor(_local_9));
+                        template = "Within {range} sqrs {effect} for {duration} seconds";
+                        if(activateXML.@target != "enemy") {
+                            this.effects.push(new Effect(TextKey.PARTY_EFFECT,{"effect":LineBuilder.returnStringReplace(template,tokens)}).setReplacementsColor(effectColor));
                         } else {
-                            this.effects.push(new Effect(TextKey.ENEMY_EFFECT,{"effect":LineBuilder.returnStringReplace(_local_12,_local_11)}).setReplacementsColor(_local_9));
+                            this.effects.push(new Effect(TextKey.ENEMY_EFFECT,{"effect":LineBuilder.returnStringReplace(template,tokens)}).setReplacementsColor(effectColor));
                         }
                         continue;
                     case ActivationType.STAT_BOOST_AURA:
-                        _local_13 = 16777103;
+                        effectColor2 = 16777103;
                         if(this.curItemXML != null) {
-                            _local_14 = this.getStatTag(this.curItemXML,_local_1.@stat);
-                            if(_local_14 != null) {
-                                _local_24 = Number(_local_1.@range);
-                                _local_25 = Number(_local_14.@range);
-                                _local_26 = Number(_local_1.@duration);
-                                _local_27 = Number(_local_14.@duration);
-                                _local_28 = Number(_local_1.@amount);
-                                _local_29 = Number(_local_14.@amount);
-                                _local_30 = _local_24 - _local_25 + (_local_26 - _local_27) + (_local_28 - _local_29);
-                                if(_local_30 > 0) {
-                                    _local_13 = 65280;
-                                } else if(_local_30 < 0) {
-                                    _local_13 = 16711680;
+                            current2 = this.getStatTag(this.curItemXML,activateXML.@stat);
+                            if(current2 != null) {
+                                rNew2 = Number(activateXML.@range);
+                                rCurrent2 = Number(current2.@range);
+                                dNew2 = Number(activateXML.@duration);
+                                dCurrent2 = Number(current2.@duration);
+                                aNew2 = Number(activateXML.@amount);
+                                aCurrent2 = Number(current2.@amount);
+                                comparer2 = rNew2 - rCurrent2 + (dNew2 - dCurrent2) + (aNew2 - aCurrent2);
+                                if(comparer2 > 0) {
+                                    effectColor2 = 65280;
+                                } else if(comparer2 < 0) {
+                                    effectColor2 = 16711680;
                                 }
                             }
                         }
-                        _local_3 = int(_local_1.@stat);
-                        _local_15 = LineBuilder.getLocalizedString2(StatData.statToName(_local_3));
-                        _local_16 = {
-                            "range":_local_1.@range,
-                            "stat":_local_15,
-                            "amount":_local_1.@amount,
-                            "duration":_local_1.@duration
+                        stat = int(activateXML.@stat);
+                        statStr = LineBuilder.getLocalizedString2(StatData.statToName(stat));
+                        tokens2 = {
+                            "range":activateXML.@range,
+                            "stat":statStr,
+                            "amount":activateXML.@amount,
+                            "duration":activateXML.@duration
                         };
-                        _local_17 = "Within {range} sqrs increase {stat} by {amount} for {duration} seconds";
-                        this.effects.push(new Effect(TextKey.PARTY_EFFECT,{"effect":LineBuilder.returnStringReplace(_local_17,_local_16)}).setReplacementsColor(_local_13));
+                        template2 = "Within {range} sqrs increase {stat} by {amount} for {duration} seconds";
+                        this.effects.push(new Effect(TextKey.PARTY_EFFECT,{"effect":LineBuilder.returnStringReplace(template2,tokens2)}).setReplacementsColor(effectColor2));
                         continue;
                     case ActivationType.INCREMENT_STAT:
-                        _local_3 = int(_local_1.@stat);
-                        _local_4 = int(_local_1.@amount);
-                        _local_18 = {};
-                        if(_local_3 != StatData.HP_STAT && _local_3 != StatData.MP_STAT) {
-                            _local_2 = TextKey.PERMANENTLY_INCREASES;
-                            _local_18["statName"] = new LineBuilder().setParams(StatData.statToName(_local_3));
-                            this.effects.push(new Effect(_local_2,_local_18).setColor(16777103));
+                        stat = int(activateXML.@stat);
+                        amt = int(activateXML.@amount);
+                        replaceParams = {};
+                        if(stat != StatData.HP_STAT && stat != StatData.MP_STAT) {
+                            val = TextKey.PERMANENTLY_INCREASES;
+                            replaceParams["statName"] = new LineBuilder().setParams(StatData.statToName(stat));
+                            this.effects.push(new Effect(val,replaceParams).setColor(16777103));
                         } else {
-                            _local_2 = TextKey.BLANK;
-                            _local_31 = new AppendingLineBuilder().setDelimiter(" ");
-                            _local_31.pushParams(TextKey.BLANK,{"data":new StaticStringBuilder("+" + _local_4)});
-                            _local_31.pushParams(StatData.statToName(_local_3));
-                            _local_18["data"] = _local_31;
-                            this.effects.push(new Effect(_local_2,_local_18));
+                            val = TextKey.BLANK;
+                            alb = new AppendingLineBuilder().setDelimiter(" ");
+                            alb.pushParams(TextKey.BLANK,{"data":new StaticStringBuilder("+" + amt)});
+                            alb.pushParams(StatData.statToName(stat));
+                            replaceParams["data"] = alb;
+                            this.effects.push(new Effect(val,replaceParams));
                         }
                         continue;
                     default:
                         continue;
                 }
             }
+        }
+        
+        private function getSkull(param1:XML, param2:XML = null) : void {
+            var _local_3:int = 0;
+            var _local_4:int = 0;
+            var _local_5:Number = NaN;
+            var _local_6:Number = NaN;
+            var _local_7:int = 0;
+            var _local_8:int = 0;
+            var _local_9:int = 0;
+            var _local_10:int = 0;
+            _local_3 = _local_4 = param1.@totalDamage;
+            if(param2) {
+                _local_4 = param2.@totalDamage;
+            }
+            _local_5 = _local_6 = param1.@radius;
+            if(param2) {
+                _local_6 = param2.@radius;
+            }
+            _local_7 = _local_8 = param1.@heal;
+            if(param2) {
+                _local_8 = param2.@heal;
+            }
+            _local_9 = _local_10 = !!param1.hasOwnProperty("@ignoreDef")?int(param1.@ignoreDef):0;
+            if(param2) {
+                _local_10 = !!param2.hasOwnProperty("@ignoreDef")?int(param2.@ignoreDef):0;
+            }
+            var _local_11:* = this.colorUntiered("Skull: ");
+            _local_11 = _local_11 + "{damage} damage within {radius} squares\n";
+            _local_11 = _local_11 + "Steals {heal} HP";
+            if(_local_9) {
+                _local_11 = _local_11 + " and ignores {ignoreDef} defense";
+            }
+            this.effects.push(new Effect(_local_11,{
+                "damage":TooltipHelper.compare(_local_3,_local_4),
+                "radius":TooltipHelper.compare(_local_5,_local_6),
+                "heal":TooltipHelper.compare(_local_7,_local_8),
+                "ignoreDef":TooltipHelper.compare(_local_9,_local_10)
+            }));
+        }
+        
+        private function getTrap(param1:XML, param2:XML = null) : void {
+            var _local_3:int = 0;
+            var _local_4:int = 0;
+            var _local_5:Number = NaN;
+            var _local_6:Number = NaN;
+            var _local_7:Number = NaN;
+            var _local_8:Number = NaN;
+            var _local_9:Number = NaN;
+            var _local_10:Number = NaN;
+            var _local_13:int = 0;
+            var _local_14:int = 0;
+            var _local_15:String = null;
+            _local_3 = _local_4 = param1.@totalDamage;
+            if(param2) {
+                _local_4 = param2.@totalDamage;
+            }
+            _local_5 = _local_6 = param1.@radius;
+            if(param2) {
+                _local_6 = param2.@radius;
+            }
+            _local_7 = _local_8 = !!param1.hasOwnProperty("@duration")?Number(param1.@duration):Number(20);
+            if(param2) {
+                _local_8 = !!param2.hasOwnProperty("@duration")?Number(param2.@duration):Number(20);
+            }
+            _local_9 = _local_10 = !!param1.hasOwnProperty("@tilArmed")?Number(param1.@tilArmed):Number(1);
+            if(param2) {
+                _local_10 = !!param2.hasOwnProperty("@tilArmed")?Number(param2.@tilArmed):Number(1);
+            }
+            var _local_11:* = this.colorUntiered("Trap: ");
+            _local_11 = _local_11 + "{damage} damage within {radius} squares";
+            this.effects.push(new Effect(_local_11,{
+                "damage":TooltipHelper.compare(_local_3,_local_4),
+                "radius":TooltipHelper.compare(_local_5,_local_6)
+            }));
+            var _local_12:String = !!param1.hasOwnProperty("@condEffect")?param1.@condEffect:"Slowed";
+            if(_local_12 != "Nothing") {
+                _local_13 = _local_14 = !!param1.hasOwnProperty("@condDuration")?int(param1.@condDuration):5;
+                if(param2) {
+                    _local_14 = !!param2.hasOwnProperty("@condDuration")?int(param2.@condDuration):5;
+                    _local_15 = !!param2.hasOwnProperty("@condEffect")?param2.@condEffect:"Slowed";
+                    if(_local_15 == "Nothing") {
+                        _local_14 = 0;
+                    }
+                }
+                this.effects.push(new Effect("{condition} for {duration} ",{
+                    "condition":_local_12,
+                    "duration":TooltipHelper.compareAndGetPlural(_local_13,_local_14,"second")
+                }));
+            }
+            this.effects.push(new Effect("{tilArmed} to arm for {duration} ",{
+                "tilArmed":TooltipHelper.compareAndGetPlural(_local_9,_local_10,"second",false),
+                "duration":TooltipHelper.compareAndGetPlural(_local_7,_local_8,"second")
+            }));
+        }
+        
+        private function getLightning(param1:XML, param2:XML = null) : void {
+            var _local_13:Number = NaN;
+            var _local_3:int = this.player.wisdom_;
+            var _local_4:ComPair = new ComPair(param1,param2,"decrDamage",0);
+            var _local_5:int = this.GetIntArgument(param1,"wisPerTarget",10);
+            var _local_6:int = this.GetIntArgument(param1,"wisDamageBase",_local_4.a);
+            var _local_7:int = this.GetIntArgument(param1,"wisMin",50);
+            var _local_8:Number = 0;
+            if(_local_3 > _local_7) {
+                _local_8 = (_local_3 - _local_7) / _local_5;
+            }
+            var _local_9:ComPair = new ComPair(param1,param2,"maxTargets");
+            _local_9.add(_local_8);
+            var _local_10:ComPair = new ComPair(param1,param2,"totalDamage");
+            _local_10.add(_local_6 * _local_8);
+            var _local_11:* = this.colorUntiered("Lightning: ");
+            _local_11 = _local_11 + ("{targets}" + this.colorWisBonus(int(_local_8)) + " targets\n");
+            _local_11 = _local_11 + ("{damage}" + this.colorWisBonus(int(_local_6 * _local_8)) + " damage");
+            if(_local_4) {
+                _local_11 = _local_11 + ", reduced by \n{decrDamage} for each subsequent target";
+            }
+            this.effects.push(new Effect(_local_11,{
+                "targets":TooltipHelper.compare(_local_9.a,_local_9.b),
+                "damage":TooltipHelper.compare(_local_10.a,_local_10.b),
+                "decrDamage":TooltipHelper.compare(_local_4.a,_local_4.b,false)
+            }));
+            var _local_12:String = param1.@condEffect;
+            if(_local_12) {
+                _local_13 = this.GetFloatArgument(param1,"condDuration",5);
+                this.effects.push(new Effect("{condition} for {duration} ",{
+                    "condition":_local_12,
+                    "duration":TooltipHelper.getPlural(_local_13,"second")
+                }));
+            }
+        }
+        
+        private function GetIntArgument(param1:XML, param2:String, param3:int = 0) : int {
+            return !!param1.hasOwnProperty("@" + param2)?int(param1[param2]):int(param3);
+        }
+        
+        private function GetFloatArgument(param1:XML, param2:String, param3:Number = 0) : Number {
+            return !!param1.hasOwnProperty("@" + param2)?Number(param1[param2]):Number(param3);
+        }
+        
+        private function GetStringArgument(param1:XML, param2:String, param3:String = "") : String {
+            return !!param1.hasOwnProperty("@" + param2)?param1[param2]:param3;
+        }
+        
+        private function colorWisBonus(param1:Number) : String {
+            if(param1) {
+                return TooltipHelper.wrapInFontTag(" (+" + param1 + ")","#" + TooltipHelper.WIS_BONUS_COLOR.toString(16));
+            }
+            return "";
+        }
+        
+        private function colorUntiered(param1:String) : String {
+            var _local_2:Boolean = this.objectXML.hasOwnProperty("Tier");
+            var _local_3:Boolean = this.objectXML.hasOwnProperty("@setType");
+            if(_local_3) {
+                return TooltipHelper.wrapInFontTag(param1,"#" + TooltipHelper.SET_COLOR.toString(16));
+            }
+            if(!_local_2) {
+                return TooltipHelper.wrapInFontTag(param1,"#" + TooltipHelper.UNTIERED_COLOR.toString(16));
+            }
+            return param1;
         }
         
         private function getEffectTag(param1:XML, param2:String) : XML {
@@ -716,9 +916,6 @@ package com.company.assembleegameclient.ui.tooltip {
             if(this.objectXML.hasOwnProperty("Soulbound")) {
                 this.restrictions.push(new Restriction(TextKey.ITEM_SOULBOUND,11776947,false));
             }
-            if(this.objectXML.hasOwnProperty("@setType")) {
-                this.restrictions.push(new Restriction("This item is a part of " + this.objectXML.attribute("setName"),16750848,false));
-            }
             if(this.playerCanUse) {
                 if(this.objectXML.hasOwnProperty("Usable")) {
                     this.addAbilityItemRestrictions();
@@ -752,6 +949,11 @@ package com.company.assembleegameclient.ui.tooltip {
             addChild(this.line2);
         }
         
+        private function makeLineThree() : void {
+            this.line3 = new LineBreakDesign(MAX_WIDTH - 12,0);
+            addChild(this.line3);
+        }
+        
         private function makeRestrictionText() : void {
             if(this.restrictions.length != 0) {
                 this.restrictionsText = new TextFieldDisplayConcrete().setSize(14).setColor(11776947).setTextWidth(MAX_WIDTH - 4).setIndent(-10).setLeftMargin(10).setWordWrap(true).setHTML(true);
@@ -760,6 +962,23 @@ package com.company.assembleegameclient.ui.tooltip {
                 waiter.push(this.restrictionsText.textChanged);
                 addChild(this.restrictionsText);
             }
+        }
+        
+        private function makeSetInfoText() : void {
+            if(this.setInfo.length != 0) {
+                this.setInfoText = new TextFieldDisplayConcrete().setSize(14).setColor(11776947).setTextWidth(MAX_WIDTH - 4).setIndent(-10).setLeftMargin(10).setWordWrap(true).setHTML(true);
+                this.setInfoText.setStringBuilder(this.getSetBonusStringBuilder());
+                this.setInfoText.filters = [new DropShadowFilter(0,0,0,0.5,12,12)];
+                waiter.push(this.setInfoText.textChanged);
+                addChild(this.setInfoText);
+                this.makeLineThree();
+            }
+        }
+        
+        private function getSetBonusStringBuilder() : AppendingLineBuilder {
+            var _local_1:AppendingLineBuilder = new AppendingLineBuilder();
+            this.appendEffects(this.setInfo,_local_1);
+            return _local_1;
         }
         
         private function buildRestrictionsLineBuilder() : StringBuilder {
@@ -824,8 +1043,17 @@ package com.company.assembleegameclient.ui.tooltip {
                 this.line1.y = this.descText.y + this.descText.height;
                 this.effectsText.y = this.line1.y;
             }
-            this.line2.x = 8;
-            this.line2.y = this.effectsText.y + this.effectsText.height + 8;
+            if(this.setInfoText) {
+                this.line3.x = 8;
+                this.line3.y = this.effectsText.y + this.effectsText.height + 8;
+                this.setInfoText.x = 4;
+                this.setInfoText.y = this.line3.y + 8;
+                this.line2.x = 8;
+                this.line2.y = this.setInfoText.y + this.setInfoText.height + 8;
+            } else {
+                this.line2.x = 8;
+                this.line2.y = this.effectsText.y + this.effectsText.height + 8;
+            }
             var _local_1:uint = this.line2.y + 8;
             if(this.restrictionsText) {
                 this.restrictionsText.x = 4;
@@ -928,6 +1156,27 @@ package com.company.assembleegameclient.ui.tooltip {
             }
             return _local_3;
         }
+    }
+}
+
+class ComPair {
+     
+    
+    public var a:Number;
+    
+    public var b:Number;
+    
+    function ComPair(param1:XML, param2:XML, param3:String, param4:Number = 0) {
+        super();
+        this.a = this.b = !!param1.hasOwnProperty("@" + param3)?Number(param1[param3]):Number(param4);
+        if(param2) {
+            this.b = !!param2.hasOwnProperty("@" + param3)?Number(param2[param3]):Number(param4);
+        }
+    }
+    
+    public function add(param1:int) : void {
+        this.a = this.a + param1;
+        this.b = this.b + param1;
     }
 }
 

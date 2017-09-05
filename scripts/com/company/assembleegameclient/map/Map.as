@@ -14,6 +14,7 @@ package com.company.assembleegameclient.map {
     import flash.display.GraphicsBitmapFill;
     import flash.display.GraphicsSolidFill;
     import flash.display.IGraphicsData;
+    import flash.display.Sprite;
     import flash.filters.BlurFilter;
     import flash.filters.ColorMatrixFilter;
     import flash.geom.ColorTransform;
@@ -86,6 +87,8 @@ package com.company.assembleegameclient.map {
         
         private var darkness:DisplayObject;
         
+        private var bgCont:Sprite;
+        
         private var graphicsData_:Vector.<IGraphicsData>;
         
         private var graphicsDataStageSoftware_:Vector.<IGraphicsData>;
@@ -105,6 +108,7 @@ package com.company.assembleegameclient.map {
             this.idsToRemove_ = new Vector.<int>();
             this.forceSoftwareMap = new Dictionary();
             this.darkness = new EmbeddedAssets.DarknessBackground();
+            this.bgCont = new Sprite();
             this.graphicsData_ = new Vector.<IGraphicsData>();
             this.graphicsDataStageSoftware_ = new Vector.<IGraphicsData>();
             this.graphicsData3d_ = new Vector.<Object3DStage3D>();
@@ -155,9 +159,12 @@ package com.company.assembleegameclient.map {
         
         override public function initialize() : void {
             squares_.length = width_ * height_;
+            addChild(this.bgCont);
             background_ = Background.getBackground(back_);
-            if(background_ != null) {
-                addChild(background_);
+            if(!Parameters.isGpuRender()) {
+                if(background_ != null) {
+                    this.bgCont.addChild(background_);
+                }
             }
             addChild(map_);
             addChild(hurtOverlay_);
@@ -356,13 +363,20 @@ package com.company.assembleegameclient.map {
                 }
                 signalRenderSwitch.dispatch(wasLastFrameGpu);
                 wasLastFrameGpu = Parameters.isGpuRender();
+                if(Parameters.isGpuRender()) {
+                    if(background_ != null && this.bgCont.contains(background_)) {
+                        this.bgCont.removeChild(background_);
+                    }
+                } else if(background_ != null && !this.bgCont.contains(background_)) {
+                    this.bgCont.addChild(background_);
+                }
             }
             var _local_3:Rectangle = param1.clipRect_;
             x = -_local_3.x;
             y = -_local_3.y;
             var _local_4:Number = (-_local_3.y - _local_3.height / 2) / 50;
             var _local_5:Point = new Point(param1.x_ + _local_4 * Math.cos(param1.angleRad_ - Math.PI / 2),param1.y_ + _local_4 * Math.sin(param1.angleRad_ - Math.PI / 2));
-            if(background_ != null) {
+            if(background_ != null && this.bgCont.contains(background_)) {
                 background_.draw(param1,param2);
             }
             this.visible_.length = 0;

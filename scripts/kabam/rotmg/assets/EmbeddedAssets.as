@@ -283,6 +283,14 @@ package kabam.rotmg.assets {
         
         public static var HanamiParts8x8Embed_:Class = EmbeddedAssets_HanamiParts8x8Embed_;
         
+        public static var summerNexusChars8x8Embed_:Class = EmbeddedAssets_summerNexusChars8x8Embed_;
+        
+        public static var summerNexusChars16x16Embed_:Class = EmbeddedAssets_summerNexusChars16x16Embed_;
+        
+        public static var summerNexusObjects8x8Embed_:Class = EmbeddedAssets_summerNexusObjects8x8Embed_;
+        
+        public static var summerNexusObjects16x16Embed_:Class = EmbeddedAssets_summerNexusObjects16x16Embed_;
+        
         public static var models_:Object = {
             "Monster Tank1":new monsterTank1Embed_(),
             "Monster Tank2":new monsterTank2Embed_(),

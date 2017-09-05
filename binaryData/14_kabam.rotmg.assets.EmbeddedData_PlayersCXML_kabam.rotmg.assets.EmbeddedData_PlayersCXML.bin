@@ -405,7 +405,7 @@
       <Equipment>0xa04, 0xae5, -1, -1, 0xa22, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1</Equipment>
       <MaxHitPoints max="670">100</MaxHitPoints>
       <MaxMagicPoints max="385">100</MaxMagicPoints>
-      <Attack max="60">10</Attack>
+      <Attack max="70">12</Attack>
       <Defense max="25">0</Defense>
       <Speed max="60">12</Speed>
       <Dexterity max="60">12</Dexterity>

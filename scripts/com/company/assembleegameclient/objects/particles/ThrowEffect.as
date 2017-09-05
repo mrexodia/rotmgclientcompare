@@ -10,18 +10,21 @@ package com.company.assembleegameclient.objects.particles {
         
         public var color_:int;
         
-        public function ThrowEffect(param1:Point, param2:Point, param3:int) {
+        public var duration_:int;
+        
+        public function ThrowEffect(param1:Point, param2:Point, param3:int, param4:int = 1500) {
             super();
             this.start_ = param1;
             this.end_ = param2;
             this.color_ = param3;
+            this.duration_ = param4;
         }
         
         override public function runNormalRendering(param1:int, param2:int) : Boolean {
             x_ = this.start_.x;
             y_ = this.start_.y;
             var _local_3:int = 200;
-            var _local_4:ThrowParticle = new ThrowParticle(_local_3,this.color_,1500,this.start_,this.end_);
+            var _local_4:ThrowParticle = new ThrowParticle(_local_3,this.color_,this.duration_,this.start_,this.end_);
             map_.addObj(_local_4,x_,y_);
             return false;
         }
@@ -30,7 +33,7 @@ package com.company.assembleegameclient.objects.particles {
             x_ = this.start_.x;
             y_ = this.start_.y;
             var _local_3:int = 10;
-            var _local_4:ThrowParticle = new ThrowParticle(_local_3,this.color_,1500,this.start_,this.end_);
+            var _local_4:ThrowParticle = new ThrowParticle(_local_3,this.color_,this.duration_,this.start_,this.end_);
             map_.addObj(_local_4,x_,y_);
             return false;
         }
