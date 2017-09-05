@@ -6,7 +6,7 @@ package com.company.assembleegameclient.map {
     import flash.display.IGraphicsData;
     import flash.geom.Vector3D;
     
-    public class Square#54 {
+    public class Square#61 {
         
         public static const UVT:Vector.<Number> = new <Number>[0,0,0,1,0,0,1,1,0,0,1,0];
         
@@ -43,7 +43,7 @@ package com.company.assembleegameclient.map {
         
         public var lastVisible_:int;
         
-        public function Square#54(param1:Map, param2:int, param3:int) {
+        public function Square#61(param1:Map, param2:int, param3:int) {
             this.props_ = GroundLibrary.defaultProps_;
             this.faces_ = new Vector.<SquareFace>();
             super();

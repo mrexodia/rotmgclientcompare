@@ -1,5 +1,5 @@
 package com.company.assembleegameclient.game {
-    import com.company.assembleegameclient.map.Square#54;
+    import com.company.assembleegameclient.map.Square#61;
     import com.company.assembleegameclient.objects.GameObject;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.objects.Player;

@@ -82,7 +82,7 @@ package com.company.assembleegameclient.objects.particles {
         }
         
         private function onTimer(param1:TimerEvent) : void {
-            var _local_2:Square = new Square#1384(this.getStartPoint(),this.getEndPoint(),this.getLifespan());
+            var _local_2:Square = new Square#195(this.getStartPoint(),this.getEndPoint(),this.getLifespan());
             _local_2.complete.add(this.onSquareComplete);
             this.squares.push(_local_2);
             this.spriteSource.addChild(_local_2);
@@ -96,7 +96,7 @@ package com.company.assembleegameclient.objects.particles {
             return this.bitmapSize == this.SMALL?uint(100):uint(50);
         }
         
-        private function onSquareComplete(param1:Square#1384) : void {
+        private function onSquareComplete(param1:Square#195) : void {
             param1.complete.removeAll();
             this.spriteSource.removeChild(param1);
             this.squares.splice(this.squares.indexOf(param1),1);
@@ -131,7 +131,7 @@ import flash.display.Shape;
 import flash.geom.Point;
 import org.osflash.signals.Signal;
 
-class Square#1384 extends Shape {
+class Square#195 extends Shape {
      
     
     public var start:Point;
@@ -148,7 +148,7 @@ class Square#1384 extends Shape {
     
     public var complete:Signal;
     
-    function Square#1384(param1:Point, param2:Point, param3:uint) {
+    function Square#195(param1:Point, param2:Point, param3:uint) {
         this.complete = new Signal();
         super();
         this.start = param1;

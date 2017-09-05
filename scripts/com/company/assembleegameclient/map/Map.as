@@ -99,9 +99,9 @@ package com.company.assembleegameclient.map {
         
         public var visibleUnder_:Array;
         
-        public var visibleSquares_:Vector.<Square#54>;
+        public var visibleSquares_:Vector.<Square#61>;
         
-        public var topSquares_:Vector.<Square#54>;
+        public var topSquares_:Vector.<Square#61>;
         
         public function Map(param1:AGameSprite) {
             this.objsToAdd_ = new Vector.<BasicObject>();
@@ -114,8 +114,8 @@ package com.company.assembleegameclient.map {
             this.graphicsData3d_ = new Vector.<Object3DStage3D>();
             this.visible_ = new Array();
             this.visibleUnder_ = new Array();
-            this.visibleSquares_ = new Vector.<Square#54>();
-            this.topSquares_ = new Vector.<Square#54>();
+            this.visibleSquares_ = new Vector.<Square#61>();
+            this.topSquares_ = new Vector.<Square#61>();
             super();
             gs_ = param1;
             hurtOverlay_ = new HurtOverlay();
@@ -318,21 +318,21 @@ package com.company.assembleegameclient.map {
             delete _local_2[param1];
         }
         
-        public function getSquare(param1:Number, param2:Number) : Square#54 {
+        public function getSquare(param1:Number, param2:Number) : Square#61 {
             if(param1 < 0 || param1 >= width_ || param2 < 0 || param2 >= height_) {
                 return null;
             }
             var _local_3:int = int(param1) + int(param2) * width_;
             var _local_4:Square = squares_[_local_3];
             if(_local_4 == null) {
-                _local_4 = new Square#54(this,int(param1),int(param2));
+                _local_4 = new Square#61(this,int(param1),int(param2));
                 squares_[_local_3] = _local_4;
                 squareList_.push(_local_4);
             }
             return _local_4;
         }
         
-        public function lookupSquare(param1:int, param2:int) : Square#54 {
+        public function lookupSquare(param1:int, param2:int) : Square#61 {
             if(param1 < 0 || param1 >= width_ || param2 < 0 || param2 >= height_) {
                 return null;
             }

@@ -3,7 +3,7 @@ package com.company.assembleegameclient.objects {
     import com.company.assembleegameclient.engine3d.Object3D;
     import com.company.assembleegameclient.map.Camera;
     import com.company.assembleegameclient.map.Map;
-    import com.company.assembleegameclient.map.Square#54;
+    import com.company.assembleegameclient.map.Square#61;
     import com.company.assembleegameclient.map.mapoverlay.CharacterStatusText;
     import com.company.assembleegameclient.objects.animation.Animations;
     import com.company.assembleegameclient.objects.animation.AnimationsData;
