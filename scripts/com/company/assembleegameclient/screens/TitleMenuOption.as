@@ -158,7 +158,8 @@ package com.company.assembleegameclient.screens {
         }
         
         public function createNoticeTag(param1:String, param2:int, param3:uint, param4:Boolean) : void {
-            var _local_5:TextFieldDisplayConcrete = new TextFieldDisplayConcrete();
+            var _local_5:TextFieldDisplayConcrete = null;
+            _local_5 = new TextFieldDisplayConcrete();
             _local_5.setSize(param2).setColor(param3).setBold(param4);
             _local_5.setStringBuilder(new LineBuilder().setParams(param1));
             _local_5.x = this.textField.x - 4;

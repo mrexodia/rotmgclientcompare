@@ -160,7 +160,8 @@ package kabam.rotmg.arena.view {
         }
         
         private function makeList() : ArenaLeaderboardList {
-            var _local_1:ArenaLeaderboardList = new ArenaLeaderboardList();
+            var _local_1:ArenaLeaderboardList = null;
+            _local_1 = new ArenaLeaderboardList();
             _local_1.x = 15;
             _local_1.y = 115;
             return _local_1;

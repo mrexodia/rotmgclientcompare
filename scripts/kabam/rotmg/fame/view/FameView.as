@@ -1,4 +1,5 @@
 package kabam.rotmg.fame.view {
+    import com.company.assembleegameclient.map.GroundLibrary;
     import com.company.assembleegameclient.objects.ObjectLibrary;
     import com.company.assembleegameclient.screens.ScoreTextLine;
     import com.company.assembleegameclient.screens.ScoringBox;
@@ -123,6 +124,43 @@ package kabam.rotmg.fame.view {
             var _local_4:String = _local_2[1];
             if(_local_4 == null) {
                 _local_4 = _local_3;
+                switch(_local_4) {
+                    case "lava":
+                        _local_4 = "Lava";
+                        break;
+                    case "lava blend":
+                        _local_4 = "Lava Blend";
+                        break;
+                    case "liquid evil":
+                        _local_4 = "Liquid Evil";
+                        break;
+                    case "evil water":
+                        _local_4 = "Evil Water";
+                        break;
+                    case "puke water":
+                        _local_4 = "Puke Water";
+                        break;
+                    case "hot lava":
+                        _local_4 = "Hot Lava";
+                        break;
+                    case "pure evil":
+                        _local_4 = "Pure Evil";
+                        break;
+                    case "lod red tile":
+                        _local_4 = "lod Red Tile";
+                        break;
+                    case "lod purple tile":
+                        _local_4 = "lod Purple Tile";
+                        break;
+                    case "lod blue tile":
+                        _local_4 = "lod Blue Tile";
+                        break;
+                    case "lod green tile":
+                        _local_4 = "lod Green Tile";
+                        break;
+                    case "lod cream tile":
+                        _local_4 = "lod Cream Tile";
+                }
             } else {
                 _local_4 = _local_4.substr(0,_local_4.length - 1);
                 _local_4 = _local_4.replace(/_/g," ");
@@ -131,6 +169,8 @@ package kabam.rotmg.fame.view {
             }
             if(ObjectLibrary.getPropsFromId(_local_4) != null) {
                 _local_4 = ObjectLibrary.getPropsFromId(_local_4).displayId_;
+            } else if(GroundLibrary.getPropsFromId(_local_4) != null) {
+                _local_4 = GroundLibrary.getPropsFromId(_local_4).displayId_;
             }
             return _local_4;
         }

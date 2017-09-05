@@ -11,6 +11,8 @@ package com.company.assembleegameclient.map {
         
         public var id_:String;
         
+        public var displayId_:String;
+        
         public var noWalk_:Boolean = true;
         
         public var minDamage_:int = 0;
@@ -61,7 +63,10 @@ package com.company.assembleegameclient.map {
             this.animate_ = new AnimateProperties();
             super();
             this.type_ = int(param1.@type);
-            this.id_ = String(param1.@id);
+            this.displayId_ = this.id_ = String(param1.@id);
+            if(param1.hasOwnProperty("DisplayId")) {
+                this.displayId_ = String(param1.DisplayId);
+            }
             this.noWalk_ = param1.hasOwnProperty("NoWalk");
             if(param1.hasOwnProperty("MinDamage")) {
                 this.minDamage_ = int(param1.MinDamage);

@@ -1929,7 +1929,7 @@ package kabam.rotmg.messaging.impl {
                 this.aoeAck(gs_.lastUpdate_,0,0);
                 return;
             }
-            var _local_2:AOEEffect = new AOEEffect(param1.pos_.toPoint(),param1.radius_,16711680);
+            var _local_2:AOEEffect = new AOEEffect(param1.pos_.toPoint(),param1.radius_,param1.color_);
             gs_.map.addObj(_local_2,param1.pos_.x_,param1.pos_.y_);
             if(this.player.isInvincible() || this.player.isPaused()) {
                 this.aoeAck(gs_.lastUpdate_,this.player.x_,this.player.y_);

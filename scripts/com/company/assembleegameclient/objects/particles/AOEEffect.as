@@ -21,6 +21,9 @@ package com.company.assembleegameclient.objects.particles {
             var _local_7:Number = NaN;
             var _local_8:Point = null;
             var _local_9:Particle = null;
+            if(this.color_ == -1) {
+                return false;
+            }
             x_ = this.start_.x;
             y_ = this.start_.y;
             var _local_3:int = 40;
@@ -41,6 +44,9 @@ package com.company.assembleegameclient.objects.particles {
             var _local_7:Number = NaN;
             var _local_8:Point = null;
             var _local_9:Particle = null;
+            if(this.color_ == -1) {
+                return false;
+            }
             x_ = this.start_.x;
             y_ = this.start_.y;
             var _local_3:int = 200;

@@ -46,6 +46,10 @@ package com.company.assembleegameclient.map {
             return _local_2.id_;
         }
         
+        public static function getPropsFromId(param1:String) : GroundProperties {
+            return propsLibrary_[idToType_[param1]];
+        }
+        
         public static function getBitmapData(param1:int, param2:int = 0) : BitmapData {
             return typeToTextureData_[param1].getTexture(param2);
         }
