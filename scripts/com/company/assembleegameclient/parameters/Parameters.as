@@ -10,7 +10,7 @@ package com.company.assembleegameclient.parameters {
     
     public class Parameters {
         
-        public static const BUILD_VERSION:String = "X15.0";
+        public static const BUILD_VERSION:String = "X15.1";
         
         public static const MINOR_VERSION:String = "0";
         
