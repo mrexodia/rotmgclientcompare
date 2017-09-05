@@ -14,7 +14,7 @@ package kabam.rotmg.ui {
         
         public static const EXPERIMENTAL_MENU_PASSWORD:String = "decamenu";
         
-        public static var SHOW_EXPERIMENTAL_MENU:Boolean = false;
+        public static var SHOW_EXPERIMENTAL_MENU:Boolean = true;
         
         public static const NOTIFICATION_SPACE:uint = 28;
          

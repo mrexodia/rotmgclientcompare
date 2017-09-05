@@ -52,6 +52,8 @@ package kabam.rotmg.minimap.view {
         
         public var characterLayer_:Shape;
         
+        public var enemyLayer_:Shape;
+        
         private var focus:GameObject;
         
         private var zoomButtons:MiniMapZoomButtons;
@@ -132,6 +134,10 @@ package kabam.rotmg.minimap.view {
             this.characterLayer_.x = this._width / 2;
             this.characterLayer_.y = this._height / 2;
             addChild(this.characterLayer_);
+            this.enemyLayer_ = new Shape();
+            this.enemyLayer_.x = this._width / 2;
+            this.enemyLayer_.y = this._height / 2;
+            addChild(this.enemyLayer_);
             this.zoomButtons = new MiniMapZoomButtons();
             this.zoomButtons.x = this._width - 20;
             this.zoomButtons.zoom.add(this.onZoomChanged);
@@ -225,17 +231,19 @@ package kabam.rotmg.minimap.view {
         
         override public function draw() : void {
             var _local_7:Graphics = null;
-            var _local_10:GameObject = null;
-            var _local_15:uint = 0;
-            var _local_16:Player = null;
-            var _local_17:Number = NaN;
+            var _local_8:Graphics = null;
+            var _local_11:GameObject = null;
+            var _local_16:uint = 0;
+            var _local_17:Player = null;
             var _local_18:Number = NaN;
             var _local_19:Number = NaN;
             var _local_20:Number = NaN;
             var _local_21:Number = NaN;
+            var _local_22:Number = NaN;
             this._rotateEnableFlag = this._rotateEnableFlag && Parameters.data_.allowMiniMapRotation;
             this.groundLayer_.graphics.clear();
             this.characterLayer_.graphics.clear();
+            this.enemyLayer_.graphics.clear();
             if(!this.focus) {
                 return;
             }
@@ -275,49 +283,63 @@ package kabam.rotmg.minimap.view {
             _local_7.drawRect(_local_6.x,_local_6.y,_local_6.width,_local_6.height);
             _local_7.endFill();
             _local_7 = this.characterLayer_.graphics;
-            var _local_8:Number = mouseX - this._width / 2;
-            var _local_9:Number = mouseY - this._height / 2;
+            _local_8 = this.enemyLayer_.graphics;
+            var _local_9:Number = mouseX - this._width / 2;
+            var _local_10:Number = mouseY - this._height / 2;
             this.players_.length = 0;
-            for each(_local_10 in map.goDict_) {
-                if(!(_local_10.props_.noMiniMap_ || _local_10 == this.focus)) {
-                    _local_16 = _local_10 as Player;
-                    if(_local_16 != null) {
-                        if(_local_16.isPaused()) {
-                            _local_15 = 8355711;
-                        } else if(_local_16.isFellowGuild_) {
-                            _local_15 = 65280;
+            for each(_local_11 in map.goDict_) {
+                if(!(_local_11.props_.noMiniMap_ || _local_11 == this.focus)) {
+                    _local_17 = _local_11 as Player;
+                    if(_local_17 != null) {
+                        if(_local_17.isPaused()) {
+                            _local_16 = 8355711;
+                        } else if(Parameters.data_.newMiniMapColors && _local_17.isFellowGuild_ && !_local_17.starred_) {
+                            _local_16 = 52992;
+                        } else if(_local_17.isFellowGuild_) {
+                            _local_16 = 65280;
+                        } else if(Parameters.data_.newMiniMapColors && !_local_17.nameChosen_ && _local_17.starred_) {
+                            _local_16 = 16777215;
+                        } else if(Parameters.data_.newMiniMapColors && !_local_17.nameChosen_) {
+                            _local_16 = 13619151;
+                        } else if(Parameters.data_.newMiniMapColors && !_local_17.starred_) {
+                            _local_16 = 13618944;
                         } else {
-                            _local_15 = 16776960;
+                            _local_16 = 16776960;
                         }
-                    } else if(_local_10 is Character) {
-                        if(_local_10.props_.isEnemy_) {
-                            _local_15 = 16711680;
-                        } else {
-                            _local_15 = gameObjectToColor(_local_10);
+                    } else if(_local_11 is Character) {
+                        if(!_local_11.props_.isEnemy_) {
+                            _local_16 = gameObjectToColor(_local_11);
                         }
-                    } else if(_local_10 is Portal || _local_10 is GuildHallPortal) {
-                        _local_15 = 255;
+                    } else if(_local_11 is Portal || _local_11 is GuildHallPortal) {
+                        _local_16 = 255;
                     } else {
                         continue;
                     }
-                    _local_17 = this.mapMatrix_.a * _local_10.x_ + this.mapMatrix_.c * _local_10.y_ + this.mapMatrix_.tx;
-                    _local_18 = this.mapMatrix_.b * _local_10.x_ + this.mapMatrix_.d * _local_10.y_ + this.mapMatrix_.ty;
-                    if(_local_17 <= -this._width / 2 || _local_17 >= this._width / 2 || _local_18 <= -this._height / 2 || _local_18 >= this._height / 2) {
-                        RectangleUtil.lineSegmentIntersectXY(this.windowRect_,0,0,_local_17,_local_18,this.tempPoint);
-                        _local_17 = this.tempPoint.x;
-                        _local_18 = this.tempPoint.y;
+                    _local_18 = this.mapMatrix_.a * _local_11.x_ + this.mapMatrix_.c * _local_11.y_ + this.mapMatrix_.tx;
+                    _local_19 = this.mapMatrix_.b * _local_11.x_ + this.mapMatrix_.d * _local_11.y_ + this.mapMatrix_.ty;
+                    if(_local_18 <= -this._width / 2 || _local_18 >= this._width / 2 || _local_19 <= -this._height / 2 || _local_19 >= this._height / 2) {
+                        RectangleUtil.lineSegmentIntersectXY(this.windowRect_,0,0,_local_18,_local_19,this.tempPoint);
+                        _local_18 = this.tempPoint.x;
+                        _local_19 = this.tempPoint.y;
                     }
-                    if(_local_16 != null && this.isMouseOver && (this.menu == null || this.menu.parent == null)) {
-                        _local_19 = _local_8 - _local_17;
+                    if(_local_17 != null && this.isMouseOver && (this.menu == null || this.menu.parent == null)) {
                         _local_20 = _local_9 - _local_18;
-                        _local_21 = _local_19 * _local_19 + _local_20 * _local_20;
-                        if(_local_21 < MOUSE_DIST_SQ) {
-                            this.players_.push(_local_16);
+                        _local_21 = _local_10 - _local_19;
+                        _local_22 = _local_20 * _local_20 + _local_21 * _local_21;
+                        if(_local_22 < MOUSE_DIST_SQ) {
+                            this.players_.push(_local_17);
                         }
                     }
-                    _local_7.beginFill(_local_15);
-                    _local_7.drawRect(_local_17 - 2,_local_18 - 2,4,4);
-                    _local_7.endFill();
+                    if(_local_11 is Character && _local_11.props_.isEnemy_) {
+                        _local_16 = 16711680;
+                        _local_8.beginFill(_local_16);
+                        _local_8.drawRect(_local_18 - 2,_local_19 - 2,4,4);
+                        _local_8.endFill();
+                    } else {
+                        _local_7.beginFill(_local_16);
+                        _local_7.drawRect(_local_18 - 2,_local_19 - 2,4,4);
+                        _local_7.endFill();
+                    }
                 }
             }
             if(this.players_.length != 0) {
@@ -333,19 +355,19 @@ package kabam.rotmg.minimap.view {
                 }
                 this.tooltip = null;
             }
-            var _local_11:Number = this.focus.x_;
-            var _local_12:Number = this.focus.y_;
-            var _local_13:Number = this.mapMatrix_.a * _local_11 + this.mapMatrix_.c * _local_12 + this.mapMatrix_.tx;
-            var _local_14:Number = this.mapMatrix_.b * _local_11 + this.mapMatrix_.d * _local_12 + this.mapMatrix_.ty;
+            var _local_12:Number = this.focus.x_;
+            var _local_13:Number = this.focus.y_;
+            var _local_14:Number = this.mapMatrix_.a * _local_12 + this.mapMatrix_.c * _local_13 + this.mapMatrix_.tx;
+            var _local_15:Number = this.mapMatrix_.b * _local_12 + this.mapMatrix_.d * _local_13 + this.mapMatrix_.ty;
             this.arrowMatrix_.identity();
             this.arrowMatrix_.translate(-4,-5);
             this.arrowMatrix_.scale(8 / this.blueArrow_.width,32 / this.blueArrow_.height);
             if(!(_local_1 >= 1 && this._rotateEnableFlag)) {
                 this.arrowMatrix_.rotate(Parameters.data_.cameraAngle);
             }
-            this.arrowMatrix_.translate(_local_13,_local_14);
+            this.arrowMatrix_.translate(_local_14,_local_15);
             _local_7.beginBitmapFill(this.blueArrow_,this.arrowMatrix_,false);
-            _local_7.drawRect(_local_13 - 16,_local_14 - 16,32,32);
+            _local_7.drawRect(_local_14 - 16,_local_15 - 16,32,32);
             _local_7.endFill();
         }
         

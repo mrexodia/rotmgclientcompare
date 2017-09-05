@@ -34,6 +34,8 @@ package com.company.assembleegameclient.ui {
         
         public var maxMax_:int = -1;
         
+        public var level_:int = 0;
+        
         private var labelText_:TextFieldDisplayConcrete;
         
         private var labelTextStringBuilder_:LineBuilder;
@@ -58,18 +60,21 @@ package com.company.assembleegameclient.ui {
         
         private var isPulsing:Boolean = false;
         
+        private var forceNumText_:Boolean = false;
+        
         private var repetitions:int;
         
         private var direction:int = -1;
         
         private var speed:Number = 0.1;
         
-        public function StatusBar(param1:int, param2:int, param3:uint, param4:uint, param5:String = null) {
+        public function StatusBar(param1:int, param2:int, param3:uint, param4:uint, param5:String = null, param6:Boolean = false) {
             this.colorSprite = new Sprite();
             super();
             addChild(this.colorSprite);
             this.w_ = param1;
             this.h_ = param2;
+            this.forceNumText_ = param6;
             this.defaultForegroundColor = this.color_ = param3;
             this.defaultBackgroundColor = this.backColor_ = param4;
             this.textColor_ = 16777215;
@@ -113,7 +118,7 @@ package com.company.assembleegameclient.ui {
         
         public function centerVertically(param1:TextFieldDisplayConcrete) : void {
             param1.setVerticalAlign(TextFieldDisplayConcrete.MIDDLE);
-            param1.y = this.h_ / 2 + 1;
+            param1.y = int(this.h_ / 2);
         }
         
         private function onMultiplierOver(param1:MouseEvent) : void {
@@ -124,7 +129,7 @@ package com.company.assembleegameclient.ui {
             dispatchEvent(new Event("MULTIPLIER_OUT"));
         }
         
-        public function draw(param1:int, param2:int, param3:int, param4:int = -1) : void {
+        public function draw(param1:int, param2:int, param3:int, param4:int = -1, param5:int = 0) : void {
             if(param2 > 0) {
                 param1 = Math.min(param2,Math.max(0,param1));
             }
@@ -135,6 +140,7 @@ package com.company.assembleegameclient.ui {
             this.max_ = param2;
             this.boost_ = param3;
             this.maxMax_ = param4;
+            this.level_ = param5;
             this.internalDraw();
         }
         
@@ -195,14 +201,22 @@ package com.company.assembleegameclient.ui {
             if(contains(this.boostText_)) {
                 removeChild(this.boostText_);
             }
-            if(Parameters.data_.toggleBarText || this.mouseOver_ && this.h_ > 4) {
+            if(Parameters.data_.toggleBarText || this.mouseOver_ && this.h_ > 4 || this.forceNumText_) {
                 this.drawWithMouseOver();
             }
         }
         
         public function drawWithMouseOver() : void {
+            var _local_2:int = 0;
+            var _local_1:String = "";
+            if(Parameters.data_.toggleToMaxText) {
+                _local_2 = this.maxMax_ - (this.max_ - this.boost_);
+                if(this.level_ >= 20 && _local_2 > 0) {
+                    _local_1 = _local_1 + ("|" + Math.ceil(_local_2 / 5).toString());
+                }
+            }
             if(this.max_ > 0) {
-                this.valueText_.setStringBuilder(this.valueTextStringBuilder_.setString(this.val_ + "/" + this.max_));
+                this.valueText_.setStringBuilder(this.valueTextStringBuilder_.setString(this.val_ + "/" + this.max_ + _local_1));
             } else {
                 this.valueText_.setStringBuilder(this.valueTextStringBuilder_.setString("" + this.val_));
             }

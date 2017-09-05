@@ -54,11 +54,11 @@ package kabam.rotmg.packages.services {
             var _local_2:PackageInfo = null;
             var _local_1:PackageInfo = null;
             for each(_local_2 in this.models) {
-                if(_local_1 == null || _local_2.priority < _local_1.priority) {
+                if(_local_1 == null || _local_2.priority > _local_1.priority) {
                     _local_1 = _local_2;
                 }
             }
-            return _local_2;
+            return _local_1;
         }
         
         public function hasPackages() : Boolean {

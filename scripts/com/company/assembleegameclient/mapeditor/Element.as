@@ -1,5 +1,6 @@
 package com.company.assembleegameclient.mapeditor {
     import com.company.assembleegameclient.ui.tooltip.ToolTip;
+    import flash.display.BitmapData;
     import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
@@ -14,6 +15,8 @@ package com.company.assembleegameclient.mapeditor {
          
         
         public var type_:int;
+        
+        public var downloadOnly:Boolean;
         
         protected var selected_:Boolean = false;
         
@@ -87,6 +90,10 @@ package com.company.assembleegameclient.mapeditor {
                 graphics.lineStyle();
             }
             graphics.endFill();
+        }
+        
+        public function get objectBitmap() : BitmapData {
+            return null;
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.company.assembleegameclient.mapeditor {
+    import com.adobe.images.PNGEncoder;
     import com.company.assembleegameclient.ui.Scrollbar;
     import com.company.util.GraphicsUtil;
+    import flash.display.BitmapData;
     import flash.display.CapsStyle;
     import flash.display.GraphicsPath;
     import flash.display.GraphicsSolidFill;
@@ -12,6 +14,8 @@ package com.company.assembleegameclient.mapeditor {
     import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
+    import flash.net.FileReference;
+    import flash.utils.ByteArray;
     
     class Chooser extends Sprite {
         
@@ -113,7 +117,11 @@ package com.company.assembleegameclient.mapeditor {
         
         protected function onMouseDown(param1:MouseEvent) : void {
             var _local_2:Element = param1.currentTarget as Element;
-            this.setSelected(_local_2);
+            if(_local_2.downloadOnly) {
+                this.downloadElement(_local_2);
+            } else {
+                this.setSelected(_local_2);
+            }
         }
         
         protected function setSelected(param1:Element) : void {
@@ -122,6 +130,17 @@ package com.company.assembleegameclient.mapeditor {
             }
             this.selected_ = param1;
             this.selected_.setSelected(true);
+        }
+        
+        private function downloadElement(param1:Element) : void {
+            var _local_3:ByteArray = null;
+            var _local_4:FileReference = null;
+            var _local_2:BitmapData = param1.objectBitmap;
+            if(_local_2 != null) {
+                _local_3 = PNGEncoder.encode(param1.objectBitmap);
+                _local_4 = new FileReference();
+                _local_4.save(_local_3,param1.type_ + ".png");
+            }
         }
         
         protected function onScrollBarChange(param1:Event) : void {

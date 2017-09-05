@@ -49,6 +49,10 @@ package com.company.assembleegameclient.objects {
         
         public var isPetEffect_:Dictionary;
         
+        public var faceDir_:Boolean;
+        
+        public var noRotation_:Boolean;
+        
         public function ProjectileProperties(param1:XML) {
             var _local_2:XML = null;
             super();
@@ -95,6 +99,8 @@ package com.company.assembleegameclient.objects {
             this.amplitude_ = !!param1.hasOwnProperty("Amplitude")?Number(Number(param1.Amplitude)):Number(0);
             this.frequency_ = !!param1.hasOwnProperty("Frequency")?Number(Number(param1.Frequency)):Number(1);
             this.magnitude_ = !!param1.hasOwnProperty("Magnitude")?Number(Number(param1.Magnitude)):Number(3);
+            this.faceDir_ = param1.hasOwnProperty("FaceDir");
+            this.noRotation_ = param1.hasOwnProperty("NoRotation");
         }
     }
 }

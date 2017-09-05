@@ -12,7 +12,7 @@ package com.company.assembleegameclient.parameters {
         
         public static const BUILD_VERSION:String = "27.7";
         
-        public static const MINOR_VERSION:String = "X13";
+        public static const MINOR_VERSION:String = "X14";
         
         public static const ENABLE_ENCRYPTION:Boolean = true;
         
@@ -252,6 +252,7 @@ package com.company.assembleegameclient.parameters {
             setDefault("chatGuild",true);
             setDefault("chatTrade",true);
             setDefault("toggleBarText",false);
+            setDefault("toggleToMaxText",false);
             setDefault("particleEffect",true);
             if(data_.hasOwnProperty("playMusic") && data_.playMusic == true) {
                 setDefault("musicVolume",1);
@@ -268,6 +269,7 @@ package com.company.assembleegameclient.parameters {
             setDefault("chatFriend",false);
             setDefault("friendStarRequirement",0);
             setDefault("HPBar",false);
+            setDefault("newMiniMapColors",false);
             if(!data_.hasOwnProperty("needsSurvey")) {
                 data_.needsSurvey = data_.needsTutorial;
                 switch(int(Math.random() * 5)) {

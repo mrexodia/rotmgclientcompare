@@ -153,6 +153,8 @@ package com.company.assembleegameclient.ui {
         }
         
         protected function onMouseWheel(param1:MouseEvent) : void {
+            param1.stopPropagation();
+            param1.stopImmediatePropagation();
             if(param1.delta > 0) {
                 this.jumpUp();
             } else if(param1.delta < 0) {

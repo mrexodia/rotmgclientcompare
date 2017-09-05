@@ -43,7 +43,16 @@ package com.company.assembleegameclient.ui.menu {
                 _local_2.y = this.posY;
                 addChild(_local_2);
                 this.playerPanels_.push(_local_2);
+                _local_2.textReady.addOnce(this.onTextChanged);
                 this.posY = this.posY + 32;
+            }
+        }
+        
+        private function onTextChanged() : void {
+            var _local_1:GameObjectListItem = null;
+            draw();
+            for each(_local_1 in this.playerPanels_) {
+                _local_1.textReady.remove(this.onTextChanged);
             }
         }
         

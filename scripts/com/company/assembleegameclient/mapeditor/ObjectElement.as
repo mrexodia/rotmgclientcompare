@@ -11,13 +11,15 @@ package com.company.assembleegameclient.mapeditor {
         
         public var objXML_:XML;
         
+        private var downloadableTexture:BitmapData;
+        
         function ObjectElement(param1:XML) {
             var _local_3:Animations = null;
-            var _local_5:Bitmap = null;
             var _local_7:BitmapData = null;
             super(int(param1.@type));
             this.objXML_ = param1;
             var _local_2:BitmapData = ObjectLibrary.getRedrawnTextureFromType(type_,100,true,false);
+            this.downloadableTexture = ObjectLibrary.getRedrawnTextureFromType(type_,200,true,false);
             var _local_4:AnimationsData = ObjectLibrary.typeToAnimationsData_[int(param1.@type)];
             if(_local_4 != null) {
                 _local_3 = new Animations(_local_4);
@@ -26,7 +28,7 @@ package com.company.assembleegameclient.mapeditor {
                     _local_2 = _local_7;
                 }
             }
-            _local_5 = new Bitmap(_local_2);
+            var _local_5:Bitmap = new Bitmap(_local_2);
             var _local_6:Number = (WIDTH - 4) / Math.max(_local_5.width,_local_5.height);
             _local_5.scaleX = _local_5.scaleY = _local_6;
             _local_5.x = WIDTH / 2 - _local_5.width / 2;
@@ -36,6 +38,10 @@ package com.company.assembleegameclient.mapeditor {
         
         override protected function getToolTip() : ToolTip {
             return new ObjectTypeToolTip(this.objXML_);
+        }
+        
+        override public function get objectBitmap() : BitmapData {
+            return this.downloadableTexture;
         }
     }
 }

@@ -36,7 +36,7 @@ package com.company.assembleegameclient.screens.charrects {
             super();
         }
         
-        private static function makeDropShadowFilter() : Array {
+        protected static function makeDropShadowFilter() : Array {
             return [new DropShadowFilter(0,0,0,1,8,8)];
         }
         

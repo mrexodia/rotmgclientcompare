@@ -255,6 +255,14 @@ package kabam.rotmg.text.model {
         
         public static const OPTIONS_TOGGLE_BARTEXT_DESC:String = "Options.ToggleBarTextDesc";
         
+        public static const OPTIONS_TOGGLE_TOMAXTEXT:String = "Options.ToggleToMaxText";
+        
+        public static const OPTIONS_TOGGLE_TOMAXTEXT_DESC:String = "Options.ToggleToMaxTextDesc";
+        
+        public static const OPTIONS_TOGGLE_NEWMINIMAPCOLORS:String = "Options.ToggleNewMiniMapColorsText";
+        
+        public static const OPTIONS_TOGGLE_NEWMINIMAPCOLORS_DESC:String = "Options.ToggleNewMiniMapColorsTextDesc";
+        
         public static const OPTIONS_TOGGLE_PARTICLE_EFFECT:String = "Options.ToggleParticleEffect";
         
         public static const OPTIONS_TOGGLE_PARTICLE_EFFECT_DESC:String = "Options.ToggleParticleEffectDesc";

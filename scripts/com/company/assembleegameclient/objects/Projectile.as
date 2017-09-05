@@ -320,10 +320,10 @@ package com.company.assembleegameclient.objects {
         }
         
         override public function draw(param1:Vector.<IGraphicsData>, param2:Camera, param3:int) : void {
-            var _local_6:uint = 0;
-            var _local_7:uint = 0;
-            var _local_8:int = 0;
-            var _local_9:int = 0;
+            var _local_8:uint = 0;
+            var _local_9:uint = 0;
+            var _local_10:int = 0;
+            var _local_11:int = 0;
             if(!Parameters.drawProj_) {
                 return;
             }
@@ -331,48 +331,59 @@ package com.company.assembleegameclient.objects {
             if(Parameters.projColorType_ != 0) {
                 switch(Parameters.projColorType_) {
                     case 1:
-                        _local_6 = 16777100;
-                        _local_7 = 16777215;
+                        _local_8 = 16777100;
+                        _local_9 = 16777215;
                         break;
                     case 2:
-                        _local_6 = 16777100;
-                        _local_7 = 16777100;
+                        _local_8 = 16777100;
+                        _local_9 = 16777100;
                         break;
                     case 3:
-                        _local_6 = 16711680;
-                        _local_7 = 16711680;
+                        _local_8 = 16711680;
+                        _local_9 = 16711680;
                         break;
                     case 4:
-                        _local_6 = 255;
-                        _local_7 = 255;
+                        _local_8 = 255;
+                        _local_9 = 255;
                         break;
                     case 5:
-                        _local_6 = 16777215;
-                        _local_7 = 16777215;
+                        _local_8 = 16777215;
+                        _local_9 = 16777215;
                         break;
                     case 6:
-                        _local_6 = 0;
-                        _local_7 = 0;
+                        _local_8 = 0;
+                        _local_9 = 0;
                 }
-                _local_4 = TextureRedrawer.redraw(_local_4,120,true,_local_7);
+                _local_4 = TextureRedrawer.redraw(_local_4,120,true,_local_9);
             }
             var _local_5:Number = this.props_.rotation_ == 0?Number(0):Number(param3 / this.props_.rotation_);
             this.staticVector3D_.x = x_;
             this.staticVector3D_.y = y_;
             this.staticVector3D_.z = z_;
-            this.p_.draw(param1,this.staticVector3D_,this.angle_ - param2.angleRad_ + this.props_.angleCorrection_ + _local_5,param2.wToS_,param2,_local_4);
+            var _local_6:Number = !!this.projProps_.faceDir_?Number(this.getDirectionAngle(param3)):Number(this.angle_);
+            var _local_7:Number = !!this.projProps_.noRotation_?Number(param2.angleRad_ + this.props_.angleCorrection_):Number(_local_6 - param2.angleRad_ + this.props_.angleCorrection_ + _local_5);
+            this.p_.draw(param1,this.staticVector3D_,_local_7,param2.wToS_,param2,_local_4);
             if(this.projProps_.particleTrail_) {
-                _local_8 = this.projProps_.particleTrailLifetimeMS != -1?int(this.projProps_.particleTrailLifetimeMS):600;
-                _local_9 = 0;
-                for(; _local_9 < 3; _local_9++) {
+                _local_10 = this.projProps_.particleTrailLifetimeMS != -1?int(this.projProps_.particleTrailLifetimeMS):600;
+                _local_11 = 0;
+                for(; _local_11 < 3; _local_11++) {
                     if(map_ != null && map_.player_.objectId_ != this.ownerId_) {
                         if(this.projProps_.particleTrailIntensity_ == -1 && Math.random() * 100 > this.projProps_.particleTrailIntensity_) {
                             continue;
                         }
                     }
-                    map_.addObj(new SparkParticle(100,this.projProps_.particleTrailColor_,_local_8,0.5,RandomUtil.plusMinus(3),RandomUtil.plusMinus(3)),x_,y_);
+                    map_.addObj(new SparkParticle(100,this.projProps_.particleTrailColor_,_local_10,0.5,RandomUtil.plusMinus(3),RandomUtil.plusMinus(3)),x_,y_);
                 }
             }
+        }
+        
+        private function getDirectionAngle(param1:*) : Number {
+            var _local_2:int = param1 - this.startTime_;
+            var _local_3:Point = new Point();
+            this.positionAt(_local_2 + 16,_local_3);
+            var _local_4:Number = _local_3.x - x_;
+            var _local_5:Number = _local_3.y - y_;
+            return Math.atan2(_local_5,_local_4);
         }
         
         override public function drawShadow(param1:Vector.<IGraphicsData>, param2:Camera, param3:int) : void {

@@ -1,4 +1,5 @@
 package kabam.rotmg.game.view.components {
+    import com.company.assembleegameclient.parameters.Parameters;
     import com.company.assembleegameclient.ui.tooltip.TextToolTip;
     import flash.display.Sprite;
     import flash.events.MouseEvent;
@@ -7,9 +8,12 @@ package kabam.rotmg.game.view.components {
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
     import kabam.rotmg.text.view.stringBuilder.StaticStringBuilder;
+    import org.osflash.signals.Signal;
     import org.osflash.signals.natives.NativeSignal;
     
     public class StatView extends Sprite {
+        
+        public static var toMaxTextSignal:Signal = new Signal(Boolean);
          
         
         public var fullName_:String;
@@ -26,7 +30,11 @@ package kabam.rotmg.game.view.components {
         
         public var boost_:int = -1;
         
+        public var max_:int = -1;
+        
         public var valColor_:uint = 11776947;
+        
+        public var level_:int = 0;
         
         public var toolTip_:TextToolTip;
         
@@ -48,6 +56,7 @@ package kabam.rotmg.game.view.components {
             this.redOnZero_ = param4;
             this.mouseOver = new NativeSignal(this,MouseEvent.MOUSE_OVER,MouseEvent);
             this.mouseOut = new NativeSignal(this,MouseEvent.MOUSE_OUT,MouseEvent);
+            toMaxTextSignal.add(this.setNewText);
         }
         
         public function configureTextAndAdd(param1:TextFieldDisplayConcrete) : void {
@@ -70,32 +79,45 @@ package kabam.rotmg.game.view.components {
             }
         }
         
-        public function draw(param1:int, param2:int, param3:int) : void {
-            var _local_4:uint = 0;
-            if(param1 == this.val_ && param2 == this.boost_) {
+        public function draw(param1:int, param2:int, param3:int, param4:int = 0) : void {
+            var _local_5:uint = 0;
+            if(param4 == this.level_ && param1 == this.val_ && param2 == this.boost_) {
                 return;
             }
             this.val_ = param1;
             this.boost_ = param2;
+            this.max_ = param3;
+            this.level_ = param4;
             if(param1 - param2 >= param3) {
-                _local_4 = 16572160;
+                _local_5 = 16572160;
             } else if(this.redOnZero_ && this.val_ <= 0 || this.boost_ < 0) {
-                _local_4 = 16726072;
+                _local_5 = 16726072;
             } else if(this.boost_ > 0) {
-                _local_4 = 6206769;
+                _local_5 = 6206769;
             } else {
-                _local_4 = 11776947;
+                _local_5 = 11776947;
             }
-            if(this.valColor_ != _local_4) {
-                this.valColor_ = _local_4;
+            if(this.valColor_ != _local_5) {
+                this.valColor_ = _local_5;
                 this.valText_.setColor(this.valColor_);
             }
-            var _local_5:String = this.val_.toString();
-            if(this.boost_ != 0) {
-                _local_5 = _local_5 + (" (" + (this.boost_ > 0?"+":"") + this.boost_.toString() + ")");
+            this.setNewText(Parameters.data_.toggleToMaxText);
+        }
+        
+        public function setNewText(param1:Boolean) : void {
+            var _local_3:int = 0;
+            var _local_2:String = this.val_.toString();
+            if(param1) {
+                _local_3 = this.max_ - (this.val_ - this.boost_);
+                if(this.level_ >= 20 && _local_3 > 0) {
+                    _local_2 = _local_2 + ("|" + _local_3.toString());
+                }
             }
-            this.valText_.setStringBuilder(new StaticStringBuilder(_local_5));
-            this.valText_.x = this.nameText_.getBounds(this).right;
+            if(this.boost_ != 0) {
+                _local_2 = _local_2 + (" (" + (this.boost_ > 0?"+":"") + this.boost_.toString() + ")");
+            }
+            this.valText_.setStringBuilder(new StaticStringBuilder(_local_2));
+            this.valText_.x = 24;
         }
     }
 }

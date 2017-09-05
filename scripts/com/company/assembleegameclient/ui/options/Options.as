@@ -24,6 +24,7 @@ package com.company.assembleegameclient.ui.options {
     import flash.ui.Mouse;
     import flash.ui.MouseCursor;
     import flash.ui.MouseCursorData;
+    import kabam.rotmg.game.view.components.StatView;
     import kabam.rotmg.text.model.TextKey;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
@@ -149,7 +150,7 @@ package com.company.assembleegameclient.ui.options {
         }
         
         private static function makeCursorSelectLabels() : Vector.<StringBuilder> {
-            return new <StringBuilder>[new StaticStringBuilder("Off"),new StaticStringBuilder("ProX"),new StaticStringBuilder("X2"),new StaticStringBuilder("X3"),new StaticStringBuilder("X4"),new StaticStringBuilder("Corner1"),new StaticStringBuilder("Corner2"),new StaticStringBuilder("Symb"),new StaticStringBuilder("Alien"),new StaticStringBuilder("Xhair"),new StaticStringBuilder("Dystopia+")];
+            return new <StringBuilder>[new StaticStringBuilder("Off"),new StaticStringBuilder("ProX"),new StaticStringBuilder("X2"),new StaticStringBuilder("X3"),new StaticStringBuilder("X4"),new StaticStringBuilder("Corner1"),new StaticStringBuilder("Corner2"),new StaticStringBuilder("Symb"),new StaticStringBuilder("Alien"),new StaticStringBuilder("Xhair"),new StaticStringBuilder("Chvzto1"),new StaticStringBuilder("Chvzto2")];
         }
         
         private static function makeLineBuilder(param1:String) : LineBuilder {
@@ -166,6 +167,11 @@ package com.company.assembleegameclient.ui.options {
         
         private static function onBarTextToggle() : void {
             StatusBar.barTextSignal.dispatch(Parameters.data_.toggleBarText);
+        }
+        
+        private static function onToMaxTextToggle() : void {
+            StatusBar.barTextSignal.dispatch(Parameters.data_.toggleBarText);
+            StatView.toMaxTextSignal.dispatch(Parameters.data_.toggleToMaxText);
         }
         
         public static function refreshCursor() : void {
@@ -445,9 +451,11 @@ package com.company.assembleegameclient.ui.options {
         }
         
         private function addExperimentalOptions() : void {
-            this.addOptionAndPosition(new ChoiceOption("disableEnemyParticles",makeOnOffLabels(),[true,false],"Disable enemy particles","Disable particles when hit enemy and when enemy is dying.",null));
-            this.addOptionAndPosition(new ChoiceOption("disableAllyParticles",makeOnOffLabels(),[true,false],"Disable ally particles","Disable particles produces by shooting ally.",null));
-            this.addOptionAndPosition(new ChoiceOption("disablePlayersHitParticles",makeOnOffLabels(),[true,false],"Disable players hit particles","Disable particles when player or ally is hit.",null));
+            this.addOptionAndPosition(new ChoiceOption("disableEnemyParticles",makeOnOffLabels(),[true,false],"Disable Enemy Particles","Disable enemy hit and death particles.",null));
+            this.addOptionAndPosition(new ChoiceOption("disableAllyParticles",makeOnOffLabels(),[true,false],"Disable Ally Projectiles","Disable showing projectiles shot by allies.",null));
+            this.addOptionAndPosition(new ChoiceOption("disablePlayersHitParticles",makeOnOffLabels(),[true,false],"Disable Players Hit Particles","Disable player and ally hit particles.",null));
+            this.addOptionAndPosition(new ChoiceOption("toggleToMaxText",makeOnOffLabels(),[true,false],TextKey.OPTIONS_TOGGLE_TOMAXTEXT,TextKey.OPTIONS_TOGGLE_TOMAXTEXT_DESC,onToMaxTextToggle));
+            this.addOptionAndPosition(new ChoiceOption("newMiniMapColors",makeOnOffLabels(),[true,false],TextKey.OPTIONS_TOGGLE_NEWMINIMAPCOLORS,TextKey.OPTIONS_TOGGLE_NEWMINIMAPCOLORS_DESC,null));
         }
         
         private function addGraphicsOptions() : void {
@@ -461,7 +469,7 @@ package com.company.assembleegameclient.ui.options {
             this.addOptionAndPosition(new ChoiceOption("textBubbles",makeOnOffLabels(),[true,false],TextKey.OPTIONS_DRAW_TEXT_BUBBLES,TextKey.OPTIONS_DRAW_TEXT_BUBBLES_DESC,null));
             this.addOptionAndPosition(new ChoiceOption("showTradePopup",makeOnOffLabels(),[true,false],TextKey.OPTIONS_SHOW_TRADE_REQUEST_PANEL,TextKey.OPTIONS_SHOW_TRADE_REQUEST_PANEL_DESC,null));
             this.addOptionAndPosition(new ChoiceOption("showGuildInvitePopup",makeOnOffLabels(),[true,false],TextKey.OPTIONS_SHOW_GUILD_INVITE_PANEL,TextKey.OPTIONS_SHOW_GUILD_INVITE_PANEL_DESC,null));
-            this.addOptionAndPosition(new ChoiceOption("cursorSelect",makeCursorSelectLabels(),[MouseCursor.AUTO,"0","1","2","3","4","5","6","7","8","9"],"Custom Cursor","Click here to change the mouse cursor. May help with aiming.",refreshCursor));
+            this.addOptionAndPosition(new ChoiceOption("cursorSelect",makeCursorSelectLabels(),[MouseCursor.AUTO,"0","1","2","3","4","5","6","7","8","9","10"],"Custom Cursor","Click here to change the mouse cursor. May help with aiming.",refreshCursor));
             if(!Parameters.GPURenderError) {
                 _local_1 = TextKey.OPTIONS_HARDWARE_ACC_DESC;
                 _local_2 = 16777215;

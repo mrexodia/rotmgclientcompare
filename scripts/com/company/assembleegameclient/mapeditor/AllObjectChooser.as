@@ -10,48 +10,53 @@ package com.company.assembleegameclient.mapeditor {
         
         private var lastSearch:String = "";
         
-        function AllObjectChooser(param1:String = "") {
+        function AllObjectChooser(param1:String = "", param2:String = "All Map Objects") {
             super(Layer.OBJECT);
             this.cache = new Dictionary();
-            this.reloadObjects(param1,true);
+            this.reloadObjects(param1,true,param2);
         }
         
         public function getLastSearch() : String {
             return this.lastSearch;
         }
         
-        public function reloadObjects(param1:String = "", param2:Boolean = false) : void {
-            var _local_4:RegExp = null;
-            var _local_6:String = null;
-            var _local_7:XML = null;
+        public function reloadObjects(param1:String = "", param2:Boolean = false, param3:String = "All Map Objects") : void {
+            var _local_5:RegExp = null;
+            var _local_7:String = null;
             var _local_8:int = 0;
-            var _local_9:ObjectElement = null;
+            var _local_9:XML = null;
+            var _local_10:int = 0;
+            var _local_11:ObjectElement = null;
             if(!param2) {
                 removeElements();
             }
             this.lastSearch = param1;
-            var _local_3:Vector.<String> = new Vector.<String>();
+            var _local_4:Vector.<String> = new Vector.<String>();
             if(param1 != "") {
-                _local_4 = new RegExp(param1,"gix");
+                _local_5 = new RegExp(param1,"gix");
             }
-            var _local_5:Dictionary = GroupDivider.GROUPS["All Objects"];
-            for each(_local_7 in _local_5) {
-                _local_6 = String(_local_7.@id);
-                if(_local_4 == null || _local_6.search(_local_4) >= 0) {
-                    _local_3.push(_local_6);
+            var _local_6:Dictionary = GroupDivider.GROUPS[param3];
+            for each(_local_9 in _local_6) {
+                _local_7 = String(_local_9.@id);
+                _local_8 = int(_local_9.@type);
+                if(_local_5 == null || _local_7.search(_local_5) >= 0 || _local_8 == int(param1)) {
+                    _local_4.push(_local_7);
                 }
             }
-            _local_3.sort(MoreStringUtil.cmp);
-            for each(_local_6 in _local_3) {
-                _local_8 = ObjectLibrary.idToType_[_local_6];
-                _local_7 = ObjectLibrary.xmlLibrary_[_local_8];
-                if(!this.cache[_local_8]) {
-                    _local_9 = new ObjectElement(_local_7);
-                    this.cache[_local_8] = _local_9;
+            _local_4.sort(MoreStringUtil.cmp);
+            for each(_local_7 in _local_4) {
+                _local_10 = ObjectLibrary.idToType_[_local_7];
+                _local_9 = ObjectLibrary.xmlLibrary_[_local_10];
+                if(!this.cache[_local_10]) {
+                    _local_11 = new ObjectElement(_local_9);
+                    if(param3 == "All Game Objects") {
+                        _local_11.downloadOnly = true;
+                    }
+                    this.cache[_local_10] = _local_11;
                 } else {
-                    _local_9 = this.cache[_local_8];
+                    _local_11 = this.cache[_local_10];
                 }
-                addElement(_local_9);
+                addElement(_local_11);
             }
             scrollBar_.setIndicatorSize(HEIGHT,elementSprite_.height,true);
         }

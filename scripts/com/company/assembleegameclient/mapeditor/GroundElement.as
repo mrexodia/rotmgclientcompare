@@ -20,15 +20,17 @@ package com.company.assembleegameclient.mapeditor {
         
         private var tileShape_:Shape;
         
+        private var tileBD:BitmapData;
+        
         function GroundElement(param1:XML) {
             super(int(param1.@type));
             this.groundXML_ = param1;
             var _local_2:Vector.<IGraphicsData> = new Vector.<IGraphicsData>();
             var _local_3:Camera = new Camera();
             _local_3.configure(0.5,0.5,12,Math.PI / 4,new Rectangle(-100,-100,200,200));
-            var _local_4:BitmapData = GroundLibrary.getBitmapData(type_);
-            var _local_5:SquareFace = new SquareFace(_local_4,VIN,0,0,AnimateProperties.NO_ANIMATE,0,0);
-            _local_5.draw(_local_2,_local_3,0);
+            this.tileBD = GroundLibrary.getBitmapData(type_);
+            var _local_4:SquareFace = new SquareFace(this.tileBD,VIN,0,0,AnimateProperties.NO_ANIMATE,0,0);
+            _local_4.draw(_local_2,_local_3,0);
             this.tileShape_ = new Shape();
             this.tileShape_.graphics.drawGraphicsData(_local_2);
             this.tileShape_.scaleX = this.tileShape_.scaleY = SCALE;
@@ -39,6 +41,10 @@ package com.company.assembleegameclient.mapeditor {
         
         override protected function getToolTip() : ToolTip {
             return new GroundTypeToolTip(this.groundXML_);
+        }
+        
+        override public function get objectBitmap() : BitmapData {
+            return this.tileBD;
         }
     }
 }

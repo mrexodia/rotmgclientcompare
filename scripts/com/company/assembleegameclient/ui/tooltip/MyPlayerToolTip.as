@@ -15,6 +15,7 @@ package com.company.assembleegameclient.ui.tooltip {
     import kabam.rotmg.classes.model.ClassesModel;
     import kabam.rotmg.constants.GeneralConstants;
     import kabam.rotmg.core.StaticInjectorContext;
+    import kabam.rotmg.game.view.components.StatsView;
     import kabam.rotmg.text.model.TextKey;
     import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
@@ -44,11 +45,15 @@ package com.company.assembleegameclient.ui.tooltip {
         
         private var iGrid:InventoryGrid;
         
+        private var bGrid:InventoryGrid;
+        
         private var accountName:String;
         
         private var charXML:XML;
         
         private var charStats:CharacterStats;
+        
+        private var stats_:StatsView;
         
         public function MyPlayerToolTip(param1:String, param2:XML, param3:CharacterStats) {
             super(3552822,1,16777215,1);
@@ -58,6 +63,7 @@ package com.company.assembleegameclient.ui.tooltip {
         }
         
         public function createUI() : void {
+            var _local_5:Number = NaN;
             this.factory = StaticInjectorContext.getInjector().getInstance(CharacterFactory);
             this.classes = StaticInjectorContext.getInjector().getInstance(ClassesModel);
             var _local_1:int = int(this.charXML.ObjectType);
@@ -68,34 +74,54 @@ package com.company.assembleegameclient.ui.tooltip {
             this.player_.animatedChar_ = this.factory.makeCharacter(_local_4.template);
             this.playerPanel_ = new GameObjectListItem(11776947,true,this.player_);
             addChild(this.playerPanel_);
-            this.hpBar_ = new StatusBar(176,16,14693428,5526612,TextKey.STATUS_BAR_HEALTH_POINTS);
+            _local_5 = 36;
+            this.hpBar_ = new StatusBar(176,16,14693428,5526612,TextKey.STATUS_BAR_HEALTH_POINTS,true);
             this.hpBar_.x = 6;
-            this.hpBar_.y = 40;
+            this.hpBar_.y = _local_5;
             addChild(this.hpBar_);
-            this.mpBar_ = new StatusBar(176,16,6325472,5526612,TextKey.STATUS_BAR_MANA_POINTS);
+            _local_5 = _local_5 + 22;
+            this.mpBar_ = new StatusBar(176,16,6325472,5526612,TextKey.STATUS_BAR_MANA_POINTS,true);
             this.mpBar_.x = 6;
-            this.mpBar_.y = 64;
+            this.mpBar_.y = _local_5;
             addChild(this.mpBar_);
+            _local_5 = _local_5 + 22;
+            this.stats_ = new StatsView();
+            this.stats_.draw(this.player_,false);
+            this.stats_.x = 6;
+            this.stats_.y = _local_5 - 3;
+            addChild(this.stats_);
+            _local_5 = _local_5 + 44;
             this.eGrid = new EquippedGrid(null,this.player_.slotTypes_,this.player_);
             this.eGrid.x = 8;
-            this.eGrid.y = 88;
+            this.eGrid.y = _local_5;
             addChild(this.eGrid);
             this.eGrid.setItems(this.player_.equipment_);
+            _local_5 = _local_5 + 44;
             this.iGrid = new InventoryGrid(null,this.player_,GeneralConstants.NUM_EQUIPMENT_SLOTS);
             this.iGrid.x = 8;
-            this.iGrid.y = 132;
+            this.iGrid.y = _local_5;
             addChild(this.iGrid);
             this.iGrid.setItems(this.player_.equipment_);
+            _local_5 = _local_5 + 88;
+            if(this.player_.hasBackpack_) {
+                this.bGrid = new InventoryGrid(null,this.player_,GeneralConstants.NUM_EQUIPMENT_SLOTS + GeneralConstants.NUM_INVENTORY_SLOTS);
+                this.bGrid.x = 8;
+                this.bGrid.y = _local_5;
+                addChild(this.bGrid);
+                this.bGrid.setItems(this.player_.equipment_);
+                _local_5 = _local_5 + 88;
+            }
+            _local_5 = _local_5 + 8;
             this.lineBreak_ = new LineBreakDesign(100,1842204);
             this.lineBreak_.x = 6;
-            this.lineBreak_.y = 228;
+            this.lineBreak_.y = _local_5;
             addChild(this.lineBreak_);
             this.makeBestLevelText();
             this.bestLevel_.x = 8;
             this.bestLevel_.y = height - 2;
-            var _local_5:int = FameUtil.nextStarFame(this.charStats == null?0:int(this.charStats.bestFame()),0);
-            if(_local_5 > 0) {
-                this.makeNextClassQuestText(_local_5,_local_2);
+            var _local_6:int = FameUtil.nextStarFame(this.charStats == null?0:int(this.charStats.bestFame()),0);
+            if(_local_6 > 0) {
+                this.makeNextClassQuestText(_local_6,_local_2);
             }
         }
         
@@ -133,8 +159,8 @@ package com.company.assembleegameclient.ui.tooltip {
         }
         
         override public function draw() : void {
-            this.hpBar_.draw(this.player_.hp_,this.player_.maxHP_,this.player_.maxHPBoost_,this.player_.maxHPMax_);
-            this.mpBar_.draw(this.player_.mp_,this.player_.maxMP_,this.player_.maxMPBoost_,this.player_.maxMPMax_);
+            this.hpBar_.draw(this.player_.hp_,this.player_.maxHP_,this.player_.maxHPBoost_,this.player_.maxHPMax_,this.player_.level_);
+            this.mpBar_.draw(this.player_.mp_,this.player_.maxMP_,this.player_.maxMPBoost_,this.player_.maxMPMax_,this.player_.level_);
             this.lineBreak_.setWidthColor(width - 10,1842204);
             super.draw();
         }

@@ -118,11 +118,7 @@ package com.company.assembleegameclient.ui {
                 } else {
                     _local_1 = "<b>{name}</b> ({type}{level})";
                 }
-                if(this.go.name_.length > 8 && !this.positionClassBelow) {
-                    _local_2.name = this.go.name_.slice(0,6) + "...";
-                } else {
-                    _local_2.name = this.go.name_;
-                }
+                _local_2.name = this.go.name_;
                 _local_2.type = ObjectLibrary.typeToDisplayId_[this.type];
                 _local_2.level = this.level < 1?"":" " + this.level;
             } else {

@@ -5,13 +5,16 @@ package com.company.assembleegameclient.screens.charrects {
     import com.company.assembleegameclient.ui.tooltip.MyPlayerToolTip;
     import com.company.assembleegameclient.util.FameUtil;
     import com.company.rotmg.graphics.DeleteXGraphic;
+    import flash.display.Bitmap;
     import flash.display.DisplayObject;
     import flash.display.Sprite;
     import flash.events.Event;
     import flash.events.MouseEvent;
     import kabam.rotmg.classes.model.CharacterClass;
     import kabam.rotmg.text.model.TextKey;
+    import kabam.rotmg.text.view.TextFieldDisplayConcrete;
     import kabam.rotmg.text.view.stringBuilder.LineBuilder;
+    import kabam.rotmg.text.view.stringBuilder.StaticStringBuilder;
     import org.osflash.signals.Signal;
     
     public class CurrentCharacterRect extends CharacterRect {
@@ -41,6 +44,10 @@ package com.company.assembleegameclient.screens.charrects {
         
         private var icon:DisplayObject;
         
+        private var petIcon:Bitmap;
+        
+        protected var statsMaxedText:TextFieldDisplayConcrete;
+        
         public function CurrentCharacterRect(param1:String, param2:CharacterClass, param3:SavedCharacter, param4:CharacterStats) {
             this.myPlayerToolTipFactory = new MyPlayerToolTipFactory();
             super();
@@ -59,6 +66,8 @@ package com.company.assembleegameclient.screens.charrects {
             super.init();
             this.makeTagline();
             this.makeDeleteButton();
+            this.makePetIcon();
+            this.makeStatsMaxedText();
             this.addEventListeners();
         }
         
@@ -82,6 +91,19 @@ package com.company.assembleegameclient.screens.charrects {
             this.icon.x = CharacterRectConstants.ICON_POS_X;
             this.icon.y = CharacterRectConstants.ICON_POS_Y;
             this.icon && selectContainer.addChild(this.icon);
+        }
+        
+        private function makePetIcon() : void {
+            var _local_1:* = this.char.getPetVO();
+            if(_local_1) {
+                this.petIcon = _local_1.getSkin();
+                if(this.petIcon == null) {
+                    return;
+                }
+                this.petIcon.x = CharacterRectConstants.PET_ICON_POS_X;
+                this.petIcon.y = CharacterRectConstants.PET_ICON_POS_Y;
+                selectContainer.addChild(this.petIcon);
+            }
         }
         
         private function makeTagline() : void {
@@ -109,6 +131,51 @@ package com.company.assembleegameclient.screens.charrects {
             this.deleteButton.x = WIDTH - 40;
             this.deleteButton.y = (HEIGHT - this.deleteButton.height) * 0.5;
             addChild(this.deleteButton);
+        }
+        
+        private function makeStatsMaxedText() : void {
+            var _local_1:int = this.getMaxedStats();
+            var _local_2:uint = 11776947;
+            if(_local_1 >= 8) {
+                _local_2 = 16572160;
+            }
+            this.statsMaxedText = new TextFieldDisplayConcrete().setSize(18).setColor(16777215);
+            this.statsMaxedText.setBold(true);
+            this.statsMaxedText.setColor(_local_2);
+            this.statsMaxedText.setStringBuilder(new StaticStringBuilder(_local_1 + "/8"));
+            this.statsMaxedText.filters = makeDropShadowFilter();
+            this.statsMaxedText.x = CharacterRectConstants.STATS_MAXED_POS_X;
+            this.statsMaxedText.y = CharacterRectConstants.STATS_MAXED_POS_Y;
+            selectContainer.addChild(this.statsMaxedText);
+        }
+        
+        private function getMaxedStats() : int {
+            var _local_1:int = 0;
+            if(this.char.hp() == this.charType.hp.max) {
+                _local_1++;
+            }
+            if(this.char.mp() == this.charType.mp.max) {
+                _local_1++;
+            }
+            if(this.char.att() == this.charType.attack.max) {
+                _local_1++;
+            }
+            if(this.char.def() == this.charType.defense.max) {
+                _local_1++;
+            }
+            if(this.char.spd() == this.charType.speed.max) {
+                _local_1++;
+            }
+            if(this.char.dex() == this.charType.dexterity.max) {
+                _local_1++;
+            }
+            if(this.char.vit() == this.charType.hpRegeneration.max) {
+                _local_1++;
+            }
+            if(this.char.wis() == this.charType.mpRegeneration.max) {
+                _local_1++;
+            }
+            return _local_1;
         }
         
         override protected function onMouseOver(param1:MouseEvent) : void {

@@ -27,7 +27,7 @@ package com.company.assembleegameclient.objects.thrown {
         
         public function ThrownProjectile(param1:uint, param2:int, param3:Point, param4:Point) {
             this.bitmapData = ObjectLibrary.getTextureFromType(param1);
-            this.bitmapData = TextureRedrawer.redraw(this.bitmapData,80,true,0,false);
+            this.bitmapData = TextureRedrawer.redraw(this.bitmapData,ObjectLibrary.propsLibrary_[param1].minSize_,true,0,false);
             _rotationDelta = 0.2;
             super(this.bitmapData,0);
             this.lifetime_ = this.timeLeft_ = param2;
@@ -35,7 +35,6 @@ package com.company.assembleegameclient.objects.thrown {
             this.end_ = param4;
             this.dx_ = (this.end_.x - this.start_.x) / this.timeLeft_;
             this.dy_ = (this.end_.y - this.start_.y) / this.timeLeft_;
-            var _local_5:Number = Point.distance(param3,param4) / this.timeLeft_;
             this.pathX_ = x_ = this.start_.x;
             this.pathY_ = y_ = this.start_.y;
         }

@@ -82,8 +82,8 @@ package kabam.rotmg.ui.view {
                 }
                 this.fameBar_.draw(param1.currFame_,param1.nextClassQuestFame_,0);
             }
-            this.hpBar_.draw(param1.hp_,param1.maxHP_,param1.maxHPBoost_,param1.maxHPMax_);
-            this.mpBar_.draw(param1.mp_,param1.maxMP_,param1.maxMPBoost_,param1.maxMPMax_);
+            this.hpBar_.draw(param1.hp_,param1.maxHP_,param1.maxHPBoost_,param1.maxHPMax_,param1.level_);
+            this.mpBar_.draw(param1.mp_,param1.maxMP_,param1.maxMPBoost_,param1.maxMPMax_,param1.level_);
         }
         
         private function onExpBarOver(param1:Event) : void {

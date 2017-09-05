@@ -26,6 +26,7 @@ package com.company.assembleegameclient.mapeditor {
     import flash.utils.Dictionary;
     import kabam.lib.json.JsonParser;
     import kabam.rotmg.core.StaticInjectorContext;
+    import kabam.rotmg.core.model.PlayerModel;
     import kabam.rotmg.ui.view.components.ScreenBase;
     import net.hires.debug.Stats;
     
@@ -62,6 +63,8 @@ package com.company.assembleegameclient.mapeditor {
         
         public var allObjChooser_:AllObjectChooser;
         
+        public var allGameObjChooser_:AllObjectChooser;
+        
         public var regionChooser_:RegionChooser;
         
         public var dungeonChooser_:DungeonChooser;
@@ -91,7 +94,8 @@ package com.company.assembleegameclient.mapeditor {
         private var loadedFile_:FileReference = null;
         
         public function EditingScreen() {
-            var _local_3:int = 0;
+            var _local_4:int = 0;
+            var _local_5:Vector.<String> = null;
             super();
             addChild(new ScreenBase());
             this.json = StaticInjectorContext.getInjector().getInstance(JsonParser);
@@ -117,18 +121,25 @@ package com.company.assembleegameclient.mapeditor {
             this.infoPane_.x = 4;
             this.infoPane_.y = 600 - InfoPane.HEIGHT - 10;
             addChild(this.infoPane_);
-            this.chooserDropDown_ = new DropDown(GroupDivider.GROUP_LABELS,Chooser.WIDTH,26);
+            var _local_1:PlayerModel = StaticInjectorContext.getInjector().getInstance(PlayerModel);
+            if(_local_1.isAdmin()) {
+                this.chooserDropDown_ = new DropDown(GroupDivider.GROUP_LABELS,Chooser.WIDTH,26);
+            } else {
+                _local_5 = GroupDivider.GROUP_LABELS.concat();
+                _local_5.splice(_local_5.indexOf("All Game Objects"),1);
+                this.chooserDropDown_ = new DropDown(_local_5,Chooser.WIDTH,26);
+            }
             addChild(this.chooserDropDown_);
             this.chooserDropDown_.x = this.meMap_.x + MEMap.SIZE + 4;
             this.chooserDropDown_.y = MAP_Y - this.chooserDropDown_.height - 4;
             this.chooserDropDown_.addEventListener(Event.CHANGE,this.onDropDownChange);
-            var _local_1:Vector.<String> = new Vector.<String>(0);
-            var _local_2:Number = MEMap.MAX_ALLOWED_SQUARES;
-            while(_local_2 >= 64) {
-                _local_1.push(_local_2 + "x" + _local_2);
-                _local_2 = _local_2 / 2;
+            var _local_2:Vector.<String> = new Vector.<String>(0);
+            var _local_3:Number = MEMap.MAX_ALLOWED_SQUARES;
+            while(_local_3 >= 64) {
+                _local_2.push(_local_3 + "x" + _local_3);
+                _local_3 = _local_3 / 2;
             }
-            this.mapSizeDropDown_ = new DropDown(_local_1,Chooser.WIDTH,26);
+            this.mapSizeDropDown_ = new DropDown(_local_2,Chooser.WIDTH,26);
             this.mapSizeDropDown_.setValue(MEMap.NUM_SQUARES + "x" + MEMap.NUM_SQUARES);
             this.mapSizeDropDown_.x = this.chooserDropDown_.x - this.chooserDropDown_.width - 4;
             this.mapSizeDropDown_.y = this.chooserDropDown_.y;
@@ -149,46 +160,50 @@ package com.company.assembleegameclient.mapeditor {
             addChild(this.returnButton_);
             GroupDivider.divideObjects();
             this.choosers_ = new Dictionary(true);
-            _local_3 = MAP_Y + this.mapSizeDropDown_.height + 50;
+            _local_4 = MAP_Y + this.mapSizeDropDown_.height + 50;
             this.groundChooser_ = new GroundChooser();
             this.groundChooser_.x = this.chooserDropDown_.x;
-            this.groundChooser_.y = _local_3;
+            this.groundChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[0]] = this.groundChooser_;
             this.objChooser_ = new ObjectChooser();
             this.objChooser_.x = this.chooserDropDown_.x;
-            this.objChooser_.y = _local_3;
+            this.objChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[1]] = this.objChooser_;
             this.enemyChooser_ = new EnemyChooser();
             this.enemyChooser_.x = this.chooserDropDown_.x;
-            this.enemyChooser_.y = _local_3;
+            this.enemyChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[2]] = this.enemyChooser_;
             this.wallChooser_ = new WallChooser();
             this.wallChooser_.x = this.chooserDropDown_.x;
-            this.wallChooser_.y = _local_3;
+            this.wallChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[3]] = this.wallChooser_;
             this.object3DChooser_ = new Object3DChooser();
             this.object3DChooser_.x = this.chooserDropDown_.x;
-            this.object3DChooser_.y = _local_3;
+            this.object3DChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[4]] = this.object3DChooser_;
             this.allObjChooser_ = new AllObjectChooser();
             this.allObjChooser_.x = this.chooserDropDown_.x;
-            this.allObjChooser_.y = _local_3;
+            this.allObjChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[5]] = this.allObjChooser_;
             this.regionChooser_ = new RegionChooser();
             this.regionChooser_.x = this.chooserDropDown_.x;
-            this.regionChooser_.y = _local_3;
+            this.regionChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[6]] = this.regionChooser_;
             this.dungeonChooser_ = new DungeonChooser();
             this.dungeonChooser_.x = this.chooserDropDown_.x;
-            this.dungeonChooser_.y = _local_3;
+            this.dungeonChooser_.y = _local_4;
             this.choosers_[GroupDivider.GROUP_LABELS[7]] = this.dungeonChooser_;
+            this.allGameObjChooser_ = new AllObjectChooser("","All Game Objects");
+            this.allGameObjChooser_.x = this.chooserDropDown_.x;
+            this.allGameObjChooser_.y = _local_4;
+            this.choosers_[GroupDivider.GROUP_LABELS[8]] = this.allGameObjChooser_;
             this.chooser_ = this.groundChooser_;
             addChild(this.groundChooser_);
             this.chooserDropDown_.setIndex(0);
         }
         
         private function createCheckboxes() : void {
-            var _local_2:CheckBoxField = null;
+            var _local_3:* = undefined;
             this.checkBoxArray = new Array();
             var _local_1:* = new DeprecatedClickableText(14,true,"(Show All)");
             _local_1.buttonMode = true;
@@ -197,13 +212,13 @@ package com.company.assembleegameclient.mapeditor {
             _local_1.setAutoSize(TextFieldAutoSize.LEFT);
             _local_1.addEventListener(MouseEvent.CLICK,this.onCheckBoxUpdated);
             addChild(_local_1);
-            _local_2 = new CheckBoxField("Objects",true);
+            var _local_2:CheckBoxField = new CheckBoxField("Objects",true);
             _local_2.x = _local_1.x + 80;
             _local_2.y = this.mapSizeDropDown_.y - 20;
             _local_2.scaleX = _local_2.scaleY = 0.8;
             _local_2.addEventListener(MouseEvent.CLICK,this.onCheckBoxUpdated);
             addChild(_local_2);
-            var _local_3:* = new DeprecatedClickableText(14,true,"(Hide All)");
+            _local_3 = new DeprecatedClickableText(14,true,"(Hide All)");
             _local_3.buttonMode = true;
             _local_3.x = this.mapSizeDropDown_.x - 380;
             _local_3.y = this.mapSizeDropDown_.y + 8;
@@ -247,6 +262,9 @@ package com.company.assembleegameclient.mapeditor {
                     break;
                 case this.allObjChooser_:
                     this.allObjChooser_.reloadObjects(this.filter.searchStr);
+                    break;
+                case this.allGameObjChooser_:
+                    this.allGameObjChooser_.reloadObjects(this.filter.searchStr,false,"All Game Objects");
                     break;
                 case this.regionChooser_:
                     break;
@@ -440,6 +458,7 @@ package com.company.assembleegameclient.mapeditor {
             SpriteUtil.safeRemoveChild(this,this.wallChooser_);
             SpriteUtil.safeRemoveChild(this,this.object3DChooser_);
             SpriteUtil.safeRemoveChild(this,this.allObjChooser_);
+            SpriteUtil.safeRemoveChild(this,this.allGameObjChooser_);
             SpriteUtil.safeRemoveChild(this,this.dungeonChooser_);
         }
         
@@ -501,11 +520,19 @@ package com.company.assembleegameclient.mapeditor {
                     this.filter.enableValueFilter(false);
                     this.filter.enableDungeonFilter(false);
                     break;
-                case "All Objects":
+                case "All Map Objects":
                     this.setSearch(this.allObjChooser_.getLastSearch());
                     this.safeRemoveCategoryChildren();
                     SpriteUtil.safeAddChild(this,this.allObjChooser_);
                     this.chooser_ = this.allObjChooser_;
+                    this.filter.enableDropDownFilter(false);
+                    this.filter.enableValueFilter(false);
+                    break;
+                case "All Game Objects":
+                    this.setSearch(this.allGameObjChooser_.getLastSearch());
+                    this.safeRemoveCategoryChildren();
+                    SpriteUtil.safeAddChild(this,this.allGameObjChooser_);
+                    this.chooser_ = this.allGameObjChooser_;
                     this.filter.enableDropDownFilter(false);
                     this.filter.enableValueFilter(false);
                     break;

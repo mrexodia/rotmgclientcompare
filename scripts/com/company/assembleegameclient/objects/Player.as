@@ -41,6 +41,7 @@ package com.company.assembleegameclient.objects {
     import kabam.rotmg.game.model.PotionInventoryModel;
     import kabam.rotmg.game.signals.AddTextLineSignal;
     import kabam.rotmg.game.view.components.QueuedStatusText;
+    import kabam.rotmg.messaging.impl.data.StatData;
     import kabam.rotmg.stage3D.GraphicsFillExtra;
     import kabam.rotmg.text.model.TextKey;
     import kabam.rotmg.text.view.BitmapTextFactory;
@@ -244,20 +245,84 @@ package com.company.assembleegameclient.objects {
             _local_5.level_ = int(param2.Level);
             _local_5.exp_ = int(param2.Exp);
             _local_5.equipment_ = ConversionUtil.toIntVector(param2.Equipment);
+            _local_5.calculateStatBoosts();
             _local_5.lockedSlot = new Vector.<int>(_local_5.equipment_.length);
-            _local_5.maxHP_ = int(param2.MaxHitPoints);
+            _local_5.maxHP_ = _local_5.maxHPBoost_ + int(param2.MaxHitPoints);
             _local_5.hp_ = int(param2.HitPoints);
-            _local_5.maxMP_ = int(param2.MaxMagicPoints);
+            _local_5.maxMP_ = _local_5.maxMPBoost_ + int(param2.MaxMagicPoints);
             _local_5.mp_ = int(param2.MagicPoints);
-            _local_5.attack_ = int(param2.Attack);
-            _local_5.defense_ = int(param2.Defense);
-            _local_5.speed_ = int(param2.Speed);
-            _local_5.dexterity_ = int(param2.Dexterity);
-            _local_5.vitality_ = int(param2.HpRegen);
-            _local_5.wisdom_ = int(param2.MpRegen);
+            _local_5.attack_ = _local_5.attackBoost_ + int(param2.Attack);
+            _local_5.defense_ = _local_5.defenseBoost_ + int(param2.Defense);
+            _local_5.speed_ = _local_5.speedBoost_ + int(param2.Speed);
+            _local_5.dexterity_ = _local_5.dexterityBoost_ + int(param2.Dexterity);
+            _local_5.vitality_ = _local_5.vitalityBoost_ + int(param2.HpRegen);
+            _local_5.wisdom_ = _local_5.wisdomBoost_ + int(param2.MpRegen);
             _local_5.tex1Id_ = int(param2.Tex1);
             _local_5.tex2Id_ = int(param2.Tex2);
+            _local_5.hasBackpack_ = int(param2.HasBackpack);
             return _local_5;
+        }
+        
+        public function calculateStatBoosts() : void {
+            var _local_2:int = 0;
+            var _local_3:XML = null;
+            var _local_4:XML = null;
+            var _local_5:int = 0;
+            var _local_6:int = 0;
+            this.maxHPBoost_ = 0;
+            this.maxMPBoost_ = 0;
+            this.attackBoost_ = 0;
+            this.defenseBoost_ = 0;
+            this.speedBoost_ = 0;
+            this.vitalityBoost_ = 0;
+            this.wisdomBoost_ = 0;
+            this.dexterityBoost_ = 0;
+            var _local_1:uint = 0;
+            while(_local_1 < GeneralConstants.NUM_EQUIPMENT_SLOTS) {
+                _local_2 = equipment_[_local_1];
+                if(_local_2 != -1) {
+                    _local_3 = ObjectLibrary.xmlLibrary_[_local_2];
+                    if(_local_3 != null && _local_3.hasOwnProperty("ActivateOnEquip")) {
+                        for each(_local_4 in _local_3.ActivateOnEquip) {
+                            if(_local_4.toString() == "IncrementStat") {
+                                _local_5 = int(_local_4.@stat);
+                                _local_6 = int(_local_4.@amount);
+                                switch(_local_5) {
+                                    case StatData.MAX_HP_STAT:
+                                        this.maxHPBoost_ = this.maxHPBoost_ + _local_6;
+                                        continue;
+                                    case StatData.MAX_MP_STAT:
+                                        this.maxMPBoost_ = this.maxMPBoost_ + _local_6;
+                                        continue;
+                                    case StatData.ATTACK_STAT:
+                                        this.attackBoost_ = this.attackBoost_ + _local_6;
+                                        continue;
+                                    case StatData.DEFENSE_STAT:
+                                        this.defenseBoost_ = this.defenseBoost_ + _local_6;
+                                        continue;
+                                    case StatData.SPEED_STAT:
+                                        this.speedBoost_ = this.speedBoost_ + _local_6;
+                                        continue;
+                                    case StatData.VITALITY_STAT:
+                                        this.vitalityBoost_ = this.vitalityBoost_ + _local_6;
+                                        continue;
+                                    case StatData.WISDOM_STAT:
+                                        this.wisdomBoost_ = this.wisdomBoost_ + _local_6;
+                                        continue;
+                                    case StatData.DEXTERITY_STAT:
+                                        this.dexterityBoost_ = this.dexterityBoost_ + _local_6;
+                                        continue;
+                                    default:
+                                        continue;
+                                }
+                            } else {
+                                continue;
+                            }
+                        }
+                    }
+                }
+                _local_1++;
+            }
         }
         
         public function setRelativeMovement(param1:Number, param2:Number, param3:Number) : void {

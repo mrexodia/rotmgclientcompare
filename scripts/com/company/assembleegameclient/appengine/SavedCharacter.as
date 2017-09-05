@@ -98,6 +98,38 @@ package com.company.assembleegameclient.appengine {
             return int(this.charXML_.CurrentFame);
         }
         
+        public function hp() : int {
+            return int(this.charXML_.MaxHitPoints);
+        }
+        
+        public function mp() : int {
+            return int(this.charXML_.MaxMagicPoints);
+        }
+        
+        public function att() : int {
+            return int(this.charXML_.Attack);
+        }
+        
+        public function def() : int {
+            return int(this.charXML_.Defense);
+        }
+        
+        public function spd() : int {
+            return int(this.charXML_.Speed);
+        }
+        
+        public function dex() : int {
+            return int(this.charXML_.Dexterity);
+        }
+        
+        public function vit() : int {
+            return int(this.charXML_.HpRegen);
+        }
+        
+        public function wis() : int {
+            return int(this.charXML_.MpRegen);
+        }
+        
         public function displayId() : String {
             return ObjectLibrary.typeToDisplayId_[this.objectType()];
         }

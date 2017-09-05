@@ -9,7 +9,7 @@ package com.company.assembleegameclient.mapeditor {
     
     public class GroupDivider {
         
-        public static const GROUP_LABELS:Vector.<String> = new <String>["Ground","Basic Objects","Enemies","Walls","3D Objects","All Objects","Regions","Dungeons"];
+        public static const GROUP_LABELS:Vector.<String> = new <String>["Ground","Basic Objects","Enemies","Walls","3D Objects","All Map Objects","Regions","Dungeons","All Game Objects"];
         
         public static var GROUPS:Dictionary = new Dictionary(true);
         
@@ -23,14 +23,13 @@ package com.company.assembleegameclient.mapeditor {
         }
         
         public static function divideObjects() : void {
-            var _local_9:int = 0;
-            var _local_10:String = null;
-            var _local_11:Boolean = false;
-            var _local_12:XML = null;
-            var _local_13:XML = null;
-            var _local_14:PlayerModel = null;
-            var _local_15:String = null;
-            var _local_16:XML = null;
+            var _local_10:int = 0;
+            var _local_11:String = null;
+            var _local_12:Boolean = false;
+            var _local_14:XML = null;
+            var _local_15:XML = null;
+            var _local_16:String = null;
+            var _local_17:XML = null;
             var _local_1:Dictionary = new Dictionary(true);
             var _local_2:Dictionary = new Dictionary(true);
             var _local_3:Dictionary = new Dictionary(true);
@@ -39,48 +38,50 @@ package com.company.assembleegameclient.mapeditor {
             var _local_6:Dictionary = new Dictionary(true);
             var _local_7:Dictionary = new Dictionary(true);
             var _local_8:Dictionary = new Dictionary(true);
-            for each(_local_12 in ObjectLibrary.xmlLibrary_) {
-                _local_10 = _local_12.@id;
-                _local_9 = int(_local_12.@type);
-                _local_14 = StaticInjectorContext.getInjector().getInstance(PlayerModel);
-                if(!(_local_12.hasOwnProperty("Item") || _local_12.hasOwnProperty("Player") || _local_12.Class == "Projectile" || _local_12.Class == "PetSkin" || _local_12.Class == "Pet" || _local_10.search("Spawner") >= 0 && !_local_14.isAdmin())) {
-                    if(!(!_local_14.isAdmin() && HIDE_OBJECTS_IDS.indexOf(_local_10) >= 0)) {
-                        _local_11 = false;
-                        if(_local_12.hasOwnProperty("Class") && String(_local_12.Class).match(/wall$/i)) {
-                            _local_6[_local_9] = _local_12;
-                            _local_7[_local_9] = _local_12;
-                            _local_11 = true;
-                        } else if(_local_12.hasOwnProperty("Model")) {
-                            _local_5[_local_9] = _local_12;
-                            _local_7[_local_9] = _local_12;
-                            _local_11 = true;
-                        } else if(_local_12.hasOwnProperty("Enemy")) {
-                            _local_4[_local_9] = _local_12;
-                            _local_7[_local_9] = _local_12;
-                            _local_11 = true;
-                        } else if(_local_12.hasOwnProperty("Static") && !_local_12.hasOwnProperty("Price")) {
-                            _local_3[_local_9] = _local_12;
-                            _local_7[_local_9] = _local_12;
-                            _local_11 = true;
-                        } else if(_local_14.isAdmin()) {
-                            _local_7[_local_9] = _local_12;
+            var _local_9:Dictionary = new Dictionary(true);
+            var _local_13:PlayerModel = StaticInjectorContext.getInjector().getInstance(PlayerModel);
+            for each(_local_14 in ObjectLibrary.xmlLibrary_) {
+                _local_11 = _local_14.@id;
+                _local_10 = int(_local_14.@type);
+                _local_8[_local_10] = _local_14;
+                if(!(_local_14.hasOwnProperty("Item") || _local_14.hasOwnProperty("Player") || _local_14.Class == "Projectile" || _local_14.Class == "PetSkin" || _local_14.Class == "Pet" || _local_11.search("Spawner") >= 0 && !_local_13.isAdmin())) {
+                    if(!(!_local_13.isAdmin() && HIDE_OBJECTS_IDS.indexOf(_local_11) >= 0)) {
+                        _local_12 = false;
+                        if(_local_14.hasOwnProperty("Class") && String(_local_14.Class).match(/wall$/i)) {
+                            _local_6[_local_10] = _local_14;
+                            _local_7[_local_10] = _local_14;
+                            _local_12 = true;
+                        } else if(_local_14.hasOwnProperty("Model")) {
+                            _local_5[_local_10] = _local_14;
+                            _local_7[_local_10] = _local_14;
+                            _local_12 = true;
+                        } else if(_local_14.hasOwnProperty("Enemy")) {
+                            _local_4[_local_10] = _local_14;
+                            _local_7[_local_10] = _local_14;
+                            _local_12 = true;
+                        } else if(_local_14.hasOwnProperty("Static") && !_local_14.hasOwnProperty("Price")) {
+                            _local_3[_local_10] = _local_14;
+                            _local_7[_local_10] = _local_14;
+                            _local_12 = true;
+                        } else if(_local_13.isAdmin()) {
+                            _local_7[_local_10] = _local_14;
                         }
-                        _local_15 = ObjectLibrary.propsLibrary_[_local_9].belonedDungeon;
-                        if(_local_11 && _local_15 != "") {
-                            if(_local_8[_local_15] == null) {
-                                _local_8[_local_15] = new Dictionary(true);
+                        _local_16 = ObjectLibrary.propsLibrary_[_local_10].belonedDungeon;
+                        if(_local_12 && _local_16 != "") {
+                            if(_local_9[_local_16] == null) {
+                                _local_9[_local_16] = new Dictionary(true);
                             }
-                            _local_8[_local_15][_local_9] = _local_12;
+                            _local_9[_local_16][_local_10] = _local_14;
                         }
                     }
                 }
             }
-            for each(_local_13 in GroundLibrary.xmlLibrary_) {
-                _local_1[int(_local_13.@type)] = _local_13;
+            for each(_local_15 in GroundLibrary.xmlLibrary_) {
+                _local_1[int(_local_15.@type)] = _local_15;
             }
-            if(_local_14.isAdmin()) {
-                for each(_local_16 in RegionLibrary.xmlLibrary_) {
-                    _local_2[int(_local_16.@type)] = _local_16;
+            if(_local_13.isAdmin()) {
+                for each(_local_17 in RegionLibrary.xmlLibrary_) {
+                    _local_2[int(_local_17.@type)] = _local_17;
                 }
             } else {
                 _local_2[RegionLibrary.idToType_["Spawn"]] = RegionLibrary.xmlLibrary_[RegionLibrary.idToType_["Spawn"]];
@@ -93,7 +94,8 @@ package com.company.assembleegameclient.mapeditor {
             GROUPS[GROUP_LABELS[4]] = _local_5;
             GROUPS[GROUP_LABELS[5]] = _local_7;
             GROUPS[GROUP_LABELS[6]] = _local_2;
-            GROUPS[GROUP_LABELS[7]] = _local_8;
+            GROUPS[GROUP_LABELS[7]] = _local_9;
+            GROUPS[GROUP_LABELS[8]] = _local_8;
         }
         
         public static function getDungeonsLabel() : Vector.<String> {

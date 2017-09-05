@@ -16,6 +16,14 @@ package com.company.assembleegameclient.screens.charrects {
         public static const CLASS_NAME_POS_X:int = 71;
         
         public static const CLASS_NAME_POS_Y:int = 4;
+        
+        public static const PET_ICON_POS_X:int = 285;
+        
+        public static const PET_ICON_POS_Y:int = 1;
+        
+        public static const STATS_MAXED_POS_X:int = 339;
+        
+        public static const STATS_MAXED_POS_Y:int = 19;
          
         
         public function CharacterRectConstants() {

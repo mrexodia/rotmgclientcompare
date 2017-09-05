@@ -30,7 +30,7 @@ package kabam.rotmg.game.view.components {
         public static const STATE_DEFAULT:String = STATE_DOCKED;
          
         
-        private const WIDTH:int = 191;
+        private const WIDTH:int = 188.0;
         
         private const HEIGHT:int = 45;
         
@@ -78,21 +78,23 @@ package kabam.rotmg.game.view.components {
             return _local_4;
         }
         
-        public function draw(param1:Player) : void {
+        public function draw(param1:Player, param2:Boolean = true) : void {
             if(param1) {
                 this.setBackgroundVisibility();
                 this.drawStats(param1);
             }
-            this.containerSprite.x = (this.WIDTH - this.containerSprite.width) / 2;
+            if(param2) {
+                this.containerSprite.x = (this.WIDTH - this.containerSprite.width) / 2;
+            }
         }
         
         private function drawStats(param1:Player) : void {
-            this.stats_[ATTACK].draw(param1.attack_,param1.attackBoost_,param1.attackMax_);
-            this.stats_[DEFENSE].draw(param1.defense_,param1.defenseBoost_,param1.defenseMax_);
-            this.stats_[SPEED].draw(param1.speed_,param1.speedBoost_,param1.speedMax_);
-            this.stats_[DEXTERITY].draw(param1.dexterity_,param1.dexterityBoost_,param1.dexterityMax_);
-            this.stats_[VITALITY].draw(param1.vitality_,param1.vitalityBoost_,param1.vitalityMax_);
-            this.stats_[WISDOM].draw(param1.wisdom_,param1.wisdomBoost_,param1.wisdomMax_);
+            this.stats_[ATTACK].draw(param1.attack_,param1.attackBoost_,param1.attackMax_,param1.level_);
+            this.stats_[DEFENSE].draw(param1.defense_,param1.defenseBoost_,param1.defenseMax_,param1.level_);
+            this.stats_[SPEED].draw(param1.speed_,param1.speedBoost_,param1.speedMax_,param1.level_);
+            this.stats_[DEXTERITY].draw(param1.dexterity_,param1.dexterityBoost_,param1.dexterityMax_,param1.level_);
+            this.stats_[VITALITY].draw(param1.vitality_,param1.vitalityBoost_,param1.vitalityMax_,param1.level_);
+            this.stats_[WISDOM].draw(param1.wisdom_,param1.wisdomBoost_,param1.wisdomMax_,param1.level_);
         }
         
         public function dock() : void {
