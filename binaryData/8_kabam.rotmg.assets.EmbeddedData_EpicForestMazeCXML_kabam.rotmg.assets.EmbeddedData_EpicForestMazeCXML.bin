@@ -214,9 +214,10 @@
    <Object type="0x706b" id="Larva Puke">
       <Class>GameObject</Class>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3fe</Index>
+         <File>invisible</File>
+         <Index>0</Index>
       </Texture>
+      <Size>0</Size>
       <NoMiniMap/>
    </Object>
    <Object type="0x706c" id="Epic Larva">

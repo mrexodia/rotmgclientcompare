@@ -2600,14 +2600,14 @@
       <PlayerClassType>0x0325</PlayerClassType>
       <NoSkinSelect/>
    </Object>
-   <Object type="0x4c61" id="Cleaner Maid Warrior">
+   <Object type="0x4c61" id="Cleaner Maid Paladin">
       <Skin/>
       <Class>Skin</Class>
       <AnimatedTexture>
          <File>playerskins</File>
          <Index>230</Index>
       </AnimatedTexture>
-      <PlayerClassType>0x031d</PlayerClassType>
+      <PlayerClassType>0x031f</PlayerClassType>
       <NoSkinSelect/>
    </Object>
    <Object type="0x4c62" id="Chu-Ko-Nu Archer">

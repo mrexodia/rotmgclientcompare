@@ -1953,7 +1953,7 @@ package kabam.rotmg.messaging.impl {
                     _local_5 = new Vector.<uint>();
                     _local_5.push(param1.effect_);
                 }
-                this.player.damage(this.player.objectType_ == param1.origType_,_local_4,_local_5,false,null);
+                this.player.damage(true,_local_4,_local_5,false,null);
             }
             this.aoeAck(gs_.lastUpdate_,this.player.x_,this.player.y_);
         }

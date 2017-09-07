@@ -6447,7 +6447,7 @@
       </Texture>
       <SlotType>13</SlotType>
       <Tier>2</Tier>
-      <Description>A mystical grey cloak once used by blackguard tricksters for flanking maneuvers and sneak attacks.</Description>
+      <Description>A mystical gray cloak once used by blackguard tricksters for flanking maneuvers and sneak attacks.</Description>
       <Sound>spell/fire_nova</Sound>
       <ActivateOnEquip stat="22" amount="3">IncrementStat</ActivateOnEquip>
       <Usable/>
@@ -6634,7 +6634,7 @@
       </Texture>
       <SlotType>14</SlotType>
       <Tier>5</Tier>
-      <Description>A magical robe of grey moonsilk.</Description>
+      <Description>A magical robe of gray moonsilk.</Description>
       <ActivateOnEquip stat="21" amount="6">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="27" amount="2">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="3" amount="20">IncrementStat</ActivateOnEquip>
@@ -7430,7 +7430,7 @@
       </Texture>
       <SlotType>17</SlotType>
       <Tier>7</Tier>
-      <Description>An ancient knurlwood staff crackling with power and exuding thin grey vapors.</Description>
+      <Description>An ancient knurlwood staff crackling with power and exuding thin gray vapors.</Description>
       <RateOfFire>1</RateOfFire>
       <Sound>weapon/sprite_wand</Sound>
       <Projectile>
@@ -19838,7 +19838,7 @@
          <File>d2LofiObjEmbed</File>
          <Index>0x46</Index>
       </Texture>
-      <Description>A medallion infused with the essence of Limon the Sprite God.</Description>
+      <Description>A medallion infused with the essence of Limon the Sprite Goddess.</Description>
       <ExtraTooltipData>
          <EffectInfo name="Type" description="Quest item"/>
          <EffectInfo name="Drop location" description="Obtained by defeating Limon the Sprite Goddess in the Sprite World"/>
@@ -20267,7 +20267,7 @@
          <Index>226</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>She likes to paint her shield grey, pretending to be wielding the shield of Ogmur. This crude, yet effective strategy allows her to scare even the most heavily armoured foes!\n\nSkin Class: Knight\nSprite Credits: Poshun</Description>
+      <Description>She likes to paint her shield gray, pretending to be wielding the Shield of Ogmur. This crude, yet effective strategy allows her to scare even the most heavily armored foes!\n\nSkin Class: Knight\nSprite Credits: Poshun</Description>
       <Activate skinType="19549">UnlockSkin</Activate>
       <Consumable/>
       <BagType>5</BagType>
@@ -20319,7 +20319,7 @@
       <Soulbound/>
       <feedPower>2000</feedPower>
    </Object>
-   <Object type="0x4c7a" id="Cleaner Maid Warrior Skin">
+   <Object type="0x4c7a" id="Cleaner Maid Paladin Skin">
       <Class>Equipment</Class>
       <Item/>
       <AnimatedTexture>
@@ -20327,7 +20327,7 @@
          <Index>230</Index>
       </AnimatedTexture>
       <SlotType>10</SlotType>
-      <Description>Clean up the dungeon for Master's safety! And for the loot of course.\n\nSkin Class: Warrior\nSprite Credits: PoloKai</Description>
+      <Description>Clean up the dungeon for Master's safety! And for the loot of course.\n\nSkin Class: Paladin\nSprite Credits: PoloKai</Description>
       <Activate skinType="19553">UnlockSkin</Activate>
       <Consumable/>
       <BagType>5</BagType>
