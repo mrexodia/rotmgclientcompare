@@ -163,6 +163,8 @@ package com.company.assembleegameclient.objects {
         
         private var isDazedImmune_:Boolean = false;
         
+        private var isStasisImmune_:Boolean = false;
+        
         private var ishpScaleSet:Boolean = false;
         
         protected var lastTickUpdateTime_:int = 0;
@@ -276,6 +278,9 @@ package com.company.assembleegameclient.objects {
             }
             if(param1.hasOwnProperty("DazedImmune")) {
                 this.isDazedImmune_ = true;
+            }
+            if(param1.hasOwnProperty("StasisImmune")) {
+                this.isStasisImmune_ = true;
             }
             this.props_.loadSounds();
         }
@@ -504,6 +509,10 @@ package com.company.assembleegameclient.objects {
         
         public function isStasis() : Boolean {
             return (this.condition_[ConditionEffect.CE_FIRST_BATCH] & ConditionEffect.STASIS_BIT) != 0;
+        }
+        
+        public function isStasisImmune() : Boolean {
+            return this.isStasisImmune_ || (this.condition_[ConditionEffect.CE_FIRST_BATCH] & ConditionEffect.STASIS_IMMUNE_BIT) != 0;
         }
         
         public function isInvincible() : Boolean {
@@ -770,7 +779,6 @@ package com.company.assembleegameclient.objects {
                             case ConditionEffect.INVISIBLE:
                             case ConditionEffect.SPEEDY:
                             case ConditionEffect.BLEEDING:
-                            case ConditionEffect.STASIS:
                             case ConditionEffect.STASIS_IMMUNE:
                             case ConditionEffect.NINJA_SPEEDY:
                             case ConditionEffect.UNSTABLE:
@@ -778,6 +786,15 @@ package com.company.assembleegameclient.objects {
                             case ConditionEffect.PETRIFIED_IMMUNE:
                             case ConditionEffect.SILENCED:
                                 _local_9 = ConditionEffect.effects_[_local_8];
+                                break;
+                            case ConditionEffect.STASIS:
+                                if(this.isStasisImmune()) {
+                                    _local_10 = new CharacterStatusText(this,16711680,3000);
+                                    _local_10.setStringBuilder(new LineBuilder().setParams(TextKey.GAMEOBJECT_IMMUNE));
+                                    map_.mapOverlay_.addStatusText(_local_10);
+                                } else {
+                                    _local_9 = ConditionEffect.effects_[_local_8];
+                                }
                                 break;
                             case ConditionEffect.SLOWED:
                                 if(this.isSlowedImmune()) {
