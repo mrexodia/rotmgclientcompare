@@ -940,6 +940,17 @@
       <UnlockSpecial>Set Skin</UnlockSpecial>
       <NoSkinSelect/>
    </Object>
+   <Object type="0x4c04" id="Hollow King Set Skin">
+      <Skin/>
+      <Class>Skin</Class>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>16</Index>
+      </AnimatedTexture>
+      <PlayerClassType>0x0321</PlayerClassType>
+      <UnlockSpecial>Set Skin</UnlockSpecial>
+      <NoSkinSelect/>
+   </Object>
    <Object type="0x7492" id="Mini Geb">
       <Skin/>
       <Class>Skin</Class>

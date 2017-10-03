@@ -4342,4 +4342,20 @@
       </Texture>
       <AngleCorrection>1</AngleCorrection>
    </Object>
+   <Object type="0x9da" id="SpiritSpiral">
+      <Class>Projectile</Class>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xf6</Index>
+      </Texture>
+      <Rotation>50</Rotation>
+   </Object>
+   <Object type="0x9db" id="SuperSpiritSpiral">
+      <Class>Projectile</Class>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xf7</Index>
+      </Texture>
+      <Rotation>70</Rotation>
+   </Object>
 </Objects>

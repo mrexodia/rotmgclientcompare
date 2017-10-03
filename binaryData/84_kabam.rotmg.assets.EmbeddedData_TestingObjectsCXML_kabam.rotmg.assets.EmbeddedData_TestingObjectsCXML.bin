@@ -1414,4 +1414,18 @@
          <Index>14</Index>
       </AnimatedTexture>
    </Object>
+   <Object type="0x8fc" id="Testing Gift ST Hollow">
+      <Group>Testing Gifts ST</Group>
+      <Class>Character</Class>
+      <StasisImmune/>
+      <Enemy/>
+      <NoMiniMap/>
+      <MaxHitPoints>100</MaxHitPoints>
+      <XpMult>0.0</XpMult>
+      <Size>40</Size>
+      <AnimatedTexture>
+         <File>playerskins16</File>
+         <Index>16</Index>
+      </AnimatedTexture>
+   </Object>
 </Objects>

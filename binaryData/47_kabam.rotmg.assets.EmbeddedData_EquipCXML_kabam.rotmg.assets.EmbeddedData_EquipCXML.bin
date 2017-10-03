@@ -14578,6 +14578,97 @@
       <feedPower>900</feedPower>
       <Soulbound/>
    </Object>
+   <Object type="0x9dc" id="NecroST0" setType="0x000e" setName="Hollow King Necromancer Set">
+      <DisplayId>Edictum Praetoris</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xf8</Index>
+      </Texture>
+      <SlotType>17</SlotType>
+      <Description>My staff led me to a strange arena, which seemed to have a dark aura about it.</Description>
+      <RateOfFire>0.75</RateOfFire>
+      <Sound>weapon/wand_of_dark_magic</Sound>
+      <Projectile>
+         <ObjectId>SpiritSpiral</ObjectId>
+         <Speed>150</Speed>
+         <MinDamage>40</MinDamage>
+         <MaxDamage>105</MaxDamage>
+         <LifetimeMS>570</LifetimeMS>
+         <Frequency>1</Frequency>
+         <Amplitude>0.3</Amplitude>
+         <Size>70</Size>
+      </Projectile>
+      <NumProjectiles>3</NumProjectiles>
+      <ArcGap>3</ArcGap>
+      <FameBonus>5</FameBonus>
+      <feedPower>700</feedPower>
+      <BagType>4</BagType>
+      <Soulbound/>
+      <OldSound>magicShoot</OldSound>
+   </Object>
+   <Object type="0x9dd" id="NecroST1" setType="0x000e" setName="Hollow King Necromancer Set">
+      <DisplayId>Memento Mori</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xf9</Index>
+      </Texture>
+      <Usable/>
+      <SlotType>19</SlotType>
+      <Description>I found a great spectre floating above me. He reached out and granted me his cranium.</Description>
+      <MpCost>120</MpCost>
+      <Activate radius="3.5" totalDamage="400" ignoreDef="400" healRange="0" color="1a4a6b">VampireBlast</Activate>
+      <Activate effect="Damaging" duration="3" color="-1">ConditionEffectSelf</Activate>
+      <ActivateOnEquip stat="26" amount="5">IncrementStat</ActivateOnEquip>
+      <ExtraTooltipData>
+         <EffectInfo name="" description="Does not heal."/>
+      </ExtraTooltipData>
+      <FameBonus>6</FameBonus>
+      <feedPower>900</feedPower>
+      <BagType>4</BagType>
+      <Soulbound/>
+   </Object>
+   <Object type="0x9de" id="NecroST2" setType="0x000e" setName="Hollow King Necromancer Set">
+      <DisplayId>Toga Picta</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xfa</Index>
+      </Texture>
+      <SlotType>14</SlotType>
+      <Description>His gift was gracious, but I would not dabble in spirits. He challenged me to a duel.</Description>
+      <ActivateOnEquip stat="20" amount="8">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="21" amount="13">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="26" amount="4">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="28" amount="-3">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="3" amount="35">IncrementStat</ActivateOnEquip>
+      <FameBonus>4</FameBonus>
+      <feedPower>600</feedPower>
+      <BagType>4</BagType>
+      <Soulbound/>
+   </Object>
+   <Object type="0x9df" id="NecroST3" setType="0x000e" setName="Hollow King Necromancer Set">
+      <DisplayId>Interregnum</DisplayId>
+      <Class>Equipment</Class>
+      <Item/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0xfb</Index>
+      </Texture>
+      <SlotType>9</SlotType>
+      <Description>Our fight was glorious, but in the end, I fell in battle and joined him in undeath.</Description>
+      <ActivateOnEquip stat="0" amount="75">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="20" amount="5">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="26" amount="5">IncrementStat</ActivateOnEquip>
+      <FameBonus>4</FameBonus>
+      <feedPower>650</feedPower>
+      <BagType>4</BagType>
+      <Soulbound/>
+   </Object>
    <Object type="0x258a" id="Bow of Eternal Frost">
       <Class>Equipment</Class>
       <Item/>
@@ -19724,7 +19815,7 @@
          <File>d2LofiObjEmbed</File>
          <Index>0x4a</Index>
       </Texture>
-      <Description>A medallion infused with the essence of Dr. Terrible.</Description>
+      <Description>A medallion infused with the essence of Dr Terrible.</Description>
       <ExtraTooltipData>
          <EffectInfo name="Type" description="Quest item"/>
          <EffectInfo name="Drop location" description="Obtained by defeating Dr Terrible in the Mad Lab"/>

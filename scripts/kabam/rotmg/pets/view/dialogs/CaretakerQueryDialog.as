@@ -123,7 +123,8 @@ package kabam.rotmg.pets.view.dialogs {
         }
         
         private function makeBackButton() : DeprecatedTextButton {
-            var _local_1:DeprecatedTextButton = new DeprecatedTextButton(16,BACK,80);
+            var _local_1:DeprecatedTextButton = null;
+            _local_1 = new DeprecatedTextButton(16,BACK,80);
             _local_1.y = 382;
             _local_1.visible = false;
             _local_1.addEventListener(MouseEvent.CLICK,this.onBack);

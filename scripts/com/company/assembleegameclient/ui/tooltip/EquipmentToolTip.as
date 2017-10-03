@@ -666,11 +666,17 @@ package com.company.assembleegameclient.ui.tooltip {
             var _local_16:* = this.colorUntiered("Skull: ");
             _local_16 = _local_16 + ("{damage}" + this.colorWisBonus(_local_9) + " damage\n");
             _local_16 = _local_16 + "within {radius} squares\n";
-            _local_16 = _local_16 + "Steals {heal} HP";
-            if(_local_15.a) {
-                _local_16 = _local_16 + " and ignores {ignoreDef} defense";
+            if(_local_14.a) {
+                _local_16 = _local_16 + "Steals {heal} HP";
             }
-            _local_16 = _local_16 + ("\nHeals allies within {healRange}" + this.colorWisBonus(_local_10) + " squares");
+            if(_local_14.a && _local_15.a) {
+                _local_16 = _local_16 + " and ignores {ignoreDef} defense";
+            } else if(_local_15.a) {
+                _local_16 = _local_16 + "Ignores {ignoreDef} defense";
+            }
+            if(_local_14.a) {
+                _local_16 = _local_16 + ("\nHeals allies within {healRange}" + this.colorWisBonus(_local_10) + " squares");
+            }
             this.effects.push(new Effect(_local_16,{
                 "damage":TooltipHelper.compare(_local_11.a,_local_11.b),
                 "radius":TooltipHelper.compare(_local_12.a,_local_12.b),
